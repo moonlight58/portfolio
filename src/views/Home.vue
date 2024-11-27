@@ -29,6 +29,7 @@
 
     </div>
 
+    <div class="help">How I can help you ?</div>
 
     <div class="contact">Contact section</div>
 
