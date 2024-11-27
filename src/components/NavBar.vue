@@ -28,11 +28,7 @@ export default {
   methods: {
     handleScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > this.lastScrollTop) {
-        this.isScrollingDown = true;
-      } else {
-        this.isScrollingDown = false;
-      }
+      this.isScrollingDown = scrollTop > this.lastScrollTop;
       this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     },
   },
@@ -45,12 +41,12 @@ export default {
   display: flex;
   position: sticky;
   top: 0;
-  padding: 30px 15px;
+  padding: 30px 22px;
   backdrop-filter: blur(1rem);
   width: 100%;
   justify-content: space-between;
   max-width: 412px;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   z-index: 10;
   transition: padding 0.3s ease;
 }
@@ -59,12 +55,12 @@ export default {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 1.1rem;
 }
 
 .navbar .links a {
   text-decoration: none;
-  padding: 0 9px;
+  font-size: 0.8rem;
+  padding: 10px 7px;
   color: #638297;
 }
 
@@ -84,6 +80,11 @@ export default {
 @media (min-width: 420px) {
   .navbar {
     max-width: 800px;
+    padding: 30px 30px;
+  }
+
+  .navbar .links a{
+    font-size: 1.1rem;
   }
 }
 </style>

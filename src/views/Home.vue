@@ -23,7 +23,7 @@
     <div class="project">
 
       <p class="project-title">Projects</p>
-      <p class="project-content">Here is my favorite project so far. Going from Application to Website to Games</p>
+      <p class="project-content">Here are my favorites projects so far. Going from Application to Website to Games</p>
 
       <Carousel/>
 
