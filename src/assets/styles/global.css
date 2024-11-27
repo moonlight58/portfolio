@@ -1,0 +1,47 @@
+/* Reset and shared styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cascadia Code', sans-serif;
+    background-color: #10152d;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Utility classes */
+.container {
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Navbar shared styles */
+.navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    padding: 30px 15px;
+    backdrop-filter: blur(1rem);
+    width: 100%;
+    justify-content: space-between;
+}
+
+.navbar .pseudo {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar .links a {
+    text-decoration: none;
+    padding: 0 9px;
+    color: #638297;
+}
+
+.navbar .links a:hover {
+    color: #dbf9ff;
+    transition: ease 0.4s;
+}

@@ -1,0 +1,129 @@
+<template>
+  <div class="container">
+
+    <div class="presentation">
+
+      <div class="presentation-header">
+        <img src="../assets/moon-pfp.jpg" alt="Moon-pfp" />
+        <p>Gaël Röthlin</p>
+      </div>
+
+    </div>
+
+
+    <div class="presentation-content">
+
+      <p class="title">Developer and artist</p>
+      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years. I'm always <button @click="scrollToDiv">trying new things</button>, eager to learn, and try to help others with my work</p>
+      <p class="precision"><span class="warning">*</span>(university bachelor of technology)</p>
+
+    </div>
+
+
+    <div class="project">
+
+      <p class="project-title">Projects</p>
+      <p class="project-content">Here is my favorite project so far. Going from Application to Website to Games</p>
+
+      <Carousel/>
+
+    </div>
+
+
+    <div class="contact">Contact section</div>
+
+
+    <div class="" style="height: 100vh;"></div>
+
+
+  </div>
+</template>
+
+<script>
+import Carousel from "@/components/CarouselProject.vue";
+
+export default {
+  name: "HomeView",
+  components: {
+    Carousel,
+  },
+  methods: {
+    scrollToDiv() {
+      this.$refs.project.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+};
+</script>
+
+<style scoped>
+.presentation {
+  margin: 15px 0 10px 0;
+  text-align: center;
+}
+
+.presentation-header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: 20px 0;
+}
+
+.presentation-header img {
+  border-radius: 50%;
+  max-width: 40px;
+  margin-right: 10px;
+}
+
+.presentation-content {
+  margin: 5px 0 75px 0;
+}
+
+.presentation-content .title {
+  font-style: italic;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.presentation-content .body {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.presentation-content .precision {
+  font-size: 0.7rem;
+}
+
+.warning {
+  color: #ff3535;
+}
+
+.container {
+  width: 90%;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-content {
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+
+.contact {
+  margin-top: 75px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+
+@media (min-width: 420px) {
+  .container {
+    max-width: 800px;
+    padding: 20px;
+  }
+}
+</style>
