@@ -11,6 +11,8 @@
 </template>
 
 <script>
+//todo : navbar links flicker when scrolling up or down on Mobile
+
 export default {
   name: "NavBar",
   data() {
@@ -27,7 +29,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
       this.isScrollingDown = scrollTop > this.lastScrollTop;
       this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     },
@@ -70,6 +72,7 @@ export default {
 }
 
 .navbar-small {
+  display: flex;
   padding: 15px 15px;
 }
 
