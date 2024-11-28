@@ -28,27 +28,13 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    handleScroll: debounce(function () {
+    handleScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       this.isScrollingDown = scrollTop > this.lastScrollTop;
-      this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    }, 100),
+      this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    },
   },
 };
-
-
-function debounce(func, wait) {
-  let timeout;
-  return function(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func.apply(this, args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
 </script>
 
 <style scoped>
