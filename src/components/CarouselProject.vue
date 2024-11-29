@@ -119,7 +119,7 @@ const prev = () => {
 
 .overlay h3 {
   font-size: 1.5rem;
-  margin: 5% 0 5% 7%;
+  margin: 5% 7% 5% 7%;
 }
 
 .overlay p {

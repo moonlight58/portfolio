@@ -19,6 +19,12 @@
 
     </div>
 
+    <div class="about">
+
+      <div class="about-title">Why this portfolio ?</div>
+      <div class="about-content">This site was developed as part of my Portfolio project during my first year BUT. It will be continually updated to reflect my academic and personal projects.</div>
+
+    </div>
 
     <div class="project">
 
@@ -29,7 +35,7 @@
 
     </div>
 
-    <div class="help">How I can help you ?</div>
+
 
     <div class="contact">Contact section</div>
 
@@ -115,11 +121,20 @@ export default {
 }
 
 .contact {
-  margin-top: 75px;
+  margin: 75px;
   font-size: 1.4rem;
   font-weight: bold;
 }
 
+.about-title {
+  margin: 75px 0 10px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.about-content {
+  font-size: 0.9rem;
+}
 
 @media (min-width: 420px) {
   .container {

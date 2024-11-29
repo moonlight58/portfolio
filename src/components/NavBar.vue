@@ -86,6 +86,10 @@ export default {
     padding: 30px 30px;
   }
 
+  .navbar-small {
+    padding: 15px 30px;
+  }
+
   .navbar .links a{
     font-size: 1.1rem;
   }
