@@ -82,10 +82,6 @@ export default {
   margin-right: 10px;
 }
 
-.presentation-content {
-  margin: 5px 0 75px 0;
-}
-
 .presentation-content .title {
   font-style: italic;
   font-size: 1.4rem;
@@ -120,14 +116,14 @@ export default {
   margin-bottom: 40px;
 }
 
-.contact {
-  margin: 75px;
+.about-title {
+  margin: 40px 0 10px 0;
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-.about-title {
-  margin: 75px 0 10px 0;
+.contact {
+  margin: 75px;
   font-size: 1.4rem;
   font-weight: bold;
 }
