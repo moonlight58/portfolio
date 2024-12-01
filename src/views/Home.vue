@@ -115,7 +115,7 @@ export default {
   margin-bottom: 10px;
 }
 
-.project-content {
+.project-content, .about-content {
   font-size: 0.9rem;
   margin-bottom: 40px;
 }
@@ -130,10 +130,6 @@ export default {
   margin: 75px 0 10px 0;
   font-size: 1.4rem;
   font-weight: bold;
-}
-
-.about-content {
-  font-size: 0.9rem;
 }
 
 @media (min-width: 420px) {
