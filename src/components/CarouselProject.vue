@@ -9,14 +9,10 @@ const projets = ref([
   { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni" },
 ]);
 
-// Index actuel
 const currentIndex = ref(0);
-
-// État des boutons
 const isPrevDisabled = computed(() => currentIndex.value === 0);
 const isNextDisabled = computed(() => currentIndex.value === projets.value.length - 1);
 
-// Aller au projet suivant
 const next = () => {
   if (!isNextDisabled.value) {
     currentIndex.value++;
