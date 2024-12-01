@@ -1,11 +1,13 @@
 <template>
-  <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
-    <a href="#" class="pseudo">moonlight</a>
-    <div class="links">
-      <a href="#">projects</a>
-      <a href="#">tools</a>
-      <a href="#">about me</a>
-      <a href="#">faq</a>
+  <div class="navbar-container">
+    <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
+      <a href="#" class="pseudo">moonlight</a>
+      <div class="links">
+        <a href="#">projects</a>
+        <a href="#">tools</a>
+        <a href="#">about me</a>
+        <a href="#">faq</a>
+      </div>
     </div>
   </div>
 </template>
@@ -41,10 +43,7 @@ export default {
 /* Navbar shared styles */
 .navbar {
   display: flex;
-  position: sticky;
-  top: 0;
   padding: 30px 22px;
-  backdrop-filter: blur(1rem);
   width: 100%;
   justify-content: space-between;
   max-width: 412px;
@@ -78,6 +77,16 @@ export default {
 
 .navbar-small .links {
   display: none;
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  top: 0;
+  position: sticky;
+  justify-content: center;
+  backdrop-filter: blur(1rem);
+  z-index: 9;
 }
 
 @media (min-width: 420px) {

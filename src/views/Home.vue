@@ -105,21 +105,21 @@ export default {
   width: 90%;
 }
 
+.about-title {
+  margin: 75px 0 10px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 .project-title {
   font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 75px 0 20px 0;
 }
 
 .project-content, .about-content {
   font-size: 0.9rem;
   margin-bottom: 40px;
-}
-
-.about-title {
-  margin: 40px 0 10px 0;
-  font-size: 1.4rem;
-  font-weight: bold;
 }
 
 .contact {
