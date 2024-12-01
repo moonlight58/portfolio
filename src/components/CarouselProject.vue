@@ -40,8 +40,8 @@ const prev = () => {
         </div>
       </div>
     </div>
-    <button @click="prev" class="control prev" :disabled="isPrevDisabled" :class="{ disabled: isPrevDisabled }">🡐</button>
-    <button @click="next" class="control next" :disabled="isNextDisabled" :class="{ disabled: isNextDisabled }">🡒</button>
+    <button @click="prev" class="control prev" :disabled="isPrevDisabled" :class="{ disabled: isPrevDisabled }">←</button>
+    <button @click="next" class="control next" :disabled="isNextDisabled" :class="{ disabled: isNextDisabled }">→</button>
   </div>
 </template>
 
