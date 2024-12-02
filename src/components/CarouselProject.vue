@@ -63,7 +63,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', updateIsSmall);
 });
-// test
 </script>
 
 <template>
