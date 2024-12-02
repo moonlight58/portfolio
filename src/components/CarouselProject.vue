@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
   { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/spotifyTUI.png'), categorie: "Personal", status: "On Going", language: "Rust" },
-  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/fonc.png'), categorie: "Personal", status: "Done", language: "Python" },
+  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.png'), categorie: "Personal", status: "Done", language: "Python" },
   { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS" },
   { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java" },
 ]);
@@ -125,7 +125,7 @@ onUnmounted(() => {
 
 .carousel-image {
   width: var(--overlay-width);
-  height: 100%;
+  height: 25rem;
   object-fit: cover;
   border-radius: 15px;
   transition: opacity 0.5s ease;
@@ -136,7 +136,7 @@ onUnmounted(() => {
   top: 0;
   left: calc((100% - var(--overlay-width)) / 2);
   width: var(--overlay-width);
-  height: 100%;
+  height: 25rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.5rem);
   color: white;
@@ -147,6 +147,7 @@ onUnmounted(() => {
   text-align: left;
   box-sizing: border-box;
   border-radius: 15px;
+  overflow: hidden;
 }
 
 .overlay:hover {
@@ -160,12 +161,12 @@ onUnmounted(() => {
 }
 
 .overlay h3,
-.overlay p {
+.overlay .contenu {
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .overlay:hover h3,
-.overlay:hover p {
+.overlay:hover .contenu {
   color: transparent;
   opacity: 0;
 }
@@ -186,7 +187,10 @@ onUnmounted(() => {
   right: 10px;
   display: flex;
   align-items: center;
+  padding: 0.5rem;
   gap: 10px;
+  backdrop-filter: blur(0.5rem);
+  border-radius: 5px;
 }
 
 .overlay .categorie,
@@ -201,13 +205,6 @@ onUnmounted(() => {
   padding: 0.5rem 1rem;
 }
 
-.overlay:hover .categorie,
-.overlay:hover .status,
-.overlay:hover .language{
-  display: none;
-  transition: display 0.3s ease;
-}
-
 .categorie-icon,
 .status-icon,
 .language-icon {
@@ -217,9 +214,6 @@ onUnmounted(() => {
   transition: opacity 0.2s ease;
 }
 
-.overlay:hover .categorie-icon {
-  opacity: 0;
-}
 
 .control {
   position: absolute;
@@ -252,6 +246,14 @@ onUnmounted(() => {
   .status p,
   .language p {
     display: none;
+  }
+
+  .carousel-image {
+    height: 10rem;
+  }
+
+  .overlay {
+    height: 10rem;
   }
 }
 
