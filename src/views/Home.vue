@@ -19,12 +19,14 @@
 
     </div>
 
+
     <div class="about">
 
       <div class="about-title">Why this portfolio ?</div>
       <div class="about-content">This site was developed as part of my Portfolio project during my years in the BUT. It will be continually updated to reflect my academic and personal projects.</div>
 
     </div>
+
 
     <div class="project">
 
@@ -36,11 +38,7 @@
     </div>
 
 
-
     <div class="contact">Contact section</div>
-
-
-    <div class="" style="height: 100vh;"></div>
 
 
   </div>

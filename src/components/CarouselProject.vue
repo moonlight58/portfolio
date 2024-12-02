@@ -136,7 +136,7 @@ onUnmounted(() => {
   top: 0;
   left: calc((100% - var(--overlay-width)) / 2);
   width: var(--overlay-width);
-  height: 99.6%;
+  height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.5rem);
   color: white;
