@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
-      <a href="#" class="pseudo">moonlight</a>
+      <a href="/" class="pseudo">moonlight</a>
       <div class="links">
         <a href="#">projects</a>
         <a href="#">tools</a>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-//todo : navbar links flicker when scrolling up or down on Mobile
+//todo : fix navbar links flicker when scrolling up or down, slowly, on Mobile (maybe because the implementation of the listener if checking to many times in seconds)
 
 export default {
   name: "NavBar",
@@ -40,7 +40,6 @@ export default {
 </script>
 
 <style scoped>
-/* Navbar shared styles */
 .navbar {
   display: flex;
   padding: 30px 22px;

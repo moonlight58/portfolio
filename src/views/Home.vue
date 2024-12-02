@@ -14,7 +14,7 @@
     <div class="presentation-content">
 
       <p class="title">Developer and artist</p>
-      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years. I'm always <button @click="scrollToDiv">trying new things</button>, eager to learn, and try to help others with my work</p>
+      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years. I'm always trying new things, eager to learn, and try to help others with my work</p>
       <p class="precision"><span class="warning">*</span>(university bachelor of technology)</p>
 
     </div>
@@ -22,7 +22,7 @@
     <div class="about">
 
       <div class="about-title">Why this portfolio ?</div>
-      <div class="about-content">This site was developed as part of my Portfolio project during my first year BUT. It will be continually updated to reflect my academic and personal projects.</div>
+      <div class="about-content">This site was developed as part of my Portfolio project during my years in the BUT. It will be continually updated to reflect my academic and personal projects.</div>
 
     </div>
 

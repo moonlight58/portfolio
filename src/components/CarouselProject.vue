@@ -1,12 +1,11 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
-// Projets du carousel
 const projets = ref([
-  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/spotifyTUI.png'), categorie: "Personal" },
-  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/fonc.png'), categorie: "Personal" },
-  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni" },
-  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni" },
+  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/spotifyTUI.png'), categorie: "Personal", status: "On Going", language: "Rust" },
+  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/fonc.png'), categorie: "Personal", status: "Done", language: "Python" },
+  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS" },
+  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java" },
 ]);
 
 const currentIndex = ref(0);
@@ -19,12 +18,51 @@ const next = () => {
   }
 };
 
-// Aller au projet précédent
 const prev = () => {
   if (!isPrevDisabled.value) {
     currentIndex.value--;
   }
 };
+
+const getCategorieIcon = (categorie) => {
+  const icons = {
+    Personal: require('@/assets/project/Personal.svg'),
+    Uni: require('@/assets/project/Uni.svg'),
+  };
+  return icons[categorie] || require('@/assets/project/Default.svg');
+};
+
+const getStatusIcon = (status) => {
+  const icons = {
+    Done: require("@/assets/project/done.svg"),
+    "On Going": require("@/assets/project/ongoing.svg")
+  };
+  return icons[status];
+}
+
+const getLanguageIcon = (language) => {
+  const icons = {
+    Java: require("@/assets/language/java.svg"),
+    Rust: require("@/assets/language/rust.svg"),
+    VueJS: require("@/assets/language/vuejs.svg"),
+    Python: require("@/assets/language/python.svg")
+  }
+  return icons[language];
+}
+
+const isSmall = ref(window.innerWidth <= 800);
+
+const updateIsSmall = () => {
+  isSmall.value = window.innerWidth <= 800;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', updateIsSmall);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateIsSmall);
+});
 </script>
 
 <template>
@@ -35,7 +73,21 @@ const prev = () => {
           <img :src="projet.image" :alt="projet.titre" class="carousel-image" />
           <div class="overlay">
             <h3>{{ projet.titre }}</h3>
-            <p>{{ projet.contenu }}</p>
+            <p class="contenu">{{ projet.contenu }}</p>
+            <div class="info-box">
+              <div class="language">
+                <img :src="getLanguageIcon(projet.language)" :alt="projet.language" class="language-icon" />
+                <p>{{ projet.language }}</p>
+              </div>
+              <div class="categorie">
+                <img :src="getCategorieIcon(projet.categorie)" :alt="projet.categorie" class="categorie-icon" />
+                <p>{{ projet.categorie }}</p>
+              </div>
+              <div class="status">
+                <img :src="getStatusIcon(projet.status)" :alt="projet.status" class="status-icon" />
+                <p>{{ projet.status }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -76,6 +128,7 @@ const prev = () => {
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
+  transition: opacity 0.5s ease;
 }
 
 .overlay {
@@ -83,8 +136,9 @@ const prev = () => {
   top: 0;
   left: calc((100% - var(--overlay-width)) / 2);
   width: var(--overlay-width);
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  height: 99.6%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(0.5rem);
   color: white;
   display: flex;
   flex-direction: column;
@@ -97,14 +151,17 @@ const prev = () => {
 
 .overlay:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  transition: background 1.5s ease;
+  backdrop-filter: none;
+  transition: backdrop-filter 0.2s ease;
+}
+
+.overlay:hover .carousel-image {
+  opacity: 0;
 }
 
 .overlay h3,
 .overlay p {
-  transition: color 1s ease, opacity 1s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .overlay:hover h3,
@@ -121,6 +178,47 @@ const prev = () => {
 .overlay p {
   margin: 0 7% 0 7%;
   font-size: 0.9rem;
+}
+
+.overlay .info-box {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.overlay .categorie,
+.overlay .status,
+.overlay .language {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.overlay:hover .categorie,
+.overlay:hover .status,
+.overlay:hover .language{
+  display: none;
+  transition: display 0.3s ease;
+}
+
+.categorie-icon,
+.status-icon,
+.language-icon {
+  width: 15px;
+  height: 100%;
+  vertical-align: middle;
+  transition: opacity 0.2s ease;
+}
+
+.overlay:hover .categorie-icon {
+  opacity: 0;
 }
 
 .control {
@@ -148,4 +246,13 @@ const prev = () => {
   color: rgba(255,255,255,0.3);
   cursor: auto;
 }
+
+@media (max-width: 800px) {
+  .categorie p,
+  .status p,
+  .language p {
+    display: none;
+  }
+}
+
 </style>
