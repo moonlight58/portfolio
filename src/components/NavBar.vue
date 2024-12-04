@@ -13,7 +13,7 @@
 </template>
 
 <script>
-//todo : fix navbar links flicker when scrolling up or down, slowly, on Mobile (maybe because the implementation of the listener if checking to many times in seconds)
+import debounce from "lodash/debounce";
 
 export default {
   name: "NavBar",
@@ -24,16 +24,26 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    this.handleScroll = debounce(this.handleScroll, 10); // Limiter les appels de 100 ms
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      this.isScrollingDown = scrollTop > this.lastScrollTop;
-      this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
+      // Vérifie la direction du scroll
+      if (scrollTop > this.lastScrollTop) {
+        // Scroll vers le bas : active la classe navbar-small
+        this.isScrollingDown = true;
+      } else if (scrollTop < this.lastScrollTop) {
+        this.isScrollingDown = false;
+      }
+
+      // Met à jour la position précédente du scroll
+      this.lastScrollTop = Math.max(scrollTop, 0);
     },
   },
 };
@@ -82,7 +92,7 @@ export default {
   width: 100%;
   display: flex;
   top: 0;
-  position: sticky;
+  position: fixed;
   justify-content: center;
   backdrop-filter: blur(1rem);
   z-index: 9;
