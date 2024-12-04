@@ -81,7 +81,7 @@ export default {
 
 .navbar-small {
   display: flex;
-  padding: 15px 15px;
+  padding: 15px 20px;
 }
 
 .navbar-small .links {
@@ -98,7 +98,7 @@ export default {
   z-index: 9;
 }
 
-@media (min-width: 420px) {
+@media (min-width: 800px) {
   .navbar {
     max-width: 800px;
     padding: 30px 30px;

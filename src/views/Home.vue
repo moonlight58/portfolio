@@ -100,6 +100,7 @@ export default {
 }
 
 .container {
+  margin-top: 4rem;
   width: 90%;
 }
 
@@ -128,6 +129,7 @@ export default {
 
 @media (min-width: 420px) {
   .container {
+    margin-top: 3rem;
     max-width: 800px;
     padding: 20px;
   }

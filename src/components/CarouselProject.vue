@@ -243,7 +243,7 @@ onUnmounted(() => {
   cursor: auto;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 799px) {
   .categorie p,
   .status p,
   .language p {
