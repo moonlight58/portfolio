@@ -1,12 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '@/views/Home.vue'
 import SpotifyTuiView from "@/views/projets/Spotify-TuiView.vue";
 import SteamToLinuxView from "@/views/projets/SteamToLinuxView.vue";
 import BienView from "@/views/projets/BienView.vue";
 import RoiDesRosesView from "@/views/projets/RoiDesRosesView.vue";
 
-Vue.use(VueRouter)
 
 const routes = [
   {
@@ -45,8 +43,8 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes
 })
 
