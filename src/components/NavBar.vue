@@ -3,10 +3,10 @@
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
       <a href="/" class="pseudo">moonlight</a>
       <div class="links">
-        <a href="#">projects</a>
-        <a href="#">tools</a>
-        <a href="#">about me</a>
-        <a href="#">faq</a>
+        <router-link to="/#">projects</router-link>
+        <router-link to="/#">tools</router-link>
+        <router-link to="/#">about me</router-link>
+        <router-link to="/#">faq</router-link>
       </div>
     </div>
   </div>

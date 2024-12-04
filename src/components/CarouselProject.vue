@@ -2,10 +2,10 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
-  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/spotifyTUI.png'), categorie: "Personal", status: "On Going", language: "Rust" },
-  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.png'), categorie: "Personal", status: "Done", language: "Python" },
-  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS" },
-  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java" },
+  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/spotifyTUI.png'), categorie: "Personal", status: "On Going", language: "Rust", path: "/personal/spotify-tui" },
+  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.png'), categorie: "Personal", status: "Done", language: "Python", path: "/personal/steamtolinux" },
+  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", path: "/uni/bien" },
+  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", path: "/uni/rdr" },
 ]);
 
 const currentIndex = ref(0);
@@ -70,25 +70,27 @@ onUnmounted(() => {
     <div class="carousel-container">
       <div class="carousel" :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }">
         <div v-for="(projet, index) in projets" :key="index" class="carousel-item">
-          <img :src="projet.image" :alt="projet.titre" class="carousel-image" />
-          <div class="overlay">
-            <h3>{{ projet.titre }}</h3>
-            <p class="contenu">{{ projet.contenu }}</p>
-            <div class="info-box">
-              <div class="language">
-                <img :src="getLanguageIcon(projet.language)" :alt="projet.language" class="language-icon" />
-                <p>{{ projet.language }}</p>
-              </div>
-              <div class="categorie">
-                <img :src="getCategorieIcon(projet.categorie)" :alt="projet.categorie" class="categorie-icon" />
-                <p>{{ projet.categorie }}</p>
-              </div>
-              <div class="status">
-                <img :src="getStatusIcon(projet.status)" :alt="projet.status" class="status-icon" />
-                <p>{{ projet.status }}</p>
+          <router-link :to="projet.path">
+            <img :src="projet.image" :alt="projet.titre" class="carousel-image" />
+            <div class="overlay">
+              <h3>{{ projet.titre }}</h3>
+              <p class="contenu">{{ projet.contenu }}</p>
+              <div class="info-box">
+                <div class="language">
+                  <img :src="getLanguageIcon(projet.language)" :alt="projet.language" class="language-icon" />
+                  <p>{{ projet.language }}</p>
+                </div>
+                <div class="categorie">
+                  <img :src="getCategorieIcon(projet.categorie)" :alt="projet.categorie" class="categorie-icon" />
+                  <p>{{ projet.categorie }}</p>
+                </div>
+                <div class="status">
+                  <img :src="getStatusIcon(projet.status)" :alt="projet.status" class="status-icon" />
+                  <p>{{ projet.status }}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>

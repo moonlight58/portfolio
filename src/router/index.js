@@ -5,10 +5,27 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
-    name: 'home',
+    redirect: '/moonlight',
+  },
+  {
+    path: '/moonlight',
+    name: 'moonlight',
     component: Home
+  },
+  {
+    path: '/personal/spotify-tui'
+  },
+  {
+    path: '/personal/steamtolinux'
+  },
+  {
+    path: '/uni/bien'
+  },
+  {
+    path: '/uni/rdr',
   },
   {
     path: '/about',
@@ -21,6 +38,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
