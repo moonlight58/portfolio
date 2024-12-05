@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="test"></div>
+<div class="test">Steam to Linux</div>
 </template>
 
 <style scoped>

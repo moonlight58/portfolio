@@ -3,7 +3,7 @@
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
       <a href="/" class="pseudo">moonlight</a>
       <div class="links">
-        <router-link to="/#">projects</router-link>
+        <router-link to="/projects">projects</router-link>
         <router-link to="/#">tools</router-link>
         <router-link to="/#">about me</router-link>
         <router-link to="/#">faq</router-link>
@@ -13,41 +13,31 @@
 </template>
 
 <script>
-import debounce from "lodash/debounce";
-
 export default {
   name: "NavBar",
   data() {
     return {
-      isScrollingDown: false,
-      lastScrollTop: 0,
+      isScrollingDown: false, // Contrôle si on défile vers le bas
+      prevScrollPos: 0,       // Position précédente du scroll
     };
   },
   mounted() {
-    this.handleScroll = debounce(this.handleScroll, 10); // Limiter les appels de 100 ms
-    window.addEventListener("scroll", this.handleScroll);
+    this.prevScrollPos = window.scrollY; // Initialisation de la position du scroll
+    window.addEventListener("scroll", this.handleScroll); // Ajoute un écouteur
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll); // Nettoie l'écouteur
   },
   methods: {
     handleScroll() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      // Vérifie la direction du scroll
-      if (scrollTop > this.lastScrollTop) {
-        // Scroll vers le bas : active la classe navbar-small
-        this.isScrollingDown = true;
-      } else if (scrollTop < this.lastScrollTop) {
-        this.isScrollingDown = false;
-      }
-
-      // Met à jour la position précédente du scroll
-      this.lastScrollTop = Math.max(scrollTop, 0);
+      const currentScrollPos = window.scrollY;
+      this.isScrollingDown = currentScrollPos > this.prevScrollPos; // Définit la direction
+      this.prevScrollPos = currentScrollPos;
     },
   },
 };
 </script>
+
 
 <style scoped>
 .navbar {

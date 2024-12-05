@@ -4,6 +4,7 @@ import SpotifyTuiView from "@/views/projets/Spotify-TuiView.vue";
 import SteamToLinuxView from "@/views/projets/SteamToLinuxView.vue";
 import BienView from "@/views/projets/BienView.vue";
 import RoiDesRosesView from "@/views/projets/RoiDesRosesView.vue";
+import ProjectView from "@/views/ProjectView.vue";
 
 
 const routes = [
@@ -15,6 +16,11 @@ const routes = [
     path: '/moonlight',
     name: 'moonlight',
     component: Home
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: ProjectView
   },
   {
     path: '/personal/spotify-tui',

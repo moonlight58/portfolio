@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="test"></div>
+<div class="test">Roi des Roses</div>
 </template>
 
 <style scoped>

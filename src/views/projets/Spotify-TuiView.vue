@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="test"></div>
+<div class="test">Spotify-TUI</div>
 </template>
 
 <style scoped>
