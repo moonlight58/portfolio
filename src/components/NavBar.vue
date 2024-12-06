@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
-      <a href="/" class="pseudo">moonlight</a>
+      <router-link to="/" class="pseudo">moonlight</router-link>
       <div class="links">
         <router-link to="/projects">projects</router-link>
         <router-link to="/#">tools</router-link>
