@@ -154,23 +154,11 @@ onUnmounted(() => {
 
 .overlay:hover {
   cursor: pointer;
-  backdrop-filter: none;
-  transition: backdrop-filter 0.2s ease;
-}
-
-.overlay:hover .carousel-image {
-  opacity: 0;
 }
 
 .overlay h3,
 .overlay .contenu {
   transition: color 0.2s ease, opacity 0.2s ease;
-}
-
-.overlay:hover h3,
-.overlay:hover .contenu {
-  color: transparent;
-  opacity: 0;
 }
 
 .overlay h3 {
