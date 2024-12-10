@@ -75,6 +75,7 @@ function toggleButton(type) {
 }
 
 .container button {
+  font-family: 'Cascadia Code', sans-serif;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   color: rgb(34, 214, 255);
@@ -128,6 +129,8 @@ function toggleButton(type) {
 }
 
 @media (min-width: 800px){
-
+  .container {
+    max-width: 800px;
+  }
 }
 </style>

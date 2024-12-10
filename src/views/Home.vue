@@ -128,6 +128,8 @@ export default {
 
 .type-skill h3 {
   margin: 2rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 .skill-content {
@@ -136,9 +138,9 @@ export default {
 }
 
 .skill-container {
-  display: grid; /* Use grid layout for precise control over columns */
-  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-  gap: 10px; /* Space between items */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
   background-color: #19203c;
   box-shadow: 0 0 10px #000000;
   border-radius: 10px;
