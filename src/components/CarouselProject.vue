@@ -94,6 +94,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+    <div class="button-gradient"></div>
     <button @click="prev" class="control prev" :disabled="isPrevDisabled" :class="{ disabled: isPrevDisabled }">←</button>
     <button @click="next" class="control next" :disabled="isNextDisabled" :class="{ disabled: isNextDisabled }">→</button>
   </div>
@@ -215,6 +216,7 @@ onUnmounted(() => {
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .control.prev {
@@ -229,6 +231,16 @@ onUnmounted(() => {
   background-color: rgba(0, 0, 0, 0.3);
   color: rgba(255,255,255,0.3);
   cursor: auto;
+}
+
+.button-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgb(16,21,45);
+  background: linear-gradient(90deg, rgba(16,21,45,1) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 90%, rgba(16,21,45,1) 100%);
+  z-index: 1;
 }
 
 @media (max-width: 799px) {
