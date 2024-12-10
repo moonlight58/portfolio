@@ -1,60 +1,34 @@
 {
-  "Software Development" : {
-    "language" : [
-      "C",
-      "CMake",
-      "Python",
-      "Java",
-      "JavaFX",
-      "Git",
-      "Rust",
-      "Bash"
-    ],
-    "link" : [
-      "https://fr.wikipedia.org/wiki/C_(langage)",
-      "https://cmake.org",
-      "https://www.python.org",
-      "https://fr.wikipedia.org/wiki/Java_(langage)",
-      "https://openjfx.io/",
-      "https://git-scm.com/",
-      "https://www.rust-lang.org/",
-      "https://en.wikipedia.org/wiki/Bash_(Unix_shell)"
+  "Software Development": {
+    "language": [
+      { "name": "C", "url": "https://fr.wikipedia.org/wiki/C_(langage)" },
+      { "name": "CMake", "url": "https://cmake.org" },
+      { "name": "Python", "url": "https://www.python.org" },
+      { "name": "Java", "url": "https://fr.wikipedia.org/wiki/Java_(langage)" },
+      { "name": "JavaFX", "url": "https://openjfx.io/" },
+      { "name": "Git", "url": "https://git-scm.com/" },
+      { "name": "Rust", "url": "https://www.rust-lang.org/" },
+      { "name": "Bash", "url": "https://en.wikipedia.org/wiki/Bash_(Unix_shell)" }
     ]
   },
-  "Back-end Web" : {
-    "language" : [
-      "Python",
-      "Flask",
-      "JavaScript",
-      "NodeJS",
-      "ExpressJS",
-      "SQL"
-    ],
-    "link" : [
-      "www.python.org",
-      "https://flask.palletsprojects.com/en/stable/",
-      "https://fr.wikipedia.org/wiki/JavaScript",
-      "https://nodejs.org/fr",
-      "https://expressjs.com/",
-      "https://sql.sh"
+  "Back-end Web": {
+    "language": [
+      { "name": "Python", "url": "https://www.python.org" },
+      { "name": "Flask", "url": "https://flask.palletsprojects.com/en/stable/" },
+      { "name": "JavaScript", "url": "https://fr.wikipedia.org/wiki/JavaScript" },
+      { "name": "NodeJS", "url": "https://nodejs.org/fr" },
+      { "name": "ExpressJS", "url": "https://expressjs.com/" },
+      { "name": "SQL", "url": "https://sql.sh" }
     ]
   },
-  "Front-end Web" : {
-    "language" : [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Bootstrap",
-      "Tailwind",
-      "VueJS"
-    ],
-    "link" : [
-      "https://en.wikipedia.org/wiki/HTML",
-      "https://en.wikipedia.org/wiki/CSS",
-      "https://en.wikipedia.org/wiki/JavaScript",
-      "https://getbootstrap.com/",
-      "https://tailwindcss.com/",
-      "https://vuejs.org/"
+  "Front-end Web": {
+    "language": [
+      { "name": "HTML", "url": "https://en.wikipedia.org/wiki/HTML" },
+      { "name": "CSS", "url": "https://en.wikipedia.org/wiki/CSS" },
+      { "name": "JavaScript", "url": "https://en.wikipedia.org/wiki/JavaScript" },
+      { "name": "Bootstrap", "url": "https://getbootstrap.com/" },
+      { "name": "Tailwind", "url": "https://tailwindcss.com/" },
+      { "name": "VueJS", "url": "https://vuejs.org/" }
     ]
   }
 }

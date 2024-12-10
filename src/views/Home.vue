@@ -30,10 +30,16 @@
         <div class="type-skill" v-for="(skillType, index) in Object.keys(skills)" :key="index">
           <h3>{{ skillType }}</h3>
           <div class="skill-container">
-            <div class="language-div" v-for="(language, langIndex) in skills[skillType].language" :key="langIndex">
-              <img :src="require(`@/assets/skills/${language}.svg`)" :alt="language" />
-              <p>{{ language }}</p>
+            <div
+                class="language-div"
+                v-for="(language, langIndex) in skills[skillType].language"
+                :key="langIndex"
+                @click="redirectToUrl(language.url)"
+            >
+              <img :src="require(`@/assets/skills/${language.name}.svg`)" :alt="language.name" />
+              <p>{{ language.name }}</p>
             </div>
+
           </div>
         </div>
       </div>
@@ -58,9 +64,13 @@ export default {
     };
   },
   methods: {
-    scrollToDiv() {
-      this.$refs.project.scrollIntoView({ behavior: "smooth" });
-    },
+    redirectToUrl(url) {
+      if (url) {
+        window.open(url, "_blank"); // Open the link in a new tab
+      } else {
+        console.warn("No URL provided for this skill");
+      }
+    }
   },
 };
 </script>
@@ -150,6 +160,7 @@ export default {
 .language-div {
   margin: 2rem 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .language-div img {
