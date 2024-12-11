@@ -50,8 +50,7 @@ function toggleButton(type) {
     <a :href="`https://github.com/${username}`" target="_blank">GitHub {{ username }}</a>
 
     <div class="projects">
-      <!-- Loop through the projects and filter out those without a description -->
-      <div class="project" v-for="project in projects.filter(p => p.description)" :key="project.id">
+      <div class="project-div" v-for="project in projects.filter(p => p.description)" :key="project.id">
         <h3>{{ project.name }}</h3>
         <p>{{ project.description }}</p>
         <p v-if="project.language">Language: {{ project.language }}</p>
@@ -102,29 +101,33 @@ function toggleButton(type) {
 .projects {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
 }
 
-.project {
+.project-div {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1rem;
   background-color: #222b51;
 }
 
-.project h3 {
-  margin: 0;
+.project-div h3 {
   font-size: 1.2rem;
+  margin: 0 0 0.7rem 0;
   color: #0352a1;
 }
 
-.project a {
+.project-div p {
+  margin: 0 0 0.7rem 0;
+}
+
+.project-div a {
   color: #0352a1;
   text-decoration: none;
 }
 
-.project a:hover {
+.project-div a:hover {
   text-decoration: underline;
 }
 
