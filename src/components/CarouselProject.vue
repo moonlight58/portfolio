@@ -121,6 +121,7 @@ onUnmounted(() => {
 
 .carousel-item {
   min-width: 100%;
+  height: 30vh;
   position: relative;
   text-align: center;
   box-sizing: border-box;
@@ -128,7 +129,7 @@ onUnmounted(() => {
 
 .carousel-image {
   width: var(--overlay-width);
-  height: 25rem;
+  height: 99%;
   object-fit: cover;
   border-radius: 15px;
   transition: opacity 0.5s ease;
@@ -139,7 +140,7 @@ onUnmounted(() => {
   top: 0;
   left: calc((100% - var(--overlay-width)) / 2);
   width: var(--overlay-width);
-  height: 25rem;
+  height: 99%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.5rem);
   color: white;
