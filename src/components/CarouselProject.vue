@@ -251,13 +251,10 @@ onUnmounted(() => {
     display: none;
   }
 
-  .carousel-image, .carousel-item {
+  .carousel-image, .carousel-item, .overlay {
     height: 10rem;
   }
 
-  .overlay {
-    height: 10rem;
-  }
 }
 
 </style>

@@ -9,13 +9,18 @@
 
     <div class="presentation-content">
       <p class="title">Developer and artist</p>
-      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years. I'm always trying new things, eager to learn, and try to help others with my work</p>
-      <p class="precision"><span class="warning">*</span>(university bachelor of technology)</p>
+      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years, with a deep passion for both hardware and software. Recently, I’ve developed a keen interest in creating TUI (Text User Interface) applications, which has become one of my favorite areas of exploration. My current project involves converting full-featured applications, like Spotify, into streamlined TUI versions.</p>
+
+      <p class="body">While I enjoy building applications, my true passion lies in refining them—making them bug-free, accessible, and user-friendly. This attention to detail extends to my other projects, such as creating a comprehensive tutorial for installing and maintaining Arch Linux. I’ve focused on breaking down each step in detail to help users overcome challenges with confidence.</p>
+
+      <p class="body">I’m always eager to experiment, learn new development techniques, and explore innovative approaches in the world of Computer Science.</p>
+
+      <p class="precision"><span class="warning">*</span>(University Bachelor of Technology)</p>
     </div>
 
     <div class="about">
       <div class="about-title">Why this portfolio ?</div>
-      <div class="about-content">This site was developed as part of my Portfolio project during my years in the BUT. It will be continually updated to reflect my academic and personal projects.</div>
+      <div class="about-content">This site is developed as part of my Portfolio project during the three years in the BUT. It will be continually updated to reflect my academic and personal projects.</div>
     </div>
 
     <div class="project">
@@ -103,7 +108,9 @@ export default {
 
 .presentation-content .body {
   font-size: 0.9rem;
+  margin-top: 3vh;
   margin-bottom: 10px;
+  text-align: justify;
 }
 
 .presentation-content .precision {

@@ -30,5 +30,11 @@
       { "name": "Tailwind", "url": "https://tailwindcss.com/" },
       { "name": "VueJS", "url": "https://vuejs.org/" }
     ]
+  },
+  "Art" : {
+    "language": [
+      { "name": "Blender", "url": "https://www.blender.org/"},
+      { "name": "Krita", "url": "https://krita.org/fr/" }
+    ]
   }
 }
