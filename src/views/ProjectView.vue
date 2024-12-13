@@ -110,6 +110,8 @@ function toggleButton(type) {
   border-radius: 5px;
   padding: 1rem;
   background-color: #222b51;
+  width: 40vw;
+  height: fit-content;
 }
 
 .project-div h3 {

@@ -175,6 +175,8 @@ export default {
   font-weight: bold;
 }
 
+
+
 @media (min-width: 420px) {
   .container {
     margin-top: 3rem;

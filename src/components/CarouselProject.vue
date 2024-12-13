@@ -237,7 +237,7 @@ onUnmounted(() => {
 .button-gradient {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 10rem;
   top: 0;
   background: rgb(16,21,45);
   background: linear-gradient(90deg, rgba(16,21,45,1) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 90%, rgba(16,21,45,1) 100%);
@@ -251,7 +251,7 @@ onUnmounted(() => {
     display: none;
   }
 
-  .carousel-image {
+  .carousel-image, .carousel-item {
     height: 10rem;
   }
 
