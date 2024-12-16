@@ -47,24 +47,30 @@ function toggleButton(type) {
       </button>
     </div>
     <div>You can find all of these projects on my github</div>
-    <a :href="`https://github.com/${username}`" target="_blank">GitHub {{ username }}</a>
+    <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
 
     <div class="projects">
       <div class="project-div" v-for="project in projects.filter(p => p.description)" :key="project.id">
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.description }}</p>
-        <p v-if="project.language">Language: {{ project.language }}</p>
-        <a :href="project.html_url" target="_blank">View Repository</a>
+        <div class="project-details">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+          <p v-if="project.language">Language: {{ project.language }}</p>
+          <a :href="project.html_url" target="_blank">View Repository</a>
+        </div>
+
+        <div class="project-image">
+          <img :src="`https://via.placeholder.com/150`" alt="Project Image">
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
-
-
 <style scoped>
 .container {
   margin-top: 5rem;
+  padding: 0 20px;
   width: 90vw;
 }
 
@@ -106,36 +112,56 @@ function toggleButton(type) {
 }
 
 .project-div {
+  display: flex;
+  width: 90vw;
+  height: fit-content;
+}
+
+.project-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.project-details {
+  flex: 1;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1rem;
   background-color: #222b51;
-  width: 40vw;
-  height: fit-content;
 }
 
-.project-div h3 {
+.project-details h3 {
   font-size: 1.2rem;
   margin: 0 0 0.7rem 0;
   color: #0352a1;
 }
 
-.project-div p {
+.project-details p {
   margin: 0 0 0.7rem 0;
 }
 
-.project-div a {
+.project-details a {
   color: #0352a1;
   text-decoration: none;
 }
 
-.project-div a:hover {
+.project-details a:hover {
   text-decoration: underline;
 }
 
-@media (min-width: 800px){
+@media (min-width: 800px) {
   .container {
     max-width: 800px;
+  }
+
+  .project-div {
+    width: 100%;
+  }
+
+  .project-image img {
+    width: 100%;
   }
 }
 </style>
