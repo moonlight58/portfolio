@@ -46,7 +46,7 @@ function toggleButton(type) {
         University
       </button>
     </div>
-    <div>You can find all of these projects on my github</div>
+    <div v-if="username">You can find all of these projects on my github</div>
     <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
 
     <div class="projects">

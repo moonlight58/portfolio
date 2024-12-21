@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
-  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/spotifyTUI.png'), categorie: "Personal", status: "On Going", language: "Rust", path: "/personal/spotify-tui" },
+  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/Spotify-tui.png'), categorie: "Personal", status: "On Going", language: "Rust", path: "/personal/spotify-tui" },
   { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.jpg'), categorie: "Personal", status: "Done", language: "Python", path: "/personal/steamtolinux" },
   { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", path: "/uni/bien" },
   { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", path: "/uni/rdr" },
@@ -142,7 +142,7 @@ onUnmounted(() => {
   width: var(--overlay-width);
   height: 99%;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(0.1rem);
   color: white;
   display: flex;
   flex-direction: column;
@@ -173,6 +173,10 @@ onUnmounted(() => {
   font-size: 0.9rem;
 }
 
+.overlay h3, .overlay p{
+  text-shadow: 1px 1px #2b2b2b;
+}
+
 .overlay .info-box {
   position: absolute;
   bottom: 10px;
@@ -181,7 +185,6 @@ onUnmounted(() => {
   align-items: center;
   padding: 0.5rem;
   gap: 10px;
-  backdrop-filter: blur(0.5rem);
   border-radius: 5px;
 }
 
@@ -195,6 +198,10 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
+}
+
+.language img, .categorie img, .status img{
+  filter: drop-shadow(1px 1px rgba(43, 43, 43, 1));
 }
 
 .categorie-icon,
