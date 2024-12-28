@@ -45,7 +45,7 @@ export default {
   padding: 30px 22px;
   width: 100%;
   justify-content: space-between;
-  max-width: 412px;
+  max-width: 800px;
   font-size: 1.1rem;
   z-index: 10;
   transition: padding 0.3s ease;

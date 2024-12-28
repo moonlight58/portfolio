@@ -16,6 +16,8 @@
       <p class="body">I’m always eager to experiment, learn new development techniques, and explore innovative approaches in the world of Computer Science.</p>
 
       <p class="precision"><span class="warning">*</span>(University Bachelor of Technology)</p>
+
+      <p class="body">As for my artistic side, I'm drawing when i have enough free-time. Focusing on many art style, i've found my speciality amoung the Dark-art, it is available on my Instagram account</p>
     </div>
 
     <div class="about">

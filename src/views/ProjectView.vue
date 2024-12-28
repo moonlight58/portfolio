@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const username = ref('');
 const projects = ref([]); // Reactive property to store project data
@@ -27,6 +27,11 @@ async function fetchGithubRepos(type) {
 function toggleButton(type) {
   activeButton.value = type;
 }
+
+onMounted(() => {
+  fetchGithubRepos('personal');
+  toggleButton('personal');
+});
 </script>
 
 <template>
@@ -50,7 +55,11 @@ function toggleButton(type) {
     <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
 
     <div class="projects">
-      <div class="project-div" v-for="project in projects.filter(p => p.description)" :key="project.id">
+      <div class="project-div" 
+        v-for="(project, index) in projects.filter(p => p.description)" 
+        :key="project.id"
+        :class="{'project-left': index % 2 === 0, 'project-right': index % 2 !== 0}"
+      >
         <div class="project-details">
           <h3>{{ project.name }}</h3>
           <p>{{ project.description }}</p>
@@ -72,6 +81,10 @@ function toggleButton(type) {
   margin-top: 5rem;
   padding: 0 20px;
   width: 90vw;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
 }
 
 .container h2 {
@@ -106,62 +119,60 @@ function toggleButton(type) {
 
 .projects {
   margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .project-div {
   display: flex;
-  width: 90vw;
-  height: fit-content;
+  width: 100%;
+  gap: 2rem;
+  align-items: center;
+}
+
+.project-left {
+  flex-direction: row;
+}
+
+.project-right {
+  flex-direction: row-reverse;
+}
+
+.project-image {
+  flex: 0 0 auto;
+  width: 150px;
 }
 
 .project-image img {
   width: 150px;
   height: 150px;
   border-radius: 5px;
-  margin-right: 1rem;
+  object-fit: cover;
 }
 
 .project-details {
   flex: 1;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: #222b51;
 }
 
-.project-details h3 {
-  font-size: 1.2rem;
-  margin: 0 0 0.7rem 0;
-  color: #0352a1;
-}
-
-.project-details p {
-  margin: 0 0 0.7rem 0;
-}
-
-.project-details a {
-  color: #0352a1;
-  text-decoration: none;
-}
-
-.project-details a:hover {
-  text-decoration: underline;
-}
-
-@media (min-width: 800px) {
-  .container {
-    max-width: 800px;
+/* Styles responsifs */
+@media (max-width: 799px) {
+  .project-div {
+    flex-direction: column !important; /* Force la direction en colonne sur mobile */
+    gap: 1rem;
   }
 
-  .project-div {
+  .project-image {
     width: 100%;
   }
 
   .project-image img {
     width: 100%;
+    height: 200px;
   }
 }
 </style>
