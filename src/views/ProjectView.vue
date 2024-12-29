@@ -1,31 +1,51 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-
 const username = ref('');
-const projects = ref([]); // Reactive property to store project data
-const activeButton = ref(''); // To keep track of the active button
+const projects = ref([]);
+const activeButton = ref('');
 
 async function fetchGithubRepos(type) {
   username.value = type === 'personal' ? "moonlight58" : "grothlin-iut90";
-
   const url = `https://api.github.com/users/${username.value}/repos`;
-
+  
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Error fetching repositories: ${response.status} ${response.statusText}`);
     }
-
     const repos = await response.json();
-    projects.value = repos; // Store the fetched repositories
+    projects.value = repos;
+
+    // Réinitialiser l'Intersection Observer après le chargement des nouveaux projets
+    setTimeout(() => {
+      setupIntersectionObserver();
+    }, 100);
   } catch (error) {
     console.error(error.message);
-    projects.value = []; // Clear projects if there is an error
+    projects.value = [];
   }
 }
 
 function toggleButton(type) {
   activeButton.value = type;
+}
+
+function setupIntersectionObserver() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.project-div').forEach(project => {
+    project.classList.remove('animate'); // Réinitialiser l'animation
+    observer.observe(project);
+  });
 }
 
 onMounted(() => {
@@ -39,14 +59,14 @@ onMounted(() => {
     <h2 class="Title">All my Projects</h2>
     <div class="button-project-type">
       <button
-          @click="fetchGithubRepos('personal'); toggleButton('personal')"
-          :class="{ active: activeButton === 'personal' }"
+        @click="fetchGithubRepos('personal'); toggleButton('personal')"
+        :class="{ active: activeButton === 'personal' }"
       >
         Personal
       </button>
       <button
-          @click="fetchGithubRepos('uni'); toggleButton('uni')"
-          :class="{ active: activeButton === 'uni' }"
+        @click="fetchGithubRepos('uni'); toggleButton('uni')"
+        :class="{ active: activeButton === 'uni' }"
       >
         University
       </button>
@@ -55,8 +75,8 @@ onMounted(() => {
     <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
 
     <div class="projects">
-      <div class="project-div" 
-        v-for="(project, index) in projects.filter(p => p.description)" 
+      <div class="project-div"
+        v-for="(project, index) in projects.filter(p => p.description)"
         :key="project.id"
         :class="{'project-left': index % 2 === 0, 'project-right': index % 2 !== 0}"
       >
@@ -66,11 +86,9 @@ onMounted(() => {
           <p v-if="project.language">Language: {{ project.language }}</p>
           <a :href="project.html_url" target="_blank">View Repository</a>
         </div>
-
         <div class="project-image">
           <img :src="`https://via.placeholder.com/150`" alt="Project Image">
         </div>
-
       </div>
     </div>
   </div>
@@ -139,9 +157,50 @@ onMounted(() => {
   flex-direction: row-reverse;
 }
 
+/* Animations pour project-left */
+.project-left.animate .project-details {
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.project-left.animate .project-image {
+  animation: slideInFromRight 1s ease-in-out forwards;
+}
+
+/* Animations pour project-right */
+.project-right.animate .project-details {
+  animation: slideInFromRight 1s ease-in-out forwards;
+}
+
+.project-right.animate .project-image {
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .project-image {
   flex: 0 0 auto;
   width: 150px;
+  opacity: 0;
 }
 
 .project-image img {
@@ -157,19 +216,19 @@ onMounted(() => {
   border-radius: 5px;
   padding: 1.5rem;
   background-color: #222b51;
+  opacity: 0;
 }
 
-/* Styles responsifs */
-@media (max-width: 799px) {
+@media (max-width: 800px) {
   .project-div {
-    flex-direction: column !important; /* Force la direction en colonne sur mobile */
+    flex-direction: column !important;
     gap: 1rem;
   }
-
+  
   .project-image {
     width: 100%;
   }
-
+  
   .project-image img {
     width: 100%;
     height: 200px;

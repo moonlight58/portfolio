@@ -17,7 +17,7 @@
 
       <p class="precision"><span class="warning">*</span>(University Bachelor of Technology)</p>
 
-      <p class="body">As for my artistic side, I'm drawing when i have enough free-time. Focusing on many art style, i've found my speciality amoung the Dark-art, it is available on my Instagram account</p>
+      <p class="body">As for my artistic side, I'm drawing when i have enough free-time. Focusing on many art style, i've found my specialty among the Dark-art, it is available on my Instagram account</p><button></button>
     </div>
 
     <div class="about">
