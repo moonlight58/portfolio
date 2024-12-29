@@ -17,7 +17,11 @@
 
       <p class="precision"><span class="warning">*</span>(University Bachelor of Technology)</p>
 
-      <p class="body">As for my artistic side, I'm drawing when i have enough free-time. Focusing on many art style, i've found my specialty among the Dark-art, it is available on my Instagram account</p><button></button>
+      <p class="body">As for my artistic side, I'm drawing when I have enough free-time. Focusing on many art style, i've found my specialty among the Dark-art and Doodling, it is available on my Instagram account</p>
+      <button onclick="window.location='https://www.instagram.com/osiris._25/'" class="instagram-button">
+        <img src="../assets/instagram.svg" alt="Instagram logo">
+        osiris._25
+      </button>
     </div>
 
     <div class="about">
@@ -182,6 +186,30 @@ export default {
   margin: 75px;
   font-size: 1.4rem;
   font-weight: bold;
+}
+
+.instagram-button {
+  display: flex;
+  width: auto;
+  padding: 10px 20px;
+  color: white;
+  background-color: #19203c;
+  border: 2px solid #fff; /* Bordure blanche */
+  border-radius: 5px; /* Coins arrondis */
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour les effets */
+}
+
+.instagram-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+.instagram-button:hover {
+  background-color: #3f51b5; /* Couleur de fond au survol */
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
 }
 
 
