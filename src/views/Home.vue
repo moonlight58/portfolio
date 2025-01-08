@@ -194,22 +194,23 @@ export default {
   padding: 10px 20px;
   color: white;
   background-color: #19203c;
-  border: 2px solid #fff; /* Bordure blanche */
-  border-radius: 5px; /* Coins arrondis */
+  border: 2px solid #fff;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour les effets */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .instagram-button img {
   width: 20px;
   height: 20px;
-  margin-right: 10px; /* Espace entre l'image et le texte */
+  margin-right: 10px; 
 }
 
 .instagram-button:hover {
-  background-color: #3f51b5; /* Couleur de fond au survol */
-  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+  background-color: #3f51b5;
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 

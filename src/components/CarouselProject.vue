@@ -94,7 +94,6 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="button-gradient"></div>
     <button @click="prev" class="control prev" :disabled="isPrevDisabled" :class="{ disabled: isPrevDisabled }">←</button>
     <button @click="next" class="control next" :disabled="isNextDisabled" :class="{ disabled: isNextDisabled }">→</button>
   </div>
