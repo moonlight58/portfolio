@@ -10,7 +10,7 @@
     <div class="presentation-content">
       <p class="title">Developer and artist</p>
       <p class="body">
-        I'm a second-year computer science student with a strong passion for
+        I'm a second-year computer science student, BUT<span class="warning">*</span>, with a strong passion for
         both hardware and software. Recently, I've developed a keen interest in
         creating Text User Interface (TUI) applications, which has quickly
         become one of my favorite areas of exploration. My current project
@@ -99,7 +99,7 @@
 }
 
 .presentation-content .precision {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .warning {

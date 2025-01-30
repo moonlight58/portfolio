@@ -45,14 +45,9 @@ const routes = [
     ]
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/about-me',
+    name: 'about me',
     component: AboutView
-  },
-  {
-    path: '/*',
-    name: 'test',
-    redirect: '/moonlight'
   }
 ]
 

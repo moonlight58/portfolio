@@ -85,7 +85,7 @@ onMounted(() => {
           <a :href="project.html_url" target="_blank">View Repository</a>
         </div>
         <div class="project-image">
-          <img :src="`https://via.placeholder.com/150`" alt="Project Image">
+          <img :src="`https://placehold.co/150`" alt="Project Image">
         </div>
       </div>
     </div>

@@ -9,51 +9,77 @@
 
     <div class="presentation-content">
       <p class="title">Developer and artist</p>
-      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years. I'm always trying new things, eager to learn, and try to help others with my work</p>
+      <p class="body">
+        Student in computer science, BUT<span class="warning">*</span>, currently
+        in 2nd years. I'm always trying new things, eager to learn, and try to
+        help others with my work
+      </p>
 
-      <p class="precision"><span class="warning">*</span>(University Bachelor of Technology)</p>
+      <p class="precision">
+        <span class="warning">*</span>(University Bachelor of Technology)
+      </p>
 
-      <p class="body">As for my artistic side, I'm drawing when I have enough free-time. Focusing on many art style, i've found my specialty among the Dark-art and Doodling, it is available on my Instagram account</p>
-      <button onclick="window.location='https://www.instagram.com/osiris._25/'" class="instagram-button">
-        <img src="../assets/instagram.svg" alt="Instagram logo">
+      <p class="body">
+        As for my artistic side, I'm drawing when I have enough free-time.
+        Focusing on many art style, i've found my specialty among the Dark-art
+        and Doodling, it is available on my Instagram account
+      </p>
+      <button
+        onclick="window.location='https://www.instagram.com/osiris._25/'"
+        class="instagram-button"
+      >
+        <img src="../assets/instagram.svg" alt="Instagram logo" />
         osiris._25
       </button>
     </div>
 
     <div class="about">
       <div class="about-title">Why this portfolio ?</div>
-      <div class="about-content">This site is developed as part of my Portfolio project during the three years in the BUT. It will be continually updated to reflect my academic and personal projects.</div>
+      <div class="about-content">
+        This site is developed as part of my Portfolio project during the three
+        years in the BUT. It will be continually updated to reflect my academic
+        and personal projects.
+      </div>
     </div>
 
     <div class="project">
       <p class="project-title">Projects</p>
-      <p class="project-content">Here are my favorites projects so far. Going from Application to Website to Games</p>
+      <p class="project-content">
+        Here are my favorites projects so far. Going from Application to Website
+        to Games
+      </p>
       <Carousel />
     </div>
 
     <div class="skills">
       <p class="skill-title">What are my Skills ?</p>
       <div class="skill-content">
-        <div class="type-skill" v-for="(skillType, index) in Object.keys(skills)" :key="index">
+        <div
+          class="type-skill"
+          v-for="(skillType, index) in Object.keys(skills)"
+          :key="index"
+        >
           <h3>{{ skillType }}</h3>
           <div class="skill-container">
             <div
-                class="language-div"
-                v-for="(language, langIndex) in skills[skillType].language"
-                :key="langIndex"
-                @click="redirectToUrl(language.url)"
+              class="language-div"
+              v-for="(language, langIndex) in skills[skillType].language"
+              :key="langIndex"
+              @click="redirectToUrl(language.url)"
             >
-              <img :src="require(`@/assets/skills/${language.name}.svg`)" :alt="language.name" />
+              <img
+                :src="require(`@/assets/skills/${language.name}.svg`)"
+                :alt="language.name"
+              />
               <p>{{ language.name }}</p>
             </div>
-
           </div>
         </div>
       </div>
     </div>
 
     <div class="contact">Contact section</div>
-    
+
     <div class="funny-shape"></div>
   </div>
 </template>
@@ -79,7 +105,7 @@ export default {
       } else {
         console.warn("No URL provided for this skill");
       }
-    }
+    },
   },
 };
 </script>
@@ -92,7 +118,7 @@ export default {
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-  background-color: rgba(16,21,45, 1);
+  background-color: rgba(16, 21, 45, 1);
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   filter: blur(20px);
   z-index: -1;
@@ -131,7 +157,7 @@ export default {
 }
 
 .presentation-content .precision {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .warning {
@@ -149,13 +175,15 @@ export default {
   font-weight: bold;
 }
 
-.project-title, .skill-title{
+.project-title,
+.skill-title {
   font-size: 1.4rem;
   font-weight: bold;
   margin: 75px 0 20px 0;
 }
 
-.project-content, .about-content {
+.project-content,
+.about-content {
   font-size: 0.9rem;
   margin-bottom: 40px;
 }
@@ -215,7 +243,7 @@ export default {
 .instagram-button img {
   width: 20px;
   height: 20px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .instagram-button:hover {
