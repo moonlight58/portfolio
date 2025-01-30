@@ -48,6 +48,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: AboutView
+  },
+  {
+    path: '/*',
+    name: 'test',
+    redirect: '/moonlight'
   }
 ]
 
