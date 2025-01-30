@@ -5,7 +5,7 @@ import SteamToLinuxView from "@/views/projets/SteamToLinuxView.vue";
 import BienView from "@/views/projets/BienView.vue";
 import RoiDesRosesView from "@/views/projets/RoiDesRosesView.vue";
 import ProjectView from "@/views/ProjectView.vue";
-
+import AboutView from "@/views/AboutView.vue"
 
 const routes = [
   {
@@ -20,32 +20,34 @@ const routes = [
   {
     path: '/projects',
     name: 'projects',
-    component: ProjectView
-  },
-  {
-    path: '/personal/spotify-tui',
-    name: 'spotify-tui',
-    component: SpotifyTuiView
-  },
-  {
-    path: '/personal/steamtolinux',
-    name: 'steamtolinux',
-    component: SteamToLinuxView
-  },
-  {
-    path: '/uni/bien',
-    name: 'bien',
-    component: BienView
-  },
-  {
-    path: '/uni/rdr',
-    name: 'rdr',
-    component: RoiDesRosesView
+    component: ProjectView,
+    children: [
+      {
+        path: 'personal/spotify-tui',  // relative path
+        name: 'spotify-tui',
+        component: SpotifyTuiView
+      },
+      {
+        path: 'personal/steamtolinux',
+        name: 'steamtolinux',
+        component: SteamToLinuxView
+      },
+      {
+        path: 'uni/bien',
+        name: 'bien',
+        component: BienView
+      },
+      {
+        path: 'uni/rdr',
+        name: 'rdr',
+        component: RoiDesRosesView
+      },
+    ]
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: AboutView
   }
 ]
 

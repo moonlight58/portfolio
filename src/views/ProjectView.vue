@@ -71,8 +71,6 @@ onMounted(() => {
         University
       </button>
     </div>
-    <div v-if="username">You can find all of these projects on my github</div>
-    <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
 
     <div class="projects">
       <div class="project-div"
@@ -91,6 +89,10 @@ onMounted(() => {
         </div>
       </div>
     </div>
+
+    <div v-if="username">You can find all of these projects on my github</div>
+    <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
+
   </div>
 </template>
 

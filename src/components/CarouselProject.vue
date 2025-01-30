@@ -2,10 +2,10 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
-  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/Spotify-tui.png'), categorie: "Personal", status: "On Going", language: "Rust", path: "/personal/spotify-tui" },
-  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.jpg'), categorie: "Personal", status: "Done", language: "Python", path: "/personal/steamtolinux" },
-  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", path: "/uni/bien" },
-  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", path: "/uni/rdr" },
+  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/Spotify-tui.png'), categorie: "Personal", status: "On Going", language: "Rust", path: "/projects/personal/spotify-tui" },
+  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.jpg'), categorie: "Personal", status: "Done", language: "Python", path: "/projects/personal/steamtolinux" },
+  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", path: "/projects/uni/bien" },
+  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", path: "/projects/uni/rdr" },
 ]);
 
 const currentIndex = ref(0);

@@ -5,7 +5,7 @@
       <div class="links">
         <router-link to="/projects">projects</router-link>
         <router-link to="/#">tools</router-link>
-        <router-link to="/#">about me</router-link>
+        <router-link to="/about">about me</router-link>
         <router-link to="/#">faq</router-link>
       </div>
     </div>
