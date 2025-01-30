@@ -26,16 +26,16 @@ const prev = () => {
 
 const getCategorieIcon = (categorie) => {
   const icons = {
-    Personal: require('@/assets/project/Personal.svg'),
-    Uni: require('@/assets/project/Uni.svg'),
+    Personal: require('@/assets/project-info/Personal.svg'),
+    Uni: require('@/assets/project-info/Uni.svg'),
   };
-  return icons[categorie] || require('@/assets/project/Default.svg');
+  return icons[categorie] || require('@/assets/project-info/Default.svg');
 };
 
 const getStatusIcon = (status) => {
   const icons = {
-    Done: require("@/assets/project/done.svg"),
-    "On Going": require("@/assets/project/ongoing.svg")
+    Done: require("@/assets/project-info/done.svg"),
+    "On Going": require("@/assets/project-info/ongoing.svg")
   };
   return icons[status];
 }

@@ -9,11 +9,7 @@
 
     <div class="presentation-content">
       <p class="title">Developer and artist</p>
-      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years, with a deep passion for both hardware and software. Recently, I’ve developed a keen interest in creating TUI (Text User Interface) applications, which has become one of my favorite areas of exploration. My current project involves converting full-featured applications, like Spotify, into streamlined TUI versions.</p>
-
-      <p class="body">While I enjoy building applications, my true passion lies in refining them—making them bug-free, accessible, and user-friendly. This attention to detail extends to my other projects, such as creating a comprehensive tutorial for installing and maintaining Arch Linux. I’ve focused on breaking down each step in detail to help users overcome challenges with confidence.</p>
-
-      <p class="body">I’m always eager to experiment, learn new development techniques, and explore innovative approaches in the world of Computer Science.</p>
+      <p class="body">Student in computer science BUT<span class="warning">*</span> currently in 2nd years. I'm always trying new things, eager to learn, and try to help others with my work</p>
 
       <p class="precision"><span class="warning">*</span>(University Bachelor of Technology)</p>
 
@@ -57,12 +53,14 @@
     </div>
 
     <div class="contact">Contact section</div>
+    
+    <div class="funny-shape"></div>
   </div>
 </template>
 
 <script>
 import Carousel from "@/components/CarouselProject.vue";
-import skills from "@/datasource/skills.json"; // Import the JSON data
+import skills from "@/datasource/skills.json";
 
 export default {
   name: "HomeView",
@@ -71,13 +69,13 @@ export default {
   },
   data() {
     return {
-      skills: skills, // Use the entire skills object
+      skills: skills,
     };
   },
   methods: {
     redirectToUrl(url) {
       if (url) {
-        window.open(url, "_blank"); // Open the link in a new tab
+        window.open(url, "_blank");
       } else {
         console.warn("No URL provided for this skill");
       }
@@ -87,6 +85,19 @@ export default {
 </script>
 
 <style scoped>
+.funny-shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background-color: rgba(16,21,45, 1);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  filter: blur(20px);
+  z-index: -1;
+}
+
 .presentation {
   margin: 15px 0 10px 0;
   text-align: center;
@@ -212,8 +223,6 @@ export default {
   cursor: pointer;
   transform: scale(1.05);
 }
-
-
 
 @media (min-width: 420px) {
   .container {

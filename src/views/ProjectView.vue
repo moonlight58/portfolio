@@ -224,6 +224,10 @@ onMounted(() => {
     flex-direction: column !important;
     gap: 1rem;
   }
+
+  .project-details {
+    min-width: 100%
+  }
   
   .project-image {
     width: 100%;
