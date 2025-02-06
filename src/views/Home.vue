@@ -20,9 +20,9 @@
       </p>
 
       <p class="body">
-        As for my artistic side, I'm drawing when I have enough free-time.
-        Focusing on many art style, i've found my specialty among the Dark-art
-        and Doodling, it is available on my Instagram account
+        In my free time, I enjoy exploring my artistic side through drawing.
+        While I experiment with various art styles, I’ve found my specialty in
+        dark art and doodling. You can find my work on my Instagram account.
       </p>
       <button
         onclick="window.location='https://www.instagram.com/osiris._25/'"

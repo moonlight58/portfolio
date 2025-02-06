@@ -1,17 +1,19 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-const username = ref('');
+import { ref, onMounted } from "vue";
+const username = ref("");
 const projects = ref([]);
-const activeButton = ref('');
+const activeButton = ref("");
 
 async function fetchGithubRepos(type) {
-  username.value = type === 'personal' ? "moonlight58" : "grothlin-iut90";
+  username.value = type === "personal" ? "moonlight58" : "grothlin-iut90";
   const url = `https://api.github.com/users/${username.value}/repos`;
-  
+
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Error fetching repositories: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `Error fetching repositories: ${response.status} ${response.statusText}`
+      );
     }
     const repos = await response.json();
     projects.value = repos;
@@ -31,26 +33,29 @@ function toggleButton(type) {
 }
 
 function setupIntersectionObserver() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
 
-  document.querySelectorAll('.project-div').forEach(project => {
-    project.classList.remove('animate'); // Réinitialiser l'animation
+  document.querySelectorAll(".project-div").forEach((project) => {
+    project.classList.remove("animate"); // Réinitialiser l'animation
     observer.observe(project);
   });
 }
 
 onMounted(() => {
-  fetchGithubRepos('personal');
-  toggleButton('personal');
+  fetchGithubRepos("personal");
+  toggleButton("personal");
 });
 </script>
 
@@ -59,13 +64,19 @@ onMounted(() => {
     <h2 class="Title">All my Projects</h2>
     <div class="button-project-type">
       <button
-        @click="fetchGithubRepos('personal'); toggleButton('personal')"
+        @click="
+          fetchGithubRepos('personal');
+          toggleButton('personal');
+        "
         :class="{ active: activeButton === 'personal' }"
       >
         Personal
       </button>
       <button
-        @click="fetchGithubRepos('uni'); toggleButton('uni')"
+        @click="
+          fetchGithubRepos('uni');
+          toggleButton('uni');
+        "
         :class="{ active: activeButton === 'uni' }"
       >
         University
@@ -73,10 +84,14 @@ onMounted(() => {
     </div>
 
     <div class="projects">
-      <div class="project-div"
-        v-for="(project, index) in projects.filter(p => p.description)"
+      <div
+        class="project-div"
+        v-for="(project, index) in projects.filter((p) => p.description)"
         :key="project.id"
-        :class="{'project-left': index % 2 === 0, 'project-right': index % 2 !== 0}"
+        :class="{
+          'project-left': index % 2 === 0,
+          'project-right': index % 2 !== 0,
+        }"
       >
         <div class="project-details">
           <h3>{{ project.name }}</h3>
@@ -85,14 +100,15 @@ onMounted(() => {
           <a :href="project.html_url" target="_blank">View Repository</a>
         </div>
         <div class="project-image">
-          <img :src="`https://placehold.co/150`" alt="Project Image">
+          <img :src="`https://placehold.co/150`" alt="Project Image" />
         </div>
       </div>
     </div>
 
     <div v-if="username">You can find all of these projects on my github</div>
-    <a :href="`https://github.com/${username}`" target="_blank" v-if="username">GitHub {{ username }}</a>
-
+    <a :href="`https://github.com/${username}`" target="_blank" v-if="username"
+      >GitHub {{ username }}</a
+    >
   </div>
 </template>
 
@@ -113,7 +129,7 @@ onMounted(() => {
 }
 
 .container button {
-  font-family: 'Cascadia Code', sans-serif;
+  font-family: "Cascadia Code", sans-serif;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   color: rgb(34, 214, 255);
@@ -228,13 +244,13 @@ onMounted(() => {
   }
 
   .project-details {
-    min-width: 100%
+    min-width: 100%;
   }
-  
+
   .project-image {
     width: 100%;
   }
-  
+
   .project-image img {
     width: 100%;
     height: 200px;
