@@ -2,7 +2,7 @@
   "Software Development": {
     "language": [
       { "name": "C", "url": "https://fr.wikipedia.org/wiki/C_(langage)" },
-      { "name": "JavaFX", "url": "https://openjfx.io/" },
+      { "name": "Java", "url": "https://fr.wikipedia.org/wiki/Java_(langage)" },
       { "name": "Python", "url": "https://www.python.org" },
       { "name": "Rust", "url": "https://www.rust-lang.org/" }
     ]
