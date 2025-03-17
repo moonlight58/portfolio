@@ -1,11 +1,7 @@
 {
   "Software Development": {
     "language": [
-      { "name": "Bash", "url": "https://en.wikipedia.org/wiki/Bash_(Unix_shell)" },
       { "name": "C", "url": "https://fr.wikipedia.org/wiki/C_(langage)" },
-      { "name": "CMake", "url": "https://cmake.org" },
-      { "name": "Git", "url": "https://git-scm.com/" },
-      { "name": "Java", "url": "https://fr.wikipedia.org/wiki/Java_(langage)" },
       { "name": "JavaFX", "url": "https://openjfx.io/" },
       { "name": "Python", "url": "https://www.python.org" },
       { "name": "Rust", "url": "https://www.rust-lang.org/" }
@@ -22,7 +18,6 @@
     "language": [
       { "name": "ExpressJS", "url": "https://expressjs.com/" },
       { "name": "Flask", "url": "https://flask.palletsprojects.com/en/stable/" },
-      { "name": "JavaScript", "url": "https://fr.wikipedia.org/wiki/JavaScript" },
       { "name": "NodeJS", "url": "https://nodejs.org/fr" },
       { "name": "Python", "url": "https://www.python.org" },
       { "name": "SQL", "url": "https://sql.sh" }
@@ -31,8 +26,6 @@
   "Front-end Web": {
     "language": [
       { "name": "Bootstrap", "url": "https://getbootstrap.com/" },
-      { "name": "CSS", "url": "https://en.wikipedia.org/wiki/CSS" },
-      { "name": "HTML", "url": "https://en.wikipedia.org/wiki/HTML" },
       { "name": "JavaScript", "url": "https://en.wikipedia.org/wiki/JavaScript" },
       { "name": "Tailwind", "url": "https://tailwindcss.com/" },
       { "name": "VueJS", "url": "https://vuejs.org/" }

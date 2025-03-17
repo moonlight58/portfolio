@@ -103,7 +103,7 @@ export default {
       if (url) {
         window.open(url, "_blank");
       } else {
-        console.warn("No URL provided for this skill");
+        console.warn("No URL provided");
       }
     },
   },
