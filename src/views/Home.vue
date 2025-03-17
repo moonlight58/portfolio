@@ -24,13 +24,16 @@
         While I experiment with various art styles, I’ve found my specialty in
         dark art and doodling. You can find my work on my Instagram account.
       </p>
-      <button
-        onclick="window.location='https://www.instagram.com/osiris._25/'"
-        class="instagram-button"
-      >
-        <img src="../assets/instagram.svg" alt="Instagram logo" />
-        osiris._25
-      </button>
+      
+      <div class="spacer">
+        <a class="fancy" href="https://www.instagram.com/osiris._25" target="_blank">
+          <span class="top-key"></span>
+          <img src="../assets/instagram.svg" class="instagram-img" alt="Instagram logo" />
+          <span class="text">osiris._25</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </a>
+      </div>
     </div>
 
     <div class="about">
@@ -227,29 +230,23 @@ export default {
   font-weight: bold;
 }
 
-.instagram-button {
-  display: flex;
-  width: auto;
-  padding: 10px 20px;
-  color: white;
-  background-color: #19203c;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.instagram-button img {
+.instagram-img {
+  display: flex-inline;
+  vertical-align:sub;
+  margin-right: 10px;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
+  transition: filter 0.3s ease-in-out;
 }
 
-.instagram-button:hover {
-  background-color: #3f51b5;
-  cursor: pointer;
-  transform: scale(1.05);
+.spacer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fancy:hover .instagram-img {
+  filter: invert(1);
 }
 
 @media (min-width: 420px) {
@@ -262,5 +259,97 @@ export default {
   .skill-container {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+
+/* fancy button */
+.fancy {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  float: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 1.25em 2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: 12px;
+}
+
+.fancy .text {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+.fancy .top-key {
+  height: 2px;
+  width: 1.5625rem;
+  top: -2px;
+  left: 0.625rem;
+  position: absolute;
+  background: rgba(16, 21, 45, 1);
+  transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+  height: 2px;
+  width: 1.5625rem;
+  right: 1.875rem;
+  bottom: -2px;
+  position: absolute;
+  background: rgba(16, 21, 45, 1);
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+  height: 2px;
+  width: 0.625rem;
+  right: 0.625rem;
+  bottom: -2px;
+  position: absolute;
+  background: rgba(16, 21, 45, 1);
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+  color: white;
+  background: white;
+}
+
+.fancy:hover::before {
+  width: 0.9375rem;
+  background: black;
+}
+
+.fancy:hover .text {
+  color: black;
+}
+
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+ .fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
 }
 </style>
