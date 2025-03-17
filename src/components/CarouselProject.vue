@@ -2,10 +2,10 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
-  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/Spotify-tui.png'), categorie: "Personal", status: "On Going", language: "Rust", path: "/projects/personal/spotify-tui" },
-  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.jpg'), categorie: "Personal", status: "Done", language: "Python", path: "/projects/personal/steamtolinux" },
-  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", path: "/projects/uni/bien" },
-  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", path: "/projects/uni/rdr" },
+  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/Spotify-tui.png'), categorie: "Personal", status: "On Going", language: "Rust", url: "https://github.com/moonlight58/Spotify-tui" },
+  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.jpg'), categorie: "Personal", status: "Done", language: "Python", url: "https://github.com/moonlight58/SteamToLinux" },
+  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", url: "https://github.com/asoltner-iut90/SAE-SiteInfo-BIEN" },
+  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", url: "https://github.com/moonlight58/portfolio" },
 ]);
 
 const currentIndex = ref(0);
@@ -70,7 +70,7 @@ onUnmounted(() => {
     <div class="carousel-container">
       <div class="carousel" :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }">
         <div v-for="(projet, index) in projets" :key="index" class="carousel-item">
-          <router-link :to="projet.path">
+          <a :href="projet.url" target="_blank">
             <img :src="projet.image" :alt="projet.titre" class="carousel-image" />
             <div class="overlay">
               <h3>{{ projet.titre }}</h3>
@@ -90,7 +90,7 @@ onUnmounted(() => {
                 </div>
               </div>
             </div>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
