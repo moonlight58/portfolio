@@ -19,7 +19,16 @@
     "categorie": "Website",
     "url": "https://github.com/grothlin-iut90/SAE-SiteInfo-BIEN"
   },
-  "SteamToLinux": {},
+  "SteamToLinux": {
+    "titre": "SteamToLinux",
+    "description": "SteamToLinux is a tool that allows you to easily install Steam games on Linux. It automatically detects your Steam library and installs the games you want to play. It also allows you to manage your Steam library and install games from other platforms.",
+    "language": "Python",
+    "technologies": "Steam API",
+    "image": "SteamToLinux.png",
+    "status": "finished",
+    "categorie": "Application",
+    "url": "https://github.com/moonlight58/SteamToLinux"
+  },
   "Spotify-TUI": {},
   "Moonify": {
     "titre": "Moonify",
