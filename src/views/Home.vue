@@ -98,7 +98,7 @@
       <div class="contact-links">
         <a
           class="contact-btn"
-          href="mailto:gael.rothlin@gmail.com"
+          href="mailto:gael.rothlin@proton.me"
           target="_blank"
           rel="noopener"
         >
