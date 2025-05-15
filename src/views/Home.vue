@@ -10,9 +10,9 @@
     <div class="presentation-content">
       <p class="title">Developer and artist</p>
       <p class="body">
-        Student in computer science, BUT<span class="warning">*</span>, currently
-        in 2nd years. I'm always trying new things, eager to learn, and try to
-        help others with my work
+        French student in computer science, BUT<span class="warning">*</span>,
+        currently in 2nd years. I'm always trying new things, eager to learn,
+        and try to help others with my work
       </p>
 
       <p class="precision">
@@ -24,11 +24,19 @@
         While I experiment with various art styles, I’ve found my specialty in
         dark art and doodling. You can find my work on my Instagram account.
       </p>
-      
+
       <div class="spacer">
-        <a class="fancy" href="https://www.instagram.com/osiris._25" target="_blank">
+        <a
+          class="fancy"
+          href="https://www.instagram.com/osiris._25"
+          target="_blank"
+        >
           <span class="top-key"></span>
-          <img src="../assets/instagram.svg" class="instagram-img" alt="Instagram logo" />
+          <img
+            src="../assets/instagram.svg"
+            class="instagram-img"
+            alt="Instagram logo"
+          />
           <span class="text">osiris._25</span>
           <span class="bottom-key-1"></span>
           <span class="bottom-key-2"></span>
@@ -48,8 +56,8 @@
     <div class="project">
       <p class="project-title">Projects</p>
       <p class="project-content">
-        Here are my favorites projects so far. Going from Application to Website
-        to Games
+        Here are some of my favorite projects, from video games to websites to
+        applications.
       </p>
       <Carousel />
     </div>
@@ -81,7 +89,46 @@
       </div>
     </div>
 
-    <div class="contact">Contact section</div>
+    <div class="contact">
+      <h2>Contact</h2>
+      <p class="contact-text">
+        Want to chat, collaborate or just say hello? Don't hesitate to contact
+        me!
+      </p>
+      <div class="contact-links">
+        <a
+          class="contact-btn"
+          href="mailto:gael.rothlin@gmail.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="../assets/email.svg" alt="Email" class="contact-icon" />
+          Email
+        </a>
+        <a
+          class="contact-btn"
+          href="https://www.instagram.com/osiris._25"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="../assets/instagram.svg"
+            alt="Instagram"
+            class="contact-icon"
+          />
+          Instagram
+        </a>
+        <a
+          class="contact-btn"
+          href="https://github.com/moonlight58"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="../assets/github.svg" alt="GitHub" class="contact-icon" />
+          GitHub
+        </a>
+      </div>
+    </div>
 
     <div class="funny-shape"></div>
   </div>
@@ -225,14 +272,68 @@ export default {
 }
 
 .contact {
-  margin: 75px;
+  margin: 75px 0 0 0;
+  padding: 2rem 1rem;
+  background: #19203c;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #000000;
+  text-align: center;
+}
+
+.contact h2 {
   font-size: 1.4rem;
   font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-text {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #dbf9ff;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+.contact-btn:hover {
+  background: #fff;
+  color: #10152d;
+  border-color: #dbf9ff;
+}
+
+.contact-icon {
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  transition: filter 0.3s;
+}
+
+.contact-btn:hover .contact-icon {
+  filter: invert(1);
 }
 
 .instagram-img {
   display: flex-inline;
-  vertical-align:sub;
+  vertical-align: sub;
   margin-right: 10px;
   width: 20px;
   height: 20px;
@@ -260,7 +361,6 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 /* fancy button */
 .fancy {
@@ -348,7 +448,7 @@ export default {
 }
 
 .fancy:hover .bottom-key-1,
- .fancy:hover .bottom-key-2 {
+.fancy:hover .bottom-key-2 {
   right: 0;
   width: 0;
 }

@@ -2,15 +2,59 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
-  { titre: "Spotify-TUI", contenu: "Terminal application for Spotify", image: require('@/assets/images/Spotify-tui.png'), categorie: "Personal", status: "On Going", language: "Rust", url: "https://github.com/moonlight58/Spotify-tui" },
-  { titre: "SteamToLinux", contenu: "Game compatibility check on Linux", image: require('@/assets/images/SteamToLinux.jpg'), categorie: "Personal", status: "Done", language: "Python", url: "https://github.com/moonlight58/SteamToLinux" },
-  { titre: "B.I.E.N.", contenu: "Website about climate change and technology", image: require('@/assets/images/spotifyGoal.png'), categorie: "Uni", status: "On Going", language: "VueJS", url: "https://github.com/asoltner-iut90/SAE-SiteInfo-BIEN" },
-  { titre: "Roi des Roses", contenu: "Board Game with JavaFX", image: require('@/assets/images/spotifyTUI.png'), categorie: "Uni", status: "Done", language: "Java", url: "https://github.com/moonlight58/portfolio" },
+  {
+    titre: "Moonify",
+    contenu: "Music player with Imgur API and Discord RPC",
+    image: require("@/assets/images/Moonify.png"),
+    categorie: "Personal",
+    status: "Done",
+    language: "Python",
+    url: "https://github.com/moonlight58/Moonify",
+  },
+  {
+    titre: "SteamToLinux",
+    contenu: "Game compatibility check on Linux",
+    image: require("@/assets/images/SteamToLinux.jpg"),
+    categorie: "Personal",
+    status: "Done",
+    language: "Python",
+    url: "https://github.com/moonlight58/SteamToLinux",
+  },
+  {
+    titre: "B.I.E.N.",
+    contenu: "Website about climate change and technology",
+    image: require("@/assets/images/spotifyGoal.png"),
+    categorie: "Uni",
+    status: "Done",
+    language: "VueJS",
+    url: "https://github.com/grothlin-iut90/SAE-SiteInfo-BIEN",
+  },
+  {
+    titre: "Roi des Roses",
+    contenu: "Board Game with JavaFX",
+    image: require("@/assets/images/RoiDesRoses.jpg"),
+    categorie: "Uni",
+    status: "Done",
+    language: "Java",
+    url: "https://github.com/grothlin-iut90/Roi-des-Roses",
+  },
+  {
+    titre: "Spotify-TUI",
+    contenu:
+      "Terminal application for listening to music using Spotify Web API and Ratatui Rust library",
+    image: require("@/assets/images/Spotify-tui.png"),
+    categorie: "Personal",
+    status: "On Going",
+    language: "Rust",
+    url: "https://github.com/moonlight58/Spotify-tui",
+  },
 ]);
 
 const currentIndex = ref(0);
 const isPrevDisabled = computed(() => currentIndex.value === 0);
-const isNextDisabled = computed(() => currentIndex.value === projets.value.length - 1);
+const isNextDisabled = computed(
+  () => currentIndex.value === projets.value.length - 1
+);
 
 const next = () => {
   if (!isNextDisabled.value) {
@@ -26,29 +70,29 @@ const prev = () => {
 
 const getCategorieIcon = (categorie) => {
   const icons = {
-    Personal: require('@/assets/project-info/Personal.svg'),
-    Uni: require('@/assets/project-info/Uni.svg'),
+    Personal: require("@/assets/project-info/Personal.svg"),
+    Uni: require("@/assets/project-info/Uni.svg"),
   };
-  return icons[categorie] || require('@/assets/project-info/Default.svg');
+  return icons[categorie] || require("@/assets/project-info/Default.svg");
 };
 
 const getStatusIcon = (status) => {
   const icons = {
     Done: require("@/assets/project-info/done.svg"),
-    "On Going": require("@/assets/project-info/ongoing.svg")
+    "On Going": require("@/assets/project-info/ongoing.svg"),
   };
   return icons[status];
-}
+};
 
 const getLanguageIcon = (language) => {
   const icons = {
     Java: require("@/assets/language/java.svg"),
     Rust: require("@/assets/language/rust.svg"),
     VueJS: require("@/assets/language/vuejs.svg"),
-    Python: require("@/assets/language/python.svg")
-  }
+    Python: require("@/assets/language/python.svg"),
+  };
   return icons[language];
-}
+};
 
 const isSmall = ref(window.innerWidth <= 800);
 
@@ -57,45 +101,82 @@ const updateIsSmall = () => {
 };
 
 onMounted(() => {
-  window.addEventListener('resize', updateIsSmall);
+  window.addEventListener("resize", updateIsSmall);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateIsSmall);
+  window.removeEventListener("resize", updateIsSmall);
 });
 </script>
 
 <template>
   <div class="carousel-wrapper">
     <div class="carousel-container">
-      <div class="carousel" :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }">
-        <div v-for="(projet, index) in projets" :key="index" class="carousel-item">
-          <a :href="projet.url" target="_blank">
-            <img :src="projet.image" :alt="projet.titre" class="carousel-image" />
+      <div
+        class="carousel"
+        :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }"
+      >
+        <div
+          v-for="(projet, index) in projets"
+          :key="index"
+          class="carousel-item"
+        >
+          <router-link :to="`/project-details/${projet.titre}`">
+            <img
+              :src="projet.image"
+              :alt="projet.titre"
+              class="carousel-image"
+            />
             <div class="overlay">
               <h3>{{ projet.titre }}</h3>
               <p class="contenu">{{ projet.contenu }}</p>
               <div class="info-box">
                 <div class="language">
-                  <img :src="getLanguageIcon(projet.language)" :alt="projet.language" class="language-icon" />
+                  <img
+                    :src="getLanguageIcon(projet.language)"
+                    :alt="projet.language"
+                    class="language-icon"
+                  />
                   <p>{{ projet.language }}</p>
                 </div>
                 <div class="categorie">
-                  <img :src="getCategorieIcon(projet.categorie)" :alt="projet.categorie" class="categorie-icon" />
+                  <img
+                    :src="getCategorieIcon(projet.categorie)"
+                    :alt="projet.categorie"
+                    class="categorie-icon"
+                  />
                   <p>{{ projet.categorie }}</p>
                 </div>
                 <div class="status">
-                  <img :src="getStatusIcon(projet.status)" :alt="projet.status" class="status-icon" />
+                  <img
+                    :src="getStatusIcon(projet.status)"
+                    :alt="projet.status"
+                    class="status-icon"
+                  />
                   <p>{{ projet.status }}</p>
                 </div>
               </div>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
-    <button @click="prev" class="control prev" :disabled="isPrevDisabled" :class="{ disabled: isPrevDisabled }">←</button>
-    <button @click="next" class="control next" :disabled="isNextDisabled" :class="{ disabled: isNextDisabled }">→</button>
+    <button
+      @click="prev"
+      class="control prev"
+      :disabled="isPrevDisabled"
+      :class="{ disabled: isPrevDisabled }"
+    >
+      ←
+    </button>
+    <button
+      @click="next"
+      class="control next"
+      :disabled="isNextDisabled"
+      :class="{ disabled: isNextDisabled }"
+    >
+      →
+    </button>
   </div>
 </template>
 
@@ -172,7 +253,8 @@ onUnmounted(() => {
   font-size: 0.9rem;
 }
 
-.overlay h3, .overlay p{
+.overlay h3,
+.overlay p {
   text-shadow: 1px 1px #2b2b2b;
 }
 
@@ -190,7 +272,7 @@ onUnmounted(() => {
 .overlay .categorie,
 .overlay .status,
 .overlay .language {
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   white-space: nowrap;
   display: flex;
@@ -199,7 +281,9 @@ onUnmounted(() => {
   padding: 0.5rem 1rem;
 }
 
-.language img, .categorie img, .status img{
+.language img,
+.categorie img,
+.status img {
   filter: drop-shadow(1px 1px rgba(43, 43, 43, 1));
 }
 
@@ -211,7 +295,6 @@ onUnmounted(() => {
   vertical-align: middle;
   transition: opacity 0.2s ease;
 }
-
 
 .control {
   position: absolute;
@@ -236,7 +319,7 @@ onUnmounted(() => {
 
 .control.disabled {
   background-color: rgba(0, 0, 0, 0.3);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
   cursor: auto;
 }
 
@@ -245,8 +328,14 @@ onUnmounted(() => {
   width: 100%;
   height: 10rem;
   top: 0;
-  background: rgb(16,21,45);
-  background: linear-gradient(90deg, rgba(16,21,45,1) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 90%, rgba(16,21,45,1) 100%);
+  background: rgb(16, 21, 45);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 21, 45, 1) 0%,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0) 90%,
+    rgba(16, 21, 45, 1) 100%
+  );
   z-index: 1;
 }
 
@@ -257,10 +346,10 @@ onUnmounted(() => {
     display: none;
   }
 
-  .carousel-image, .carousel-item, .overlay {
+  .carousel-image,
+  .carousel-item,
+  .overlay {
     height: 10rem;
   }
-
 }
-
 </style>
