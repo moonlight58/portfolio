@@ -1,7 +1,7 @@
 {
   "Roi des Roses": {
     "titre": "Roi des Roses",
-    "description": "Roi des Roses is a game that I created in 2024 with a team of 3 student. It is a card game based on the famous game 'King of Tokyo'. The goal is to be the first player to reach 20 points. The game is played with 2 and takes about 30 minutes to play. You can play against a player or against a bot.",
+    "description": "Roi des Roses is a game that I created in 2024 with a team of 3 student. It is a card game based on the famous game 'King of Tokyo'. The goal is to be the first player to reach 20 points. The game is played with 2 players and takes about 30 minutes to play. You can play against a player or against a bot.",
     "language": "Java",
     "technologies": ["JavaFX", "JUnit"],
     "image": "RoiDesRoses.jpg",
@@ -24,12 +24,21 @@
     "description": "SteamToLinux is a tool that allows you to easily install Steam games on Linux. It automatically detects your Steam library and installs the games you want to play. It also allows you to manage your Steam library and install games from other platforms.",
     "language": "Python",
     "technologies": "Steam API",
-    "image": "SteamToLinux.png",
+    "image": "SteamToLinux.jpg",
     "status": "finished",
     "categorie": "Application",
     "url": "https://github.com/moonlight58/SteamToLinux"
   },
-  "Spotify-TUI": {},
+  "Spotify-TUI": {
+    "titre": "Spotify-TUI",
+    "description": "Spotify-TUI is a terminal user interface for Spotify. It allows you to control your Spotify account from the command line. You can search for songs, albums, and playlists, and play them directly from the terminal. It is still in development due to the lack of time to finish it. The goal is to make it a complete Spotify client with all the features of the official client.",
+    "language": "Rust",
+    "technologies": "Spotify API", 
+    "image": "SpotifyTUI.png",
+    "status": "finished",
+    "categorie": "Application",
+    "url": "https://github.com/moonlight58/Spotify-TUI"
+  },
   "Moonify": {
     "titre": "Moonify",
     "description": "Moonify is a command-line Spotify client that lets you listen to music on your terminal. It's designed to be light and fast, while offering a pleasant user experience. A GUI versio has also been implemented for people who aren't comfortable with CLIs, enabling a better experience and handling.",

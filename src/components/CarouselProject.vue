@@ -23,7 +23,7 @@ const projets = ref([
   {
     titre: "B.I.E.N.",
     contenu: "Website about climate change and technology",
-    image: require("@/assets/images/spotifyGoal.png"),
+    image: require("@/assets/images/BIEN.png"),
     categorie: "Uni",
     status: "Done",
     language: "VueJS",

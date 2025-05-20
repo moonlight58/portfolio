@@ -4,9 +4,7 @@
       <router-link to="/" class="pseudo">moonlight</router-link>
       <div class="links">
         <router-link to="/projects">projects</router-link>
-        <router-link to="">tools</router-link>
         <router-link to="/about-me">about me</router-link>
-        <router-link to="">faq</router-link>
       </div>
     </div>
   </div>
