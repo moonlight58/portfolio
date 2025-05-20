@@ -21,7 +21,7 @@
   },
   "SteamToLinux": {
     "titre": "SteamToLinux",
-    "description": "SteamToLinux is a tool that allows you to easily install Steam games on Linux. It automatically detects your Steam library and installs the games you want to play. It also allows you to manage your Steam library and install games from other platforms.",
+    "description": "SteamToLinux is a tool designed to effortlessly check the compatibility of your games on Linux. It leverages the SteamAPI for accessing your game library and scrapes data from ProtonDB to provide comprehensive compatibility information.",
     "language": "Python",
     "technologies": "Steam API",
     "image": "SteamToLinux.jpg",
@@ -41,7 +41,7 @@
   },
   "Moonify": {
     "titre": "Moonify",
-    "description": "Moonify is a command-line Spotify client that lets you listen to music on your terminal. It's designed to be light and fast, while offering a pleasant user experience. A GUI versio has also been implemented for people who aren't comfortable with CLIs, enabling a better experience and handling.",
+    "description": "Moonify is a command-line Spotify client that lets you listen to music on your terminal. It's designed to be light and fast, while offering a pleasant user experience. A GUI version has also been implemented for people who aren't comfortable with CLIs, enabling a better experience and handling.",
     "language": "Python",
     "technologies": ["Imgur API", "Discord RPC API"],
     "image": "Moonify.png",
