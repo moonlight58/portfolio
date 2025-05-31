@@ -40,12 +40,11 @@ const projets = ref([
   },
   {
     titre: "Spotify-TUI",
-    contenu:
-      "Terminal application for listening to music using Spotify Web API and Ratatui Rust library",
+    contenu: "Terminal-based Spotify client lighter than the original application made in C and uses Spotify Web API",
     image: require("@/assets/images/Spotify-tui.png"),
     categorie: "Personal",
     status: "On Going",
-    language: "Rust",
+    language: "C",
     url: "https://github.com/moonlight58/Spotify-tui",
   },
 ]);
@@ -87,7 +86,7 @@ const getStatusIcon = (status) => {
 const getLanguageIcon = (language) => {
   const icons = {
     Java: require("@/assets/language/java.svg"),
-    Rust: require("@/assets/language/rust.svg"),
+    C: require("@/assets/language/C.svg"),
     VueJS: require("@/assets/language/vuejs.svg"),
     Python: require("@/assets/language/python.svg"),
   };
@@ -273,6 +272,8 @@ onUnmounted(() => {
 .overlay .status,
 .overlay .language {
   border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   white-space: nowrap;
   display: flex;
