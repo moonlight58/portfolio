@@ -3,12 +3,12 @@
     <div class="presentation">
       <div class="presentation-header">
         <img src="../assets/moon-pfp.jpg" alt="Moon-pfp" />
-        <p>Gaël Röthlin</p>
+        <h1>Gaël Röthlin</h1>
       </div>
     </div>
 
     <div class="presentation-content">
-      <p class="title">Developer and artist</p>
+      <h1 class="title">Developer and artist</h1>
       <p class="body">
         French student in computer science, BUT<span class="warning">*</span>,
         currently in 2nd years. I'm always trying new things, eager to learn,
@@ -45,16 +45,18 @@
     </div>
 
     <div class="about">
-      <div class="about-title">Why this portfolio ?</div>
-      <div class="about-content">
+      <div class="about-title"><h2>Why this portfolio ?</h2></div>
+      <p class="about-content">
         This site is developed as part of my Portfolio project during the three
         years in the BUT. It will be continually updated to reflect my academic
         and personal projects.
-      </div>
+      </p>
     </div>
 
+    <Internship />
+
     <div class="project">
-      <p class="project-title">Projects</p>
+      <h2 class="project-title">Projects</h2>
       <p class="project-content">
         Here are some of my favorite projects, from video games to websites to
         applications.
@@ -63,7 +65,7 @@
     </div>
 
     <div class="skills">
-      <p class="skill-title">What are my Skills ?</p>
+      <h2 class="skill-title">What are my Skills ?</h2>
       <div class="skill-content">
         <div
           class="type-skill"
@@ -136,12 +138,14 @@
 
 <script>
 import Carousel from "@/components/CarouselProject.vue";
+import Internship from "@/components/StageComponent.vue";
 import skills from "@/datasource/skills.json";
 
 export default {
   name: "HomeView",
   components: {
     Carousel,
+    Internship,
   },
   data() {
     return {
@@ -161,6 +165,7 @@ export default {
 </script>
 
 <style scoped>
+
 .funny-shape {
   position: absolute;
   top: 50%;
@@ -183,34 +188,33 @@ export default {
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 1.4rem;
   margin: 20px 0;
 }
 
 .presentation-header img {
   border-radius: 50%;
-  max-width: 40px;
+  max-width: 50px;
   margin-right: 10px;
 }
 
 .presentation-content .title {
   font-style: italic;
-  font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
 .presentation-content .body {
-  font-size: 0.9rem;
   margin-top: 3vh;
   margin-bottom: 10px;
   text-align: justify;
 }
 
 .presentation-content .precision {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: light;
 }
 
 .warning {
+  font-size: 1.1rem;
   color: #ff3535;
 }
 
@@ -221,7 +225,6 @@ export default {
 
 .about-title {
   margin: 75px 0 10px 0;
-  font-size: 1.4rem;
   font-weight: bold;
 }
 
@@ -234,7 +237,7 @@ export default {
 
 .project-content,
 .about-content {
-  font-size: 0.9rem;
+  text-align: justify;
   margin-bottom: 40px;
 }
 
@@ -340,12 +343,6 @@ export default {
   transition: filter 0.3s ease-in-out;
 }
 
-.spacer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .fancy:hover .instagram-img {
   filter: invert(1);
 }
@@ -362,94 +359,4 @@ export default {
   }
 }
 
-/* fancy button */
-.fancy {
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: #000;
-  cursor: pointer;
-  display: inline-flex;
-  float: none;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin: 0;
-  outline: none;
-  overflow: visible;
-  padding: 1.25em 2em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  transition: all 0.3s ease-in-out;
-  user-select: none;
-  font-size: 12px;
-}
-
-.fancy .text {
-  font-size: 1.125em;
-  line-height: 1.33333em;
-  display: block;
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: white;
-}
-
-.fancy .top-key {
-  height: 2px;
-  width: 1.5625rem;
-  top: -2px;
-  left: 0.625rem;
-  position: absolute;
-  background: rgba(16, 21, 45, 1);
-  transition: width 0.5s ease-out, left 0.3s ease-out;
-}
-
-.fancy .bottom-key-1 {
-  height: 2px;
-  width: 1.5625rem;
-  right: 1.875rem;
-  bottom: -2px;
-  position: absolute;
-  background: rgba(16, 21, 45, 1);
-  transition: width 0.5s ease-out, right 0.3s ease-out;
-}
-
-.fancy .bottom-key-2 {
-  height: 2px;
-  width: 0.625rem;
-  right: 0.625rem;
-  bottom: -2px;
-  position: absolute;
-  background: rgba(16, 21, 45, 1);
-  transition: width 0.5s ease-out, right 0.3s ease-out;
-}
-
-.fancy:hover {
-  color: white;
-  background: white;
-}
-
-.fancy:hover::before {
-  width: 0.9375rem;
-  background: black;
-}
-
-.fancy:hover .text {
-  color: black;
-}
-
-.fancy:hover .top-key {
-  left: -2px;
-  width: 0px;
-}
-
-.fancy:hover .bottom-key-1,
-.fancy:hover .bottom-key-2 {
-  right: 0;
-  width: 0;
-}
 </style>

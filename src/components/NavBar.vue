@@ -15,21 +15,21 @@ export default {
   name: "NavBar",
   data() {
     return {
-      isScrollingDown: false, // Contrôle si on défile vers le bas
-      prevScrollPos: 0,       // Position précédente du scroll
+      isScrollingDown: false, 
+      prevScrollPos: 0,       
     };
   },
   mounted() {
-    this.prevScrollPos = window.scrollY; // Initialisation de la position du scroll
-    window.addEventListener("scroll", this.handleScroll); // Ajoute un écouteur
+    this.prevScrollPos = window.scrollY; 
+    window.addEventListener("scroll", this.handleScroll); 
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll); // Nettoie l'écouteur
+    window.removeEventListener("scroll", this.handleScroll); 
   },
   methods: {
     handleScroll() {
       const currentScrollPos = window.scrollY;
-      this.isScrollingDown = currentScrollPos > this.prevScrollPos; // Définit la direction
+      this.isScrollingDown = currentScrollPos > this.prevScrollPos; 
       this.prevScrollPos = currentScrollPos;
     },
   },

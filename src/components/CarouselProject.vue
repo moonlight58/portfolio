@@ -3,13 +3,14 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
   {
-    titre: "Moonify",
-    contenu: "Music player with Imgur API and Discord RPC",
-    image: require("@/assets/images/Moonify.png"),
+    titre: "Spotify-TUI",
+    contenu:
+      "Terminal-based Spotify client lighter than the original application made in C and uses Spotify Web API",
+    image: require("@/assets/images/Spotify-tui.png"),
     categorie: "Personal",
-    status: "Done",
-    language: "Python",
-    url: "https://github.com/moonlight58/Moonify",
+    status: "On Going",
+    language: "C",
+    url: "https://github.com/moonlight58/Spotify-tui",
   },
   {
     titre: "SteamToLinux",
@@ -19,6 +20,15 @@ const projets = ref([
     status: "Done",
     language: "Python",
     url: "https://github.com/moonlight58/SteamToLinux",
+  },
+  {
+    titre: "Moonify",
+    contenu: "Music player with Imgur API and Discord RPC",
+    image: require("@/assets/images/Moonify.png"),
+    categorie: "Personal",
+    status: "Done",
+    language: "Python",
+    url: "https://github.com/moonlight58/Moonify",
   },
   {
     titre: "B.I.E.N.",
@@ -37,15 +47,6 @@ const projets = ref([
     status: "Done",
     language: "Java",
     url: "https://github.com/grothlin-iut90/Roi-des-Roses",
-  },
-  {
-    titre: "Spotify-TUI",
-    contenu: "Terminal-based Spotify client lighter than the original application made in C and uses Spotify Web API",
-    image: require("@/assets/images/Spotify-tui.png"),
-    categorie: "Personal",
-    status: "On Going",
-    language: "C",
-    url: "https://github.com/moonlight58/Spotify-tui",
   },
 ]);
 
