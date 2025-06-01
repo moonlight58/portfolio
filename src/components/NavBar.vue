@@ -58,7 +58,7 @@ export default {
 .navbar .links a {
   text-decoration: none;
   font-size: 0.8rem;
-  padding: 10px 7px;
+  padding: 10px 17px;
   color: #638297;
 }
 
