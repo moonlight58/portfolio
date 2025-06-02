@@ -15,27 +15,26 @@ export default {
   name: "NavBar",
   data() {
     return {
-      isScrollingDown: false, 
-      prevScrollPos: 0,       
+      isScrollingDown: false,
+      prevScrollPos: 0,
     };
   },
   mounted() {
-    this.prevScrollPos = window.scrollY; 
-    window.addEventListener("scroll", this.handleScroll); 
+    this.prevScrollPos = window.scrollY;
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll); 
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
       const currentScrollPos = window.scrollY;
-      this.isScrollingDown = currentScrollPos > this.prevScrollPos; 
+      this.isScrollingDown = currentScrollPos > this.prevScrollPos;
       this.prevScrollPos = currentScrollPos;
     },
   },
 };
 </script>
-
 
 <style scoped>
 .navbar {
@@ -58,7 +57,7 @@ export default {
 .navbar .links a {
   text-decoration: none;
   font-size: 0.8rem;
-  padding: 10px 7px;
+  padding: 10px 17px;
   color: #638297;
 }
 
@@ -96,7 +95,7 @@ export default {
     padding: 15px 30px;
   }
 
-  .navbar .links a{
+  .navbar .links a {
     font-size: 1.1rem;
   }
 }
