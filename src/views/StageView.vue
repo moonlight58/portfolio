@@ -1,4 +1,4 @@
-<template>Add commentMore actions
+<template>
   <div class="stage-view">
     <h2>📝 Internship Context</h2>
     <p>
