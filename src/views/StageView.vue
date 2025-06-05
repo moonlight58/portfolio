@@ -18,11 +18,11 @@
     </p>
     <p>
       L’objectif est double :
-      <strong>promouvoir l’accès au sport pour tous les étudiants en Franche-Comté</strong> et
-      <strong>encourager la solidarité étudiante</strong> en facilitant
+      <strong><i>promouvoir l’accès au sport pour tous les étudiants en Franche-Comté</i></strong> et
+      <strong><i>encourager la solidarité étudiante</i></strong> en facilitant
       l’échange de matériel au sein de la communauté universitaire. Le projet
       s’inscrit également dans une démarche écoresponsable, en favorisant la
-      <strong>réutilisation du matériel sportif</strong> et en réduisant la
+      <strong><i>réutilisation du matériel sportif</i></strong> et en réduisant la
       consommation de produits neufs, contribuant ainsi à une approche plus
       durable de la pratique sportive.
     </p>
@@ -30,6 +30,10 @@
 </template>
 <script setup></script>
 <style scoped>
+strong {
+  color: #bac2de;
+}
+
 .stage-view {
   margin-top: 6rem;
   width: 600px;

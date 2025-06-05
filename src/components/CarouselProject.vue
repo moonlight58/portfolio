@@ -205,6 +205,8 @@ onUnmounted(() => {
   position: relative;
   text-align: center;
   box-sizing: border-box;
+  border-radius: 15px;
+  overflow: hidden;         
 }
 
 .carousel-image {
@@ -215,6 +217,10 @@ onUnmounted(() => {
   transition: opacity 0.5s ease;
 }
 
+.overlay:hover {
+  backdrop-filter: blur(0rem);
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -222,7 +228,7 @@ onUnmounted(() => {
   width: var(--overlay-width);
   height: 99%;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(0.1rem);
+  backdrop-filter: blur(0.2rem);
   color: white;
   display: flex;
   flex-direction: column;
@@ -232,10 +238,7 @@ onUnmounted(() => {
   box-sizing: border-box;
   border-radius: 15px;
   overflow: hidden;
-}
-
-.overlay:hover {
-  cursor: pointer;
+  transition: backdrop-filter 0.3s;
 }
 
 .overlay h3,

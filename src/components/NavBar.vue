@@ -48,6 +48,12 @@ export default {
   transition: padding 0.3s ease;
 }
 
+
+.navbar, .links {
+  font-family: "N27", sans-serif;
+  font-weight: bold;
+}
+
 .navbar .pseudo {
   text-decoration: none;
   color: white;

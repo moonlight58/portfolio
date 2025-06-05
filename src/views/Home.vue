@@ -44,17 +44,6 @@
       </div>
     </div>
 
-    <div class="about">
-      <div class="about-title"><h2>Why this portfolio ?</h2></div>
-      <p class="about-content">
-        This site is developed as part of my Portfolio project during the three
-        years in the BUT. It will be continually updated to reflect my academic
-        and personal projects.
-      </p>
-    </div>
-
-    <Internship />
-
     <div class="project">
       <h2 class="project-title">Projects</h2>
       <p class="project-content">
@@ -63,6 +52,8 @@
       </p>
       <Carousel />
     </div>
+
+    <Internship />
 
     <div class="skills">
       <h2 class="skill-title">What are my Skills ?</h2>
@@ -89,6 +80,15 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="about">
+      <div class="about-title"><h2>Why this portfolio ?</h2></div>
+      <p class="about-content">
+        This site is developed as part of my Portfolio project during the three
+        years in the BUT. It will be continually updated to reflect my academic
+        and personal projects.
+      </p>
     </div>
 
     <div class="contact">
@@ -165,7 +165,6 @@ export default {
 </script>
 
 <style scoped>
-
 .funny-shape {
   position: absolute;
   top: 50%;
@@ -194,7 +193,7 @@ export default {
 .presentation-header img {
   border-radius: 50%;
   max-width: 50px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .presentation-content .title {
@@ -226,6 +225,10 @@ export default {
 .about-title {
   margin: 75px 0 10px 0;
   font-weight: bold;
+}
+
+.project {
+  margin-bottom: 75px;
 }
 
 .project-title,
@@ -272,6 +275,11 @@ export default {
   width: 90px;
   height: 90px;
   margin-bottom: 5px;
+  transition: transform 0.3s;
+}
+
+.language-div:hover img {
+  transform: scale(1.17);
 }
 
 .contact {
@@ -358,5 +366,4 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 </style>

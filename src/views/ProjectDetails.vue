@@ -45,7 +45,7 @@
       <p>{{ project.description }}</p>
       <ul>
         <li><strong>Category :</strong> {{ project.categorie }}</li>
-        <li><strong>Status :</strong> {{ project.status }}</li>
+        <li>The project is <strong>{{ project.status }}</strong></li>
       </ul>
 
       <div
@@ -189,7 +189,7 @@ h1 {
 }
 
 .project-content {
-  text-align: left;
+  text-align: justify;
 }
 
 .project-content li {

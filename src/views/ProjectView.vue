@@ -114,6 +114,7 @@ onMounted(() => {
 
 <style scoped>
 .container {
+  font-family: "N27", sans-serif;
   margin-top: 5rem;
   padding: 0 20px;
   width: 90vw;
@@ -129,7 +130,7 @@ onMounted(() => {
 }
 
 .container button {
-  font-family: "Cascadia Code", sans-serif;
+  font-family: "N27", sans-serif;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   color: rgb(34, 214, 255);

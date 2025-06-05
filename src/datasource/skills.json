@@ -4,14 +4,8 @@
       { "name": "C", "url": "https://fr.wikipedia.org/wiki/C_(langage)" },
       { "name": "Java", "url": "https://fr.wikipedia.org/wiki/Java_(langage)" },
       { "name": "Python", "url": "https://www.python.org" },
-      { "name": "Rust", "url": "https://www.rust-lang.org/" }
-    ]
-  },
-  "Game Development": {
-    "language": [
-      { "name": "CSharp", "url": "https://fr.wikipedia.org/wiki/C_sharp" },
-      { "name": "Godot", "url": "https://godotengine.org/" },
-      { "name": "Unity", "url": "https://unity.com/" }
+      { "name": "Rust", "url": "https://www.rust-lang.org/" },
+      { "name": "Git", "url": "https://git-scm.com/"}
     ]
   },
   "Back-end Web": {
@@ -19,21 +13,36 @@
       { "name": "ExpressJS", "url": "https://expressjs.com/" },
       { "name": "Flask", "url": "https://flask.palletsprojects.com/en/stable/" },
       { "name": "NodeJS", "url": "https://nodejs.org/fr" },
+      { "name": "JavaScript", "url": "https://en.wikipedia.org/wiki/JavaScript" },
+      { "name": "SocketIO", "url": "https://socket.io/"},
       { "name": "Python", "url": "https://www.python.org" },
-      { "name": "SQL", "url": "https://sql.sh" }
+      { "name": "SQL", "url": "https://sql.sh" },
+      { "name": "MongoDB", "url": "https://www.mongodb.com/"}
     ]
   },
   "Front-end Web": {
     "language": [
-      { "name": "Bootstrap", "url": "https://getbootstrap.com/" },
+      { "name": "HTML", "url": "https://fr.wikipedia.org/wiki/Hypertext_Markup_Language"},
+      { "name": "CSS", "url": "https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade"},
+      { "name": "VueJS", "url": "https://vuejs.org/" },
+      { "name": "Quasar", "url": "https://quasar.dev/"},
+      { "name": "Angular", "url": "https://angular.dev/"},
       { "name": "JavaScript", "url": "https://en.wikipedia.org/wiki/JavaScript" },
-      { "name": "Tailwind", "url": "https://tailwindcss.com/" },
-      { "name": "VueJS", "url": "https://vuejs.org/" }
+      { "name": "Bootstrap", "url": "https://getbootstrap.com/" },
+      { "name": "Tailwind", "url": "https://tailwindcss.com/" }
     ]
   },
-  "Art" : {
+  "Game Development": {
     "language": [
-      { "name": "Blender", "url": "https://www.blender.org/"},
+      { "name": "CSharp", "url": "https://fr.wikipedia.org/wiki/C_sharp" },
+      { "name": "Godot", "url": "https://godotengine.org/" },
+      { "name": "Unity", "url": "https://unity.com/" },
+      { "name": "Python", "url": "https://www.python.org" }
+    ]
+  },
+  "Art": {
+    "language": [
+      { "name": "Blender", "url": "https://www.blender.org/" },
       { "name": "Krita", "url": "https://krita.org/fr/" }
     ]
   }

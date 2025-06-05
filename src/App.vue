@@ -39,14 +39,15 @@ export default {
   align-items: center;
 }
 
-h2 {
+h1, h2 {
   font-family: "Titillium Web", sans-serif;
   font-weight: bold;
 }
 
-p {
+p, li, ul, strong {
   font-family: "N27", sans-serif;
   font-size: 1.1rem;
+  line-height: 1.4;
 }
 
 /* fancy button */
