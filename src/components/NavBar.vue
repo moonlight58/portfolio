@@ -5,6 +5,7 @@
       <div class="links">
         <router-link to="/projects">projects</router-link>
         <router-link to="/about-me">about me</router-link>
+        
       </div>
     </div>
   </div>
