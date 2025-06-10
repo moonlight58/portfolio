@@ -44,7 +44,7 @@ h1, h2 {
   font-weight: bold;
 }
 
-p, li, ul, strong {
+p, li, ul, strong, h3 {
   font-family: "N27", sans-serif;
   font-size: 1.1rem;
   line-height: 1.4;

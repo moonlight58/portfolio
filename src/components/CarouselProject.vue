@@ -247,6 +247,7 @@ onUnmounted(() => {
 }
 
 .overlay h3 {
+  font-family: "N27", sans-serif;
   font-size: 1.5rem;
   margin: 5% 7% 5% 7%;
 }

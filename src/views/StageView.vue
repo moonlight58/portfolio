@@ -1,100 +1,572 @@
 <template>
   <div class="stage-view">
-    <h2>📝 Internship Context</h2>
-    <p>
-      J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack
-      au Learning Centre Claude Oytana à Besançon, France, d'avril 2025 à mai
-      2025. Ma mission était de créer une application mobile appelée « Euphron
-      », permettant aux étudiants de l'Université de Franche-Comté de donner ou
-      de prendre du matériel sportif d'occasion sur un système de don.
-      L'objectif est de favoriser l'accès au sport tout en promouvant la
-      solidarité entre étudiants.
-    </p>
-    <img src="../assets/Euphron.svg" alt="">
-    <p>
-      La réalisation de cette application a été proposée par des étudiants en
-      STAPS, à la suite d’une étude de marché portant sur l’accès au matériel
-      sportif dans leur cursus. Cette étude a révélé que, si certaines écoles
-      parviennent à fournir le matériel nécessaire à leurs étudiants, dans de
-      nombreuses autres, ce sont les étudiants eux-mêmes qui doivent financer
-      leur équipement.
-    </p>
-    <p>
-      Cette situation représente un coût important, parfois inaccessible, et
-      constitue un frein à la pratique du sport. Face à ce constat, ces
-      étudiants de l’UFR STAPS de Besançon ont proposé la création d’une
-      application locale permettant aux étudiants de donner, prêter ou récupérer
-      du matériel sportif d’occasion.
-    </p>
-    <p>
-      L’objectif est double :
-      <strong>promouvoir l’accès au sport pour tous les étudiants en Franche-Comté</strong>
-      et <strong>encourager la solidarité étudiante</strong> en facilitant
-      l’échange de matériel au sein de la communauté universitaire. Le projet
-      s’inscrit également dans une démarche écoresponsable, en favorisant la
-      <strong>réutilisation du matériel sportif</strong> et en réduisant la
-      consommation de produits neufs, contribuant ainsi à une approche plus
-      durable de la pratique sportive.
-    </p>
-    <br />
-    <div>
-      <h2>Sécurité</h2>
+    <!-- 1. Contexte et objectifs -->
+    <section class="section">
+      <h2>🎯 Contexte et objectifs du projet</h2>
       <p>
-        J'ai appris durant le développement de cette application que les
-        utilisateurs peuvent faire de l'injection de requête SQL à travers les
-        inputs qui sont mis à disposition. Pour éviter ceci, on peut faire deux
-        types de vérifications, premièrement on peut faire une vérification des
-        champs de texte remplis avec un <strong>système regex</strong> (voir
-        Figure 1)
+        J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack
+        au Learning Centre Claude Oytana à Besançon, France, d'avril 2025 à mai
+        2025. Ma mission était de créer une application mobile appelée « Euphron
+        », permettant aux étudiants de l'Université de Franche-Comté de donner ou
+        de prendre du matériel sportif d'occasion sur un système de don.
       </p>
-      <div>
-        <img src="../assets/stage/RegexCheck.png" alt="" />
-        <p class="légende">(Figure 1)</p>
+      <img src="../assets/Euphron.svg" alt="Logo Euphron" class="logo" />
+      
+      <p>
+        La réalisation de cette application a été proposée par des étudiants en
+        STAPS, à la suite d'une étude de marché portant sur l'accès au matériel
+        sportif dans leur cursus. Cette étude a révélé que, si certaines écoles
+        parviennent à fournir le matériel nécessaire à leurs étudiants, dans de
+        nombreuses autres, ce sont les étudiants eux-mêmes qui doivent financer
+        leur équipement.
+      </p>
+      
+      <p>
+        Le projet s'est développé en parallèle d'un événement existant appelé 
+        <strong>"trocBU"</strong> organisé par la bibliothèque universitaire, 
+        où un troc était organisé pendant une journée. L'idée était de fusionner 
+        ces deux initiatives en une seule application numérique permanente.
+      </p>
+      
+      <div class="objectives">
+        <p>L'objectif était triple :</p>
+        <ul>
+          <li><strong>Promouvoir l'accès au sport</strong> pour tous les étudiants en Franche-Comté</li>
+          <li><strong>Encourager la solidarité étudiante</strong> en facilitant l'échange de matériel</li>
+          <li><strong>Favoriser la réutilisation</strong> dans une démarche écoresponsable</li>
+        </ul>
+        <p class="constraint">
+          <strong>Contrainte principale :</strong> Aucun gain monétaire autorisé - 
+          tout devait être gratuit, basé sur la solidarité étudiante.
+        </p>
       </div>
+    </section>
+
+    <!-- 2. Mon rôle et responsabilités -->
+    <section class="section">
+      <h2>👨‍💻 Mon rôle et responsabilités</h2>
       <p>
-        C'est une bonne méthode (côté frontend) pour vérifier que l'utilisateur
-        n'essaie pas de nuir au fonctionnement de l'application mais nous
-        pouvons faire mieux (côté backend) en utilisant un système de
-        <strong>requêtes préparées</strong>
+        J'ai été chargé de réaliser <strong>l'entièreté de l'application web</strong> 
+        (compatible ordinateur et mobile) en totale autonomie. Mes responsabilités incluaient :
       </p>
-      <div>
-        <img src="../assets/stage/PreparedQuery.png" alt="" />
-        <p class="légende">(Figure 2)</p>
+      <ul>
+        <li>Conception du visuel sur <strong>Figma</strong> pour validation client</li>
+        <li>Développement <strong>frontend</strong> (interface utilisateur)</li>
+        <li>Développement <strong>backend/serveur</strong> (API et logique métier)</li>
+        <li>Conception et gestion de la <strong>base de données</strong></li>
+        <li>Collaboration avec la DSIN pour l'hébergement futur</li>
+      </ul>
+      <p>
+        Cette autonomie m'a permis de prendre des initiatives tout en respectant 
+        les besoins clients, même lors de changements de spécifications.
+      </p>
+    </section>
+
+    <!-- 3. Organisation du projet -->
+    <section class="section">
+      <h2>⏱️ Organisation du projet (8 semaines)</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="week">Semaines 1-2</span>
+          <span class="task">Préparation du visuel et définition des fonctionnalités</span>
+        </div>
+        <div class="timeline-item">
+          <span class="week">Semaine 3</span>
+          <span class="task">Recherche de technologies et réunions de validation</span>
+        </div>
+        <div class="timeline-item">
+          <span class="week">Semaines 4-8</span>
+          <span class="task">Développement (frontend, backend, base de données)</span>
+        </div>
       </div>
+      
       <p>
-        Cette pratique d'utiliser les <strong>requêtes préparées</strong> ou
-        appelée <strong>requêtes paramétrées</strong> est très bonne car elles:
+        <strong>Méthodologie :</strong> Réunions hebdomadaires avec l'équipe de la BU 
+        et mon tuteur de stage. Utilisation de <strong>Git</strong> pour le versioning 
+        et <strong>Trello</strong> pour la gestion des tâches.
       </p>
-      <li>empêchent les injections SQL</li>
-      <li>sont supportées par tous les moteurs SQL modernes</li>
-      <li>sont la base de tous les ORM modernes</li>
-    </div>
+    </section>
+
+    <!-- 4. Choix techniques et architecture -->
+    <section class="section">
+      <h2>🛠️ Choix techniques et architecture</h2>
+      
+      <div class="tech-stack">
+        <div class="tech-category">
+          <h3>Frontend</h3>
+          <ul>
+            <li><strong>Vue.js 3</strong> - Framework principal (Composition API, script setup)</li>
+            <li><strong>Quasar Framework</strong> - UI framework pour la compatibilité mobile</li>
+            <li><strong>Pinia</strong> - Gestion d'état (remplaçant de Vuex)</li>
+            <li><strong>Socket.io-client</strong> - Communication temps réel</li>
+            <li><strong>Capacitor</strong> - Transformation en app mobile native</li>
+            <li><strong>Axios</strong> - Requêtes HTTP</li>
+          </ul>
+        </div>
+        
+        <div class="tech-category">
+          <h3>Backend</h3>
+          <ul>
+            <li><strong>Node.js</strong> - Environnement d'exécution JavaScript</li>
+            <li><strong>Express.js</strong> - Framework web</li>
+            <li><strong>MySQL</strong> - Base de données relationnelle</li>
+            <li><strong>Socket.io</strong> - WebSocket pour le chat temps réel</li>
+            <li><strong>Architecture MVC</strong> - Models, Services, Controllers, Routes</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p>
+        <strong>Justification des choix :</strong> J'ai privilégié Vue.js car je maîtrise 
+        bien ce framework, contrairement à Angular ou React. Quasar était le choix idéal 
+        pour la compatibilité mobile native, répondant parfaitement aux exigences du projet.
+      </p>
+    </section>
+
+    <!-- 5. Fonctionnalités développées -->
+    <section class="section">
+      <h2>⚡ Fonctionnalités développées</h2>
+      
+      <div class="features-grid">
+        <div class="feature-category">
+          <h3>Gestion utilisateur</h3>
+          <ul>
+            <li>Inscription / Connexion</li>
+            <li>Modification du profil</li>
+            <li>Système d'authentification</li>
+          </ul>
+        </div>
+        
+        <div class="feature-category">
+          <h3>Gestion des articles</h3>
+          <ul>
+            <li>Ajout d'articles sportifs</li>
+            <li>Modification / Suppression</li>
+            <li>Système de catégories</li>
+          </ul>
+        </div>
+        
+        <div class="feature-category">
+          <h3>Communication</h3>
+          <ul>
+            <li>Chat en temps réel (Socket.IO)</li>
+            <li>Messagerie entre utilisateurs</li>
+          </ul>
+        </div>
+        
+        <div class="feature-category">
+          <h3>Administration</h3>
+          <ul>
+            <li>Gestion des catégories de sport</li>
+            <li>Gestion des comptes utilisateurs</li>
+            <li>Modération du contenu</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p class="highlight">
+        <strong>Partie la plus enrichissante :</strong> Le développement du chat en temps réel 
+        avec Socket.IO était une première pour moi. La documentation excellente m'a permis 
+        de comprendre rapidement les concepts et d'implémenter cette fonctionnalité avec succès.
+      </p>
+      
+      <div class="progress">
+        <p><strong>État d'avancement :</strong> 70% des fonctionnalités réalisées</p>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 70%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Défis techniques rencontrés -->
+    <section class="section">
+      <h2>🔧 Défis techniques rencontrés</h2>
+      
+      <div class="challenge">
+        <h3>Intégration Capacitor</h3>
+        <p>
+          <strong>Problème :</strong> Pour tester l'application mobile, je devais la connecter 
+          au serveur local. Malgré mes tentatives de création d'une adresse accessible 
+          via le réseau local, cette intégration s'est révélée problématique.
+        </p>
+        <p>
+          <strong>Solution :</strong> J'ai mis cette partie de côté pour me concentrer 
+          sur le développement des fonctionnalités core, tout en maintenant la compatibilité mobile.
+        </p>
+      </div>
+      
+      <div class="challenge">
+        <h3>Tests utilisateurs limités</h3>
+        <p>
+          Seule une dizaine d'utilisateurs (étudiants STAPS et équipe BU) ont pu tester 
+          l'application en raison du manque de peaufinage à ce stade du développement.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. Sécurité et bonnes pratiques -->
+    <section class="section">
+      <h2>🛡️ Sécurité et bonnes pratiques</h2>
+      <p>
+        Durant le développement, j'ai appris l'importance de la sécurisation contre 
+        les injections SQL. J'ai implémenté une double protection :
+      </p>
+      
+      <div class="security-method">
+        <h3>1. Vérification frontend (Regex)</h3>
+        <img src="../assets/stage/RegexCheck.png" alt="Vérification Regex" />
+        <p class="legend">(Figure 1 - Système de validation regex)</p>
+        <p>
+          Cette méthode côté frontend vérifie que l'utilisateur n'essaie pas 
+          de nuire au fonctionnement de l'application.
+        </p>
+      </div>
+      
+      <div class="security-method">
+        <h3>2. Requêtes préparées (Backend)</h3>
+        <img src="../assets/stage/PreparedQuery.png" alt="Requêtes préparées" />
+        <p class="legend">(Figure 2 - Implémentation des requêtes préparées)</p>
+        <p>
+          Les <strong>requêtes préparées</strong> (ou paramétrées) offrent une protection robuste car elles :
+        </p>
+        <ul>
+          <li>Empêchent les injections SQL</li>
+          <li>Sont supportées par tous les moteurs SQL modernes</li>
+          <li>Constituent la base de tous les ORM modernes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. État d'avancement et suite à donner -->
+    <section class="section">
+      <h2>🚀 État d'avancement et suite à donner</h2>
+      
+      <div class="status">
+        <h3>Actuellement en développement</h3>
+        <p>
+          L'application n'a pas encore été mise en production, nécessitant 
+          encore du peaufinage et le développement des fonctionnalités restantes.
+        </p>
+      </div>
+      
+      <div class="remaining-tasks">
+        <h3>Fonctionnalités restantes</h3>
+        <ul>
+          <li>Gestion complète des articles en tant qu'admin</li>
+          <li>Amélioration de la gestion utilisateurs (administration)</li>
+          <li>Peaufinage du système de chat en temps réel</li>
+        </ul>
+      </div>
+      
+      <div class="proposals">
+        <h3>Mes propositions d'amélioration</h3>
+        <ul>
+          <li>
+            <strong>Optimisation stockage :</strong> Passage à deux bases de données 
+            si le stockage des images devient problématique (séparation des données)
+          </li>
+          <li>
+            <strong>Performance chat :</strong> Migration du chat vers MongoDB 
+            pour améliorer l'efficacité des messages temps réel
+          </li>
+        </ul>
+      </div>
+      
+      <p>
+        J'ai laissé un document complet "suite à donner" répertoriant 
+        mes réalisations, les tâches restantes et mes recommandations techniques.
+      </p>
+    </section>
+
+    <!-- 9. Apprentissages et retour d'expérience -->
+    <section class="section">
+      <h2>🎓 Apprentissages et retour d'expérience</h2>
+      
+      <div class="learnings">
+        <h3>Compétences techniques acquises</h3>
+        <ul>
+          <li>Maîtrise de <strong>Socket.IO</strong> pour la communication temps réel</li>
+          <li>Approfondissement de la <strong>sécurité web</strong> (injections SQL, requêtes préparées)</li>
+          <li>Expérience complète du <strong>développement full-stack</strong></li>
+          <li>Utilisation de <strong>Quasar</strong> pour le développement mobile</li>
+        </ul>
+      </div>
+      
+      <div class="learnings">
+        <h3>Compétences transversales</h3>
+        <ul>
+          <li><strong>Autonomie</strong> dans la gestion d'un projet complet</li>
+          <li><strong>Adaptabilité</strong> face aux changements de spécifications</li>
+          <li><strong>Communication client</strong> et gestion des attentes</li>
+          <li><strong>Prise d'initiatives</strong> et propositions d'améliorations</li>
+        </ul>
+      </div>
+      
+      <div class="reflection">
+        <h3>Si c'était à refaire</h3>
+        <p>
+          J'aurais préféré travailler en équipe pour plus d'efficacité. 
+          En étant seul, je n'ai pas pu réaliser autant de fonctionnalités 
+          que souhaité, bien que cela m'ait permis de développer mon autonomie 
+          et ma capacité à gérer un projet dans sa globalité.
+        </p>
+      </div>
+    </section>
   </div>
 </template>
+
 <script setup></script>
+
 <style scoped>
-img {
-  width: 100%;
-  height: auto;
-  margin-top: 1rem;
+.stage-view {
+  margin-top: 6rem;
+  width: 600px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.stage-view h2 {
+  margin-bottom: 1.5rem;
+  color: #90a8ff;
+  font-size: 1.5rem;
+}
+
+.stage-view h3 {
+  margin-bottom: 1rem;
+  color: #b8c5ff;
+  font-size: 1.2rem;
+}
+
+.stage-view p {
+  margin-bottom: 1rem;
+}
+
+.stage-view ul {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.stage-view li {
+  margin-bottom: 0.5rem;
 }
 
 strong {
   color: #90a8ff;
 }
 
-.stage-view {
-  margin-top: 6rem;
-  width: 600px;
-  text-align: justify;
+.logo {
+  width: 200px;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
 }
 
-.stage-view h2 {
-  margin-bottom: 1.5rem;
+img {
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
 }
 
-.stage-view p {
-  line-height: 1.5;
+.legend {
+  text-align: center;
+  font-style: italic;
+  color: #888;
   margin-bottom: 1rem;
+}
+
+.objectives {
+  background: rgba(144, 168, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.constraint {
+  background: rgba(255, 193, 144, 0.1);
+  padding: 1rem;
+  border-left: 4px solid #ffc190;
+  margin-top: 1rem;
+}
+
+.timeline {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.week {
+  background: #90a8ff;
+  color: #1a1a1a;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  min-width: 120px;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.task {
+  flex: 1;
+}
+
+.tech-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.tech-category {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.tech-category h3 {
+  color: #90a8ff;
+  margin-bottom: 1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.feature-category {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.feature-category h3 {
+  color: #90a8ff;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  background: rgba(144, 168, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #90a8ff;
+  margin: 1rem 0;
+}
+
+.progress {
+  margin: 1.5rem 0;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #90a8ff, #b8c5ff);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.challenge {
+  background: rgba(255, 193, 144, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border-left: 4px solid #ffc190;
+}
+
+.challenge h3 {
+  color: #ffc190;
+  margin-bottom: 1rem;
+}
+
+.security-method {
+  margin: 2rem 0;
+}
+
+.security-method h3 {
+  color: #90a8ff;
+  margin-bottom: 1rem;
+}
+
+.status, .remaining-tasks, .proposals {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.status h3, .remaining-tasks h3, .proposals h3 {
+  color: #90a8ff;
+  margin-bottom: 1rem;
+}
+
+.learnings {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.learnings h3 {
+  color: #90a8ff;
+  margin-bottom: 1rem;
+}
+
+.reflection {
+  background: rgba(144, 168, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #90a8ff;
+  margin: 1rem 0;
+}
+
+.reflection h3 {
+  color: #90a8ff;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .stage-view {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .tech-stack, .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .week {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
 }
 </style>
