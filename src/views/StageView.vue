@@ -1,7 +1,23 @@
 <template>
   <div class="stage-view">
+    <!-- Scrollspy Navigation -->
+    <nav class="scrollspy-nav">
+      <ul class="nav-list">
+        <li><a @click="scrollToSection('contexte')" :class="{ active: activeSection === 'contexte' }">🎯 Contexte</a></li>
+        <li><a @click="scrollToSection('role')" :class="{ active: activeSection === 'role' }">👨‍💻 Mon rôle (UE4 - UE5 - UE6)</a></li>
+        <li><a @click="scrollToSection('organisation')" :class="{ active: activeSection === 'organisation' }">⏱️ Organisation</a></li>
+        <li><a @click="scrollToSection('technologies')" :class="{ active: activeSection === 'technologies' }">🛠️ Technologies (UE1)</a></li>
+        <li><a @click="scrollToSection('fonctionnalites')" :class="{ active: activeSection === 'fonctionnalites' }">⚡ Fonctionnalités</a></li>
+        <li><a @click="scrollToSection('defis')" :class="{ active: activeSection === 'defis' }">🔧 Défis techniques</a></li>
+        <li><a @click="scrollToSection('securite')" :class="{ active: activeSection === 'securite' }">🛡️ Sécurité (UE4)</a></li>
+        <li><a @click="scrollToSection('avancement')" :class="{ active: activeSection === 'avancement' }">🚀 État d'avancement</a></li>
+        <li><a @click="scrollToSection('apprentissages')" :class="{ active: activeSection === 'apprentissages' }">🎓 Apprentissages</a></li>
+        <li><a @click="scrollToSection('compétences')" :class="{ active: activeSection === 'compétences' }">🧠 Compétences ciblées</a></li>
+      </ul>
+    </nav>
+    
     <!-- 1. Contexte et objectifs -->
-    <section class="section">
+    <section id="contexte" class="section">
       <h2>🎯 Contexte et objectifs du projet</h2>
       <p>
         J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack
@@ -43,8 +59,8 @@
     </section>
 
     <!-- 2. Mon rôle et responsabilités -->
-    <section class="section">
-      <h2>👨‍💻 Mon rôle et responsabilités</h2>
+    <section id="role" class="section">
+      <h2>👨‍💻 Mon rôle et responsabilités (UE4 - UE5 - UE6)</h2>
       <p>
         J'ai été chargé de réaliser <strong>l'entièreté de l'application web</strong> 
         (compatible ordinateur et mobile) en totale autonomie. Mes responsabilités incluaient :
@@ -63,7 +79,7 @@
     </section>
 
     <!-- 3. Organisation du projet -->
-    <section class="section">
+    <section id="organisation" class="section">
       <h2>⏱️ Organisation du projet (8 semaines)</h2>
       <div class="timeline">
         <div class="timeline-item">
@@ -88,8 +104,10 @@
     </section>
 
     <!-- 4. Choix techniques et architecture -->
-    <section class="section">
-      <h2>🛠️ Choix techniques et architecture</h2>
+    <section id="technologies" class="section">
+      <h2>🛠️ Choix techniques et architecture 
+        (UE1)
+      </h2>
       
       <div class="tech-stack">
         <div class="tech-category">
@@ -124,7 +142,7 @@
     </section>
 
     <!-- 5. Fonctionnalités développées -->
-    <section class="section">
+    <section id="fonctionnalites" class="section">
       <h2>⚡ Fonctionnalités développées</h2>
       
       <div class="features-grid">
@@ -179,7 +197,7 @@
     </section>
 
     <!-- 6. Défis techniques rencontrés -->
-    <section class="section">
+    <section id="defis" class="section">
       <h2>🔧 Défis techniques rencontrés</h2>
       
       <div class="challenge">
@@ -205,8 +223,8 @@
     </section>
 
     <!-- 7. Sécurité et bonnes pratiques -->
-    <section class="section">
-      <h2>🛡️ Sécurité et bonnes pratiques</h2>
+    <section id="securite" class="section">
+      <h2>🛡️ Sécurité et bonnes pratiques (UE4)</h2>
       <p>
         Durant le développement, j'ai appris l'importance de la sécurisation contre 
         les injections SQL. J'ai implémenté une double protection :
@@ -238,7 +256,7 @@
     </section>
 
     <!-- 8. État d'avancement et suite à donner -->
-    <section class="section">
+    <section id="avancement" class="section">
       <h2>🚀 État d'avancement et suite à donner</h2>
       
       <div class="status">
@@ -279,7 +297,7 @@
     </section>
 
     <!-- 9. Apprentissages et retour d'expérience -->
-    <section class="section">
+    <section id="apprentissages" class="section">
       <h2>🎓 Apprentissages et retour d'expérience</h2>
       
       <div class="learnings">
@@ -312,12 +330,129 @@
         </p>
       </div>
     </section>
+
+    <!-- 10. Compétences ciblées -->
+    <section id="compétences" class="section">
+      <h2>🧠 Compétences ciblées</h2>
+    </section>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const activeSection = ref('contexte')
+
+// Fonction pour faire défiler vers une section avec offset
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const navbarHeight = 70 // Ajustez cette valeur selon la hauteur de votre navbar
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+    const offsetPosition = elementPosition - navbarHeight
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
+
+const handleScroll = () => {
+  const sections = ['contexte', 'role', 'organisation', 'technologies', 'fonctionnalites', 'defis', 'securite', 'avancement', 'apprentissages', 'compétences']
+  
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const element = document.getElementById(sections[i])
+    if (element) {
+      const rect = element.getBoundingClientRect()
+      if (rect.top <= 200) {
+        activeSection.value = sections[i]
+        break
+      }
+    }
+  }
+}
+
+onMounted(() => {
+  // Smooth scroll pour tous les navigateurs
+  document.documentElement.style.scrollBehavior = 'smooth'
+  
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Initial check
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
 
 <style scoped>
+/* Scrollspy Navigation */
+.scrollspy-nav {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(144, 168, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 200px;
+}
+
+.nav-list li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-list a {
+  display: block;
+  color: #888;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+.nav-list a:hover {
+  color: #90a8ff;
+  background: rgba(144, 168, 255, 0.1);
+  border-left-color: #90a8ff;
+}
+
+.nav-list a.active {
+  color: #90a8ff;
+  background: rgba(144, 168, 255, 0.15);
+  border-left-color: #90a8ff;
+  font-weight: 600;
+}
+
+.scrollspy-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollspy-nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.scrollspy-nav::-webkit-scrollbar-thumb {
+  background: #90a8ff;
+  border-radius: 2px;
+}
+
 .stage-view {
   margin-top: 6rem;
   width: 600px;
@@ -550,6 +685,10 @@ img {
 }
 
 @media (max-width: 768px) {
+  .scrollspy-nav {
+    display: none;
+  }
+  
   .stage-view {
     width: 100%;
     padding: 0 1rem;
