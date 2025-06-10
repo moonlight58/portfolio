@@ -360,7 +360,13 @@
         <p class="legend">(Figure 1 - Système de validation regex)</p>
         <p>
           Cette méthode côté frontend vérifie que l'utilisateur n'essaie pas de
-          nuire au fonctionnement de l'application.
+          nuire au fonctionnement de l'application en utilisant
+          l'<strong>EX</strong>préssion <strong>RÉG</strong>ulière
+          <strong>(REGEX)</strong> qui vérifie que les champs (nom, email,
+          téléphone) ne contiennent pas de caractères suspects comme
+          <span class="special-character"> ' " ; -- / * </span>, etc. Et qui va
+          refuser toute chaîne contenant des mots-clés SQL classiques (<span class="special-character">SELECT</span>,
+          <span class="special-character">DROP</span>, <span class="special-character">INSERT</span>, etc.).
         </p>
       </div>
 
@@ -753,6 +759,14 @@ strong {
   color: #90a8ff;
 }
 
+.special-character {
+  color: #ff6b6b;
+  font-weight: bold;
+  background-color: #4d3a3a;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
 .logo {
   width: 200px;
   height: auto;
@@ -996,7 +1010,7 @@ img {
 .ue1-link,
 .ue4-link,
 .transverse-link {
-  cursor: pointer;;
+  cursor: pointer;
   text-decoration: underline;
   transition: color 0.3s ease;
 }
