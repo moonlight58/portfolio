@@ -23,7 +23,7 @@
       
       <p>
         Le projet s'est développé en parallèle d'un événement existant appelé 
-        <strong>"trocBU"</strong> organisé par la bibliothèque universitaire, 
+        <strong>"Troc Party sport"</strong> organisé par la bibliothèque universitaire, 
         où un troc était organisé pendant une journée. L'idée était de fusionner 
         ces deux initiatives en une seule application numérique permanente.
       </p>
