@@ -39,8 +39,11 @@
           >
         </li>
         <li>
-          <a @click="scrollToSection('architecture')"
-          :class="{ active: activeSection === 'architecture'}">🏗️ Architecture technique</a>
+          <a
+            @click="scrollToSection('architecture')"
+            :class="{ active: activeSection === 'architecture' }"
+            >🏗️ Architecture technique</a
+          >
         </li>
         <li>
           <a
@@ -321,80 +324,85 @@
     </section>
 
     <!-- Architecture technique -->
-    <section id="architecture" class="architecture-section">
-      <h3>🏗️ Architecture technique</h3>
+    <div class="section">
+      <section id="architecture" class="architecture-section">
+        <h3>🏗️ Architecture technique</h3>
 
-      <div class="diagram-container">
-        <img
-          src="../assets/stage/Diagram.png"
-          alt="Diagramme d'architecture de l'application Euphron"
-          class="architecture-diagram"
-        />
-        <p class="legend">(Figure 3 - Architecture globale de l'application)</p>
-      </div>
-
-      <div class="architecture-explanation">
-        <p>
-          L'architecture de l'application repose sur une
-          <strong>séparation claire</strong> entre le frontend, développé avec
-          Quasar/Vue.js, et le backend, construit autour d'Express, Socket.io et
-          MySQL.
-        </p>
-
-        <div class="flow-description">
-          <h4>🔄 Flux de données classiques (HTTP)</h4>
-          <p>
-            Lorsqu'un utilisateur interagit avec l'interface via son navigateur,
-            ses actions sont prises en charge par les
-            <strong>composants Vue</strong>, qui orchestrent l'affichage et la
-            logique de l'application. Ces composants, lorsqu'ils ont besoin
-            d'accéder à des données ou de déclencher des opérations côté
-            serveur, font appel à des
-            <strong>services JavaScript dédiés</strong>. Pour les échanges
-            classiques, comme la récupération ou la modification de données
-            (gestion des utilisateurs ou des articles), ces services utilisent
-            <strong>Axios</strong> pour envoyer des requêtes HTTP au serveur
-            Express.
-          </p>
-          <p>
-            Ce dernier reçoit les requêtes via ses <strong>routes REST</strong>,
-            traite la logique métier à travers des services Node.js, puis
-            interagit avec la <strong>base de données MySQL</strong> pour lire
-            ou écrire les informations nécessaires. Une fois l'opération
-            terminée, la réponse est renvoyée au frontend sous forme de données
-            JSON, permettant à l'interface de se mettre à jour en conséquence.
+        <div class="diagram-container">
+          <img
+            src="../assets/stage/Diagram.png"
+            alt="Diagramme d'architecture de l'application Euphron"
+            class="architecture-diagram"
+          />
+          <p class="legend">
+            (Figure 3 - Architecture globale de l'application)
           </p>
         </div>
 
-        <div class="flow-description">
-          <h4>⚡ Communication temps réel (WebSockets)</h4>
+        <div class="architecture-explanation">
           <p>
-            Parallèlement à ce fonctionnement traditionnel, l'application
-            intègre également une dimension temps réel grâce à
-            <strong>Socket.io</strong>. Pour des fonctionnalités comme le chat
-            ou les notifications instantanées, les composants Vue communiquent
-            avec le serveur via le <strong>client Socket.io</strong>, qui
-            établit une connexion WebSocket persistante.
+            L'architecture de l'application repose sur une
+            <strong>séparation claire</strong> entre le frontend, développé avec
+            Quasar/Vue.js, et le backend, construit autour d'Express, Socket.io
+            et MySQL.
           </p>
-          <p>
-            Les événements émis par le frontend sont captés par le
-            <strong>serveur Socket.io</strong>, qui peut alors traiter ces
-            messages, éventuellement interagir avec la base de données, puis
-            redistribuer les informations en temps réel à tous les clients
-            concernés.
-          </p>
-        </div>
 
-        <div class="architecture-summary">
-          <p>
-            <strong>Résultat :</strong> L'ensemble du système permet à la fois
-            une gestion efficace des données via des requêtes HTTP classiques et
-            une communication instantanée grâce aux WebSockets, offrant à
-            l'utilisateur une <strong>expérience fluide et réactive</strong>.
-          </p>
+          <div class="flow-description">
+            <h4>🔄 Flux de données classiques (HTTP)</h4>
+            <p>
+              Lorsqu'un utilisateur interagit avec l'interface via son
+              navigateur, ses actions sont prises en charge par les
+              <strong>composants Vue</strong>, qui orchestrent l'affichage et la
+              logique de l'application. Ces composants, lorsqu'ils ont besoin
+              d'accéder à des données ou de déclencher des opérations côté
+              serveur, font appel à des
+              <strong>services JavaScript dédiés</strong>. Pour les échanges
+              classiques, comme la récupération ou la modification de données
+              (gestion des utilisateurs ou des articles), ces services utilisent
+              <strong>Axios</strong> pour envoyer des requêtes HTTP au serveur
+              Express.
+            </p>
+            <p>
+              Ce dernier reçoit les requêtes via ses
+              <strong>routes REST</strong>, traite la logique métier à travers
+              des services Node.js, puis interagit avec la
+              <strong>base de données MySQL</strong> pour lire ou écrire les
+              informations nécessaires. Une fois l'opération terminée, la
+              réponse est renvoyée au frontend sous forme de données JSON,
+              permettant à l'interface de se mettre à jour en conséquence.
+            </p>
+          </div>
+
+          <div class="flow-description">
+            <h4>⚡ Communication temps réel (WebSockets)</h4>
+            <p>
+              Parallèlement à ce fonctionnement traditionnel, l'application
+              intègre également une dimension temps réel grâce à
+              <strong>Socket.io</strong>. Pour des fonctionnalités comme le chat
+              ou les notifications instantanées, les composants Vue communiquent
+              avec le serveur via le <strong>client Socket.io</strong>, qui
+              établit une connexion WebSocket persistante.
+            </p>
+            <p>
+              Les événements émis par le frontend sont captés par le
+              <strong>serveur Socket.io</strong>, qui peut alors traiter ces
+              messages, éventuellement interagir avec la base de données, puis
+              redistribuer les informations en temps réel à tous les clients
+              concernés.
+            </p>
+          </div>
+
+          <div class="architecture-summary">
+            <p>
+              <strong>Résultat :</strong> L'ensemble du système permet à la fois
+              une gestion efficace des données via des requêtes HTTP classiques
+              et une communication instantanée grâce aux WebSockets, offrant à
+              l'utilisateur une <strong>expérience fluide et réactive</strong>.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- 6. Défis techniques rencontrés -->
     <section id="defis" class="section">
