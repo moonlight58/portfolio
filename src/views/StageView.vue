@@ -316,6 +316,82 @@
       </div>
     </section>
 
+    <!-- Architecture technique -->
+    <section class="architecture-section">
+      <h3>🏗️ Architecture technique</h3>
+
+      <div class="diagram-container">
+        <img
+          src="../assets/stage/Diagram.png"
+          alt="Diagramme d'architecture de l'application Euphron"
+          class="architecture-diagram"
+        />
+        <p class="legend">(Figure 3 - Architecture globale de l'application)</p>
+      </div>
+
+      <div class="architecture-explanation">
+        <p>
+          L'architecture de l'application repose sur une
+          <strong>séparation claire</strong> entre le frontend, développé avec
+          Quasar/Vue.js, et le backend, construit autour d'Express, Socket.io et
+          MySQL.
+        </p>
+
+        <div class="flow-description">
+          <h4>🔄 Flux de données classiques (HTTP)</h4>
+          <p>
+            Lorsqu'un utilisateur interagit avec l'interface via son navigateur,
+            ses actions sont prises en charge par les
+            <strong>composants Vue</strong>, qui orchestrent l'affichage et la
+            logique de l'application. Ces composants, lorsqu'ils ont besoin
+            d'accéder à des données ou de déclencher des opérations côté
+            serveur, font appel à des
+            <strong>services JavaScript dédiés</strong>. Pour les échanges
+            classiques, comme la récupération ou la modification de données
+            (gestion des utilisateurs ou des articles), ces services utilisent
+            <strong>Axios</strong> pour envoyer des requêtes HTTP au serveur
+            Express.
+          </p>
+          <p>
+            Ce dernier reçoit les requêtes via ses <strong>routes REST</strong>,
+            traite la logique métier à travers des services Node.js, puis
+            interagit avec la <strong>base de données MySQL</strong> pour lire
+            ou écrire les informations nécessaires. Une fois l'opération
+            terminée, la réponse est renvoyée au frontend sous forme de données
+            JSON, permettant à l'interface de se mettre à jour en conséquence.
+          </p>
+        </div>
+
+        <div class="flow-description">
+          <h4>⚡ Communication temps réel (WebSockets)</h4>
+          <p>
+            Parallèlement à ce fonctionnement traditionnel, l'application
+            intègre également une dimension temps réel grâce à
+            <strong>Socket.io</strong>. Pour des fonctionnalités comme le chat
+            ou les notifications instantanées, les composants Vue communiquent
+            avec le serveur via le <strong>client Socket.io</strong>, qui
+            établit une connexion WebSocket persistante.
+          </p>
+          <p>
+            Les événements émis par le frontend sont captés par le
+            <strong>serveur Socket.io</strong>, qui peut alors traiter ces
+            messages, éventuellement interagir avec la base de données, puis
+            redistribuer les informations en temps réel à tous les clients
+            concernés.
+          </p>
+        </div>
+
+        <div class="architecture-summary">
+          <p>
+            <strong>Résultat :</strong> L'ensemble du système permet à la fois
+            une gestion efficace des données via des requêtes HTTP classiques et
+            une communication instantanée grâce aux WebSockets, offrant à
+            l'utilisateur une <strong>expérience fluide et réactive</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. Défis techniques rencontrés -->
     <section id="defis" class="section">
       <h2>🔧 Défis techniques rencontrés</h2>
@@ -1086,6 +1162,78 @@ img {
 .competences-synthesis h3 {
   color: #90a8ff;
   margin-bottom: 1rem;
+}
+
+/* Architecture section styles */
+.architecture-section {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border-left: 4px solid #90a8ff;
+}
+
+.architecture-section h3 {
+  color: #90a8ff;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.diagram-container {
+  text-align: center;
+  margin: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(144, 168, 255, 0.1);
+}
+
+.architecture-diagram {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(144, 168, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.architecture-explanation {
+  margin-top: 1.5rem;
+}
+
+.flow-description {
+  background: rgba(144, 168, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border-left: 3px solid #90a8ff;
+}
+
+.flow-description h4 {
+  color: #b8c5ff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flow-description p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.architecture-summary {
+  background: rgba(144, 168, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid rgba(144, 168, 255, 0.2);
+  margin-top: 1.5rem;
+}
+
+.architecture-summary p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* Responsive */
