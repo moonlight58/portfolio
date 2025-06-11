@@ -1,5 +1,5 @@
 <template>
-  <div class="stage-component">
+  <div class="stage-component section">
     <h2>{{ $t('Internship') }}</h2>
     <div class="stage-context">
       <p>
@@ -58,4 +58,16 @@
   background-color: white;
   color: black;
 }
+
+.spacer {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
 </style>
