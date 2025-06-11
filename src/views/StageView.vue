@@ -152,7 +152,12 @@
           Développement <strong>backend/serveur</strong> (API et logique métier)
         </li>
         <li>Conception et gestion de la <strong>base de données</strong></li>
-        <li>Collaboration avec la <strong>D</strong>irection des <strong>S</strong>ystèmes d'<strong>I</strong>nformation et du <strong>N</strong>umérique (<strong>DSIN</strong>) pour l'hébergement futur</li>
+        <li>
+          Collaboration avec la <strong>D</strong>irection des
+          <strong>S</strong>ystèmes d'<strong>I</strong>nformation et du
+          <strong>N</strong>umérique (<strong>DSIN</strong>) pour l'hébergement
+          futur
+        </li>
       </ul>
       <p>
         Cette autonomie m'a permis de prendre des initiatives tout en respectant
@@ -360,11 +365,15 @@
         <p class="legend">(Figure 1 - Système de validation regex)</p>
         <p>
           Cette méthode côté frontend vérifie que l'utilisateur n'essaie pas de
-          nuire au fonctionnement de l'application en utilisant une <strong>EX</strong>pression
-          <strong>RÉG</strong>ulière (<strong>REGEX</strong>). Cette expression vérifie que les champs (nom,
-          email, téléphone) ne contiennent pas de caractères suspects comme <span class="special-character"> ' "
-          ; -- / * </span> , etc. Elle refuse également toute chaîne contenant des
-          mots-clés SQL classiques (<span class="special-character">SELECT</span>, <span class="special-character">DROP</span>, <span class="special-character">INSERT</span>, etc.). Cependant, le
+          nuire au fonctionnement de l'application en utilisant une
+          <strong>EX</strong>pression <strong>RÉG</strong>ulière
+          (<strong>REGEX</strong>). Cette expression vérifie que les champs
+          (nom, email, téléphone) ne contiennent pas de caractères suspects
+          comme <span class="special-character"> ' " ; -- / * </span> , etc.
+          Elle refuse également toute chaîne contenant des mots-clés SQL
+          classiques (<span class="special-character">SELECT</span>,
+          <span class="special-character">DROP</span>,
+          <span class="special-character">INSERT</span>, etc.). Cependant, le
           contrôle côté frontend n’est qu’un confort pour l'utilisateur. Il est
           impératif de vérifier également côté backend, ce qui peut être fait
           grâce aux requêtes préparées.
@@ -576,11 +585,11 @@
         <h3>Synthèse des apprentissages</h3>
         <p>
           Ce stage m'a permis de mettre en pratique de manière concrète les
-          compétences théoriques et pratiques acquises durant ma formation. L'autonomie
-          complète sur le projet m'a particulièrement aidé à développer les
-          aspects transversaux comme la gestion de projet et la communication
-          client, tout en approfondissant mes compétences techniques en
-          développement full-stack et en sécurité.
+          compétences théoriques et pratiques acquises durant ma formation.
+          L'autonomie complète sur le projet m'a particulièrement aidé à
+          développer les aspects transversaux comme la gestion de projet et la
+          communication client, tout en approfondissant mes compétences
+          techniques en développement full-stack et en sécurité.
         </p>
       </div>
     </section>
@@ -979,12 +988,6 @@ img {
   padding: 1.5rem;
   border-left: 4px solid;
   background: rgba(144, 168, 255, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.competence-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(144, 168, 255, 0.15);
 }
 
 .competence-card.ue1 {
@@ -1086,7 +1089,7 @@ img {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1186px) {
   .scrollspy-nav {
     display: none;
   }

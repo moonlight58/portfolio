@@ -129,7 +129,7 @@ onUnmounted(() => {
             />
             <div class="overlay">
               <h3>{{ projet.titre }}</h3>
-              <p class="contenu">{{ projet.contenu }}</p>
+              <p class="contenu">{{ $t(projet.titre + '_content') }}</p>
               <div class="info-box">
                 <div class="language">
                   <img
@@ -145,7 +145,7 @@ onUnmounted(() => {
                     :alt="projet.categorie"
                     class="categorie-icon"
                   />
-                  <p>{{ projet.categorie }}</p>
+                  <p>{{ $t(projet.categorie) }}</p>
                 </div>
                 <div class="status">
                   <img
@@ -153,7 +153,7 @@ onUnmounted(() => {
                     :alt="projet.status"
                     class="status-icon"
                   />
-                  <p>{{ projet.status }}</p>
+                  <p>{{ $t(projet.status) }}</p>
                 </div>
               </div>
             </div>

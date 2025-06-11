@@ -8,21 +8,18 @@
     </div>
 
     <div class="presentation-content">
-      <h1 class="title">Developer and artist</h1>
+      <h1 class="title">{{ $t('HomeTitle') }}</h1>
       <p class="body">
-        French student in computer science, BUT<span class="warning">*</span>,
-        currently in 2nd years. I'm always trying new things, eager to learn,
-        and try to help others with my work
+        {{ $t('BodyPart1') }}, BUT<span class="warning">*</span>,
+        {{ $t('BodyPart2') }}
       </p>
 
       <p class="precision">
-        <span class="warning">*</span>(University Bachelor of Technology)
+        <span class="warning">*</span>({{ $t('Precision') }})
       </p>
 
       <p class="body">
-        In my free time, I enjoy exploring my artistic side through drawing.
-        While I experiment with various art styles, I’ve found my specialty in
-        dark art and doodling. You can find my work on my Instagram account.
+        {{ $t('Description') }}
       </p>
 
       <div class="spacer">
@@ -45,10 +42,9 @@
     </div>
 
     <div class="project">
-      <h2 class="project-title">Projects</h2>
+      <h2 class="project-title">{{ $t('Projects') }}</h2>
       <p class="project-content">
-        Here are some of my favorite projects, from video games to websites to
-        applications.
+        {{ $t('ProjectContent') }}
       </p>
       <Carousel />
     </div>
@@ -56,14 +52,14 @@
     <Internship />
 
     <div class="skills">
-      <h2 class="skill-title">What are my Skills ?</h2>
+      <h2 class="skill-title">{{ $t('Skills') }}</h2>
       <div class="skill-content">
         <div
           class="type-skill"
           v-for="(skillType, index) in Object.keys(skills)"
           :key="index"
         >
-          <h3>{{ skillType }}</h3>
+          <h3>{{ $t(skillType) }}</h3>
           <div class="skill-container">
             <div
               class="language-div"
@@ -83,19 +79,16 @@
     </div>
 
     <div class="about">
-      <div class="about-title"><h2>Why this portfolio ?</h2></div>
+      <div class="about-title"><h2>{{ $t('WhyPortfolio') }}</h2></div>
       <p class="about-content">
-        This site is developed as part of my Portfolio project during the three
-        years in the BUT. It will be continually updated to reflect my academic
-        and personal projects.
+        {{ $t('WhyPortfolioContent') }}
       </p>
     </div>
 
     <div class="contact">
       <h2>Contact</h2>
       <p class="contact-text">
-        Want to chat, collaborate or just say hello? Don't hesitate to contact
-        me!
+        {{ $t('Contact') }}
       </p>
       <div class="contact-links">
         <a

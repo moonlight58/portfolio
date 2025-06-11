@@ -1,0 +1,35 @@
+{
+  "HomeTitle": "Développeur et artiste",
+  "BodyPart1": "Étudiant français en informatique",
+  "BodyPart2": "actuellement en 2ème année. Je suis toujours en train d'essayer de nouvelles choses, avide d'apprendre, et j'essaie d'aider les autres avec mon travail",
+  "Precision": "Bachelor Universitaire de Technologie",
+  "Description": "Pendant mon temps libre, j'aime explorer mon côté artistique à travers le dessin. Bien que j'expérimente divers styles d'art, j'ai trouvé ma spécialité dans l'art sombre et le gribouillage. Vous pouvez trouver mon travail sur mon compte Instagram.",
+
+  "Projects": "Mes projets",
+  "ProjectContent": "Voici quelques-uns de mes projets préférés, allant des jeux vidéo aux sites web en passant par les applications.",
+  "Personal": "Personnel",
+  "Uni": "Université",
+  "Done": "Terminé",
+  "On Going": "En cours",
+  "Spotify-TUI_content": "Client Spotify en terminal plus léger que l'application originale, réalisé en C et utilisant l'API Web Spotify",
+  "SteamToLinux_content": "Vérification de la compatibilité des jeux sur Linux",
+  "Moonify_content": "Lecteur de musique avec API Imgur et Discord RPC",
+  "B.I.E.N._content": "Site web sur le changement climatique et la technologie",
+  "Roi des Roses_content": "Jeu de plateau avec JavaFX",
+
+  "Internship": "Stage",
+  "InternshipContent1": "J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack au",
+  "InternshipContent2": "à Besançon, France, du 7 avril 2025 au 30 mai 2025. Ma mission était de créer une application mobile appelée « Euphron », permettant aux étudiants de l'Université de Franche-Comté de donner ou prendre du matériel sportif d'occasion sur un système de don. L'objectif est de favoriser l'accès au sport tout en promouvant la solidarité entre les étudiants.",
+  "InternshipMoreAbout": "Plus d'informations sur mon stage",
+  
+  "Skills": "Quelles sont mes compétences ?",
+  "Software Development": "Développement de logiciels",
+  "Back-end Web": "Back-end Web",
+  "Front-end Web": "Front-end Web",
+  "Game Development": "Développement de jeux",
+  "Art": "Art",
+  
+  "WhyPortfolio": "Pourquoi ce Portfolio ?",
+  "WhyPortfolioContent": "Ce site est développé dans le cadre de mon projet de Portfolio durant les trois années du BUT. Il sera continuellement mis à jour pour refléter mes projets académiques et personnels.",
+  "Contact": "Envie de discuter, de collaborer ou simplement de dire bonjour ? N'hésitez pas à me contacter !"
+}
