@@ -7,19 +7,19 @@
       </div>
     </div>
 
-    <div class="presentation-content">
-      <h1 class="title">{{ $t('HomeTitle') }}</h1>
+    <div class="presentation-content section">
+      <h1 class="title">{{ $t("HomeTitle") }}</h1>
       <p class="body">
-        {{ $t('BodyPart1') }}, BUT<span class="warning">*</span>,
-        {{ $t('BodyPart2') }}
+        {{ $t("BodyPart1") }}, BUT<span class="warning">*</span>,
+        {{ $t("BodyPart2") }}
       </p>
 
       <p class="precision">
-        <span class="warning">*</span>({{ $t('Precision') }})
+        <span class="warning">*</span>({{ $t("Precision") }})
       </p>
 
       <p class="body">
-        {{ $t('Description') }}
+        {{ $t("Description") }}
       </p>
 
       <div class="spacer">
@@ -41,19 +41,21 @@
       </div>
     </div>
 
-    <div class="project">
-      <h2 class="project-title">{{ $t('Projects') }}</h2>
-      <p class="project-content">
-        {{ $t('ProjectContent') }}
-      </p>
-      <Carousel />
+    <div class="project section">
+      <h2 class="section-title">{{ $t("Projects") }}</h2>
+      <div class="section-content">
+        <p class="project-content">
+          {{ $t("ProjectContent") }}
+        </p>
+        <Carousel />
+      </div>
     </div>
 
     <Internship />
 
-    <div class="skills">
-      <h2 class="skill-title">{{ $t('Skills') }}</h2>
-      <div class="skill-content">
+    <div class="skills section">
+      <h2 class="section-title">{{ $t("Skills") }}</h2>
+      <div class="section-content">
         <div
           class="type-skill"
           v-for="(skillType, index) in Object.keys(skills)"
@@ -78,50 +80,54 @@
       </div>
     </div>
 
-    <div class="about">
-      <div class="about-title"><h2>{{ $t('WhyPortfolio') }}</h2></div>
-      <p class="about-content">
-        {{ $t('WhyPortfolioContent') }}
-      </p>
+    <div class="about section">
+      <h2 class="section-title">{{ $t("WhyPortfolio") }}</h2>
+      <div class="section-content">
+        <p class="about-content">
+          {{ $t("WhyPortfolioContent") }}
+        </p>
+      </div>
     </div>
 
-    <div class="contact">
-      <h2>Contact</h2>
-      <p class="contact-text">
-        {{ $t('Contact') }}
-      </p>
-      <div class="contact-links">
-        <a
-          class="contact-btn"
-          href="mailto:gael.rothlin@proton.me"
-          target="_blank"
-          rel="noopener"
-        >
-          <img src="../assets/email.svg" alt="Email" class="contact-icon" />
-          Email
-        </a>
-        <a
-          class="contact-btn"
-          href="https://www.instagram.com/osiris._25"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="../assets/instagram.svg"
-            alt="Instagram"
-            class="contact-icon"
-          />
-          Instagram
-        </a>
-        <a
-          class="contact-btn"
-          href="https://github.com/moonlight58"
-          target="_blank"
-          rel="noopener"
-        >
-          <img src="../assets/github.svg" alt="GitHub" class="contact-icon" />
-          GitHub
-        </a>
+    <div class="contact section">
+      <h2 class="section-title">Contact</h2>
+      <div class="section-content">
+        <p class="contact-text">
+          {{ $t("Contact") }}
+        </p>
+        <div class="contact-links">
+          <a
+            class="contact-btn"
+            href="mailto:gael.rothlin@proton.me"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="../assets/email.svg" alt="Email" class="contact-icon" />
+            <span>Email</span>
+          </a>
+          <a
+            class="contact-btn"
+            href="https://www.instagram.com/osiris._25"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="../assets/instagram.svg"
+              alt="Instagram"
+              class="contact-icon"
+            />
+            <span>Instagram</span>
+          </a>
+          <a
+            class="contact-btn"
+            href="https://github.com/moonlight58"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="../assets/github.svg" alt="GitHub" class="contact-icon" />
+            <span>GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -171,6 +177,34 @@ export default {
   z-index: -1;
 }
 
+.container {
+  margin-top: 6rem;
+  width: 600px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  color: #90a8ff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.section-content {
+  color: #ccc;
+}
+
 .presentation {
   margin: 15px 0 10px 0;
   text-align: center;
@@ -183,117 +217,116 @@ export default {
   margin: 20px 0;
 }
 
+.presentation-header h1 {
+  color: #90a8ff;
+  font-size: 1.8rem;
+}
+
 .presentation-header img {
   border-radius: 50%;
   max-width: 50px;
   margin-right: 20px;
+  border: 2px solid #90a8ff;
 }
 
 .presentation-content .title {
   font-style: italic;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
+  color: #90a8ff;
+  font-size: 1.3rem;
 }
 
 .presentation-content .body {
-  margin-top: 3vh;
-  margin-bottom: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: justify;
 }
 
 .presentation-content .precision {
   font-size: 0.9rem;
   font-weight: light;
+  color: #888;
 }
 
 .warning {
   font-size: 1.1rem;
-  color: #ff3535;
-}
-
-.container {
-  margin-top: 4rem;
-  width: 90%;
-}
-
-.about-title {
-  margin: 75px 0 10px 0;
+  color: #ff6b6b;
   font-weight: bold;
-}
-
-.project {
-  margin-bottom: 75px;
-}
-
-.project-title,
-.skill-title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin: 75px 0 20px 0;
 }
 
 .project-content,
 .about-content {
   text-align: justify;
-  margin-bottom: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.type-skill {
+  background: rgba(144, 168, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #90a8ff;
 }
 
 .type-skill h3 {
-  margin: 2rem 0 1rem 0;
-  display: flex;
-  justify-content: center;
-}
-
-.skill-content {
-  font-size: 0.9rem;
-  margin-bottom: 40px;
+  margin: 0 0 1.5rem 0;
+  color: #90a8ff;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .skill-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  background-color: #19203c;
-  box-shadow: 0 0 10px #000000;
-  border-radius: 10px;
-  padding: 10px;
+  gap: 1rem;
+  background: rgba(144, 168, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
 }
 
 .language-div {
-  margin: 2rem 0;
   text-align: center;
   cursor: pointer;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.language-div:hover {
+  background: rgba(144, 168, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .language-div img {
-  width: 90px;
-  height: 90px;
-  margin-bottom: 5px;
-  transition: transform 0.3s;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 .language-div:hover img {
-  transform: scale(1.17);
+  transform: scale(1.1);
+}
+
+.language-div p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
 .contact {
-  margin: 75px 0 0 0;
-  padding: 2rem 1rem;
-  background: #19203c;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #000000;
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  background: rgba(144, 168, 255, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid #90a8ff;
+  padding: 2rem; /* Added explicit padding */
 }
 
 .contact-text {
   font-size: 1rem;
   margin-bottom: 2rem;
-  color: #dbf9ff;
+  color: #ccc;
+  text-align: center; /* Center the contact text */
 }
 
 .contact-links {
@@ -307,56 +340,136 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  color: #fff;
-  padding: 0.75em 1.5em;
-  font-weight: 700;
+  background: rgba(144, 168, 255, 0.1);
+  border: 2px solid #90a8ff;
+  border-radius: 8px;
+  color: #90a8ff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
-  transition: background 0.3s, color 0.3s, border 0.3s;
+  transition: all 0.3s ease;
+  min-width: 120px; /* Ensure consistent button sizes */
+  justify-content: center;
 }
 
 .contact-btn:hover {
-  background: #fff;
-  color: #10152d;
-  border-color: #dbf9ff;
+  background: #90a8ff;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(144, 168, 255, 0.3);
 }
 
 .contact-icon {
-  color: #fff;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   transition: filter 0.3s;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .contact-btn:hover .contact-icon {
   filter: invert(1);
 }
 
+.contact-btn span {
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.spacer {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.fancy {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(144, 168, 255, 0.1);
+  border: 2px solid #90a8ff;
+  border-radius: 8px;
+  color: #90a8ff;
+  padding: 0.75em 1.5em;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.fancy:hover {
+  background: #90a8ff;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(144, 168, 255, 0.3);
+}
+
 .instagram-img {
-  display: flex-inline;
-  vertical-align: sub;
-  margin-right: 10px;
   width: 20px;
   height: 20px;
-  transition: filter 0.3s ease-in-out;
+  margin-right: 0.5rem;
+  transition: filter 0.3s ease;
 }
 
 .fancy:hover .instagram-img {
   filter: invert(1);
 }
 
-@media (min-width: 420px) {
+.text {
+  font-weight: 600;
+}
+
+/* Masquer les éléments de décoration originaux */
+.top-key,
+.bottom-key-1,
+.bottom-key-2 {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 1186px) {
   .container {
-    margin-top: 3rem;
-    max-width: 800px;
-    padding: 20px;
+    width: 100%;
+    padding: 0 1rem;
   }
 
   .skill-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 1.5rem;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 1rem;
+  }
+  
+  .contact-text {
+    font-size: 0.9rem;
+  }
+  
+  .contact-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 </style>

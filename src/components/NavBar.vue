@@ -85,6 +85,7 @@ export default {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  padding: 10px 17px;
 }
 
 .navbar-right {
