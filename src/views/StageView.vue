@@ -39,6 +39,10 @@
           >
         </li>
         <li>
+          <a @click="scrollToSection('architecture')"
+          :class="{ active: activeSection === 'architecture'}">🏗️ Architecture technique</a>
+        </li>
+        <li>
           <a
             @click="scrollToSection('defis')"
             :class="{ active: activeSection === 'defis' }"
@@ -317,7 +321,7 @@
     </section>
 
     <!-- Architecture technique -->
-    <section class="architecture-section">
+    <section id="architecture" class="architecture-section">
       <h3>🏗️ Architecture technique</h3>
 
       <div class="diagram-container">
@@ -700,6 +704,7 @@ const handleScroll = () => {
     "organisation",
     "technologies",
     "fonctionnalites",
+    "architecture",
     "defis",
     "securite",
     "avancement",
