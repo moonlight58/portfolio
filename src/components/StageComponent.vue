@@ -40,7 +40,6 @@
 
 .stage-link {
   color: #00bcd4;
-  text-decoration: none;
 }
 
 .stage-button {
