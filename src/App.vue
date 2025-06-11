@@ -39,7 +39,7 @@ export default {
   align-items: center;
 }
 
-h1, h2 {
+h1, h2, h4 {
   font-family: "Titillium Web", sans-serif;
   font-weight: bold;
 }
