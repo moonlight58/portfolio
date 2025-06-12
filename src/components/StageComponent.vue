@@ -341,7 +341,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1186px) {
+@media (max-width: 1024px) { /* Changé de 1186px à 1024px */
   .internship-card {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -367,6 +367,7 @@
 @media (max-width: 768px) {
   .internship-card {
     padding: 1rem;
+    gap: 1rem; /* Réduit l'espace */
   }
   
   .internship-content {
@@ -375,6 +376,7 @@
   
   .internship-description {
     font-size: 0.9rem;
+    text-align: left; /* Changé de justify à left pour mobile */
   }
   
   .internship-details {
@@ -388,6 +390,8 @@
   .internship-cta {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
+    width: 100%; /* Prend toute la largeur sur mobile */
+    justify-content: center;
   }
   
   .internship-visual {
@@ -405,9 +409,62 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) { /* Nouveau breakpoint */
   .section-title {
     font-size: 1.3rem;
+  }
+  
+  .internship-card {
+    padding: 0.875rem; /* Entre 0.75rem et 1rem */
+    border-left-width: 3px; /* Bordure plus fine */
+  }
+  
+  .internship-description {
+    font-size: 0.875rem;
+    text-align: left;
+    line-height: 1.5;
+  }
+  
+  .detail-item {
+    padding: 0.375rem 0; /* Réduit le padding */
+  }
+  
+  .detail-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .detail-text {
+    font-size: 0.8rem;
+  }
+  
+  .internship-cta {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .cta-text {
+    font-size: 0.85rem;
+  }
+  
+  .internship-visual {
+    height: 100px;
+  }
+  
+  .visual-element {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .floating-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.2rem; /* Plus petit */
   }
   
   .internship-card {
@@ -422,6 +479,42 @@
   .internship-cta {
     width: 100%;
     justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .internship-visual {
+    height: 80px; /* Encore plus petit */
+  }
+  
+  .visual-element {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .floating-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Très petit mobile */
+@media (max-width: 380px) {
+  .internship-card {
+    padding: 0.5rem;
+    margin: 0 -0.25rem; /* Compense le padding du parent */
+  }
+  
+  .internship-description {
+    font-size: 0.8rem;
+  }
+  
+  .detail-text {
+    font-size: 0.75rem;
+  }
+  
+  .internship-visual {
+    display: none; /* Cache les éléments visuels sur très petit écran */
   }
 }
 </style>

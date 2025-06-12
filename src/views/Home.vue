@@ -472,4 +472,17 @@ export default {
     font-size: 0.9rem;
   }
 }
+
+@media (min-width: 1920px) {
+  .container {
+    width: 50%
+  }
+}
+
+@media (max-width: 1186px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
 </style>

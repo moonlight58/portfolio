@@ -437,8 +437,17 @@ onUnmounted(() => {
 .indicator:hover:not(.active) {
   background: rgba(144, 168, 255, 0.5);
 }
+/* Mobile Responsive - AMÉLIORÉ */
+@media (max-width: 1024px) {
+  .carousel-control.prev {
+    left: -20px;
+  }
+  
+  .carousel-control.next {
+    right: -20px;
+  }
+}
 
-/* Mobile Responsive */
 @media (max-width: 800px) {
   .project-card {
     height: 350px;
@@ -475,11 +484,66 @@ onUnmounted(() => {
   }
   
   .carousel-control.prev {
-    left: -20px;
+    left: -16px; /* Rapproché pour éviter le débordement */
   }
   
   .carousel-control.next {
-    right: -20px;
+    right: -16px;
+  }
+}
+
+@media (max-width: 640px) { /* Nouveau breakpoint critique */
+  .carousel-wrapper {
+    margin: 0 1rem; /* Ajoute une marge pour les contrôles */
+  }
+  
+  .carousel-control.prev {
+    left: -12px;
+  }
+  
+  .carousel-control.next {
+    right: -12px;
+  }
+}
+
+@media (max-width: 580px) { /* Nouveau breakpoint */
+  .project-card {
+    height: 330px;
+  }
+  
+  .project-image-container {
+    height: 140px;
+  }
+  
+  .project-content {
+    padding: 0.875rem;
+  }
+  
+  .project-title {
+    font-size: 1.05rem;
+  }
+  
+  .project-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .badge {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .carousel-control {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .carousel-control.prev {
+    left: -10px;
+  }
+  
+  .carousel-control.next {
+    right: -10px;
   }
 }
 
@@ -502,11 +566,103 @@ onUnmounted(() => {
   }
   
   .carousel-control.prev {
-    left: -18px;
+    left: -8px; /* Encore plus rapproché */
   }
   
   .carousel-control.next {
-    right: -18px;
+    right: -8px;
+  }
+}
+
+/* Très petit mobile - Approche alternative */
+@media (max-width: 380px) {
+  .carousel-wrapper {
+    margin: 0 1.5rem; /* Plus de marge */
+  }
+  
+  .project-card {
+    height: 300px;
+  }
+  
+  .project-image-container {
+    height: 120px;
+  }
+  
+  .project-content {
+    padding: 0.75rem;
+  }
+  
+  .project-title {
+    font-size: 1rem;
+  }
+  
+  .project-description {
+    font-size: 0.75rem;
+  }
+  
+  .carousel-control {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .carousel-control.prev {
+    left: -6px;
+  }
+  
+  .carousel-control.next {
+    right: -6px;
+  }
+  
+  .badge {
+    padding: 0.3rem 0.4rem;
+  }
+  
+  .carousel-indicators {
+    margin-top: 1rem;
+  }
+}
+
+/* Alternative pour très petits écrans : contrôles en bas */
+@media (max-width: 320px) {
+  .carousel-wrapper {
+    margin: 0 0.5rem;
+  }
+  
+  .carousel-control {
+    position: static; /* Enlève le positionnement absolu */
+    transform: none;
+    margin: 0.5rem;
+  }
+  
+  .carousel-control.prev,
+  .carousel-control.next {
+    position: static;
+    left: auto;
+    right: auto;
+  }
+  
+  /* Ajouter une rangée de contrôles en bas */
+  .carousel-wrapper::after {
+    content: '';
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  /* Alternative : utiliser seulement les indicateurs */
+  .carousel-control {
+    display: none;
+  }
+  
+  .carousel-indicators {
+    margin-top: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
   }
 }
 </style>
