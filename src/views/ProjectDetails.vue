@@ -35,9 +35,9 @@
       <div class="project-info">
         <h1 class="project-title">{{ project.titre }}</h1>
         <div class="project-meta">
-          <span class="category-badge">{{ project.categorie }}</span>
+          <span class="category-badge">{{ $t(project.categorie) }}</span>
           <span class="status-badge" :class="getStatusClass(project.status)">
-            {{ project.status }}
+            {{ $t(project.status) }}
           </span>
         </div>
       </div>
