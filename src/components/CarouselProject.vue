@@ -122,38 +122,52 @@ onUnmounted(() => {
           class="carousel-item"
         >
           <router-link :to="`/project-details/${projet.titre}`" target="_blank">
-            <img
-              :src="projet.image"
-              :alt="projet.titre"
-              class="carousel-image"
-            />
-            <div class="overlay">
-              <h3>{{ projet.titre }}</h3>
-              <p class="contenu">{{ $t(projet.titre + '_content') }}</p>
-              <div class="info-box">
-                <div class="language">
-                  <img
-                    :src="getLanguageIcon(projet.language)"
-                    :alt="projet.language"
-                    class="language-icon"
-                  />
-                  <p>{{ projet.language }}</p>
+            <div class="project-card">
+              <div class="project-image-container">
+                <img
+                  :src="projet.image"
+                  :alt="projet.titre"
+                  class="carousel-image"
+                />
+                <div class="image-overlay"></div>
+              </div>
+              
+              <div class="project-content">
+                <div class="project-header">
+                  <h3 class="project-title">{{ projet.titre }}</h3>
+                  <div class="project-badges">
+                    <div class="badge status-badge">
+                      <img
+                        :src="getStatusIcon(projet.status)"
+                        :alt="projet.status"
+                        class="badge-icon"
+                      />
+                      <span>{{ $t(projet.status) }}</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="categorie">
-                  <img
-                    :src="getCategorieIcon(projet.categorie)"
-                    :alt="projet.categorie"
-                    class="categorie-icon"
-                  />
-                  <p>{{ $t(projet.categorie) }}</p>
-                </div>
-                <div class="status">
-                  <img
-                    :src="getStatusIcon(projet.status)"
-                    :alt="projet.status"
-                    class="status-icon"
-                  />
-                  <p>{{ $t(projet.status) }}</p>
+                
+                <p class="project-description">{{ $t(projet.titre + '_content') }}</p>
+                
+                <div class="project-footer">
+                  <div class="tech-info">
+                    <div class="badge language-badge">
+                      <img
+                        :src="getLanguageIcon(projet.language)"
+                        :alt="projet.language"
+                        class="badge-icon"
+                      />
+                      <span>{{ projet.language }}</span>
+                    </div>
+                    <div class="badge category-badge">
+                      <img
+                        :src="getCategorieIcon(projet.categorie)"
+                        :alt="projet.categorie"
+                        class="badge-icon"
+                      />
+                      <span>{{ $t(projet.categorie) }}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -161,22 +175,38 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+    
     <button
       @click="prev"
-      class="control prev"
+      class="carousel-control prev"
       :disabled="isPrevDisabled"
       :class="{ disabled: isPrevDisabled }"
     >
-      ←
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
     </button>
+    
     <button
       @click="next"
-      class="control next"
+      class="carousel-control next"
       :disabled="isNextDisabled"
       :class="{ disabled: isNextDisabled }"
     >
-      →
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
     </button>
+    
+    <div class="carousel-indicators">
+      <button
+        v-for="(projet, index) in projets"
+        :key="index"
+        @click="currentIndex = index"
+        class="indicator"
+        :class="{ active: currentIndex === index }"
+      ></button>
+    </div>
   </div>
 </template>
 
@@ -184,178 +214,299 @@ onUnmounted(() => {
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  font-family: "N27", sans-serif;
 }
 
 .carousel-container {
   width: 100%;
-  height: 100%;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .carousel {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  --overlay-width: 80%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-item {
   min-width: 100%;
-  height: 30vh;
+  padding: 0;
+}
+
+.carousel-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-card {
+  background: rgba(144, 168, 255, 0.05);
+  border: 1px solid rgba(144, 168, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  background: rgba(144, 168, 255, 0.1);
+  border-color: rgba(144, 168, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
+}
+
+.project-image-container {
   position: relative;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 15px;
-  overflow: hidden;         
+  height: 200px;
+  overflow: hidden;
 }
 
 .carousel-image {
-  width: var(--overlay-width);
-  height: 99%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 15px;
-  transition: opacity 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
-.overlay:hover {
-  backdrop-filter: blur(0rem);
+.project-card:hover .carousel-image {
+  transform: scale(1.05);
 }
 
-.overlay {
+.image-overlay {
   position: absolute;
   top: 0;
-  left: calc((100% - var(--overlay-width)) / 2);
-  width: var(--overlay-width);
-  height: 99%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(0.2rem);
-  color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(16, 21, 45, 0.3) 70%,
+    rgba(16, 21, 45, 0.8) 100%
+  );
+}
+
+.project-content {
+  padding: 1.5rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-content: flex-start;
-  text-align: left;
-  box-sizing: border-box;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: backdrop-filter 0.3s;
+  justify-content: space-between;
 }
 
-.overlay h3,
-.overlay .contenu {
-  transition: color 0.2s ease, opacity 0.2s ease;
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
-.overlay h3 {
-  font-family: "N27", sans-serif;
-  font-size: 1.5rem;
-  margin: 5% 7% 5% 7%;
+.project-title {
+  color: #90a8ff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.overlay p {
-  margin: 0 7% 0 7%;
+.project-description {
+  color: #ccc;
   font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+  flex: 1;
 }
 
-.overlay h3,
-.overlay p {
-  text-shadow: 1px 1px #2b2b2b;
+.project-footer {
+  margin-top: auto;
 }
 
-.overlay .info-box {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.tech-info {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.project-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge {
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  gap: 10px;
-  border-radius: 5px;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.overlay .categorie,
-.overlay .status,
-.overlay .language {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
+.language-badge {
+  background: rgba(34, 214, 255, 0.1);
+  border: 1px solid rgba(34, 214, 255, 0.3);
+  color: rgb(34, 214, 255);
 }
 
-.language img,
-.categorie img,
-.status img {
-  filter: drop-shadow(1px 1px rgba(43, 43, 43, 1));
+.category-badge {
+  background: rgba(144, 168, 255, 0.1);
+  border: 1px solid rgba(144, 168, 255, 0.3);
+  color: #90a8ff;
 }
 
-.categorie-icon,
-.status-icon,
-.language-icon {
-  width: 15px;
-  height: 100%;
-  vertical-align: middle;
-  transition: opacity 0.2s ease;
+.status-badge {
+  background: rgba(102, 252, 241, 0.1);
+  border: 1px solid rgba(102, 252, 241, 0.3);
+  color: rgb(102, 252, 241);
 }
 
-.control {
+.badge:hover {
+  transform: translateY(-1px);
+}
+
+.badge-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.carousel-control {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
+  background: rgba(144, 168, 255, 0.1);
+  border: 2px solid rgba(144, 168, 255, 0.3);
+  color: #90a8ff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
   z-index: 2;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.control.prev {
-  left: -10px;
+.carousel-control:hover:not(.disabled) {
+  background: rgba(144, 168, 255, 0.2);
+  border-color: rgba(144, 168, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.control.next {
-  right: -10px;
+.carousel-control.prev {
+  left: -24px;
 }
 
-.control.disabled {
-  background-color: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.3);
-  cursor: auto;
+.carousel-control.next {
+  right: -24px;
 }
 
-.button-gradient {
-  position: absolute;
-  width: 100%;
-  height: 10rem;
-  top: 0;
-  background: rgb(16, 21, 45);
-  background: linear-gradient(
-    90deg,
-    rgba(16, 21, 45, 1) 0%,
-    rgba(0, 0, 0, 0) 10%,
-    rgba(0, 0, 0, 0) 90%,
-    rgba(16, 21, 45, 1) 100%
-  );
-  z-index: 1;
+.carousel-control.disabled {
+  background: rgba(144, 168, 255, 0.05);
+  border-color: rgba(144, 168, 255, 0.1);
+  color: rgba(144, 168, 255, 0.3);
+  cursor: not-allowed;
 }
 
-@media (max-width: 799px) {
-  .categorie p,
-  .status p,
-  .language p {
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(144, 168, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #90a8ff;
+  transform: scale(1.2);
+}
+
+.indicator:hover:not(.active) {
+  background: rgba(144, 168, 255, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 800px) {
+  .project-card {
+    height: 350px;
+  }
+  
+  .project-image-container {
+    height: 160px;
+  }
+  
+  .project-content {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+  }
+  
+  .badge {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .badge span {
     display: none;
   }
+  
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-control.prev {
+    left: -20px;
+  }
+  
+  .carousel-control.next {
+    right: -20px;
+  }
+}
 
-  .carousel-image,
-  .carousel-item,
-  .overlay {
-    height: 10rem;
+@media (max-width: 480px) {
+  .project-card {
+    height: 320px;
+  }
+  
+  .project-image-container {
+    height: 140px;
+  }
+  
+  .tech-info {
+    justify-content: center;
+  }
+  
+  .carousel-control {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .carousel-control.prev {
+    left: -18px;
+  }
+  
+  .carousel-control.next {
+    right: -18px;
   }
 }
 </style>

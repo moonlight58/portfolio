@@ -2,7 +2,7 @@
   <div class="project-details-container" v-if="project">
     <!-- Back Button -->
     <div class="back-button-container">
-      <button class="back-button" @click="$router.back()">
+      <button class="back-button" @click="$router.push('/')">
         <svg
           width="20"
           height="20"
