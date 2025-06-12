@@ -1,94 +1,128 @@
 <template>
-  <div class="container" v-if="project">
-    <div class="spacer">
-      <a
-        class="fancy"
-        @click="$router.back()"
-      >
-        <span class="top-key"></span>
+  <div class="project-details-container" v-if="project">
+    <!-- Back Button -->
+    <div class="back-button-container">
+      <button class="back-button" @click="$router.back()">
         <svg
-          height="200px"
-          width="200px"
-          version="1.1"
-          id="Layer_1"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 330 330"
-          xml:space="preserve"
-          stroke="#fff"
         >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
+          <path
+            d="M19 12H5M12 19L5 12L12 5"
+            stroke="currentColor"
+            stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <path
-              id="XMLID_18_"
-              d="M315,150l-247.5,0.001V127.5c0-6.067-3.655-11.537-9.26-13.858c-5.607-2.322-12.058-1.038-16.347,3.252 l-37.5,37.5c-5.858,5.858-5.858,15.355,0,21.213l37.5,37.5c2.87,2.87,6.706,4.394,10.61,4.394c1.932,0,3.881-0.374,5.737-1.142 c5.605-2.322,9.26-7.791,9.26-13.858v-22.499L315,180c8.284,0,15-6.716,15-15C330,156.716,323.284,150,315,150z"
-            ></path>
-          </g>
+          />
         </svg>
-        <span class="text">Back</span>
-        <span class="bottom-key-1"></span>
-        <span class="bottom-key-2"></span>
-      </a>
+        Retour
+      </button>
     </div>
-    <h1>{{ project.titre }}</h1>
-    <img
-      :src="require(`@/assets/images/${project.image}`)"
-      :alt="project.titre"
-      class="project-image"
-    />
-    <div class="project-content">
-      <p>{{ project.description }}</p>
-      <ul>
-        <li><strong>Category :</strong> {{ project.categorie }}</li>
-        <li>The project is <strong>{{ project.status }}</strong></li>
-      </ul>
 
-      <div
+    <!-- Project Header -->
+    <div class="project-header">
+      <div class="project-image-container">
+        <img
+          :src="require(`@/assets/images/${project.image}`)"
+          :alt="project.titre"
+          class="project-image"
+        />
+        <div class="image-overlay"></div>
+      </div>
+      <div class="project-info">
+        <h1 class="project-title">{{ project.titre }}</h1>
+        <div class="project-meta">
+          <span class="category-badge">{{ project.categorie }}</span>
+          <span class="status-badge" :class="getStatusClass(project.status)">
+            {{ project.status }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Content -->
+    <div class="project-content">
+      <!-- Description Section -->
+      <section class="content-section">
+        <h2>📋 Description du projet</h2>
+        <div class="description-card">
+          <p>{{ $t(project.titre + '_description') }}</p>
+        </div>
+      </section>
+
+      <!-- Languages Section -->
+      <section
         v-if="project.language && project.language.length"
-        class="card-section"
+        class="content-section"
       >
-        <h3>Languages</h3>
-        <div class="card-grid">
+        <h2>💻 Langages utilisés</h2>
+        <div class="tech-grid">
           <div
             v-for="(lang, index) in project.language"
             :key="index"
-            class="skill-card"
+            class="tech-card language-card"
           >
-            <img :src="getSkillIcon(lang)" :alt="lang" class="skill-icon" />
-            <p>{{ lang }}</p>
+            <div class="tech-icon-container">
+              <img :src="getSkillIcon(lang)" :alt="lang" class="tech-icon" />
+            </div>
+            <span class="tech-name">{{ lang }}</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div
+      <!-- Technologies Section -->
+      <section
         v-if="project.technologies && project.technologies.length"
-        class="card-section"
+        class="content-section"
       >
-        <h3>Technologies</h3>
-        <div class="card-grid">
+        <h2>🛠️ Technologies & Frameworks</h2>
+        <div class="tech-grid">
           <div
             v-for="(tech, index) in project.technologies"
             :key="index"
-            class="skill-card"
+            class="tech-card technology-card"
           >
-            <img :src="getTechIcon(tech)" :alt="tech" class="skill-icon" />
-            <p>{{ tech }}</p>
+            <div class="tech-icon-container">
+              <img :src="getTechIcon(tech)" :alt="tech" class="tech-icon" />
+            </div>
+            <span class="tech-name">{{ tech }}</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <a :href="project.url" target="_blank" class="project-link">
-        See on GitHub
-      </a>
+      <!-- GitHub Link Section -->
+      <section class="content-section">
+        <h2>🔗 Liens du projet</h2>
+        <div class="links-container">
+          <a :href="project.url" target="_blank" class="project-link github-link">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"
+              />
+            </svg>
+            Voir sur GitHub
+          </a>
+        </div>
+      </section>
     </div>
   </div>
-  <div v-else>
-    <p>Cannot find project.</p>
+  <div v-else class="error-container">
+    <div class="error-card">
+      <h2>❌ Projet introuvable</h2>
+      <p>Le projet demandé n'a pas pu être trouvé.</p>
+      <button class="back-button" @click="$router.back()">
+        Retour à la liste des projets
+      </button>
+    </div>
   </div>
 </template>
 
@@ -118,6 +152,24 @@ export default {
       }
     };
 
+    const getStatusClass = (status) => {
+      switch (status.toLowerCase()) {
+        case 'completed':
+        case 'terminé':
+        case 'fini':
+        case 'finished':
+          return 'status-completed';
+        case 'in progress':
+        case 'en cours':
+          return 'status-progress';
+        case 'paused':
+        case 'en pause':
+          return 'status-paused';
+        default:
+          return 'status-default';
+      }
+    };
+
     onMounted(() => {
       const id = route.params.id;
       if (projets[id]) {
@@ -139,229 +191,443 @@ export default {
       }
     });
 
-    return { project, getSkillIcon, getTechIcon };
+    return { project, getSkillIcon, getTechIcon, getStatusClass };
   },
 };
 </script>
 
 <style scoped>
-.back-btn {
-  margin-bottom: 1.5rem;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  color: #fff;
-  padding: 0.5em 1.2em;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s, border 0.3s;
-}
-.back-btn:hover {
-  background: #fff;
-  color: #10152d;
-  border-color: #dbf9ff;
-}
-
-.container {
-  margin-top: 6rem;
-  color: white;
-  background: #19203c;
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 0 10px #000000;
-  max-width: 600px;
+.project-details-container {
+  margin-top: 7rem;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 2rem;
   margin-bottom: 6rem;
+  color: #fff;
 }
 
-h1 {
-  text-align: center;
+/* Back Button */
+.back-button-container {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(144, 168, 255, 0.1);
+  border: 1px solid rgba(144, 168, 255, 0.3);
+  color: #90a8ff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(144, 168, 255, 0.2);
+  border-color: #90a8ff;
+  transform: translateX(-2px);
+}
+
+.back-button svg {
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Project Header */
+.project-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.project-image-container {
+  position: relative;
+  flex-shrink: 0;
 }
 
 .project-image {
-  width: 60%;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.project-content {
-  text-align: justify;
+.project-image:hover {
+  transform: scale(1.02);
 }
 
-.project-content li {
-  margin-bottom: 0.5rem;
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), transparent);
+  border-radius: 12px;
+  pointer-events: none;
 }
 
-.card-section {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.card-section h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.card-grid {
+.project-info {
+  flex: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  flex-direction: column;
   justify-content: center;
 }
 
-.skill-card {
-  background: #19203c;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000000;
-  padding: 1rem 1.5rem;
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #fff, #90a8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.project-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.category-badge,
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-badge {
+  background: rgba(144, 168, 255, 0.2);
+  color: #90a8ff;
+  border: 1px solid rgba(144, 168, 255, 0.3);
+}
+
+.status-badge {
+  border: 1px solid;
+}
+
+.status-completed {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.status-progress {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.status-paused {
+  background: rgba(255, 87, 34, 0.2);
+  color: #ff5722;
+  border-color: rgba(255, 87, 34, 0.3);
+}
+
+.status-default {
+  background: rgba(158, 158, 158, 0.2);
+  color: #9e9e9e;
+  border-color: rgba(158, 158, 158, 0.3);
+}
+
+/* Content Sections */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.content-section {
+  position: relative;
+}
+
+.content-section h2 {
+  color: #90a8ff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
+}
+
+/* Description Card */
+.description-card {
+  background: rgba(144, 168, 255, 0.05);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.description-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.description-card p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* Tech Grid */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.tech-card {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 110px;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
-.skill-icon {
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  border-color: #90a8ff;
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.2);
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+.language-card {
+  color: #ff6b6b;
+}
+
+.language-card:hover {
+  border-color: #ff6b6b;
+  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.2);
+}
+
+.technology-card {
+  color: #4ecdc4;
+}
+
+.technology-card:hover {
+  border-color: #4ecdc4;
+  box-shadow: 0 8px 32px rgba(78, 205, 196, 0.2);
+}
+
+.tech-icon-container {
   width: 60px;
   height: 60px;
-  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-.skill-card p {
-  margin: 0;
-  color: #dbf9ff;
-  font-size: 1rem;
-  font-weight: 500;
+.tech-card:hover .tech-icon-container {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.tech-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.tech-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* Links Section */
+.links-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .project-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75em 1.5em;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  transition: background 0.3s, color 0.3s, border 0.3s;
-}
-
-.project-link:hover {
-  background: #fff;
-  color: #10152d;
-  border-color: #dbf9ff;
-}
-
-/* fancy button */
-.fancy:hover svg {
-  filter: invert(1);
-}
-
-.spacer:hover {
-  cursor: pointer;
-}
-
-.fancy {
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: #000;
-  cursor: pointer;
   display: inline-flex;
-  float: none;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin: 0;
-  outline: none;
-  overflow: visible;
-  padding: 1.25em 2em;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.github-link {
+  background: rgba(33, 41, 60, 0.8);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.github-link:hover {
+  background: #21293c;
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(33, 41, 60, 0.4);
+}
+
+/* Error Container */
+.error-container {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 2rem;
+}
+
+.error-card {
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  border-radius: 16px;
+  padding: 3rem;
   text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  transition: all 0.3s ease-in-out;
-  user-select: none;
-  font-size: 12px;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
 }
 
-.fancy svg {
-  width: auto;
-  height: 20px;
-  fill: #fff;
-  margin-right: 0.625rem;
-  transition: filter 0.3s ease-in-out;
+.error-card h2 {
+  color: #ff5722;
+  margin-bottom: 1rem;
 }
 
-.fancy .text {
-  font-size: 1.125em;
-  line-height: 1.33333em;
-  display: block;
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: white;
+.error-card p {
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
-.fancy .top-key {
-  height: 2px;
-  width: 1.5625rem;
-  top: -2px;
-  left: 0.625rem;
-  position: absolute;
-  background: #19203c;
-  transition: width 0.5s ease-out, left 0.3s ease-out;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-details-container {
+    padding: 0 1rem;
+    margin-top: 4rem;
+  }
+
+  .project-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .project-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .project-meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .links-container {
+    justify-content: center;
+  }
+
+  .content-section h2 {
+    font-size: 1.3rem;
+  }
 }
 
-.fancy .bottom-key-1 {
-  height: 2px;
-  width: 1.5625rem;
-  right: 1.875rem;
-  bottom: -2px;
-  position: absolute;
-  background: #19203c;
-  transition: width 0.5s ease-out, right 0.3s ease-out;
-}
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.75rem;
+  }
 
-.fancy .bottom-key-2 {
-  height: 2px;
-  width: 0.625rem;
-  right: 0.625rem;
-  bottom: -2px;
-  position: absolute;
-  background: #19203c;
-  transition: width 0.5s ease-out, right 0.3s ease-out;
-}
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
 
-.fancy:hover {
-  color: white;
-  background: white;
-}
+  .tech-card {
+    padding: 1rem;
+  }
 
-.fancy:hover::before {
-  width: 0.9375rem;
-  background: black;
-}
+  .tech-icon-container {
+    width: 50px;
+    height: 50px;
+  }
 
-.fancy:hover .text {
-  color: black;
-}
-
-.fancy:hover .top-key {
-  left: -2px;
-  width: 0px;
-}
-
-.fancy:hover .bottom-key-1,
-.fancy:hover .bottom-key-2 {
-  right: 0;
-  width: 0;
+  .tech-icon {
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>

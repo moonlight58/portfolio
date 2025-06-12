@@ -121,7 +121,7 @@ onUnmounted(() => {
           :key="index"
           class="carousel-item"
         >
-          <router-link :to="`/project-details/${projet.titre}`">
+          <router-link :to="`/project-details/${projet.titre}`" target="_blank">
             <img
               :src="projet.image"
               :alt="projet.titre"

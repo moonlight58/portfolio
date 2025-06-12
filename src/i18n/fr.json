@@ -31,5 +31,17 @@
   
   "WhyPortfolio": "Pourquoi ce Portfolio ?",
   "WhyPortfolioContent": "Ce site est développé dans le cadre de mon projet de Portfolio durant les trois années du BUT. Il sera continuellement mis à jour pour refléter mes projets académiques et personnels.",
-  "Contact": "Envie de discuter, de collaborer ou simplement de dire bonjour ? N'hésitez pas à me contacter !"
+  "Contact": "Envie de discuter, de collaborer ou simplement de dire bonjour ? N'hésitez pas à me contacter !",
+
+  "Roi des Roses_description": "Roi des Roses est un jeu que j'ai créé en 2024 avec une équipe de 3 étudiants. C'est un jeu de cartes basé sur le célèbre jeu 'King of Tokyo'. Le but est d'être le premier joueur à atteindre 20 points. Le jeu se joue à 2 et dure environ 30 minutes. Vous pouvez jouer contre un joueur ou contre un bot.",
+  "B.I.E.N._description": "SAE-SiteInfo-BIEN est un site éducatif et interactif conçu pour sensibiliser le public à l'impact environnemental du numérique, et en particulier à la production de CO2 liée à la technologie. L'objectif principal est d'aider les utilisateurs à prendre conscience de l'empreinte carbone du secteur technologique grâce à des données visuelles et personnalisables.",
+  "SteamToLinux_description": "SteamToLinux est un outil conçu pour vérifier facilement la compatibilité de vos jeux sur Linux. Il utilise l'API Steam pour accéder à votre bibliothèque de jeux et récupère des données de ProtonDB pour fournir des informations complètes sur la compatibilité.",
+  "Spotify-TUI_description": "Spotify-TUI est une interface utilisateur en terminal pour Spotify. Elle permet de contrôler votre compte Spotify depuis la ligne de commande. Vous pouvez rechercher des chansons, albums et playlists, et les lire directement depuis le terminal. Elle est encore en développement par manque de temps. L'objectif est d'en faire un client Spotify complet avec toutes les fonctionnalités du client officiel.",
+  "Moonify_description": "Moonify est un client Spotify en ligne de commande qui vous permet d'écouter de la musique dans votre terminal. Il est conçu pour être léger et rapide, tout en offrant une expérience utilisateur agréable. Une version graphique a également été implémentée pour ceux qui ne sont pas à l'aise avec les interfaces CLI, offrant ainsi une meilleure expérience et prise en main.",
+
+  "Website": "Site web",
+  "Application": "Application",
+  "Game": "Jeu",
+  "finished": "Terminé",
+  "in progress": "En cours"
 }

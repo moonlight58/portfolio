@@ -32,5 +32,17 @@
   
   "WhyPortfolio": "Why this Portfolio ?",
   "WhyPortfolioContent": "This site is developed as part of my Portfolio project during the three years in the BUT. It will be continually updated to reflect my academic and personal projects.",
-  "Contact": "Want to chat, collaborate or just say hello? Don't hesitate to contact me!"
+  "Contact": "Want to chat, collaborate or just say hello? Don't hesitate to contact me!",
+
+  "Roi des Roses_description": "Roi des Roses is a game that I created in 2024 with a team of 3 students. It is a card game based on the famous game 'King of Tokyo'. The goal is to be the first player to reach 20 points. The game is played with 2 players and takes about 30 minutes to play. You can play against a player or against a bot.",
+  "B.I.E.N._description": "SAE-SiteInfo-BIEN is an educational and interactive website designed to raise public awareness of the environmental impact of digital technology, and in particular of technology-related CO2 production. The main objective is to help users become aware of the technology sector's carbon footprint through visual and customizable data.",
+  "SteamToLinux_description": "SteamToLinux is a tool designed to effortlessly check the compatibility of your games on Linux. It leverages the SteamAPI for accessing your game library and scrapes data from ProtonDB to provide comprehensive compatibility information.",
+  "Spotify-TUI_description": "Spotify-TUI is a terminal user interface for Spotify. It allows you to control your Spotify account from the command line. You can search for songs, albums, and playlists, and play them directly from the terminal. It is still in development due to the lack of time to finish it. The goal is to make it a complete Spotify client with all the features of the official client.",
+  "Moonify_description": "Moonify is a command-line Spotify client that lets you listen to music on your terminal. It's designed to be light and fast, while offering a pleasant user experience. A GUI version has also been implemented for people who aren't comfortable with CLIs, enabling a better experience and handling.",
+
+  "Website": "Website",
+  "Application": "Application",
+  "Game": "Game",
+  "finished": "Finished",
+  "in progress": "In progress"
 }
