@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const projets = ref([
   {
-    titre: "Spotify-TUI",
+    titre: "Spotify-tui",
     contenu:
       "Terminal-based Spotify client lighter than the original application made in C and uses Spotify Web API",
     image: require("@/assets/images/Spotify-tui.png"),
@@ -40,9 +40,9 @@ const projets = ref([
     url: "https://github.com/grothlin-iut90/SAE-SiteInfo-BIEN",
   },
   {
-    titre: "Roi des Roses",
+    titre: "Roi-des-Roses",
     contenu: "Board Game with JavaFX",
-    image: require("@/assets/images/RoiDesRoses.jpg"),
+    image: require("@/assets/images/Roi-des-Roses.jpg"),
     categorie: "Uni",
     status: "Done",
     language: "Java",

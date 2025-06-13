@@ -116,7 +116,7 @@ onMounted(() => {
             :alt="`Image du projet ${project.name}`"
             class="project-image"
           />
-          <div class="image-overlay">
+          <div class="image-overlay" @click="$router.push('/project-details/' + project.name)">
             <div class="overlay-content">
               <span class="view-text">Voir le projet</span>
             </div>

@@ -390,6 +390,7 @@ export default {
   padding: 2rem;
   backdrop-filter: blur(10px);
   position: relative;
+  text-align: justify;
 }
 
 .description-card::before {
