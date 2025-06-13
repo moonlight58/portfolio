@@ -53,6 +53,18 @@ function setupIntersectionObserver() {
   });
 }
 
+function getProjectImage(name) {
+  try {
+    return require(`@/assets/images/${name}.png`);
+  } catch {
+    try {
+      return require(`@/assets/images/${name}.jpg`);
+    } catch {
+      return require('@/assets/images/default.png'); // fallback image
+    }
+  }
+}
+
 onMounted(() => {
   fetchGithubRepos("personal");
   toggleButton("personal");
@@ -99,8 +111,8 @@ onMounted(() => {
         :style="{ 'animation-delay': `${index * 0.1}s` }"
       >
         <div class="project-image-container">
-          <img 
-            :src="`https://via.placeholder.com/300x200/90a8ff/ffffff?text=${project.name.charAt(0).toUpperCase()}`" 
+          <img
+            :src="getProjectImage(project.name)"
             :alt="`Image du projet ${project.name}`"
             class="project-image"
           />
@@ -180,7 +192,7 @@ onMounted(() => {
 <style scoped>
 .container {
   font-family: "N27", sans-serif;
-  margin-top: 6rem;
+  margin-top: 7rem;
   padding: 0 2rem;
   max-width: 1200px;
   margin-left: auto;
