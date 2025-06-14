@@ -48,5 +48,40 @@
     "status": "finished",
     "categorie": "Application",
     "url": "https://github.com/moonlight58/Moonify"
+  },
+  "ArchLinuxTutorial": {
+    "titre": "ArchLinuxTutorial",
+    "description": "ArchLinuxTutorial is a comprehensive guide to installing and configuring Arch Linux. It covers everything from the initial installation to advanced configuration, making it a valuable resource for both beginners and experienced users.",
+    "image": "ArchLinuxTutorial.png",
+    "status": "in progress",
+    "categorie": "Documentation",
+    "url": "https://github.com/moonlight58/ArchLinuxTutorial"
+  },
+  "DnD_Prototype": {
+    "titre": "DnD_Prototype",
+    "description": "DnD Game using the rule set of the 5th Edition Dungeons And Dragons, with a similar aspect of a JRPG. The game is still in development, but the goal is to create a complete game with a story, characters, and battles.",
+    "language": "Java",
+    "image": "DnD_Prototype.png",
+    "status": "in progress",
+    "categorie": "Game",
+    "url": "https://github.com/moonlight58/DnD_Prototype"
+  },
+  "Install-UpdateDiscord": {
+    "titre": "Install-UpdateDiscord",
+    "description": "Install-UpdateDiscord is a Bash script that allows you to install and update Discord on Linux-based systems and installs the Vencord mod client. It is designed to be simple and efficient, making it easy for Linux users to install Discord.",
+    "language": "Bash",
+    "image": "Install-UpdateDiscord.png",
+    "status": "finished",
+    "categorie": "Script",
+    "url": "https://github.com/moonlight58/Install-UpdateDiscord"
+  },
+  "SoundBoard-Python": {
+    "titre": "SoundBoard-Python",
+    "description": "SoundBoard-Python is a simple soundboard application made in Python. It allows you to play sounds with a simple interface made in Tkinter.",
+    "language": "Python",
+    "image": "SoundBoard-Python.png",
+    "status": "finished",
+    "categorie": "Application",
+    "url": "https://github.com/moonlight58/SoundBoard-Python"
   }
 }
