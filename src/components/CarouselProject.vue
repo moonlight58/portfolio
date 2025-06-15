@@ -220,7 +220,7 @@ onUnmounted(() => {
 .carousel-container {
   width: 100%;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .carousel {
@@ -240,26 +240,43 @@ onUnmounted(() => {
 }
 
 .project-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.2);
-  border-radius: 12px;
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .project-card:hover {
-  background: rgba(144, 168, 255, 0.1);
-  border-color: rgba(144, 168, 255, 0.4);
-  transform: translateY(-2px);
+  border-color: rgba(144, 168, 255, 0.3);
+  transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-image-container {
   position: relative;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -283,13 +300,13 @@ onUnmounted(() => {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(16, 21, 45, 0.3) 70%,
-    rgba(16, 21, 45, 0.8) 100%
+    rgba(26, 26, 26, 0.3) 70%,
+    rgba(26, 26, 26, 0.8) 100%
   );
 }
 
 .project-content {
-  padding: 1.5rem;
+  padding: 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -305,16 +322,20 @@ onUnmounted(() => {
 
 .project-title {
   color: #90a8ff;
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 700;
   margin: 0;
   line-height: 1.2;
+  background: linear-gradient(135deg, #90a8ff, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .project-description {
-  color: #ccc;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
   margin: 0 0 1.5rem 0;
   flex: 1;
 }
@@ -325,7 +346,7 @@ onUnmounted(() => {
 
 .tech-info {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -338,17 +359,34 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.badge:hover::before {
+  left: 100%;
 }
 
 .language-badge {
-  background: rgba(34, 214, 255, 0.1);
-  border: 1px solid rgba(34, 214, 255, 0.3);
-  color: rgb(34, 214, 255);
+  background: rgba(144, 168, 255, 0.1);
+  border: 1px solid rgba(144, 168, 255, 0.3);
+  color: #90a8ff;
 }
 
 .category-badge {
@@ -358,13 +396,14 @@ onUnmounted(() => {
 }
 
 .status-badge {
-  background: rgba(102, 252, 241, 0.1);
-  border: 1px solid rgba(102, 252, 241, 0.3);
-  color: rgb(102, 252, 241);
+  background: rgba(144, 168, 255, 0.1);
+  border: 1px solid rgba(144, 168, 255, 0.3);
+  color: #90a8ff;
 }
 
 .badge:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.2);
 }
 
 .badge-icon {
@@ -377,36 +416,55 @@ onUnmounted(() => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(144, 168, 255, 0.1);
+  background: rgba(26, 26, 26, 0.8);
   border: 2px solid rgba(144, 168, 255, 0.3);
   color: #90a8ff;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   z-index: 2;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-control::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .carousel-control:hover:not(.disabled) {
-  background: rgba(144, 168, 255, 0.2);
-  border-color: rgba(144, 168, 255, 0.5);
+  background: #90a8ff;
+  color: #1a1a1a;
   transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
+}
+
+.carousel-control:hover:not(.disabled)::before {
+  opacity: 1;
 }
 
 .carousel-control.prev {
-  left: -24px;
+  left: -25px;
 }
 
 .carousel-control.next {
-  right: -24px;
+  right: -25px;
 }
 
 .carousel-control.disabled {
-  background: rgba(144, 168, 255, 0.05);
+  background: rgba(26, 26, 26, 0.4);
   border-color: rgba(144, 168, 255, 0.1);
   color: rgba(144, 168, 255, 0.3);
   cursor: not-allowed;
@@ -415,29 +473,50 @@ onUnmounted(() => {
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  gap: 0.75rem;
+  margin-top: 2rem;
 }
 
 .indicator {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  border: none;
-  background: rgba(144, 168, 255, 0.3);
+  border: 2px solid rgba(144, 168, 255, 0.3);
+  background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #90a8ff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .indicator.active {
-  background: #90a8ff;
+  border-color: #90a8ff;
   transform: scale(1.2);
 }
 
-.indicator:hover:not(.active) {
-  background: rgba(144, 168, 255, 0.5);
+.indicator.active::before {
+  opacity: 1;
 }
-/* Mobile Responsive - AMÉLIORÉ */
+
+.indicator:hover:not(.active) {
+  border-color: rgba(144, 168, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
   .carousel-control.prev {
     left: -20px;
@@ -450,41 +529,37 @@ onUnmounted(() => {
 
 @media (max-width: 800px) {
   .project-card {
-    height: 350px;
+    height: 400px;
   }
   
   .project-image-container {
-    height: 160px;
+    height: 180px;
   }
   
   .project-content {
-    padding: 1rem;
+    padding: 1.5rem;
   }
   
   .project-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .project-description {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
   
   .badge {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
-  }
-  
-  .badge span {
-    display: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
   
   .carousel-control {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
   
   .carousel-control.prev {
-    left: -16px; /* Rapproché pour éviter le débordement */
+    left: -16px;
   }
   
   .carousel-control.next {
@@ -492,9 +567,9 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 640px) { /* Nouveau breakpoint critique */
+@media (max-width: 640px) {
   .carousel-wrapper {
-    margin: 0 1rem; /* Ajoute une marge pour les contrôles */
+    margin: 0 1rem;
   }
   
   .carousel-control.prev {
@@ -506,36 +581,36 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 580px) { /* Nouveau breakpoint */
+@media (max-width: 580px) {
   .project-card {
-    height: 330px;
+    height: 380px;
   }
   
   .project-image-container {
-    height: 140px;
+    height: 160px;
   }
   
   .project-content {
-    padding: 0.875rem;
+    padding: 1.25rem;
   }
   
   .project-title {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
   
   .project-description {
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
   
   .badge {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
   }
   
   .carousel-control {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
   }
   
   .carousel-control.prev {
@@ -549,15 +624,24 @@ onUnmounted(() => {
 
 @media (max-width: 480px) {
   .project-card {
-    height: 320px;
+    height: 360px;
   }
   
   .project-image-container {
     height: 140px;
   }
   
+  .project-content {
+    padding: 1rem;
+  }
+  
   .tech-info {
     justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .badge span {
+    display: none;
   }
   
   .carousel-control {
@@ -566,7 +650,7 @@ onUnmounted(() => {
   }
   
   .carousel-control.prev {
-    left: -8px; /* Encore plus rapproché */
+    left: -8px;
   }
   
   .carousel-control.next {
@@ -574,14 +658,13 @@ onUnmounted(() => {
   }
 }
 
-/* Très petit mobile - Approche alternative */
 @media (max-width: 380px) {
   .carousel-wrapper {
-    margin: 0 1.5rem; /* Plus de marge */
+    margin: 0 1.5rem;
   }
   
   .project-card {
-    height: 300px;
+    height: 340px;
   }
   
   .project-image-container {
@@ -589,7 +672,7 @@ onUnmounted(() => {
   }
   
   .project-content {
-    padding: 0.75rem;
+    padding: 0.875rem;
   }
   
   .project-title {
@@ -597,7 +680,7 @@ onUnmounted(() => {
   }
   
   .project-description {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
   
   .carousel-control {
@@ -614,55 +697,36 @@ onUnmounted(() => {
   }
   
   .badge {
-    padding: 0.3rem 0.4rem;
+    padding: 0.3rem 0.5rem;
   }
   
   .carousel-indicators {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 }
 
-/* Alternative pour très petits écrans : contrôles en bas */
 @media (max-width: 320px) {
   .carousel-wrapper {
     margin: 0 0.5rem;
   }
   
   .carousel-control {
-    position: static; /* Enlève le positionnement absolu */
-    transform: none;
-    margin: 0.5rem;
-  }
-  
-  .carousel-control.prev,
-  .carousel-control.next {
-    position: static;
-    left: auto;
-    right: auto;
-  }
-  
-  /* Ajouter une rangée de contrôles en bas */
-  .carousel-wrapper::after {
-    content: '';
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  /* Alternative : utiliser seulement les indicateurs */
-  .carousel-control {
     display: none;
   }
   
   .carousel-indicators {
-    margin-top: 1rem;
-    gap: 0.75rem;
+    margin-top: 1.5rem;
+    gap: 1rem;
   }
   
   .indicator {
     width: 12px;
     height: 12px;
+  }
+  
+  .indicator::before {
+    width: 6px;
+    height: 6px;
   }
 }
 </style>

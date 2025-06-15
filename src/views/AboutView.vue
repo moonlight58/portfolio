@@ -123,7 +123,7 @@
 <style scoped>
 .container {
   font-family: "N27", sans-serif;
-  margin-top: 7rem;
+  margin-top: 10rem;
   padding: 0 2rem;
   max-width: 1000px;
   margin-left: auto;

@@ -1,100 +1,124 @@
 <template>
   <div class="container">
-    <div class="presentation">
-      <div class="presentation-header">
-        <img src="../assets/moon-pfp.jpg" alt="Moon-pfp" />
-        <h1>Gaël Röthlin</h1>
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <div class="profile-container">
+          <div class="profile-image-wrapper">
+            <img src="../assets/moon-pfp.jpg" alt="Gaël Röthlin" class="profile-image" />
+            <div class="profile-glow"></div>
+          </div>
+          <div class="profile-info">
+            <h1 class="profile-name">Gaël Röthlin</h1>
+            <p class="profile-subtitle">{{ $t("HomeTitle") }}</p>
+          </div>
+        </div>
+        
+        <div class="intro-card">
+          <p class="intro-text">
+            {{ $t("BodyPart1") }}, BUT<span class="warning">*</span>,
+            {{ $t("BodyPart2") }}
+          </p>
+          <p class="precision">
+            <span class="warning">*</span>({{ $t("Precision") }})
+          </p>
+          <p class="description-text">
+            {{ $t("Description") }}
+          </p>
+          
+          <div class="social-link-container">
+            <a
+              class="instagram-link"
+              href="https://www.instagram.com/osiris._25"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/instagram.svg"
+                class="social-icon"
+                alt="Instagram logo"
+              />
+              <span class="social-text">osiris._25</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="presentation-content section">
-      <h1 class="title">{{ $t("HomeTitle") }}</h1>
-      <p class="body">
-        {{ $t("BodyPart1") }}, BUT<span class="warning">*</span>,
-        {{ $t("BodyPart2") }}
-      </p>
-
-      <p class="precision">
-        <span class="warning">*</span>({{ $t("Precision") }})
-      </p>
-
-      <p class="body">
-        {{ $t("Description") }}
-      </p>
-
-      <div class="spacer">
-        <a
-          class="fancy"
-          href="https://www.instagram.com/osiris._25"
-          target="_blank"
-        >
-          <span class="top-key"></span>
-          <img
-            src="../assets/instagram.svg"
-            class="instagram-img"
-            alt="Instagram logo"
-          />
-          <span class="text">osiris._25</span>
-          <span class="bottom-key-1"></span>
-          <span class="bottom-key-2"></span>
-        </a>
+    <!-- Projects Section -->
+    <div class="projects-section section">
+      <div class="section-header">
+        <h2 class="section-title">{{ $t("Projects") }}</h2>
+        <div class="section-subtitle">
+          <p>{{ $t("ProjectContent") }}</p>
+        </div>
       </div>
-    </div>
-
-    <div class="project section">
-      <h2 class="section-title">{{ $t("Projects") }}</h2>
-      <div class="section-content">
-        <p class="project-content">
-          {{ $t("ProjectContent") }}
-        </p>
+      <div class="carousel-container">
         <Carousel />
       </div>
     </div>
 
-    <Internship />
+    <!-- Internship Section -->
+    <div class="internship-section">
+      <Internship />
+    </div>
 
-    <div class="skills section">
-      <h2 class="section-title">{{ $t("Skills") }}</h2>
-      <div class="section-content">
+    <!-- Skills Section -->
+    <div class="skills-section section">
+      <div class="section-header">
+        <h2 class="section-title">{{ $t("Skills") }}</h2>
+      </div>
+      <div class="skills-content">
         <div
-          class="type-skill"
+          class="skill-category"
           v-for="(skillType, index) in Object.keys(skills)"
           :key="index"
         >
-          <h3>{{ $t(skillType) }}</h3>
-          <div class="skill-container">
+          <div class="skill-category-header">
+            <h3>{{ $t(skillType) }}</h3>
+          </div>
+          <div class="skills-grid">
             <div
-              class="language-div"
+              class="skill-card"
               v-for="(language, langIndex) in skills[skillType].language"
               :key="langIndex"
               @click="redirectToUrl(language.url)"
             >
-              <img
-                :src="require(`@/assets/skills/${language.name}.svg`)"
-                :alt="language.name"
-              />
-              <p>{{ language.name }}</p>
+              <div class="skill-icon-wrapper">
+                <img
+                  :src="require(`@/assets/skills/${language.name}.svg`)"
+                  :alt="language.name"
+                  class="skill-icon"
+                />
+              </div>
+              <p class="skill-name">{{ language.name }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="about section">
-      <h2 class="section-title">{{ $t("WhyPortfolio") }}</h2>
-      <div class="section-content">
-        <p class="about-content">
+    <!-- About Section -->
+    <div class="about-section section">
+      <div class="section-header">
+        <h2 class="section-title">{{ $t("WhyPortfolio") }}</h2>
+      </div>
+      <div class="about-card">
+        <p class="about-text">
           {{ $t("WhyPortfolioContent") }}
         </p>
       </div>
     </div>
 
-    <div class="contact section">
-      <h2 class="section-title">Contact</h2>
-      <div class="section-content">
-        <p class="contact-text">
-          {{ $t("Contact") }}
-        </p>
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <div class="contact-card">
+        <div class="contact-header">
+          <h2 class="contact-title">Contact</h2>
+          <p class="contact-subtitle">
+            {{ $t("Contact") }}
+          </p>
+        </div>
         <div class="contact-links">
           <a
             class="contact-btn"
@@ -130,8 +154,6 @@
         </div>
       </div>
     </div>
-
-    <div class="funny-shape"></div>
   </div>
 </template>
 
@@ -164,169 +186,423 @@ export default {
 </script>
 
 <style scoped>
-.funny-shape {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background-color: rgba(16, 21, 45, 1);
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  filter: blur(20px);
-  z-index: -1;
-}
-
 .container {
-  margin-top: 6rem;
-  width: 600px;
-  text-align: justify;
-  line-height: 1.6;
+  font-family: "N27", sans-serif;
+  margin-top: 10rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6rem;
+  color: #fff;
 }
 
-.section {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #333;
+/* Hero Section */
+.hero-section {
+  margin-bottom: 6rem;
 }
 
-.section:last-child {
-  border-bottom: none;
-}
-
-.section-title {
-  margin-bottom: 1.5rem;
-  color: #90a8ff;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.section-content {
-  color: #ccc;
-}
-
-.presentation {
-  margin: 15px 0 10px 0;
-  text-align: center;
-}
-
-.presentation-header {
+.hero-content {
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
-  font-weight: bold;
-  margin: 20px 0;
 }
 
-.presentation-header h1 {
-  color: #90a8ff;
-  font-size: 1.8rem;
+.profile-container {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
 }
 
-.presentation-header img {
+.profile-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.profile-image-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  max-width: 50px;
-  margin-right: 20px;
-  border: 2px solid #90a8ff;
-}
-
-.presentation-content .title {
-  font-style: italic;
-  margin-bottom: 1.5rem;
-  color: #90a8ff;
-  font-size: 1.3rem;
-}
-
-.presentation-content .body {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
-.presentation-content .precision {
-  font-size: 0.9rem;
-  font-weight: light;
-  color: #888;
-}
-
-.warning {
-  font-size: 1.1rem;
-  color: #ff6b6b;
-  font-weight: bold;
-}
-
-.project-content,
-.about-content {
-  text-align: justify;
-  margin-bottom: 1.5rem;
-}
-
-.type-skill {
-  background: rgba(144, 168, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  border-left: 4px solid #90a8ff;
-}
-
-.type-skill h3 {
-  margin: 0 0 1.5rem 0;
-  color: #90a8ff;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.skill-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  background: rgba(144, 168, 255, 0.1);
-  border-radius: 8px;
-  padding: 1.5rem;
-}
-
-.language-div {
-  text-align: center;
-  cursor: pointer;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.language-div:hover {
-  background: rgba(144, 168, 255, 0.15);
-  transform: translateY(-2px);
-}
-
-.language-div img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.5rem;
+  object-fit: cover;
+  border: 3px solid #90a8ff;
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
   transition: transform 0.3s ease;
 }
 
-.language-div:hover img {
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+.profile-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(144, 168, 255, 0.3), transparent);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-image-wrapper:hover .profile-glow {
+  opacity: 1;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #fff, #90a8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-subtitle {
+  font-size: 1.2rem;
+  color: #90a8ff;
+  font-style: italic;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.intro-card {
+  background: rgba(144, 168, 255, 0.05);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  text-align: justify;
+}
+
+.intro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.intro-text {
+  margin: 0 0 1rem 0;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+
+.precision {
+  font-size: 0.85rem;
+  color: #aaa;
+  font-style: italic;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.description-text {
+  margin: 0 0 2rem 0;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+
+.warning {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.social-link-container {
+  text-align: center;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(45deg, #fd5949, #d6249f, #285AEB);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.instagram-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.instagram-link:hover::before {
+  left: 100%;
+}
+
+.instagram-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(253, 89, 73, 0.4);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.social-text {
+  font-weight: 600;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #fff, #90a8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Projects Section */
+.carousel-container {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.carousel-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+/* Skills Section */
+.skills-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.skill-category {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.skill-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.skill-category-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skill-category-header h3 {
+  color: #90a8ff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: rgba(144, 168, 255, 0.05);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(144, 168, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon-wrapper {
+  margin-bottom: 1rem;
+}
+
+.skill-icon {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
   transform: scale(1.1);
 }
 
-.language-div p {
+.skill-name {
   margin: 0;
   font-size: 0.9rem;
   color: #ccc;
+  font-weight: 500;
 }
 
-.contact {
-  background: rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  border-left: 4px solid #90a8ff;
-  padding: 2rem; /* Added explicit padding */
+/* About Section */
+.about-card {
+  background: rgba(144, 168, 255, 0.05);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  text-align: center;
 }
 
-.contact-text {
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.about-text {
+  margin: 0;
+  line-height: 1.7;
   font-size: 1rem;
+  color: #e0e0e0;
+}
+
+/* Contact Section */
+.contact-section {
+  margin-top: 4rem;
+}
+
+.contact-card {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  text-align: center;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+}
+
+.contact-header {
   margin-bottom: 2rem;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #fff, #90a8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-subtitle {
   color: #ccc;
-  text-align: center; /* Center the contact text */
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.8;
 }
 
 .contact-links {
@@ -339,113 +615,82 @@ export default {
 .contact-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   background: rgba(144, 168, 255, 0.1);
-  border: 2px solid #90a8ff;
-  border-radius: 8px;
+  border: 2px solid rgba(144, 168, 255, 0.3);
+  border-radius: 12px;
   color: #90a8ff;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
   transition: all 0.3s ease;
-  min-width: 120px; /* Ensure consistent button sizes */
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(144, 168, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-btn:hover::before {
+  left: 100%;
 }
 
 .contact-btn:hover {
   background: #90a8ff;
   color: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(144, 168, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
 }
 
 .contact-icon {
   width: 20px;
   height: 20px;
   transition: filter 0.3s;
-  flex-shrink: 0; /* Prevent icon from shrinking */
+  flex-shrink: 0;
 }
 
 .contact-btn:hover .contact-icon {
   filter: invert(1);
 }
 
-.contact-btn span {
-  white-space: nowrap; /* Prevent text wrapping */
-}
-
-.spacer {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.fancy {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(144, 168, 255, 0.1);
-  border: 2px solid #90a8ff;
-  border-radius: 8px;
-  color: #90a8ff;
-  padding: 0.75em 1.5em;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.fancy:hover {
-  background: #90a8ff;
-  color: #1a1a1a;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(144, 168, 255, 0.3);
-}
-
-.instagram-img {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-  transition: filter 0.3s ease;
-}
-
-.fancy:hover .instagram-img {
-  filter: invert(1);
-}
-
-.text {
-  font-weight: 600;
-}
-
-/* Masquer les éléments de décoration originaux */
-.top-key,
-.bottom-key-1,
-.bottom-key-2 {
-  display: none;
-}
-
-/* Responsive */
-@media (max-width: 1186px) {
+/* Responsive Design */
+@media (max-width: 768px) {
   .container {
-    width: 100%;
     padding: 0 1rem;
+    margin-top: 4rem;
   }
 
-  .skill-container {
-    grid-template-columns: repeat(3, 1fr);
+  .profile-name {
+    font-size: 1.75rem;
   }
-}
 
-@media (max-width: 768px) {
-  .skill-container {
-    grid-template-columns: repeat(2, 1fr);
+  .section-title {
+    font-size: 1.75rem;
   }
-}
 
-@media (max-width: 768px) {
-  .contact {
-    padding: 1.5rem;
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
   }
-  
+
+  .skill-card {
+    padding: 1rem;
+  }
+
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+  }
+
   .contact-links {
     flex-direction: column;
     align-items: center;
@@ -455,34 +700,61 @@ export default {
   .contact-btn {
     width: 100%;
     max-width: 250px;
+    justify-content: center;
+  }
+
+  .intro-card {
+    padding: 1.5rem;
+  }
+
+  .skill-category {
+    padding: 1.5rem;
+  }
+
+  .carousel-container {
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .contact {
+  .profile-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .intro-card {
     padding: 1rem;
   }
-  
-  .contact-text {
-    font-size: 0.9rem;
+
+  .skill-category {
+    padding: 1rem;
   }
-  
-  .contact-btn {
-    padding: 0.6rem 1.2rem;
+
+  .carousel-container {
+    padding: 1rem;
+  }
+
+  .contact-card {
+    padding: 2rem 1rem;
+  }
+
+  .instagram-link {
+    padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
   }
 }
 
-@media (min-width: 1920px) {
-  .container {
-    width: 50%
-  }
-}
-
-@media (max-width: 1186px) {
-  .container {
-    width: 100%;
-    padding: 0 1rem;
+@media (min-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
 </style>

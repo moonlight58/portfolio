@@ -817,7 +817,7 @@ onUnmounted(() => {
 }
 
 .stage-view {
-  margin-top: 6rem;
+  margin-top: 10rem;
   width: 600px;
   text-align: justify;
   line-height: 1.6;

@@ -1,14 +1,25 @@
 <template>
   <div class="navbar-container">
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
-      <router-link to="/" class="pseudo">moonlight</router-link>
+      <!-- Logo avec effet amélioré -->
+      <router-link to="/" class="logo">
+        <div class="logo-icon">🌙</div>
+        <span class="logo-text">moonlight</span>
+      </router-link>
+      
       <div class="navbar-right">
         <div class="links">
-          <router-link to="/projects" class="nav-link">projects</router-link>
-          <router-link to="/about-me" class="nav-link">about me</router-link>
+          <router-link to="/projects" class="nav-link">
+            <span class="link-icon">📁</span>
+            <span class="link-text">projects</span>
+          </router-link>
+          <router-link to="/about-me" class="nav-link">
+            <span class="link-icon">👤</span>
+            <span class="link-text">about me</span>
+          </router-link>
         </div>
 
-        <!-- Language Slider -->
+        <!-- Language Slider amélioré -->
         <div class="language-slider">
           <div class="slider-track" @click="toggleLanguage">
             <div
@@ -33,7 +44,7 @@
         </div>
       </div>
 
-      <!-- Bouton burger visible seulement sur mobile -->
+      <!-- Bouton burger amélioré -->
       <button 
         class="burger-btn" 
         @click="toggleMenu" 
@@ -46,23 +57,26 @@
       </button>
     </div>
 
-    <!-- Overlay pour fermer le menu en cliquant à côté -->
+    <!-- Overlay pour fermer le menu -->
     <div 
       class="mobile-overlay" 
       v-if="showMenu && isMobile" 
       @click="closeMenu"
     ></div>
 
-    <!-- Menu mobile -->
+    <!-- Menu mobile amélioré -->
     <div 
       class="mobile-menu" 
       :class="{ 'mobile-menu-open': showMenu }" 
       v-if="isMobile"
     >
       <div class="mobile-menu-header">
-        <h3>Menu</h3>
+        <div class="mobile-logo">
+          <div class="logo-icon">🌙</div>
+          <h3>Menu</h3>
+        </div>
         <button class="close-btn" @click="closeMenu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
           </svg>
         </button>
@@ -72,14 +86,16 @@
         <router-link to="/projects" @click="closeMenu" class="mobile-nav-link">
           <span class="mobile-link-icon">📁</span>
           <span>Projects</span>
+          <div class="link-arrow">→</div>
         </router-link>
         <router-link to="/about-me" @click="closeMenu" class="mobile-nav-link">
           <span class="mobile-link-icon">👤</span>
           <span>About Me</span>
+          <div class="link-arrow">→</div>
         </router-link>
         
         <div class="mobile-language-section">
-          <h4>Language</h4>
+          <h4>🌐 Language</h4>
           <div class="language-slider mobile-language-slider">
             <div class="slider-track" @click="toggleLanguage">
               <div
@@ -149,7 +165,6 @@ export default {
     },
     toggleMenu() {
       this.showMenu = !this.showMenu;
-      // Empêcher le scroll du body quand le menu est ouvert
       document.body.style.overflow = this.showMenu ? 'hidden' : '';
     },
     closeMenu() {
@@ -175,10 +190,20 @@ export default {
   position: fixed;
   justify-content: center;
   backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(16, 21, 45, 0.8);
-  border-bottom: 1px solid rgba(144, 168, 255, 0.1);
+  background: rgba(16, 21, 45, 0.85);
+  border-bottom: 1px solid rgba(144, 168, 255, 0.15);
   z-index: 100;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(144, 168, 255, 0.3), transparent);
 }
 
 .navbar {
@@ -189,42 +214,69 @@ export default {
   justify-content: space-between;
   align-items: center;
   font-size: 1.1rem;
-  transition: padding 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar,
 .links {
   font-family: "N27", sans-serif;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-.navbar .pseudo {
+/* Logo amélioré */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
   color: #90a8ff;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.3rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  background: rgba(144, 168, 255, 0.05);
+  border: 1px solid rgba(144, 168, 255, 0.1);
 }
 
-.navbar .pseudo::before {
+.logo::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(144, 168, 255, 0.1);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
+  border-radius: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
   z-index: -1;
 }
 
-.navbar .pseudo:hover::before {
+.logo:hover::before {
   opacity: 1;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(144, 168, 255, 0.2);
+  border-color: rgba(144, 168, 255, 0.3);
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(144, 168, 255, 0.5));
+  transition: transform 0.4s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.logo-text {
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .navbar-right {
@@ -238,30 +290,63 @@ export default {
   gap: 1rem;
 }
 
+/* Liens de navigation améliorés */
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.75rem 1.25rem;
   color: #ccc;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
+  background: rgba(144, 168, 255, 0.03);
+  border: 1px solid rgba(144, 168, 255, 0.08);
+  font-weight: 600;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  border-radius: 12px 12px 0 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.router-link-active::before {
+  opacity: 1;
 }
 
 .nav-link:hover {
   color: #90a8ff;
   background: rgba(144, 168, 255, 0.1);
-  border-color: rgba(144, 168, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(144, 168, 255, 0.2);
+  border-color: rgba(144, 168, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(144, 168, 255, 0.15);
 }
 
 .nav-link.router-link-active {
   color: #90a8ff;
-  background: rgba(144, 168, 255, 0.15);
-  border-color: rgba(144, 168, 255, 0.4);
+  background: rgba(144, 168, 255, 0.12);
+  border-color: rgba(144, 168, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.1);
+}
+
+.link-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover .link-icon {
+  transform: scale(1.1);
 }
 
 .navbar-small {
@@ -272,7 +357,7 @@ export default {
   display: none;
 }
 
-/* Language Slider Styles */
+/* Language Slider amélioré */
 .language-slider {
   display: flex;
   align-items: center;
@@ -280,46 +365,67 @@ export default {
 
 .slider-track {
   position: relative;
-  width: 80px;
-  height: 36px;
-  background: rgba(144, 168, 255, 0.1);
-  border: 2px solid rgba(144, 168, 255, 0.3);
-  border-radius: 20px;
+  width: 85px;
+  height: 40px;
+  background: rgba(144, 168, 255, 0.08);
+  border: 2px solid rgba(144, 168, 255, 0.2);
+  border-radius: 24px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
 }
 
+.slider-track::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.slider-track:hover::before {
+  opacity: 1;
+}
+
 .slider-track:hover {
-  background: rgba(144, 168, 255, 0.15);
-  border-color: rgba(144, 168, 255, 0.5);
-  box-shadow: 0 2px 8px rgba(144, 168, 255, 0.2);
+  background: rgba(144, 168, 255, 0.12);
+  border-color: rgba(144, 168, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 .slider-thumb {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 36px;
-  height: 30px;
+  top: 3px;
+  left: 3px;
+  width: 38px;
+  height: 32px;
   background: linear-gradient(135deg, #90a8ff, #b8c5ff);
-  border-radius: 18px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 12px rgba(144, 168, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .slider-thumb-en {
-  transform: translateX(40px);
+  transform: translateX(43px);
 }
 
 .language-indicator {
   font-size: 0.75rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #1a1a1a;
   font-family: "N27", sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .language-labels {
@@ -331,17 +437,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 12px;
   pointer-events: none;
 }
 
 .lang-label {
   font-size: 0.7rem;
-  font-weight: bold;
+  font-weight: 700;
   font-family: "N27", sans-serif;
   color: #638297;
-  transition: all 0.3s ease;
-  opacity: 0.6;
+  transition: all 0.4s ease;
+  opacity: 0.7;
 }
 
 .lang-label.active {
@@ -351,44 +457,65 @@ export default {
 .lang-label:not(.active) {
   color: #90a8ff;
   opacity: 1;
+  text-shadow: 0 0 8px rgba(144, 168, 255, 0.5);
 }
 
-/* Burger Button Styles */
+/* Burger Button amélioré */
 .burger-btn {
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
-  background: rgba(144, 168, 255, 0.1);
-  border: 2px solid rgba(144, 168, 255, 0.3);
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  background: rgba(144, 168, 255, 0.08);
+  border: 2px solid rgba(144, 168, 255, 0.2);
+  border-radius: 12px;
   cursor: pointer;
   z-index: 101;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   gap: 4px;
+  position: relative;
+}
+
+.burger-btn::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.burger-btn:hover::before {
+  opacity: 1;
 }
 
 .burger-btn:hover {
-  background: rgba(144, 168, 255, 0.2);
-  border-color: rgba(144, 168, 255, 0.5);
-  transform: scale(1.05);
+  background: rgba(144, 168, 255, 0.15);
+  border-color: rgba(144, 168, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(144, 168, 255, 0.2);
 }
 
 .burger-btn span {
   display: block;
   height: 3px;
-  width: 20px;
+  width: 22px;
   background: #90a8ff;
   border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
+  box-shadow: 0 1px 3px rgba(144, 168, 255, 0.3);
 }
 
-/* Animation du burger en croix */
 .burger-btn.burger-active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  transform: rotate(45deg) translate(7px, 7px);
 }
 
 .burger-btn.burger-active span:nth-child(2) {
@@ -397,21 +524,21 @@ export default {
 }
 
 .burger-btn.burger-active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Mobile Overlay */
+/* Mobile Overlay amélioré */
 .mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
   z-index: 98;
   opacity: 0;
-  animation: fadeIn 0.3s ease forwards;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes fadeIn {
@@ -420,22 +547,32 @@ export default {
   }
 }
 
-/* Mobile Menu Styles */
+/* Mobile Menu amélioré */
 .mobile-menu {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 320px;
-  max-width: 85vw;
+  width: 340px;
+  max-width: 90vw;
   height: 100vh;
-  background: linear-gradient(135deg, rgba(16, 21, 45, 0.95), rgba(16, 21, 45, 0.98));
-  backdrop-filter: blur(20px) saturate(180%);
-  border-left: 2px solid rgba(144, 168, 255, 0.2);
+  background: linear-gradient(135deg, rgba(16, 21, 45, 0.97), rgba(16, 21, 45, 0.99));
+  backdrop-filter: blur(24px) saturate(180%);
+  border-left: 2px solid rgba(144, 168, 255, 0.25);
   z-index: 102;
-  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+  box-shadow: -12px 0 48px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(144, 168, 255, 0.5), transparent);
 }
 
 .mobile-menu-open {
@@ -446,34 +583,68 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1.5rem 1rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
+  padding: 2rem 1.5rem 1.5rem;
+  border-bottom: 1px solid rgba(144, 168, 255, 0.15);
+  background: rgba(144, 168, 255, 0.03);
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobile-logo .logo-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(144, 168, 255, 0.5));
 }
 
 .mobile-menu-header h3 {
   color: #90a8ff;
   font-family: "N27", sans-serif;
   font-size: 1.3rem;
+  font-weight: 700;
   margin: 0;
+  text-shadow: 0 0 12px rgba(144, 168, 255, 0.3);
 }
 
 .close-btn {
-  background: rgba(144, 168, 255, 0.1);
-  border: 2px solid rgba(144, 168, 255, 0.3);
-  border-radius: 8px;
+  background: rgba(144, 168, 255, 0.08);
+  border: 2px solid rgba(144, 168, 255, 0.2);
+  border-radius: 10px;
   color: #90a8ff;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.close-btn::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.close-btn:hover::before {
+  opacity: 1;
 }
 
 .close-btn:hover {
-  background: rgba(144, 168, 255, 0.2);
-  transform: scale(1.05);
+  background: rgba(144, 168, 255, 0.15);
+  transform: scale(1.05) rotate(90deg);
+  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.2);
 }
 
 .mobile-menu-content {
@@ -493,39 +664,81 @@ export default {
   text-decoration: none;
   font-family: "N27", sans-serif;
   font-weight: 600;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
   background: rgba(144, 168, 255, 0.05);
   border: 1px solid rgba(144, 168, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  justify-content: space-between;
+}
+
+.mobile-nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-nav-link:hover::before,
+.mobile-nav-link.router-link-active::before {
+  opacity: 1;
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.router-link-active {
   color: #90a8ff;
-  background: rgba(144, 168, 255, 0.15);
-  border-color: rgba(144, 168, 255, 0.3);
-  transform: translateX(4px);
+  background: rgba(144, 168, 255, 0.12);
+  border-color: rgba(144, 168, 255, 0.25);
+  transform: translateX(6px);
+  box-shadow: 0 6px 20px rgba(144, 168, 255, 0.15);
 }
 
 .mobile-link-icon {
-  font-size: 1.2rem;
-  min-width: 24px;
+  font-size: 1.3rem;
+  min-width: 28px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-link:hover .mobile-link-icon {
+  transform: scale(1.1);
+}
+
+.link-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.4s ease;
+  opacity: 0.6;
+}
+
+.mobile-nav-link:hover .link-arrow {
+  transform: translateX(4px);
+  opacity: 1;
 }
 
 .mobile-language-section {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(144, 168, 255, 0.2);
+  border-top: 1px solid rgba(144, 168, 255, 0.15);
+  background: rgba(144, 168, 255, 0.02);
+  border-radius: 12px;
+  padding: 2rem 1rem;
 }
 
 .mobile-language-section h4 {
   color: #90a8ff;
   font-family: "N27", sans-serif;
   font-size: 1rem;
-  margin: 0 0 1rem 0;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
   text-align: center;
+  text-shadow: 0 0 8px rgba(144, 168, 255, 0.3);
 }
 
 .mobile-language-slider {
@@ -572,17 +785,17 @@ export default {
   }
 
   .slider-track {
-    width: 90px;
-    height: 40px;
+    width: 95px;
+    height: 42px;
   }
 
   .slider-thumb {
-    width: 40px;
-    height: 34px;
+    width: 42px;
+    height: 36px;
   }
 
   .slider-thumb-en {
-    transform: translateX(44px);
+    transform: translateX(47px);
   }
 
   .language-indicator {
@@ -605,19 +818,57 @@ export default {
   }
   
   .mobile-nav-link {
-    padding: 0.8rem 1rem;
+    padding: 1rem;
     font-size: 1rem;
+  }
+  
+  .logo {
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.3rem;
   }
 }
 
 /* Animation pour le changement de langue */
 @keyframes languageChange {
   0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
 
 .slider-thumb.changing {
-  animation: languageChange 0.3s ease;
+  animation: languageChange 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation d'entrée pour les éléments de navigation */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav-link {
+  animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.mobile-nav-link:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.mobile-nav-link:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.mobile-language-section {
+  animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
 }
 </style>

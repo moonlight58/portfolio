@@ -198,7 +198,7 @@ export default {
 
 <style scoped>
 .project-details-container {
-  margin-top: 7rem;
+  margin-top: 10rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
