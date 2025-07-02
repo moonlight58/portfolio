@@ -34,6 +34,11 @@ const routes = [
     component: AboutView
   },
   {
+    path: '/drawings',
+    name: 'drawings',
+    component: () => import('@/views/DrawingView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/ErrorNotFound.vue')

@@ -13,6 +13,10 @@
             <span class="link-icon">📁</span>
             <span class="link-text">projects</span>
           </router-link>
+          <router-link to="/drawings" class="nav-link">
+            <span class="link-icon">🎨</span>
+            <span class="link-text">drawings</span>
+          </router-link>
           <router-link to="/about-me" class="nav-link">
             <span class="link-icon">👤</span>
             <span class="link-text">about me</span>
@@ -88,6 +92,11 @@
           <span>Projects</span>
           <div class="link-arrow">→</div>
         </router-link>
+        <router-link to="/drawings" @click="closeMenu" class="mobile-nav-link">
+          <span class="mobile-link-icon">🎨</span>
+          <span>Drawings</span>
+          <div class="link-arrow">→</div>
+        </router-link>
         <router-link to="/about-me" @click="closeMenu" class="mobile-nav-link">
           <span class="mobile-link-icon">👤</span>
           <span>About Me</span>
@@ -123,7 +132,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "NavBar",
@@ -181,7 +189,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .navbar-container {
   width: 100%;
@@ -340,6 +347,22 @@ export default {
   box-shadow: 0 4px 16px rgba(144, 168, 255, 0.1);
 }
 
+/* Styling spécial pour le lien drawings avec dégradé artistique */
+.nav-link[href="/drawings"] {
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.03), rgba(255, 107, 107, 0.03), rgba(255, 165, 0, 0.03));
+  border: 1px solid rgba(144, 168, 255, 0.08);
+}
+
+.nav-link[href="/drawings"]:hover {
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(255, 107, 107, 0.08), rgba(255, 165, 0, 0.08));
+  border-color: rgba(144, 168, 255, 0.25);
+  color: #90a8ff;
+}
+
+.nav-link[href="/drawings"].router-link-active {
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.12), rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.1));
+}
+
 .link-icon {
   font-size: 1rem;
   transition: transform 0.3s ease;
@@ -347,6 +370,11 @@ export default {
 
 .nav-link:hover .link-icon {
   transform: scale(1.1);
+}
+
+/* Animation spéciale pour l'icône drawings */
+.nav-link[href="/drawings"]:hover .link-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .navbar-small {
@@ -700,6 +728,16 @@ export default {
   box-shadow: 0 6px 20px rgba(144, 168, 255, 0.15);
 }
 
+/* Style spécial pour le lien drawings en mobile */
+.mobile-nav-link[href="/drawings"] {
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.05), rgba(255, 107, 107, 0.03), rgba(255, 165, 0, 0.03));
+}
+
+.mobile-nav-link[href="/drawings"]:hover,
+.mobile-nav-link[href="/drawings"].router-link-active {
+  background: linear-gradient(135deg, rgba(144, 168, 255, 0.12), rgba(255, 107, 107, 0.08), rgba(255, 165, 0, 0.08));
+}
+
 .mobile-link-icon {
   font-size: 1.3rem;
   min-width: 28px;
@@ -709,6 +747,11 @@ export default {
 
 .mobile-nav-link:hover .mobile-link-icon {
   transform: scale(1.1);
+}
+
+/* Animation spéciale pour l'icône drawings en mobile */
+.mobile-nav-link[href="/drawings"]:hover .mobile-link-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .link-arrow {
@@ -790,12 +833,12 @@ export default {
   }
 
   .slider-thumb {
-    width: 42px;
-    height: 36px;
+    width: 40px;
+    height: 34px;
   }
 
   .slider-thumb-en {
-    transform: translateX(47px);
+    transform: translateX(45px);
   }
 
   .language-indicator {
@@ -805,58 +848,112 @@ export default {
   .lang-label {
     font-size: 0.75rem;
   }
+
+  .language-labels {
+    padding: 0 14px;
+  }
 }
 
-@media (max-width: 480px) {
-  .mobile-menu {
-    width: 100vw;
-    max-width: none;
-  }
-  
-  .mobile-menu-content {
-    padding: 1.5rem 1rem;
-  }
-  
-  .mobile-nav-link {
+@media (max-width: 600px) {
+  .navbar {
     padding: 1rem;
-    font-size: 1rem;
   }
-  
+
+  .navbar-small {
+    padding: 0.75rem 1rem;
+  }
+
   .logo {
+    font-size: 1.1rem;
     padding: 0.6rem 1rem;
-    font-size: 1.2rem;
+    gap: 0.5rem;
   }
-  
+
   .logo-icon {
     font-size: 1.3rem;
   }
+
+  .mobile-menu {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .mobile-menu-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .mobile-nav-link {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .mobile-link-icon {
+    font-size: 1.2rem;
+    min-width: 24px;
+  }
 }
 
-/* Animation pour le changement de langue */
-@keyframes languageChange {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .logo-icon {
+    font-size: 1.4rem;
+  }
+
+  .burger-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .burger-btn span {
+    width: 20px;
+    height: 2px;
+  }
 }
 
-.slider-thumb.changing {
-  animation: languageChange 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Animation d'entrée pour les éléments de navigation */
+/* Animations avancées */
 @keyframes slideInFromRight {
   from {
+    transform: translateX(100%);
     opacity: 0;
-    transform: translateX(20px);
   }
   to {
-    opacity: 1;
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.mobile-menu-open {
+  animation: slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation pour les éléments du menu mobile */
 .mobile-nav-link {
-  animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInNavLink 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .mobile-nav-link:nth-child(1) {
@@ -867,8 +964,100 @@ export default {
   animation-delay: 0.2s;
 }
 
-.mobile-language-section {
-  animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.mobile-nav-link:nth-child(3) {
   animation-delay: 0.3s;
+}
+
+.mobile-language-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInLanguage 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+@keyframes slideInNavLink {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLanguage {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effet de glow pour les éléments actifs */
+.nav-link.router-link-active,
+.mobile-nav-link.router-link-active {
+  position: relative;
+}
+
+.nav-link.router-link-active::after,
+.mobile-nav-link.router-link-active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(144, 168, 255, 0.1) 0%, transparent 70%);
+  border-radius: 12px;
+  z-index: -1;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Smooth scrolling pour les transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states pour l'accessibilité */
+.nav-link:focus,
+.mobile-nav-link:focus,
+.burger-btn:focus,
+.close-btn:focus,
+.slider-track:focus {
+  outline: 2px solid #90a8ff;
+  outline-offset: 2px;
+}
+
+/* Amélioration du contraste pour l'accessibilité */
+@media (prefers-contrast: high) {
+  .navbar-container {
+    background: rgba(0, 0, 0, 0.95);
+  }
+  
+  .nav-link,
+  .mobile-nav-link {
+    border-color: #90a8ff;
+  }
+  
+  .nav-link:hover,
+  .mobile-nav-link:hover {
+    background: rgba(144, 168, 255, 0.3);
+  }
 }
 </style>
