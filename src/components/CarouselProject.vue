@@ -51,20 +51,81 @@ const projets = ref([
 ]);
 
 const currentIndex = ref(0);
+const isAutoPlaying = ref(false);
+const autoPlayInterval = ref(null);
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+const isTransitioning = ref(false);
+
 const isPrevDisabled = computed(() => currentIndex.value === 0);
 const isNextDisabled = computed(
   () => currentIndex.value === projets.value.length - 1
 );
 
 const next = () => {
-  if (!isNextDisabled.value) {
+  if (!isNextDisabled.value && !isTransitioning.value) {
+    isTransitioning.value = true;
     currentIndex.value++;
+    setTimeout(() => {
+      isTransitioning.value = false;
+    }, 500);
   }
 };
 
 const prev = () => {
-  if (!isPrevDisabled.value) {
+  if (!isPrevDisabled.value && !isTransitioning.value) {
+    isTransitioning.value = true;
     currentIndex.value--;
+    setTimeout(() => {
+      isTransitioning.value = false;
+    }, 500);
+  }
+};
+
+const goToSlide = (index) => {
+  if (index !== currentIndex.value && !isTransitioning.value) {
+    isTransitioning.value = true;
+    currentIndex.value = index;
+    setTimeout(() => {
+      isTransitioning.value = false;
+    }, 500);
+  }
+};
+
+const startAutoPlay = () => {
+  if (!isAutoPlaying.value) {
+    isAutoPlaying.value = true;
+    autoPlayInterval.value = setInterval(() => {
+      if (isNextDisabled.value) {
+        currentIndex.value = 0;
+      } else {
+        next();
+      }
+    }, 5000);
+  }
+};
+
+const stopAutoPlay = () => {
+  if (isAutoPlaying.value) {
+    isAutoPlaying.value = false;
+    clearInterval(autoPlayInterval.value);
+  }
+};
+
+// Touch events for mobile
+const handleTouchStart = (e) => {
+  touchStartX.value = e.touches[0].clientX;
+};
+
+const handleTouchMove = (e) => {
+  touchEndX.value = e.touches[0].clientX;
+};
+
+const handleTouchEnd = () => {
+  if (touchStartX.value - touchEndX.value > 50) {
+    next();
+  } else if (touchEndX.value - touchStartX.value > 50) {
+    prev();
   }
 };
 
@@ -94,27 +155,34 @@ const getLanguageIcon = (language) => {
   return icons[language];
 };
 
-const isSmall = ref(window.innerWidth <= 800);
+const isSmall = ref(window.innerWidth <= 768);
 
 const updateIsSmall = () => {
-  isSmall.value = window.innerWidth <= 800;
+  isSmall.value = window.innerWidth <= 768;
 };
 
 onMounted(() => {
   window.addEventListener("resize", updateIsSmall);
+  startAutoPlay();
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", updateIsSmall);
+  stopAutoPlay();
 });
 </script>
 
 <template>
-  <div class="carousel-wrapper">
+  <div class="carousel-wrapper" 
+       @mouseenter="stopAutoPlay"
+       @mouseleave="startAutoPlay">
     <div class="carousel-container">
       <div
         class="carousel"
-        :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }"
+        :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
       >
         <div
           v-for="(projet, index) in projets"
@@ -142,7 +210,7 @@ onUnmounted(() => {
                         :alt="projet.status"
                         class="badge-icon"
                       />
-                      <span>{{ $t(projet.status) }}</span>
+                      <span class="badge-text">{{ $t(projet.status) }}</span>
                     </div>
                   </div>
                 </div>
@@ -157,7 +225,7 @@ onUnmounted(() => {
                         :alt="projet.language"
                         class="badge-icon"
                       />
-                      <span>{{ projet.language }}</span>
+                      <span class="badge-text">{{ projet.language }}</span>
                     </div>
                     <div class="badge category-badge">
                       <img
@@ -165,7 +233,7 @@ onUnmounted(() => {
                         :alt="projet.categorie"
                         class="badge-icon"
                       />
-                      <span>{{ $t(projet.categorie) }}</span>
+                      <span class="badge-text">{{ $t(projet.categorie) }}</span>
                     </div>
                   </div>
                 </div>
@@ -176,7 +244,9 @@ onUnmounted(() => {
       </div>
     </div>
     
+    <!-- Navigation buttons (hidden on mobile) -->
     <button
+      v-if="!isSmall"
       @click="prev"
       class="carousel-control prev"
       :disabled="isPrevDisabled"
@@ -188,6 +258,7 @@ onUnmounted(() => {
     </button>
     
     <button
+      v-if="!isSmall"
       @click="next"
       class="carousel-control next"
       :disabled="isNextDisabled"
@@ -198,11 +269,12 @@ onUnmounted(() => {
       </svg>
     </button>
     
+    <!-- Indicators -->
     <div class="carousel-indicators">
       <button
         v-for="(projet, index) in projets"
         :key="index"
-        @click="currentIndex = index"
+        @click="goToSlide(index)"
         class="indicator"
         :class="{ active: currentIndex === index }"
       ></button>
@@ -221,11 +293,27 @@ onUnmounted(() => {
   width: 100%;
   overflow: hidden;
   border-radius: 16px;
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(144, 168, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.carousel-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  z-index: 1;
 }
 
 .carousel {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: pan-y;
 }
 
 .carousel-item {
@@ -240,16 +328,16 @@ onUnmounted(() => {
 }
 
 .project-card {
-  background: rgba(26, 26, 26, 0.6);
+  background: rgba(144, 168, 255, 0.05);
   border: 1px solid rgba(144, 168, 255, 0.1);
   border-radius: 16px;
-  backdrop-filter: blur(10px);
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 450px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   position: relative;
+  margin: 1rem;
 }
 
 .project-card::before {
@@ -276,7 +364,7 @@ onUnmounted(() => {
 
 .project-image-container {
   position: relative;
-  height: 220px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -300,7 +388,7 @@ onUnmounted(() => {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(26, 26, 26, 0.3) 70%,
+    rgba(26, 26, 26, 0.2) 60%,
     rgba(26, 26, 26, 0.8) 100%
   );
 }
@@ -318,11 +406,12 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .project-title {
   color: #90a8ff;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
@@ -330,6 +419,7 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  flex: 1;
 }
 
 .project-description {
@@ -353,6 +443,7 @@ onUnmounted(() => {
 .project-badges {
   display: flex;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .badge {
@@ -383,18 +474,8 @@ onUnmounted(() => {
   left: 100%;
 }
 
-.language-badge {
-  background: rgba(144, 168, 255, 0.1);
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  color: #90a8ff;
-}
-
-.category-badge {
-  background: rgba(144, 168, 255, 0.1);
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  color: #90a8ff;
-}
-
+.language-badge,
+.category-badge,
 .status-badge {
   background: rgba(144, 168, 255, 0.1);
   border: 1px solid rgba(144, 168, 255, 0.3);
@@ -410,6 +491,10 @@ onUnmounted(() => {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+}
+
+.badge-text {
+  white-space: nowrap;
 }
 
 .carousel-control {
@@ -431,28 +516,11 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
 }
 
-.carousel-control::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), transparent);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .carousel-control:hover:not(.disabled) {
   background: #90a8ff;
   color: #1a1a1a;
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
-}
-
-.carousel-control:hover:not(.disabled)::before {
-  opacity: 1;
 }
 
 .carousel-control.prev {
@@ -473,13 +541,13 @@ onUnmounted(() => {
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
 .indicator {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 2px solid rgba(144, 168, 255, 0.3);
   background: transparent;
@@ -494,8 +562,8 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #90a8ff;
   opacity: 0;
@@ -505,6 +573,7 @@ onUnmounted(() => {
 .indicator.active {
   border-color: #90a8ff;
   transform: scale(1.2);
+  background: rgba(144, 168, 255, 0.1);
 }
 
 .indicator.active::before {
@@ -517,23 +586,14 @@ onUnmounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .carousel-control.prev {
-    left: -20px;
-  }
-  
-  .carousel-control.next {
-    right: -20px;
-  }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .project-card {
-    height: 400px;
+    height: 450px;
+    margin: 0.5rem;
   }
   
   .project-image-container {
-    height: 180px;
+    height: 200px;
   }
   
   .project-content {
@@ -541,57 +601,67 @@ onUnmounted(() => {
   }
   
   .project-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .project-description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .project-badges {
+    align-self: flex-start;
+  }
+  
+  .tech-info {
+    justify-content: center;
   }
   
   .badge {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
-  
-  .carousel-control {
-    width: 44px;
-    height: 44px;
+}
+
+@media (max-width: 480px) {
+  .carousel-wrapper,
+  .carousel-container {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
   }
-  
-  .carousel-control.prev {
-    left: -16px;
+  .project-card {
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    min-width: 0;
   }
-  
-  .carousel-control.next {
-    right: -16px;
+  .project-image-container {
+    height: 140px;
+  }
+  .project-content {
+    padding: 0.75rem;
   }
 }
 
-@media (max-width: 640px) {
-  .carousel-wrapper {
-    margin: 0 1rem;
-  }
-  
-  .carousel-control.prev {
-    left: -12px;
-  }
-  
-  .carousel-control.next {
-    right: -12px;
-  }
-}
-
-@media (max-width: 580px) {
+@media (max-width: 320px) {
   .project-card {
     height: 380px;
+    margin: 0.125rem;
   }
   
   .project-image-container {
-    height: 160px;
+    height: 150px;
   }
   
   .project-content {
-    padding: 1.25rem;
+    padding: 1rem;
   }
   
   .project-title {
@@ -600,100 +670,6 @@ onUnmounted(() => {
   
   .project-description {
     font-size: 0.85rem;
-    line-height: 1.5;
-  }
-  
-  .badge {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.75rem;
-  }
-  
-  .carousel-control {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .carousel-control.prev {
-    left: -10px;
-  }
-  
-  .carousel-control.next {
-    right: -10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card {
-    height: 360px;
-  }
-  
-  .project-image-container {
-    height: 140px;
-  }
-  
-  .project-content {
-    padding: 1rem;
-  }
-  
-  .tech-info {
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  .badge span {
-    display: none;
-  }
-  
-  .carousel-control {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .carousel-control.prev {
-    left: -8px;
-  }
-  
-  .carousel-control.next {
-    right: -8px;
-  }
-}
-
-@media (max-width: 380px) {
-  .carousel-wrapper {
-    margin: 0 1.5rem;
-  }
-  
-  .project-card {
-    height: 340px;
-  }
-  
-  .project-image-container {
-    height: 120px;
-  }
-  
-  .project-content {
-    padding: 0.875rem;
-  }
-  
-  .project-title {
-    font-size: 1rem;
-  }
-  
-  .project-description {
-    font-size: 0.8rem;
-  }
-  
-  .carousel-control {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .carousel-control.prev {
-    left: -6px;
-  }
-  
-  .carousel-control.next {
-    right: -6px;
   }
   
   .badge {
@@ -701,32 +677,18 @@ onUnmounted(() => {
   }
   
   .carousel-indicators {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 }
 
-@media (max-width: 320px) {
-  .carousel-wrapper {
-    margin: 0 0.5rem;
-  }
-  
-  .carousel-control {
-    display: none;
-  }
-  
-  .carousel-indicators {
-    margin-top: 1.5rem;
-    gap: 1rem;
-  }
-  
-  .indicator {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .indicator::before {
-    width: 6px;
-    height: 6px;
-  }
+/* Animation pour l'autoplay */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.indicator.active {
+  animation: pulse 2s ease-in-out infinite;
 }
 </style>
