@@ -47,6 +47,8 @@
   "Install-UpdateDiscord_description": "Install-UpdateDiscord is a Bash script that allows you to install and update Discord on Linux-based systems and installs the Vencord mod client. It is designed to be simple and efficient, making it easy for Linux users to install Discord.",
   "SoundBoard-Python_description": "SoundBoard-Python is a sound management application for anyone. It lets you play sounds, organize them into categories and associate them with shortcut keys. It's a project currently under development, aimed at providing an intuitive user interface and advanced features for sound management.",
 
+  
+
   "Website": "Website",
   "Application": "Application",
   "Game": "Game",
