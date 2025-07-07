@@ -583,12 +583,30 @@ onMounted(() => {
   font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(144, 168, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.project-link:hover::before {
+  left: 100%;
 }
 
 .project-link:hover {
   background: #90a8ff;
   color: #1a1a1a;
-  transform: translateX(2px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.2);
 }
 
 /* GitHub Profile Section */
@@ -658,8 +676,8 @@ onMounted(() => {
 }
 
 .github-profile-link {
-  align-items: center;
   display: flex;
+  align-items: center;
   gap: 1rem;
   background: #90a8ff;
   color: #1a1a1a;
@@ -670,7 +688,23 @@ onMounted(() => {
   font-size: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 16px rgba(144, 168, 255, 0.3);
-  align-self: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.github-profile-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.github-profile-link:hover::before {
+  left: 100%;
 }
 
 .github-profile-link:hover {
@@ -708,7 +742,7 @@ onMounted(() => {
 
   .project-type-btn {
     width: 100%;
-    max-width: 250px;
+    max-width: 300px;
     justify-content: center;
   }
 
@@ -736,13 +770,25 @@ onMounted(() => {
     gap: 1rem;
   }
 
-  .github-profile-link {
-    align-self: center;
+  .github-info {
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
+  .main-title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
   .project-content {
+    padding: 1rem;
+  }
+
+  .github-profile-card {
     padding: 1rem;
   }
 
@@ -757,6 +803,15 @@ onMounted(() => {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
+  }
+
+  .project-type-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .project-image-container {
+    height: 150px;
   }
 }
 
