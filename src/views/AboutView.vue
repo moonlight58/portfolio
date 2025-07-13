@@ -12,7 +12,7 @@
           <p class="profile-subtitle">Developer and Artist</p>
           <div class="profile-badges">
             <span class="badge student-badge">Étudiant en Informatique</span>
-            <span class="badge year-badge">2ème année BUT</span>
+            <span class="badge year-badge">3ème année BUT</span>
           </div>
         </div>
       </div>
@@ -129,7 +129,9 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 6rem;
-  color: #fff;
+  color: #f8fafc;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.03), rgba(59, 130, 246, 0.03));
+  min-height: 100vh;
 }
 
 /* Hero Section */
@@ -137,16 +139,30 @@
   text-align: center;
   margin-bottom: 4rem;
   position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-container {
-  background: rgba(26, 26, 26, 0.6);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 20px;
+  background: rgba(248, 250, 252, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 24px;
   padding: 3rem 2rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1),
+              0 0 0 1px rgba(248, 250, 252, 0.05) inset;
+  transition: all 0.3s ease;
 }
 
 .profile-container::before {
@@ -156,7 +172,19 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.6), rgba(59, 130, 246, 0.6), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.profile-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 64px rgba(139, 92, 246, 0.15),
+              0 0 0 1px rgba(248, 250, 252, 0.08) inset;
 }
 
 .profile-image-wrapper {
@@ -166,30 +194,35 @@
 }
 
 .profile-image {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #90a8ff;
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
-  transition: transform 0.3s ease;
+  border: 3px solid rgba(167, 139, 250, 0.4);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2),
+              0 0 0 1px rgba(248, 250, 252, 0.1) inset;
+  transition: all 0.4s ease;
 }
 
 .profile-image:hover {
   transform: scale(1.05);
+  border-color: rgba(167, 139, 250, 0.6);
+  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.3),
+              0 0 0 1px rgba(248, 250, 252, 0.15) inset;
 }
 
 .profile-glow {
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background: radial-gradient(circle, rgba(144, 168, 255, 0.3), transparent);
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.3), rgba(59, 130, 246, 0.2), transparent);
   border-radius: 50%;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  filter: blur(8px);
 }
 
 .profile-image-wrapper:hover .profile-glow {
@@ -197,21 +230,23 @@
 }
 
 .profile-name {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
-  background: linear-gradient(135deg, #fff, #90a8ff);
+  background: linear-gradient(135deg, #f8fafc, #a78bfa, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 30px rgba(167, 139, 250, 0.3);
 }
 
 .profile-subtitle {
-  font-size: 1.3rem;
-  color: #ccc;
+  font-size: 1.4rem;
+  color: rgba(248, 250, 252, 0.7);
   font-style: italic;
   margin: 0 0 1.5rem 0;
   opacity: 0.9;
+  font-weight: 300;
 }
 
 .profile-badges {
@@ -222,24 +257,39 @@
 }
 
 .badge {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 24px;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
 .student-badge {
-  background: rgba(144, 168, 255, 0.2);
-  color: #90a8ff;
-  border: 1px solid rgba(144, 168, 255, 0.3);
+  background: rgba(167, 139, 250, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.student-badge:hover {
+  background: rgba(167, 139, 250, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(167, 139, 250, 0.2);
 }
 
 .year-badge {
-  background: rgba(76, 175, 80, 0.2);
-  color: #4caf50;
-  border: 1px solid rgba(76, 175, 80, 0.3);
+  background: rgba(52, 211, 153, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.year-badge:hover {
+  background: rgba(52, 211, 153, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(52, 211, 153, 0.2);
 }
 
 /* Content Sections */
@@ -249,22 +299,50 @@
   gap: 3rem;
 }
 
+.content-section {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.content-section:nth-child(1) { animation-delay: 0.3s; }
+.content-section:nth-child(2) { animation-delay: 0.4s; }
+.content-section:nth-child(3) { animation-delay: 0.5s; }
+.content-section:nth-child(4) { animation-delay: 0.6s; }
+.content-section:nth-child(5) { animation-delay: 0.7s; }
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .content-section h2 {
-  color: #90a8ff;
-  font-size: 1.5rem;
+  color: #c4b5fd;
+  font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  background: linear-gradient(135deg, #c4b5fd, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .content-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
+  background: rgba(248, 250, 252, 0.06);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08),
+              0 0 0 1px rgba(248, 250, 252, 0.05) inset;
+  transition: all 0.3s ease;
 }
 
 .content-card::before {
@@ -274,15 +352,23 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), rgba(59, 130, 246, 0.4), transparent);
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.25);
+  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.12),
+              0 0 0 1px rgba(248, 250, 252, 0.08) inset;
 }
 
 .content-card p {
   margin: 0 0 1.5rem 0;
-  line-height: 1.7;
-  font-size: 1rem;
-  color: #e0e0e0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: rgba(248, 250, 252, 0.9);
   text-align: justify;
+  font-weight: 300;
 }
 
 .content-card p:last-child {
@@ -290,34 +376,37 @@
 }
 
 .precision {
-  font-size: 0.85rem !important;
-  color: #aaa !important;
+  font-size: 0.9rem !important;
+  color: rgba(248, 250, 252, 0.6) !important;
   font-style: italic;
   margin: 0.5rem 0 1.5rem 0 !important;
 }
 
 .warning {
-  color: #ff6b6b;
+  color: #fbbf24;
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
 }
 
 /* Skills Grid */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .skill-card {
-  background: rgba(26, 26, 26, 0.6);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
+  background: rgba(248, 250, 252, 0.05);
+  border: 1px solid rgba(167, 139, 250, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem;
   text-align: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.06);
 }
 
 .skill-card::before {
@@ -327,15 +416,16 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(144, 168, 255, 0.3);
-  box-shadow: 0 16px 64px rgba(144, 168, 255, 0.15);
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 20px 64px rgba(139, 92, 246, 0.15);
+  background: rgba(248, 250, 252, 0.08);
 }
 
 .skill-card:hover::before {
@@ -343,22 +433,28 @@
 }
 
 .skill-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
   display: block;
+  filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.3));
 }
 
 .skill-card h3 {
-  color: #90a8ff;
-  font-size: 1.2rem;
+  color: #c4b5fd;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #c4b5fd, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .skill-card p {
-  color: #ccc;
+  color: rgba(248, 250, 252, 0.7);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 300;
 }
 
 /* Art Section */
@@ -376,16 +472,19 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: linear-gradient(45deg, #fd5949, #d6249f, #285AEB);
+  background: linear-gradient(135deg, #f93a3d, #e1306c, #833ab4, #405de6);
   color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
+  padding: 1.2rem 2.5rem;
+  border-radius: 16px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(240, 58, 61, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .instagram-link::before {
@@ -396,7 +495,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  transition: left 0.6s ease;
 }
 
 .instagram-link:hover::before {
@@ -404,41 +503,51 @@
 }
 
 .instagram-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(253, 89, 73, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(240, 58, 61, 0.4);
 }
 
 /* Philosophy Section */
 .philosophy-card {
-  background: rgba(76, 175, 80, 0.05);
-  border-color: rgba(76, 175, 80, 0.1);
+  background: rgba(52, 211, 153, 0.06);
+  border-color: rgba(52, 211, 153, 0.15);
 }
 
 .philosophy-card::before {
-  background: linear-gradient(90deg, transparent, #4caf50, transparent);
+  background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.4), transparent);
 }
 
 .philosophy-card blockquote {
   margin: 0;
   position: relative;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .philosophy-card blockquote::before {
   content: '"';
   font-size: 4rem;
-  color: #4caf50;
+  color: #6ee7b7;
   position: absolute;
-  top: -1rem;
-  left: -1rem;
+  top: -1.5rem;
+  left: -1.5rem;
   opacity: 0.3;
+  font-family: serif;
 }
 
 .philosophy-card blockquote p {
-  color: #e8f5e8;
+  color: rgba(248, 250, 252, 0.9);
   text-align: center;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* Focus states for accessibility */
+.instagram-link:focus,
+.skill-card:focus,
+.content-card:focus {
+  outline: 2px solid rgba(167, 139, 250, 0.5);
+  outline-offset: 2px;
 }
 
 /* Responsive Design */
@@ -453,7 +562,7 @@
   }
 
   .profile-name {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .profile-subtitle {
@@ -470,35 +579,43 @@
   }
 
   .content-card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   .content-section h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+  }
+
+  .skill-card {
+    padding: 2rem;
   }
 }
 
 @media (max-width: 480px) {
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
   }
 
   .profile-name {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
   }
 
   .skill-card {
-    padding: 1.5rem;
+    padding: 1.8rem;
   }
 
   .skill-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .instagram-link {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
   }
 }
 </style>
