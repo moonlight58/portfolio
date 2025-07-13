@@ -287,16 +287,21 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   font-family: "N27", sans-serif;
+  padding: 2rem 0;
 }
 
 .carousel-container {
   width: 100%;
   overflow: hidden;
-  border-radius: 16px;
-  background: rgba(26, 26, 26, 0.6);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  backdrop-filter: blur(10px);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(168, 179, 255, 0.15);
+  backdrop-filter: blur(24px);
   position: relative;
+  box-shadow: 
+    0 8px 32px rgba(168, 179, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .carousel-container::before {
@@ -305,14 +310,20 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(168, 179, 255, 0.6), 
+    rgba(199, 179, 255, 0.6), 
+    transparent
+  );
   z-index: 1;
 }
 
 .carousel {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   touch-action: pan-y;
 }
 
@@ -328,16 +339,21 @@ onUnmounted(() => {
 }
 
 .project-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(168, 179, 255, 0.2);
+  border-radius: 28px;
   overflow: hidden;
-  transition: all 0.3s ease;
-  height: 500px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 520px;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 1rem;
+  margin: 2rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(168, 179, 255, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .project-card::before {
@@ -346,16 +362,26 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(168, 179, 255, 0.7), 
+    rgba(199, 179, 255, 0.7), 
+    transparent
+  );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .project-card:hover {
-  border-color: rgba(144, 168, 255, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
+  border-color: rgba(168, 179, 255, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 64px rgba(168, 179, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 40px rgba(168, 179, 255, 0.1);
 }
 
 .project-card:hover::before {
@@ -364,19 +390,20 @@ onUnmounted(() => {
 
 .project-image-container {
   position: relative;
-  height: 240px;
+  height: 260px;
   overflow: hidden;
+  border-radius: 24px 24px 0 0;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .project-card:hover .carousel-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .image-overlay {
@@ -387,14 +414,15 @@ onUnmounted(() => {
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    transparent 0%,
-    rgba(26, 26, 26, 0.2) 60%,
+    rgba(168, 179, 255, 0.05) 0%,
+    rgba(168, 179, 255, 0.1) 40%,
+    rgba(26, 26, 26, 0.3) 70%,
     rgba(26, 26, 26, 0.8) 100%
   );
 }
 
 .project-content {
-  padding: 2rem;
+  padding: 2.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -405,29 +433,35 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
-  gap: 1rem;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
 }
 
 .project-title {
-  color: #90a8ff;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
-  background: linear-gradient(135deg, #90a8ff, #fff);
+  background: linear-gradient(
+    135deg, 
+    #a8b3ff 0%, 
+    #c7b3ff 50%, 
+    #ffffff 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   flex: 1;
+  text-shadow: 0 0 20px rgba(168, 179, 255, 0.3);
 }
 
 .project-description {
-  color: #e0e0e0;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
   flex: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .project-footer {
@@ -436,27 +470,34 @@ onUnmounted(() => {
 
 .tech-info {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
 
 .project-badges {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.8rem;
   flex-shrink: 0;
 }
 
 .badge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
+  gap: 0.6rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(168, 179, 255, 0.2);
+  backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 4px 16px rgba(168, 179, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .badge::before {
@@ -466,31 +507,33 @@ onUnmounted(() => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(168, 179, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.6s ease;
 }
 
 .badge:hover::before {
   left: 100%;
 }
 
-.language-badge,
-.category-badge,
-.status-badge {
-  background: rgba(144, 168, 255, 0.1);
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  color: #90a8ff;
-}
-
 .badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 32px rgba(168, 179, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(168, 179, 255, 0.4);
+  background: rgba(168, 179, 255, 0.1);
 }
 
 .badge-icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(168, 179, 255, 0.3));
 }
 
 .badge-text {
@@ -501,59 +544,70 @@ onUnmounted(() => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(26, 26, 26, 0.8);
-  border: 2px solid rgba(144, 168, 255, 0.3);
-  color: #90a8ff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(168, 179, 255, 0.25);
+  color: rgba(168, 179, 255, 0.9);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   cursor: pointer;
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(168, 179, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .carousel-control:hover:not(.disabled) {
-  background: #90a8ff;
-  color: #1a1a1a;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
+  background: rgba(168, 179, 255, 0.15);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 
+    0 12px 48px rgba(168, 179, 255, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(168, 179, 255, 0.4);
 }
 
 .carousel-control.prev {
-  left: -25px;
+  left: -28px;
 }
 
 .carousel-control.next {
-  right: -25px;
+  right: -28px;
 }
 
 .carousel-control.disabled {
-  background: rgba(26, 26, 26, 0.4);
-  border-color: rgba(144, 168, 255, 0.1);
-  color: rgba(144, 168, 255, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(168, 179, 255, 0.1);
+  color: rgba(168, 179, 255, 0.3);
   cursor: not-allowed;
 }
 
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 2px solid rgba(144, 168, 255, 0.3);
-  background: transparent;
+  border: 2px solid rgba(168, 179, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 4px 16px rgba(168, 179, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .indicator::before {
@@ -562,18 +616,22 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #90a8ff;
+  background: linear-gradient(135deg, #a8b3ff, #c7b3ff);
   opacity: 0;
   transition: opacity 0.3s ease;
+  box-shadow: 0 0 12px rgba(168, 179, 255, 0.6);
 }
 
 .indicator.active {
-  border-color: #90a8ff;
-  transform: scale(1.2);
-  background: rgba(144, 168, 255, 0.1);
+  border-color: rgba(168, 179, 255, 0.6);
+  transform: scale(1.3);
+  background: rgba(168, 179, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(168, 179, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .indicator.active::before {
@@ -581,36 +639,43 @@ onUnmounted(() => {
 }
 
 .indicator:hover:not(.active) {
-  border-color: rgba(144, 168, 255, 0.5);
-  transform: scale(1.1);
+  border-color: rgba(168, 179, 255, 0.5);
+  transform: scale(1.2);
+  background: rgba(168, 179, 255, 0.08);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .carousel-wrapper {
+    padding: 1rem 0;
+  }
+  
   .project-card {
-    height: 450px;
-    margin: 0.5rem;
+    height: 480px;
+    margin: 1rem;
+    border-radius: 24px;
   }
   
   .project-image-container {
-    height: 200px;
+    height: 220px;
+    border-radius: 20px 20px 0 0;
   }
   
   .project-content {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   
   .project-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   
   .project-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   
   .project-header {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
   }
   
   .project-badges {
@@ -622,8 +687,9 @@ onUnmounted(() => {
   }
   
   .badge {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 16px;
   }
 }
 
@@ -636,59 +702,108 @@ onUnmounted(() => {
     border-radius: 0;
     padding: 0;
   }
+  
+  .carousel-container {
+    border-radius: 0;
+  }
+  
   .project-card {
     height: auto;
     margin: 0;
     border-radius: 0;
     min-width: 0;
   }
+  
   .project-image-container {
-    height: 140px;
+    height: 180px;
+    border-radius: 0;
   }
+  
   .project-content {
-    padding: 0.75rem;
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.4rem;
+  }
+  
+  .project-description {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 320px) {
   .project-card {
-    height: 380px;
-    margin: 0.125rem;
+    height: 420px;
+    margin: 0.5rem;
   }
   
   .project-image-container {
-    height: 150px;
+    height: 160px;
   }
   
   .project-content {
-    padding: 1rem;
+    padding: 1.2rem;
   }
   
   .project-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .project-description {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
   
   .badge {
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
   }
   
   .carousel-indicators {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 }
 
-/* Animation pour l'autoplay */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* Animations pour l'autoplay avec effet glassmorphism */
+@keyframes glassGlow {
+  0% { 
+    transform: scale(1);
+    box-shadow: 
+      0 8px 32px rgba(168, 179, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% { 
+    transform: scale(1.15);
+    box-shadow: 
+      0 12px 48px rgba(168, 179, 255, 0.25),
+      0 0 20px rgba(168, 179, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  100% { 
+    transform: scale(1);
+    box-shadow: 
+      0 8px 32px rgba(168, 179, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
 }
 
 .indicator.active {
-  animation: pulse 2s ease-in-out infinite;
+  animation: glassGlow 3s ease-in-out infinite;
+}
+
+/* Animation fadeInUp pour l'apparition */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-wrapper {
+  animation: fadeInUp 0.8s ease-out;
 }
 </style>

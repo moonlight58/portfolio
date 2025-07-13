@@ -1,9 +1,5 @@
 <template>
-  <div class="stage-component section">
-    <div class="section-header">
-      <h2 class="section-title">{{ $t('Internship') }}</h2>
-    </div>
-    
+  <div class="stage-component section">    
     <div class="internship-card">
       <div class="internship-content">
         <div class="internship-description">
@@ -94,36 +90,52 @@
   margin-bottom: 4rem;
 }
 
-/* Section Header - Harmonisé avec Home.vue */
+/* Section Header - Style Neo-Glassmorphism */
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
+  position: relative;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
-  background: linear-gradient(135deg, #fff, #90a8ff);
+  background: linear-gradient(135deg, #a8c5ff 0%, #b8a8ff 25%, #c8b8ff 50%, #d8c8ff 75%, #e8d8ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 30px rgba(168, 197, 255, 0.3);
+  animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
-/* Internship Card - Style harmonisé */
+@keyframes titleGlow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(168, 197, 255, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(168, 197, 255, 0.6));
+  }
+}
+
+/* Internship Card - Neo-Glassmorphism Design */
 .internship-card {
-  background: rgba(26, 26, 26, 0.6);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(168, 197, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 32px rgba(168, 197, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .internship-card::before {
@@ -132,44 +144,93 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(168, 197, 255, 0.6) 25%, 
+    rgba(200, 168, 255, 0.8) 50%, 
+    rgba(168, 197, 255, 0.6) 75%, 
+    transparent 100%
+  );
+  border-radius: 24px 24px 0 0;
+}
+
+.internship-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(168, 197, 255, 0.03) 0%, 
+    rgba(200, 168, 255, 0.05) 50%, 
+    rgba(168, 197, 255, 0.03) 100%
+  );
+  border-radius: 24px;
+  pointer-events: none;
 }
 
 .internship-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(144, 168, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
+  transform: translateY(-8px);
+  border-color: rgba(168, 197, 255, 0.4);
+  box-shadow: 
+    0 16px 64px rgba(168, 197, 255, 0.2),
+    0 4px 16px rgba(200, 168, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .internship-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .internship-description {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .intro-text {
   margin: 0;
-  line-height: 1.7;
-  font-size: 1rem;
-  color: #e0e0e0;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
   text-align: justify;
+  font-weight: 300;
+  letter-spacing: 0.3px;
 }
 
 .stage-link {
-  color: #90a8ff;
+  background: linear-gradient(135deg, #a8c5ff, #c8b8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
+  padding: 0 4px;
+  border-radius: 8px;
 }
 
-.stage-link:hover {
-  color: #fff;
+.stage-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(168, 197, 255, 0.1), rgba(200, 184, 255, 0.1));
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stage-link:hover::before {
+  opacity: 1;
 }
 
 .stage-link::after {
@@ -179,8 +240,9 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #90a8ff, #fff);
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #a8c5ff, #c8b8ff);
+  border-radius: 1px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stage-link:hover::after {
@@ -190,48 +252,70 @@
 .internship-details {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .detail-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(168, 197, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detail-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(168, 197, 255, 0.3);
+  transform: translateX(8px);
+  box-shadow: 0 4px 16px rgba(168, 197, 255, 0.1);
 }
 
 .detail-icon {
-  color: #90a8ff;
+  background: linear-gradient(135deg, rgba(168, 197, 255, 0.2), rgba(200, 184, 255, 0.2));
+  border-radius: 12px;
+  padding: 8px;
+  color: #a8c5ff;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(168, 197, 255, 0.3);
 }
 
 .detail-text {
-  color: #e0e0e0;
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
   font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 .cta-section {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .internship-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(144, 168, 255, 0.1);
-  border: 2px solid rgba(144, 168, 255, 0.3);
-  border-radius: 12px;
-  color: #90a8ff;
-  padding: 1rem 1.5rem;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(168, 197, 255, 0.15), rgba(200, 184, 255, 0.15));
+  border: 2px solid rgba(168, 197, 255, 0.3);
+  border-radius: 16px;
+  color: #a8c5ff;
+  padding: 1.25rem 2rem;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(168, 197, 255, 0.1);
 }
 
 .internship-cta::before {
@@ -241,8 +325,12 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(144, 168, 255, 0.1), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(168, 197, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.6s ease;
 }
 
 .internship-cta:hover::before {
@@ -250,14 +338,18 @@
 }
 
 .internship-cta:hover {
-  background: #90a8ff;
-  color: #1a1a1a;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.3);
+  background: linear-gradient(135deg, #a8c5ff, #c8b8ff);
+  color: #1a1a2e;
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 32px rgba(168, 197, 255, 0.3),
+    0 0 40px rgba(168, 197, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .cta-text {
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .cta-icon {
@@ -266,90 +358,98 @@
 }
 
 .internship-cta:hover .cta-icon {
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
-/* Visual Elements */
+/* Visual Elements - Neo-Glassmorphism */
 .internship-visual {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 240px;
   position: relative;
+  z-index: 1;
 }
 
 .visual-element {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
 }
 
 .floating-icon {
   position: absolute;
-  width: 48px;
-  height: 48px;
-  background: rgba(144, 168, 255, 0.1);
-  border: 2px solid rgba(144, 168, 255, 0.3);
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, 
+    rgba(168, 197, 255, 0.2), 
+    rgba(200, 184, 255, 0.2)
+  );
+  border: 2px solid rgba(168, 197, 255, 0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #90a8ff;
-  animation: float 6s ease-in-out infinite;
-  backdrop-filter: blur(10px);
+  color: #a8c5ff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 32px rgba(168, 197, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.floating-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 12px 48px rgba(168, 197, 255, 0.3),
+    0 0 40px rgba(168, 197, 255, 0.2);
+  border-color: rgba(168, 197, 255, 0.6);
 }
 
 .icon-1 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  animation-delay: 0s;
+  animation: float1 6s ease-in-out infinite;
 }
 
 .icon-2 {
-  bottom: 20px;
-  left: 0;
-  animation-delay: 2s;
+  bottom: 30px;
+  left: 10px;
+  animation: float2 6s ease-in-out infinite 2s;
 }
 
 .icon-3 {
-  bottom: 20px;
-  right: 0;
-  animation-delay: 4s;
+  bottom: 30px;
+  right: 10px;
+  animation: float3 6s ease-in-out infinite 4s;
 }
 
-@keyframes float {
+@keyframes float1 {
   0%, 100% {
-    transform: translateY(0px) translateX(-50%);
+    transform: translateY(0px) translateX(-50%) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px) translateX(-50%);
+    transform: translateY(-15px) translateX(-50%) rotate(5deg);
   }
 }
 
-.icon-2 {
-  animation-name: float-left;
-}
-
-.icon-3 {
-  animation-name: float-right;
-}
-
-@keyframes float-left {
+@keyframes float2 {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-12px) rotate(-5deg);
   }
 }
 
-@keyframes float-right {
+@keyframes float3 {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-10px) rotate(5deg);
   }
 }
 
@@ -357,13 +457,79 @@
 @media (max-width: 1024px) {
   .internship-card {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 2rem;
+    padding: 2rem;
   }
   
   .internship-visual {
-    height: 150px;
+    height: 180px;
     order: -1;
+  }
+  
+  .visual-element {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .floating-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stage-component {
+    margin-bottom: 3rem;
+    padding: 1.5rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .internship-card {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .internship-content {
+    gap: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .internship-details {
+    gap: 1rem;
+  }
+  
+  .detail-item {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+  }
+  
+  .detail-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .detail-text {
+    font-size: 0.9rem;
+  }
+  
+  .internship-cta {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+    border-radius: 12px;
+  }
+  
+  .internship-visual {
+    height: 140px;
   }
   
   .visual-element {
@@ -372,23 +538,20 @@
   }
   
   .floating-icon {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 }
 
-@media (max-width: 768px) {
-  .stage-component {
-    margin-bottom: 3rem;
-  }
-
+@media (max-width: 480px) {
   .section-title {
     font-size: 1.75rem;
   }
-
+  
   .internship-card {
-    padding: 1.5rem;
-    gap: 1.5rem;
+    padding: 1.25rem;
+    gap: 1.25rem;
+    border-radius: 16px;
   }
   
   .internship-content {
@@ -397,26 +560,26 @@
   
   .intro-text {
     font-size: 0.95rem;
-    text-align: left;
-  }
-  
-  .internship-details {
-    gap: 0.75rem;
+    line-height: 1.7;
   }
   
   .detail-item {
-    padding: 0.5rem 0;
+    padding: 0.625rem 0.875rem;
+    gap: 0.75rem;
+  }
+  
+  .detail-icon {
+    width: 28px;
+    height: 28px;
   }
   
   .detail-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   
   .internship-cta {
     padding: 0.875rem 1.25rem;
     font-size: 0.95rem;
-    width: 100%;
-    justify-content: center;
   }
   
   .internship-visual {
@@ -432,38 +595,25 @@
     width: 36px;
     height: 36px;
   }
+  
+  .floating-icon svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
-@media (max-width: 480px) {
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
+@media (max-width: 380px) {
   .internship-card {
     padding: 1rem;
-    gap: 1rem;
-  }
-  
-  .internship-content {
-    gap: 1rem;
+    margin: 0 -0.25rem;
   }
   
   .intro-text {
     font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
-  .detail-item {
-    padding: 0.375rem 0;
-  }
-  
-  .detail-icon {
-    width: 18px;
-    height: 18px;
   }
   
   .detail-text {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
   
   .internship-cta {
@@ -491,42 +641,35 @@
   }
 }
 
-@media (max-width: 380px) {
-  .internship-card {
-    padding: 0.75rem;
-    margin: 0 -0.25rem;
+/* Focus states pour l'accessibilité */
+.internship-cta:focus {
+  outline: 2px solid #a8c5ff;
+  outline-offset: 2px;
+}
+
+.stage-link:focus {
+  outline: 2px solid #a8c5ff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Animations d'apparition */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .intro-text {
-    font-size: 0.85rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .detail-text {
-    font-size: 0.8rem;
-  }
-  
-  .internship-cta {
-    padding: 0.625rem 0.875rem;
-    font-size: 0.85rem;
-  }
-  
-  .internship-visual {
-    height: 80px;
-  }
-  
-  .visual-element {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .floating-icon {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .floating-icon svg {
-    width: 16px;
-    height: 16px;
-  }
+}
+
+.stage-component {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.internship-card {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 </style>
