@@ -32,7 +32,7 @@
     <div class="project-content">
       <!-- Description Section -->
       <section class="content-section">
-        <h2 class="section-title">📋 Description du projet</h2>
+        <h2 class="section-title"><span class="emoji">📋</span> Description du projet</h2>
         <div class="description-card">
           <p>{{ $t(project.titre + '_description') }}</p>
         </div>
@@ -40,7 +40,7 @@
 
       <!-- Languages Section -->
       <section v-if="project.language && project.language.length" class="content-section">
-        <h2 class="section-title">💻 Langages utilisés</h2>
+        <h2 class="section-title"><span class="emoji">💻</span> Langages utilisés</h2>
         <div class="tech-grid">
           <div v-for="(lang, index) in project.language" :key="index" class="tech-card language-card">
             <div class="tech-icon-container">
@@ -53,7 +53,7 @@
 
       <!-- Technologies Section -->
       <section v-if="project.technologies && project.technologies.length" class="content-section">
-        <h2 class="section-title">🛠️ Technologies & Frameworks</h2>
+        <h2 class="section-title"><span class="emoji">🛠️</span> Technologies & Frameworks</h2>
         <div class="tech-grid">
           <div v-for="(tech, index) in project.technologies" :key="index" class="tech-card technology-card">
             <div class="tech-icon-container">
@@ -66,7 +66,7 @@
 
       <!-- Learning Section -->
       <section class="content-section">
-        <h2 class="section-title">🎓 Ce que j'ai appris avec ce projet</h2>
+        <h2 class="section-title"><span class="emoji">🎓</span> Ce que j'ai appris avec ce projet</h2>
         <div class="learning-container">
           <div class="learning-card" v-if="$t(project.titre + '_technical_learning') && $t(project.titre + '_technical_learning') !== project.titre + '_technical_learning'">
             <div class="learning-icon">
@@ -114,7 +114,7 @@
 
       <!-- GitHub Link Section -->
       <section class="content-section">
-        <h2 class="section-title">🔗 Liens du projet</h2>
+        <h2 class="section-title"><span class="emoji">🔗</span> Liens du projet</h2>
         <div class="links-container">
           <a :href="project.url" target="_blank" class="project-link github-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -434,6 +434,7 @@ export default {
   position: relative;
 }
 
+
 .section-title {
   font-size: 2rem;
   font-weight: 700;
@@ -442,6 +443,20 @@ export default {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emoji {
+  font-size: 2rem;
+  align-self: center;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  color: initial !important;
+  filter: none !important;
 }
 
 /* Description Card */
