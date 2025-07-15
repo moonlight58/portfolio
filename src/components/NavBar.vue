@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isHome2" class="navbar-container">
+  <div v-if="!CustomNavBar" class="navbar-container">
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
       <!-- Logo avec effet amélioré -->
       <router-link to="/" class="logo">
@@ -141,7 +141,7 @@ export default {
       prevScrollPos: 0,
       showMenu: false,
       isMobile: window.innerWidth <= 800,
-      isHome2: false,
+      CustomNavBar: false,
     };
   },
   computed: {
@@ -158,7 +158,7 @@ export default {
     $route: {
       immediate: true,
       handler(to) {
-        this.isHome2 = to.name === 'home';
+        this.CustomNavBar = to.name === 'readyornot' || to.name === 'minimalist';
       }
     }
   },

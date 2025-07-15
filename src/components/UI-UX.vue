@@ -32,15 +32,16 @@
         </div>
       </div>
 
-      <div class="style-card coming-soon">
+      <div class="style-card minimalist-theme" @click="navigateToStyle('minimalist')">
         <div class="style-preview">
+          <div class="minimalist-overlay">
+            <div class="minimalist-line"></div>
+          </div>
           <h3 class="style-name">Minimaliste</h3>
           <div class="style-description">
-            Prochainement...
+            Design épuré et élégant inspiré de la typographie classique
           </div>
-          <div class="locked-overlay">
-            <span class="locked-text">EN DÉVELOPPEMENT</span>
-          </div>
+          <div class="minimalist-accent"></div>
         </div>
       </div>
     </div>
@@ -209,6 +210,54 @@ export default {
   border-radius: 4px;
 }
 
+/* Minimalist Style */
+.minimalist-theme {
+  background: #ffffff;
+  border: 3px solid #000000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.minimalist-theme:hover {
+  transform: translateY(-5px);
+  box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.minimalist-theme .style-name {
+  font-family: 'Crimson Text', serif;
+  color: #000000;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.minimalist-theme .style-description {
+  font-family: 'Crimson Text', serif;
+  color: #666666;
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto 2rem;
+}
+
+.minimalist-line {
+  width: 100px;
+  height: 3px;
+  background-color: #000000;
+  margin: 0 auto 2rem;
+}
+
+.minimalist-accent {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #000000;
+}
+
 @keyframes scan {
   0% {
     transform: translateY(0);
@@ -230,6 +279,18 @@ export default {
 @media (max-width: 768px) {
   .styles-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .minimalist-theme .style-name {
+    font-size: 1.5rem;
+  }
+  
+  .minimalist-theme .style-description {
+    font-size: 1rem;
+  }
+  
+  .minimalist-line {
+    width: 60px;
   }
 }
 </style>

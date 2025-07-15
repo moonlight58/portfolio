@@ -47,6 +47,11 @@ const routes = [
         name: 'readyornot',
         component: () => import('@/views/ReadyOrNot.vue')
       },
+      {
+        path: 'minimalist',
+        name: 'minimalist',
+        component: () => import('@/views/Minimalist.vue')
+      }
     ]
   },
   {
