@@ -52,7 +52,7 @@ export default {
   name: 'UI-UX',
   methods: {
     navigateToStyle(style) {
-      this.$router.push(`/moonlight/competences/${style}`);
+      this.$router.push(`/competences/${style}`);
     }
   }
 }
