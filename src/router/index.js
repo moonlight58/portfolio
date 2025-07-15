@@ -39,6 +39,17 @@ const routes = [
     component: () => import('@/views/DrawingView.vue')
   },
   {
+    path: '/competences',
+    name: 'competences',
+    children: [
+      {
+        path: 'readyornot',
+        name: 'readyornot',
+        component: () => import('@/views/ReadyOrNot.vue')
+      },
+    ]
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/ErrorNotFound.vue')

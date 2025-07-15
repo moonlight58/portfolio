@@ -22,7 +22,7 @@
     <div class="about-content">
       <!-- Introduction Section -->
       <section class="content-section">
-        <h2>🎯 À propos de moi</h2>
+        <h2><span class="emoji">🎯</span> À propos de moi</h2>
         <div class="content-card">
           <p>
             Je suis étudiant en deuxième année de BUT<span class="warning">*</span> Informatique, 
@@ -38,7 +38,7 @@
 
       <!-- Passion Section -->
       <section class="content-section">
-        <h2>💻 Ma passion</h2>
+        <h2><span class="emoji">💻</span> Ma passion</h2>
         <div class="content-card">
           <p>
             Mon projet actuel se concentre sur la transformation d'applications complètes 
@@ -57,7 +57,7 @@
 
       <!-- Skills & Interests -->
       <section class="content-section">
-        <h2>🚀 Compétences & Intérêts</h2>
+        <h2><span class="emoji">🚀</span> Compétences & Intérêts</h2>
         <div class="skills-grid">
           <div class="skill-card">
             <div class="skill-icon">💻</div>
@@ -79,7 +79,7 @@
 
       <!-- Art Section -->
       <section class="content-section">
-        <h2>🎨 Côté artistique</h2>
+        <h2><span class="emoji">🎨</span> Côté artistique</h2>
         <div class="content-card art-section">
           <p>
             Dans mon temps libre, j'explore mon côté artistique à travers le dessin. 
@@ -105,7 +105,7 @@
 
       <!-- Philosophy Section -->
       <section class="content-section">
-        <h2>🌟 Philosophie</h2>
+        <h2><span class="emoji">🌟</span> Philosophie</h2>
         <div class="content-card philosophy-card">
           <blockquote>
             <p>
@@ -329,6 +329,18 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emoji {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  color: initial !important;
+  filter: none !important;
 }
 
 .content-card {

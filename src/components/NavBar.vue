@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container">
+  <div v-if="!isHome2" class="navbar-container">
     <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
       <!-- Logo avec effet amélioré -->
       <router-link to="/" class="logo">
@@ -141,6 +141,7 @@ export default {
       prevScrollPos: 0,
       showMenu: false,
       isMobile: window.innerWidth <= 800,
+      isHome2: false,
     };
   },
   computed: {
@@ -152,6 +153,14 @@ export default {
         this.$i18n.locale = val.toLowerCase();
       },
     },
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to) {
+        this.isHome2 = to.name === 'home';
+      }
+    }
   },
   mounted() {
     this.prevScrollPos = window.scrollY;

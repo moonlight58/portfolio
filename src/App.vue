@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar />
+    <NavBar v-if="!isHome2Route" />
     <router-view />
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   components: {
     NavBar,
   },
+  computed: {
+    isHome2Route() {
+      return this.$route.name === 'readyornot';
+    }
+  }
 };
 </script>
 

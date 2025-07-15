@@ -1,609 +1,483 @@
 <template>
-  <div class="stage-view">
-    <!-- Scrollspy Navigation -->
-    <nav class="scrollspy-nav">
-      <ul class="nav-list">
-        <li>
-          <a
-            @click="scrollToSection('contexte')"
-            :class="{ active: activeSection === 'contexte' }"
-            >🎯 Contexte</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('role')"
-            :class="{ active: activeSection === 'role' }"
-            >👨‍💻 Mon rôle (UE4 - UE5 - UE6)</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('organisation')"
-            :class="{ active: activeSection === 'organisation' }"
-            >⏱️ Organisation</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('technologies')"
-            :class="{ active: activeSection === 'technologies' }"
-            >🛠️ Technologies (UE1)</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('fonctionnalites')"
-            :class="{ active: activeSection === 'fonctionnalites' }"
-            >⚡ Fonctionnalités</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('architecture')"
-            :class="{ active: activeSection === 'architecture' }"
-            >🏗️ Architecture technique</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('defis')"
-            :class="{ active: activeSection === 'defis' }"
-            >🔧 Défis techniques</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('securite')"
-            :class="{ active: activeSection === 'securite' }"
-            >🛡️ Sécurité (UE4)</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('avancement')"
-            :class="{ active: activeSection === 'avancement' }"
-            >🚀 État d'avancement</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('apprentissages')"
-            :class="{ active: activeSection === 'apprentissages' }"
-            >🎓 Apprentissages</a
-          >
-        </li>
-        <li>
-          <a
-            @click="scrollToSection('compétences')"
-            :class="{ active: activeSection === 'compétences' }"
-            >🧠 Compétences ciblées</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <!-- 1. Contexte et objectifs -->
-    <section id="contexte" class="section">
-      <h2>🎯 Contexte et objectifs du projet</h2>
-      <p>
-        J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack
-        au Learning Centre Claude Oytana à Besançon, France, d'avril 2025 à mai
-        2025. Ma mission était de créer une application mobile appelée « Euphron
-        », permettant aux étudiants de l'Université de Franche-Comté de donner
-        ou de prendre du matériel sportif d'occasion sur un système de don.
-      </p>
-      <img src="../assets/Euphron.svg" alt="Logo Euphron" class="logo" />
-
-      <p>
-        La réalisation de cette application a été proposée par des étudiants en
-        STAPS, à la suite d'une étude de marché portant sur l'accès au matériel
-        sportif dans leur cursus. Cette étude a révélé que, si certaines écoles
-        parviennent à fournir le matériel nécessaire à leurs étudiants, dans de
-        nombreuses autres, ce sont les étudiants eux-mêmes qui doivent financer
-        leur équipement.
-      </p>
-
-      <p>
-        Le projet s'est développé en parallèle d'un événement existant appelé
-        <strong>"Troc Party sport"</strong> organisé par la bibliothèque
-        universitaire, où un troc était organisé pendant une journée. L'idée
-        était de fusionner ces deux initiatives en une seule application
-        numérique permanente.
-      </p>
-
-      <div class="objectives">
-        <p>L'objectif était triple :</p>
-        <ul>
-          <li>
-            <strong>Promouvoir l'accès au sport</strong> pour tous les étudiants
-            en Franche-Comté
-          </li>
-          <li>
-            <strong>Encourager la solidarité étudiante</strong> en facilitant
-            l'échange de matériel
-          </li>
-          <li>
-            <strong>Favoriser la réutilisation</strong> dans une démarche
-            écoresponsable
-          </li>
-        </ul>
-        <p class="constraint">
-          <strong>Contrainte principale :</strong> Aucun gain monétaire autorisé
-          - tout devait être gratuit, basé sur la solidarité étudiante.
-        </p>
-      </div>
-    </section>
-
-    <!-- 2. Mon rôle et responsabilités -->
-    <section id="role" class="section">
-      <h2>
-        👨‍💻 Mon rôle et responsabilités (<a
-          @click="scrollToSection('transverse')"
-          class="transverse-link"
-          >UE4 - UE5 - UE6</a
-        >)
-      </h2>
-      <p>
-        J'ai été chargé de réaliser
-        <strong>l'entièreté de l'application web</strong>
-        (compatible ordinateur et mobile) en totale autonomie. Mes
-        responsabilités incluaient :
-      </p>
-      <ul>
-        <li>
-          Conception du visuel sur <strong>Figma</strong> pour validation client
-        </li>
-        <li>Développement <strong>frontend</strong> (interface utilisateur)</li>
-        <li>
-          Développement <strong>backend/serveur</strong> (API et logique métier)
-        </li>
-        <li>Conception et gestion de la <strong>base de données</strong></li>
-        <li>
-          Collaboration avec la <strong>D</strong>irection des
-          <strong>S</strong>ystèmes d'<strong>I</strong>nformation et du
-          <strong>N</strong>umérique (<strong>DSIN</strong>) pour l'hébergement
-          futur
-        </li>
-      </ul>
-      <p>
-        Cette autonomie m'a permis de prendre des initiatives tout en respectant
-        les besoins clients, même lors de changements de spécifications.
-      </p>
-    </section>
-
-    <!-- 3. Organisation du projet -->
-    <section id="organisation" class="section">
-      <h2>⏱️ Organisation du projet (8 semaines)</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="week">Semaines 1-2</span>
-          <span class="task"
-            >Préparation du visuel et définition des fonctionnalités</span
-          >
-        </div>
-        <div class="timeline-item">
-          <span class="week">Semaine 3</span>
-          <span class="task"
-            >Recherche de technologies et réunions de validation</span
-          >
-        </div>
-        <div class="timeline-item">
-          <span class="week">Semaines 4-8</span>
-          <span class="task"
-            >Développement (frontend, backend, base de données)</span
-          >
-        </div>
-      </div>
-
-      <p>
-        <strong>Méthodologie :</strong> Réunions hebdomadaires avec l'équipe de
-        la BU et mon tuteur de stage. Utilisation de <strong>Git</strong> pour
-        le versioning et <strong>Trello</strong> pour la gestion des tâches.
-      </p>
-    </section>
-
-    <!-- 4. Choix techniques et architecture -->
-    <section id="technologies" class="section">
-      <h2>
-        🛠️ Choix techniques et architecture (<a
-          @click="scrollToSection('ue1')"
-          class="ue1-link"
-          >UE1</a
-        >)
-      </h2>
-
-      <div class="tech-stack">
-        <div class="tech-category">
-          <h3>Frontend</h3>
-          <ul>
-            <li>
-              <strong>Vue.js 3</strong> - Framework principal (Composition API,
-              script setup)
-            </li>
-            <li>
-              <strong>Quasar Framework</strong> - UI framework pour la
-              compatibilité mobile
-            </li>
-            <li>
-              <strong>Pinia</strong> - Gestion d'état (remplaçant de Vuex)
-            </li>
-            <li>
-              <strong>Socket.io-client</strong> - Communication temps réel
-            </li>
-            <li>
-              <strong>Capacitor</strong> - Transformation en app mobile native
-            </li>
-            <li><strong>Axios</strong> - Requêtes HTTP</li>
-          </ul>
-        </div>
-
-        <div class="tech-category">
-          <h3>Backend</h3>
-          <ul>
-            <li>
-              <strong>Node.js</strong> - Environnement d'exécution JavaScript
-            </li>
-            <li><strong>Express.js</strong> - Framework web</li>
-            <li><strong>MySQL</strong> - Base de données relationnelle</li>
-            <li>
-              <strong>Socket.io</strong> - WebSocket pour le chat temps réel
-            </li>
-            <li>
-              <strong>Architecture MVC</strong> - Models, Services, Controllers,
-              Routes
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <p>
-        <strong>Justification des choix :</strong> J'ai privilégié Vue.js car je
-        maîtrise bien ce framework, contrairement à Angular ou React. Quasar
-        était le choix idéal pour la compatibilité mobile native, répondant
-        parfaitement aux exigences du projet.
-      </p>
-    </section>
-
-    <!-- 5. Fonctionnalités développées -->
-    <section id="fonctionnalites" class="section">
-      <h2>⚡ Fonctionnalités développées</h2>
-
-      <div class="features-grid">
-        <div class="feature-category">
-          <h3>Gestion utilisateur</h3>
-          <ul>
-            <li>Inscription / Connexion</li>
-            <li>Modification du profil</li>
-            <li>Système d'authentification</li>
-          </ul>
-        </div>
-
-        <div class="feature-category">
-          <h3>Gestion des articles</h3>
-          <ul>
-            <li>Ajout d'articles sportifs</li>
-            <li>Modification / Suppression</li>
-            <li>Système de catégories</li>
-          </ul>
-        </div>
-
-        <div class="feature-category">
-          <h3>Communication</h3>
-          <ul>
-            <li>Chat en temps réel (Socket.IO)</li>
-            <li>Messagerie entre utilisateurs</li>
-          </ul>
-        </div>
-
-        <div class="feature-category">
-          <h3>Administration</h3>
-          <ul>
-            <li>Gestion des catégories de sport</li>
-            <li>Gestion des comptes utilisateurs</li>
-            <li>Modération du contenu</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="highlight">
-        <strong>Partie la plus enrichissante :</strong> Le développement du chat
-        en temps réel avec Socket.IO était une première pour moi. La
-        documentation excellente m'a permis de comprendre rapidement les
-        concepts et d'implémenter cette fonctionnalité avec succès.
-      </p>
-
-      <div class="progress">
-        <p>
-          <strong>État d'avancement :</strong> 70% des fonctionnalités réalisées
-        </p>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 70%"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Architecture technique -->
-    <div class="section">
-      <section id="architecture" class="architecture-section">
-        <h3>🏗️ Architecture technique</h3>
-
-        <div class="diagram-container">
-          <img
-            src="../assets/stage/Diagram.png"
-            alt="Diagramme d'architecture de l'application Euphron"
-            class="architecture-diagram"
+  <div class="internship-container">
+    <!-- Back Button -->
+    <div class="back-button-container">
+      <button class="back-button" @click="$router.push('/')">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 12H5M12 19L5 12L12 5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
-          <p class="legend">
-            (Figure 3 - Architecture globale de l'application)
-          </p>
-        </div>
-
-        <div class="architecture-explanation">
-          <p>
-            L'architecture de l'application repose sur une
-            <strong>séparation claire</strong> entre le frontend, développé avec
-            Quasar/Vue.js, et le backend, construit autour d'Express, Socket.io
-            et MySQL.
-          </p>
-
-          <div class="flow-description">
-            <h4>🔄 Flux de données classiques (HTTP)</h4>
-            <p>
-              Lorsqu'un utilisateur interagit avec l'interface via son
-              navigateur, ses actions sont prises en charge par les
-              <strong>composants Vue</strong>, qui orchestrent l'affichage et la
-              logique de l'application. Ces composants, lorsqu'ils ont besoin
-              d'accéder à des données ou de déclencher des opérations côté
-              serveur, font appel à des
-              <strong>services JavaScript dédiés</strong>. Pour les échanges
-              classiques, comme la récupération ou la modification de données
-              (gestion des utilisateurs ou des articles), ces services utilisent
-              <strong>Axios</strong> pour envoyer des requêtes HTTP au serveur
-              Express.
-            </p>
-            <p>
-              Ce dernier reçoit les requêtes via ses
-              <strong>routes REST</strong>, traite la logique métier à travers
-              des services Node.js, puis interagit avec la
-              <strong>base de données MySQL</strong> pour lire ou écrire les
-              informations nécessaires. Une fois l'opération terminée, la
-              réponse est renvoyée au frontend sous forme de données JSON,
-              permettant à l'interface de se mettre à jour en conséquence.
-            </p>
-          </div>
-
-          <div class="flow-description">
-            <h4>⚡ Communication temps réel (WebSockets)</h4>
-            <p>
-              Parallèlement à ce fonctionnement traditionnel, l'application
-              intègre également une dimension temps réel grâce à
-              <strong>Socket.io</strong>. Pour des fonctionnalités comme le chat
-              ou les notifications instantanées, les composants Vue communiquent
-              avec le serveur via le <strong>client Socket.io</strong>, qui
-              établit une connexion WebSocket persistante.
-            </p>
-            <p>
-              Les événements émis par le frontend sont captés par le
-              <strong>serveur Socket.io</strong>, qui peut alors traiter ces
-              messages, éventuellement interagir avec la base de données, puis
-              redistribuer les informations en temps réel à tous les clients
-              concernés.
-            </p>
-          </div>
-
-          <div class="architecture-summary">
-            <p>
-              <strong>Résultat :</strong> L'ensemble du système permet à la fois
-              une gestion efficace des données via des requêtes HTTP classiques
-              et une communication instantanée grâce aux WebSockets, offrant à
-              l'utilisateur une <strong>expérience fluide et réactive</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
+        </svg>
+        Retour
+      </button>
     </div>
 
-    <!-- 6. Défis techniques rencontrés -->
-    <section id="defis" class="section">
-      <h2>🔧 Défis techniques rencontrés</h2>
-
-      <div class="challenge">
-        <h3>Intégration Capacitor</h3>
-        <p>
-          <strong>Problème :</strong> Pour tester l'application mobile, je
-          devais la connecter au serveur local. Malgré mes tentatives de
-          création d'une adresse accessible via le réseau local, cette
-          intégration s'est révélée problématique.
-        </p>
-        <p>
-          <strong>Solution :</strong> J'ai mis cette partie de côté pour me
-          concentrer sur le développement des fonctionnalités core, tout en
-          maintenant la compatibilité mobile.
-        </p>
-      </div>
-
-      <div class="challenge">
-        <h3>Tests utilisateurs limités</h3>
-        <p>
-          Seule une dizaine d'utilisateurs (étudiants STAPS et équipe BU) ont pu
-          tester l'application en raison du manque de peaufinage à ce stade du
-          développement.
-        </p>
-      </div>
-    </section>
-
-    <!-- 7. Sécurité et bonnes pratiques -->
-    <section id="securite" class="section">
-      <h2>
-        🛡️ Sécurité et bonnes pratiques (<a
-          @click="scrollToSection('ue4')"
-          class="ue4-link"
-          >UE4</a
-        >)
-      </h2>
-      <p>
-        Durant le développement, j'ai appris l'importance de la sécurisation
-        contre les injections SQL. J'ai implémenté une double protection :
-      </p>
-
-      <div class="security-method">
-        <h3>1. Vérification frontend (Regex)</h3>
-        <img src="../assets/stage/RegexCheck.png" alt="Vérification Regex" />
-        <p class="legend">(Figure 1 - Système de validation regex)</p>
-        <p>
-          Cette méthode côté frontend vérifie que l'utilisateur n'essaie pas de
-          nuire au fonctionnement de l'application en utilisant une
-          <strong>EX</strong>pression <strong>RÉG</strong>ulière
-          (<strong>REGEX</strong>). Cette expression vérifie que les champs
-          (nom, email, téléphone) ne contiennent pas de caractères suspects
-          comme <span class="special-character"> ' " ; -- / * </span> , etc.
-          Elle refuse également toute chaîne contenant des mots-clés SQL
-          classiques (<span class="special-character">SELECT</span>,
-          <span class="special-character">DROP</span>,
-          <span class="special-character">INSERT</span>, etc.). Cependant, le
-          contrôle côté frontend n’est qu’un confort pour l'utilisateur. Il est
-          impératif de vérifier également côté backend, ce qui peut être fait
-          grâce aux requêtes préparées.
-        </p>
-      </div>
-
-      <div class="security-method">
-        <h3>2. Requêtes préparées (Backend)</h3>
-        <img src="../assets/stage/PreparedQuery.png" alt="Requêtes préparées" />
-        <p class="legend">(Figure 2 - Implémentation des requêtes préparées)</p>
-        <p>
-          Les <strong>requêtes préparées</strong> (ou paramétrées) offrent une
-          protection robuste car elles :
-        </p>
-        <ul>
-          <li>Empêchent les injections SQL</li>
-          <li>Sont supportées par tous les moteurs SQL modernes</li>
-          <li>Constituent la base de tous les ORM modernes</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 8. État d'avancement et suite à donner -->
-    <section id="avancement" class="section">
-      <h2>🚀 État d'avancement et suite à donner</h2>
-
-      <div class="status">
-        <h3>Actuellement en développement</h3>
-        <p>
-          L'application n'a pas encore été mise en production, nécessitant
-          encore du peaufinage et le développement des fonctionnalités
-          restantes.
-        </p>
-      </div>
-
-      <div class="remaining-tasks">
-        <h3>Fonctionnalités restantes</h3>
-        <ul>
-          <li>Gestion complète des articles en tant qu'admin</li>
-          <li>Amélioration de la gestion utilisateurs (administration)</li>
-          <li>Peaufinage du système de chat en temps réel</li>
-        </ul>
-      </div>
-
-      <div class="proposals">
-        <h3>Mes propositions d'amélioration</h3>
-        <ul>
-          <li>
-            <strong>Optimisation stockage :</strong> Passage à deux bases de
-            données si le stockage des images devient problématique (séparation
-            des données)
-          </li>
-          <li>
-            <strong>Performance chat :</strong> Migration du chat vers MongoDB
-            pour améliorer l'efficacité des messages temps réel
-          </li>
-        </ul>
-      </div>
-
-      <p>
-        J'ai laissé un document complet "suite à donner" répertoriant mes
-        réalisations, les tâches restantes et mes recommandations techniques.
-      </p>
-    </section>
-
-    <!-- 9. Apprentissages et retour d'expérience -->
-    <section id="apprentissages" class="section">
-      <h2>🎓 Apprentissages et retour d'expérience</h2>
-
-      <div class="learnings">
-        <h3>Compétences techniques acquises</h3>
-        <ul>
-          <li>
-            Maîtrise de <strong>Socket.IO</strong> pour la communication temps
-            réel
-          </li>
-          <li>
-            Approfondissement de la <strong>sécurité web</strong> (injections
-            SQL, requêtes préparées)
-          </li>
-          <li>
-            Expérience complète du <strong>développement full-stack</strong>
-          </li>
-          <li>
-            Utilisation de <strong>Quasar</strong> pour le développement mobile
-          </li>
-        </ul>
-      </div>
-
-      <div class="learnings">
-        <h3>Compétences transversales</h3>
-        <ul>
-          <li>
-            <strong>Autonomie</strong> dans la gestion d'un projet complet
-          </li>
-          <li>
-            <strong>Adaptabilité</strong> face aux changements de spécifications
-          </li>
-          <li><strong>Communication client</strong> et gestion des attentes</li>
-          <li>
-            <strong>Prise d'initiatives</strong> et propositions d'améliorations
-          </li>
-        </ul>
-      </div>
-
-      <div class="reflection">
-        <h3>Si c'était à refaire</h3>
-        <p>
-          J'aurais préféré travailler en équipe pour plus d'efficacité. En étant
-          seul, je n'ai pas pu réaliser autant de fonctionnalités que souhaité,
-          bien que cela m'ait permis de développer mon autonomie et ma capacité
-          à gérer un projet dans sa globalité.
-        </p>
-      </div>
-    </section>
-
-    <!-- 10. Compétences ciblées -->
-    <section id="compétences" class="section">
-      <h2>🧠 Compétences ciblées</h2>
-      <p>
-        Durant ce stage, j'ai ciblé spécifiquement plusieurs compétences du
-        <a
-          href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf#page=17"
-          target="_blank"
-          class="official-link"
-        >
-          référentiel officiel du B.U.T. Informatique</a
-        >
-        en fonction des missions qui m'ont été confiées :
-      </p>
-
-      <div class="competences-grid">
-        <div class="competence-card ue1" id="ue1">
-          <div class="competence-header">
-            <span class="ue-badge">UE1</span>
-            <h3>Réaliser</h3>
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <div class="project-logo">
+          <div class="logo-container">
+            <h1 class="logo-text">Euphron</h1>
+            <div class="logo-glow"></div>
           </div>
-          <div class="competence-title">
-            <span>Élaborer une application informatique</span>
+        </div>
+        <img src="@/assets/Euphron.svg" class="project-image">
+        <div class="hero-info">
+          <h2 class="hero-title">Stage Web Full-Stack</h2>
+          <p class="hero-subtitle">Learning Centre Claude Oytana • Besançon, France</p>
+          <div class="duration-badge">Avril 2025 - Mai 2025 • 8 semaines</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Context Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🎯 Contexte et objectifs du projet</h2>
+      </div>
+      <div class="content-card">
+        <p>
+          J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack au Learning Centre Claude Oytana à Besançon, France, d'avril 2025 à mai 2025. Ma mission était de créer une application mobile appelée « Euphron », permettant aux étudiants de l'Université de Franche-Comté de donner ou de prendre du matériel sportif d'occasion sur un système de don.
+        </p>
+        <p>
+          La réalisation de cette application a été proposée par des étudiants en STAPS, à la suite d'une étude de marché portant sur l'accès au matériel sportif dans leur cursus. Cette étude a révélé que, si certaines écoles parviennent à fournir le matériel nécessaire à leurs étudiants, dans de nombreuses autres, ce sont les étudiants eux-mêmes qui doivent financer leur équipement.
+        </p>
+        
+        <div class="objectives-grid">
+          <div class="objective-card">
+            <div class="objective-icon">🏃‍♂️</div>
+            <h4>Promouvoir l'accès au sport</h4>
+            <p>Pour tous les étudiants en Franche-Comté</p>
           </div>
-          <div class="competence-details">
-            <p><strong>Mise en application :</strong></p>
+          <div class="objective-card">
+            <div class="objective-icon">🤝</div>
+            <h4>Encourager la solidarité</h4>
+            <p>En facilitant l'échange de matériel</p>
+          </div>
+          <div class="objective-card">
+            <div class="objective-icon">♻️</div>
+            <h4>Favoriser la réutilisation</h4>
+            <p>Dans une démarche écoresponsable</p>
+          </div>
+        </div>
+
+        <div class="constraint-badge">
+          <strong>Contrainte principale :</strong> Aucun gain monétaire autorisé - tout devait être gratuit, basé sur la solidarité étudiante.
+        </div>
+      </div>
+    </section>
+
+    <!-- Role Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>👨‍💻 Mon rôle et responsabilités</h2>
+      </div>
+      <div class="content-card">
+        <p>
+          J'ai été chargé de réaliser l'entièreté de l'application web (compatible ordinateur et mobile) en totale autonomie. Mes responsabilités incluaient :
+        </p>
+        
+        <div class="responsibilities-grid">
+          <div class="responsibility-card">
+            <div class="responsibility-icon">🎨</div>
+            <h4>Conception visuelle</h4>
+            <p>Design sur Figma pour validation client</p>
+          </div>
+          <div class="responsibility-card">
+            <div class="responsibility-icon">💻</div>
+            <h4>Développement frontend</h4>
+            <p>Interface utilisateur responsive</p>
+          </div>
+          <div class="responsibility-card">
+            <div class="responsibility-icon">⚙️</div>
+            <h4>Développement backend</h4>
+            <p>API et logique métier</p>
+          </div>
+          <div class="responsibility-card">
+            <div class="responsibility-icon">🗄️</div>
+            <h4>Base de données</h4>
+            <p>Conception et gestion complète</p>
+          </div>
+          <div class="responsibility-card">
+            <div class="responsibility-icon">🏢</div>
+            <h4>Collaboration DSIN</h4>
+            <p>Pour l'hébergement futur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organization Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>⏱️ Organisation du projet</h2>
+      </div>
+      <div class="content-card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker">1-2</div>
+            <div class="timeline-content">
+              <h4>Semaines 1-2</h4>
+              <p>Préparation du visuel et définition des fonctionnalités</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-content">
+              <h4>Semaine 3</h4>
+              <p>Recherche de technologies et réunions de validation</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">4-8</div>
+            <div class="timeline-content">
+              <h4>Semaines 4-8</h4>
+              <p>Développement (frontend, backend, base de données)</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="methodology-card">
+          <h4>Méthodologie</h4>
+          <p>Réunions hebdomadaires avec l'équipe de la BU et mon tuteur de stage. Utilisation de Git pour le versioning et Trello pour la gestion des tâches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🛠️ Choix techniques et architecture</h2>
+      </div>
+      <div class="content-card">
+        <div class="tech-stack-grid">
+          <div class="tech-stack-section">
+            <h3>Frontend</h3>
+            <div class="tech-list">
+              <div class="tech-item">
+                <span class="tech-icon">⚛️</span>
+                <div>
+                  <strong>Vue.js 3</strong>
+                  <p>Framework principal (Composition API, script setup)</p>
+                </div>
+              </div>
+              <div class="tech-item">
+                <span class="tech-icon">📱</span>
+                <div>
+                  <strong>Quasar Framework</strong>
+                  <p>UI framework pour la compatibilité mobile</p>
+                </div>
+              </div>
+              <div class="tech-item">
+                <span class="tech-icon">🍍</span>
+                <div>
+                  <strong>Pinia</strong>
+                  <p>Gestion d'état (remplaçant de Vuex)</p>
+                </div>
+              </div>
+              <div class="tech-item">
+                <span class="tech-icon">⚡</span>
+                <div>
+                  <strong>Socket.io-client</strong>
+                  <p>Communication temps réel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <h3>Backend</h3>
+            <div class="tech-list">
+              <div class="tech-item">
+                <span class="tech-icon">🟢</span>
+                <div>
+                  <strong>Node.js</strong>
+                  <p>Environnement d'exécution JavaScript</p>
+                </div>
+              </div>
+              <div class="tech-item">
+                <span class="tech-icon">🚀</span>
+                <div>
+                  <strong>Express.js</strong>
+                  <p>Framework web</p>
+                </div>
+              </div>
+              <div class="tech-item">
+                <span class="tech-icon">🐬</span>
+                <div>
+                  <strong>MySQL</strong>
+                  <p>Base de données relationnelle</p>
+                </div>
+              </div>
+              <div class="tech-item">
+                <span class="tech-icon">💬</span>
+                <div>
+                  <strong>Socket.io</strong>
+                  <p>WebSocket pour le chat temps réel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="justification-card">
+          <h4>Justification des choix</h4>
+          <p>J'ai privilégié Vue.js car je maîtrise bien ce framework, contrairement à Angular ou React. Quasar était le choix idéal pour la compatibilité mobile native, répondant parfaitement aux exigences du projet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>⚡ Fonctionnalités développées</h2>
+      </div>
+      <div class="content-card">
+        <div class="features-grid">
+          <div class="feature-category">
+            <h3>👤 Gestion utilisateur</h3>
+            <ul>
+              <li>Inscription / Connexion</li>
+              <li>Modification du profil</li>
+              <li>Système d'authentification</li>
+            </ul>
+          </div>
+          
+          <div class="feature-category">
+            <h3>📦 Gestion des articles</h3>
+            <ul>
+              <li>Ajout d'articles sportifs</li>
+              <li>Modification / Suppression</li>
+              <li>Système de catégories</li>
+            </ul>
+          </div>
+          
+          <div class="feature-category">
+            <h3>💬 Communication</h3>
+            <ul>
+              <li>Chat en temps réel (Socket.IO)</li>
+              <li>Messagerie entre utilisateurs</li>
+            </ul>
+          </div>
+          
+          <div class="feature-category">
+            <h3>⚙️ Administration</h3>
+            <ul>
+              <li>Gestion des catégories de sport</li>
+              <li>Gestion des comptes utilisateurs</li>
+              <li>Modération du contenu</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="highlight-card">
+          <h4>💡 Partie la plus enrichissante</h4>
+          <p>Le développement du chat en temps réel avec Socket.IO était une première pour moi. La documentation excellente m'a permis de comprendre rapidement les concepts et d'implémenter cette fonctionnalité avec succès.</p>
+        </div>
+        
+        <div class="progress-card">
+          <div class="progress-header">
+            <h4>État d'avancement</h4>
+            <span class="progress-percentage">70%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 70%"></div>
+          </div>
+          <p>des fonctionnalités réalisées</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🏗️ Architecture technique</h2>
+      </div>
+      <div class="diagram-card">
+        <img src="@/assets/stage/Diagram.png" alt="Diagramme architecture frontend/backend" class="architecture-diagram" />
+        <div class="diagram-caption">
+          <em>Schéma du flux de communication entre le frontend (Vue/Quasar) et le backend (Express, Socket.io, MySQL).</em>
+        </div>
+      </div>
+      <div class="content-card">
+        <p>L'architecture de l'application repose sur une séparation claire entre le frontend, développé avec Quasar/Vue.js, et le backend, construit autour d'Express, Socket.io et MySQL.</p>
+        
+        <div class="architecture-sections">
+          <div class="arch-section">
+            <h4>🔄 Flux de données classiques (HTTP)</h4>
+            <p>Lorsqu'un utilisateur interagit avec l'interface via son navigateur, ses actions sont prises en charge par les composants Vue, qui orchestrent l'affichage et la logique de l'application. Ces composants, lorsqu'ils ont besoin d'accéder à des données ou de déclencher des opérations côté serveur, font appel à des services JavaScript dédiés.</p>
+          </div>
+          
+          <div class="arch-section">
+            <h4>⚡ Communication temps réel (WebSockets)</h4>
+            <p>Parallèlement à ce fonctionnement traditionnel, l'application intègre également une dimension temps réel grâce à Socket.io. Pour des fonctionnalités comme le chat ou les notifications instantanées, les composants Vue communiquent avec le serveur via le client Socket.io.</p>
+          </div>
+        </div>
+        
+        <div class="result-card">
+          <h4>🎯 Résultat</h4>
+          <p>L'ensemble du système permet à la fois une gestion efficace des données via des requêtes HTTP classiques et une communication instantanée grâce aux WebSockets, offrant à l'utilisateur une expérience fluide et réactive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🛡️ Sécurité et bonnes pratiques</h2>
+      </div>
+      <div class="content-card">
+        <p>Durant le développement, j'ai appris l'importance de la sécurisation contre les injections SQL. J'ai implémenté une double protection :</p>
+        
+        <div class="security-methods">
+          <div class="security-method security-method-stack">
+            <div class="security-method-text">
+              <h4>1. Vérification frontend (Regex)</h4>
+              <p>Cette méthode côté frontend vérifie que l'utilisateur n'essaie pas de nuire au fonctionnement de l'application en utilisant une expression régulière. Cette expression vérifie que les champs (nom, email, téléphone) ne contiennent pas de caractères suspects comme ' " ; -- / * , etc.</p>
+            </div>
+            <div class="security-image-wrapper">
+              <img src="@/assets/stage/RegexCheck.png" alt="Vérification Regex" class="security-image-large" />
+            </div>
+          </div>
+          
+          <div class="security-method security-method-stack">
+            <div class="security-method-text">
+              <h4>2. Requêtes préparées (Backend)</h4>
+              <p>Les requêtes préparées (ou paramétrées) offrent une protection robuste car elles :</p>
+              <ul>
+                <li>Empêchent les injections SQL</li>
+                <li>Sont supportées par tous les moteurs SQL modernes</li>
+                <li>Constituent la base de tous les ORM modernes</li>
+              </ul>
+            </div>
+            <div class="security-image-wrapper">
+              <img src="@/assets/stage/PreparedQuery.png" alt="Requête préparée" class="security-image-large" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🔧 Défis techniques rencontrés</h2>
+      </div>
+      <div class="content-card">
+        <div class="challenges-grid">
+          <div class="challenge-card">
+            <h4>Intégration Capacitor</h4>
+            <div class="challenge-content">
+              <div class="problem">
+                <strong>Problème :</strong> Pour tester l'application mobile, je devais la connecter au serveur local. Malgré mes tentatives de création d'une adresse accessible via le réseau local, cette intégration s'est révélée problématique.
+              </div>
+              <div class="solution">
+                <strong>Solution :</strong> J'ai mis cette partie de côté pour me concentrer sur le développement des fonctionnalités core, tout en maintenant la compatibilité mobile.
+              </div>
+            </div>
+          </div>
+          
+          <div class="challenge-card">
+            <h4>Tests utilisateurs limités</h4>
+            <div class="challenge-content">
+              <p>Seule une dizaine d'utilisateurs (étudiants STAPS et équipe BU) ont pu tester l'application en raison du manque de peaufinage à ce stade du développement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🚀 État d'avancement et suite à donner</h2>
+      </div>
+      <div class="content-card">
+        <div class="status-grid">
+          <div class="status-card current">
+            <h4>Actuellement en développement</h4>
+            <p>L'application n'a pas encore été mise en production, nécessitant encore du peaufinage et le développement des fonctionnalités restantes.</p>
+          </div>
+          
+          <div class="status-card remaining">
+            <h4>Fonctionnalités restantes</h4>
+            <ul>
+              <li>Gestion complète des articles en tant qu'admin</li>
+              <li>Amélioration de la gestion utilisateurs (administration)</li>
+              <li>Peaufinage du système de chat en temps réel</li>
+            </ul>
+          </div>
+          
+          <div class="status-card proposals">
+            <h4>Mes propositions d'amélioration</h4>
+            <ul>
+              <li><strong>Optimisation stockage :</strong> Passage à deux bases de données si le stockage des images devient problématique</li>
+              <li><strong>Performance chat :</strong> Migration du chat vers MongoDB pour améliorer l'efficacité des messages temps réel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🎓 Apprentissages et retour d'expérience</h2>
+      </div>
+      <div class="content-card">
+        <div class="learning-grid">
+          <div class="learning-section">
+            <h3>Compétences techniques acquises</h3>
+            <ul>
+              <li>Maîtrise de Socket.IO pour la communication temps réel</li>
+              <li>Approfondissement de la sécurité web (injections SQL, requêtes préparées)</li>
+              <li>Expérience complète du développement full-stack</li>
+              <li>Utilisation de Quasar pour le développement mobile</li>
+            </ul>
+          </div>
+          
+          <div class="learning-section">
+            <h3>Compétences transversales</h3>
+            <ul>
+              <li>Autonomie dans la gestion d'un projet complet</li>
+              <li>Adaptabilité face aux changements de spécifications</li>
+              <li>Communication client et gestion des attentes</li>
+              <li>Prise d'initiatives et propositions d'améliorations</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="reflection-card">
+          <h4>Si c'était à refaire</h4>
+          <p>J'aurais préféré travailler en équipe pour plus d'efficacité. En étant seul, je n'ai pas pu réaliser autant de fonctionnalités que souhaité, bien que cela m'ait permis de développer mon autonomie et ma capacité à gérer un projet dans sa globalité.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2>🧠 Compétences ciblées</h2>
+      </div>
+      <div class="content-card">
+        <p>Durant ce stage, j'ai ciblé spécifiquement plusieurs compétences du référentiel officiel du B.U.T. Informatique :</p>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>UE1 - Réaliser</h4>
+              <span class="skill-subtitle">Élaborer une application informatique</span>
+            </div>
             <ul>
               <li>Conception complète de l'application Euphron sur Figma</li>
               <li>Développement frontend avec Vue.js et Quasar</li>
@@ -611,54 +485,36 @@
               <li>Intégration de fonctionnalités temps réel (Socket.IO)</li>
             </ul>
           </div>
-        </div>
-
-        <div class="competence-card ue4" id="ue4">
-          <div class="competence-header">
-            <span class="ue-badge">UE4</span>
-            <h3>Administrer</h3>
-          </div>
-          <div class="competence-title"><span>Sécuriser des données</span></div>
-          <div class="competence-details">
-            <p><strong>Mise en application :</strong></p>
+          
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>UE4 - Administrer</h4>
+              <span class="skill-subtitle">Sécuriser des données</span>
+            </div>
             <ul>
-              <li>
-                Implémentation de requêtes préparées contre les injections SQL
-              </li>
+              <li>Implémentation de requêtes préparées contre les injections SQL</li>
               <li>Validation des données côté frontend (regex)</li>
               <li>Système d'authentification sécurisé</li>
             </ul>
           </div>
-        </div>
-
-        <div class="competence-card ue6" id="ue6">
-          <div class="competence-header">
-            <span class="ue-badge">UE6</span>
-            <h3>Collaborer</h3>
-          </div>
-          <div class="competence-title">
-            <span>Élaborer, gérer et transmettre de l'information</span>
-          </div>
-          <div class="competence-details">
-            <p><strong>Mise en application :</strong></p>
+          
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>UE6 - Collaborer</h4>
+              <span class="skill-subtitle">Élaborer, gérer et transmettre de l'information</span>
+            </div>
             <ul>
               <li>Communication régulière avec l'équipe de la BU</li>
               <li>Présentation des avancements lors des réunions</li>
               <li>Rédaction du document "suite à donner"</li>
             </ul>
           </div>
-        </div>
-
-        <div class="competence-card transverse" id="transverse">
-          <div class="competence-header">
-            <span class="ue-badge multi">UE4-5-6</span>
-            <h3>Transverse</h3>
-          </div>
-          <div class="competence-title">
-            <span>Lancer un nouveau projet</span>
-          </div>
-          <div class="competence-details">
-            <p><strong>Mise en application :</strong></p>
+          
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>UE4-5-6 - Transverse</h4>
+              <span class="skill-subtitle">Lancer un nouveau projet</span>
+            </div>
             <ul>
               <li>Prise d'initiative pour l'architecture technique</li>
               <li>Gestion autonome du planning et des priorités</li>
@@ -667,613 +523,454 @@
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="competences-synthesis">
-        <h3>Synthèse des apprentissages</h3>
-        <p>
-          Ce stage m'a permis de mettre en pratique de manière concrète les
-          compétences théoriques et pratiques acquises durant ma formation.
-          L'autonomie complète sur le projet m'a particulièrement aidé à
-          développer les aspects transversaux comme la gestion de projet et la
-          communication client, tout en approfondissant mes compétences
-          techniques en développement full-stack et en sécurité.
-        </p>
+        
+        <div class="synthesis-card">
+          <h4>Synthèse des apprentissages</h4>
+          <p>Ce stage m'a permis de mettre en pratique de manière concrète les compétences théoriques et pratiques acquises durant ma formation. L'autonomie complète sur le projet m'a particulièrement aidé à développer les aspects transversaux comme la gestion de projet et la communication client, tout en approfondissant mes compétences techniques en développement full-stack et en sécurité.</p>
+        </div>
       </div>
     </section>
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+<script>
+export default {
+  name: 'InternshipPage',
+  mounted() {
+    // Ajouter des animations d'entrée si nécessaire
+    this.animateElements();
+  },
+  methods: {
+    animateElements() {
+      // Animation pour les éléments quand ils apparaissent
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      });
 
-const activeSection = ref("contexte");
-
-// Fonction pour faire défiler vers une section avec offset
-const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    const navbarHeight = 100;
-    const elementPosition =
-      element.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - navbarHeight;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  }
-};
-
-const handleScroll = () => {
-  const sections = [
-    "contexte",
-    "role",
-    "organisation",
-    "technologies",
-    "fonctionnalites",
-    "architecture",
-    "defis",
-    "securite",
-    "avancement",
-    "apprentissages",
-    "compétences",
-    "ue1",
-    "ue4",
-    "ue6",
-    "transverse",
-  ];
-
-  for (let i = sections.length - 1; i >= 0; i--) {
-    const element = document.getElementById(sections[i]);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      if (rect.top <= 200) {
-        activeSection.value = sections[i];
-        break;
-      }
+      document.querySelectorAll('.content-section').forEach(el => {
+        observer.observe(el);
+      });
     }
   }
-};
-
-onMounted(() => {
-  // Smooth scroll pour tous les navigateurs
-  document.documentElement.style.scrollBehavior = "smooth";
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // Initial check
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
+}
 </script>
 
 <style scoped>
-/* Scrollspy Navigation */
-.scrollspy-nav {
-  position: fixed;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
-  z-index: 1000;
-  background: rgba(26, 26, 26, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(144, 168, 255, 0.2);
-  border-radius: 12px;
-  padding: 1rem;
-  max-height: 80vh;
-  overflow-y: auto;
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --accent-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-light: rgba(255, 255, 255, 0.9);
+  --text-medium: rgba(255, 255, 255, 0.7);
+  --shadow-glow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  --shadow-hover: 0 12px 40px rgba(102, 126, 234, 0.4);
 }
 
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 200px;
+.internship-container {
+  font-family: "N27", sans-serif;
+  margin-top: 8rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6rem;
+  color: var(--text-light);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  position: relative;
 }
 
-.nav-list li {
-  margin-bottom: 0.5rem;
+/* Bouton Retour */
+.back-button-container {
+  margin-bottom: 2rem;
 }
 
-.nav-list a {
-  display: block;
-  color: #888;
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border-left: 2px solid transparent;
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-glow);
 }
 
-.nav-list a:hover {
-  color: #90a8ff;
-  background: rgba(144, 168, 255, 0.1);
-  border-left-color: #90a8ff;
+.back-button:hover {
+  background: rgba(255,255,255,0.15);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
-.nav-list a.active {
-  color: #90a8ff;
-  background: rgba(144, 168, 255, 0.15);
-  border-left-color: #90a8ff;
-  font-weight: 600;
+.back-button:focus {
+  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
 }
 
-.scrollspy-nav::-webkit-scrollbar {
-  width: 4px;
+.back-button svg {
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
 }
 
-.scrollspy-nav::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
+.back-button:hover svg {
+  transform: translateX(-4px);
 }
 
-.scrollspy-nav::-webkit-scrollbar-thumb {
-  background: #90a8ff;
-  border-radius: 2px;
+/* Section Hero */
+.hero-section {
+  margin-bottom: 4rem;
+  animation: fadeInUp 1s cubic-bezier(.4,0,.2,1);
 }
 
-.stage-view {
-  margin-top: 10rem;
-  width: 600px;
-  text-align: justify;
-  line-height: 1.6;
+.hero-content {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: var(--shadow-glow);
+  backdrop-filter: blur(20px);
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.section {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #333;
+.hero-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
 }
 
-.section:last-child {
-  border-bottom: none;
+.project-logo {
+  margin-bottom: 2rem;
 }
 
-.stage-view h2 {
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-text {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.logo-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-gradient);
+  opacity: 0.3;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.project-image {
+  width: 120px;
+  height: 120px;
+  margin: 2rem auto;
+  border-radius: 50%;
+  padding: 1rem;
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+}
+
+/* Sections de contenu */
+.content-section {
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.content-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: slideInLeft 1s cubic-bezier(.4,0,.2,1);
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.content-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-glow);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.content-card p {
+  color: var(--text-medium);
+  line-height: 1.7;
+  font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  color: #90a8ff;
-  font-size: 1.5rem;
 }
 
-.stage-view h3 {
+/* Grille d'objectifs */
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.objective-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.objective-icon {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #b8c5ff;
-  font-size: 1.2rem;
-}
-
-.stage-view p {
-  margin-bottom: 1rem;
-}
-
-.stage-view li {
-  margin-bottom: 0.5rem;
-}
-
-strong {
-  color: #90a8ff;
-}
-
-.special-character {
-  color: #ff6b6b;
-  font-weight: bold;
-  background-color: #4d3a3a;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-}
-
-.logo {
-  width: 200px;
-  height: auto;
-  margin: 1rem auto;
   display: block;
 }
 
-img {
-  width: 100%;
-  height: auto;
-  margin: 1rem 0;
-  border-radius: 8px;
+.objective-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.legend {
+/* Grille de responsabilités */
+.responsibilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.responsibility-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
   text-align: center;
-  font-style: italic;
-  color: #888;
+  transition: all 0.3s ease;
+}
+
+.responsibility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.responsibility-icon {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  display: block;
 }
 
-.objectives {
-  background: rgba(144, 168, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
+.responsibility-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.constraint {
-  background: rgba(255, 193, 144, 0.1);
-  padding: 1rem;
-  border-left: 4px solid #ffc190;
-  margin-top: 1rem;
+.responsibility-card p {
+  color: var(--text-medium);
+  margin: 0;
+  font-size: 1rem;
 }
 
+/* Timeline */
 .timeline {
-  background: rgba(144, 168, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary-gradient);
 }
 
 .timeline-item {
   display: flex;
-  margin-bottom: 1rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  animation: slideInLeft 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.timeline-marker {
+  width: 60px;
+  height: 60px;
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  font-weight: 700;
+  color: var(--text-light);
+  box-shadow: var(--shadow-glow);
+  backdrop-filter: blur(10px);
 }
 
-.week {
-  background: #90a8ff;
-  color: #1a1a1a;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: bold;
-  min-width: 120px;
-  text-align: center;
-  margin-right: 1rem;
-}
-
-.task {
+.timeline-content {
   flex: 1;
-}
-
-.tech-stack {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin: 1rem 0;
-}
-
-.tech-category {
-  background: rgba(144, 168, 255, 0.05);
   padding: 1.5rem;
-  border-radius: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
 }
 
-.tech-category h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin: 1rem 0;
-}
-
-.feature-category {
-  background: rgba(144, 168, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-
-.feature-category h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-.highlight {
-  background: rgba(144, 168, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #90a8ff;
-  margin: 1rem 0;
-}
-
-.progress {
-  margin: 1.5rem 0;
-}
-
-.progress-bar {
-  background: rgba(255, 255, 255, 0.1);
-  height: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 0.5rem;
-}
-
-.progress-fill {
-  background: linear-gradient(90deg, #90a8ff, #b8c5ff);
-  height: 100%;
-  border-radius: 10px;
-  transition: width 0.3s ease;
-}
-
-.challenge {
-  background: rgba(255, 193, 144, 0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-  border-left: 4px solid #ffc190;
-}
-
-.challenge h3 {
-  color: #ffc190;
-  margin-bottom: 1rem;
-}
-
-.security-method {
-  margin: 2rem 0;
-}
-
-.security-method h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-.status,
-.remaining-tasks,
-.proposals {
-  background: rgba(144, 168, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.status h3,
-.remaining-tasks h3,
-.proposals h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-.learnings {
-  background: rgba(144, 168, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.learnings h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-.reflection {
-  background: rgba(144, 168, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #90a8ff;
-  margin: 1rem 0;
-}
-
-.reflection h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-/* Nouveaux styles pour la section compétences */
-.official-link {
-  color: #90a8ff;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.official-link:hover {
-  color: #b8c5ff;
-}
-
-.competences-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.competence-card {
-  border-radius: 12px;
-  padding: 1.5rem;
-  border-left: 4px solid;
-  background: rgba(144, 168, 255, 0.05);
-}
-
-.competence-card.ue1 {
-  border-left-color: #ff6b6b;
-  background: rgba(255, 107, 107, 0.05);
-}
-
-.competence-card.ue4 {
-  border-left-color: #4ecdc4;
-  background: rgba(78, 205, 196, 0.05);
-}
-
-.competence-card.ue6 {
-  border-left-color: #45b7d1;
-  background: rgba(69, 183, 209, 0.05);
-}
-
-.competence-card.transverse {
-  border-left-color: #f9ca24;
-  background: rgba(249, 202, 36, 0.05);
-}
-
-.ue1-link,
-.ue4-link,
-.transverse-link {
-  cursor: pointer;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.competence-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.ue-badge {
-  background: linear-gradient(45deg, #90a8ff, #b8c5ff);
-  color: #1a1a1a;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-right: 1rem;
-}
-
-.ue-badge.multi {
-  background: linear-gradient(45deg, #f9ca24, #f0932b);
-}
-
-.competence-header h3 {
-  color: #90a8ff;
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.competence-title {
+.timeline-content h4 {
+  font-size: 1.2rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  color: #fff;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
+  margin: 0 0 0.5rem 0;
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.competence-details {
-  color: #ccc;
-}
-
-.competence-details p {
-  margin-bottom: 0.5rem;
-}
-
-.competence-details strong {
-  color: #90a8ff;
-}
-
-.competence-details ul {
-  margin-top: 0.5rem;
-  padding-left: 1.2rem;
-}
-
-.competence-details li {
-  margin-bottom: 0.3rem;
-  font-size: 0.95rem;
-}
-
-.competences-synthesis {
-  background: rgba(144, 168, 255, 0.1);
-  padding: 2rem;
-  border-radius: 12px;
-  border-left: 4px solid #90a8ff;
-  margin-top: 2rem;
-}
-
-.competences-synthesis h3 {
-  color: #90a8ff;
-  margin-bottom: 1rem;
-}
-
-/* Architecture section styles */
-.architecture-section {
-  background: rgba(144, 168, 255, 0.05);
-  padding: 2rem;
-  border-radius: 12px;
-  margin: 2rem 0;
-  border-left: 4px solid #90a8ff;
-}
-
-.architecture-section h3 {
-  color: #90a8ff;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-}
-
-.diagram-container {
-  text-align: center;
-  margin: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(144, 168, 255, 0.1);
-}
-
-.architecture-diagram {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(144, 168, 255, 0.1);
-  margin-bottom: 1rem;
-}
-
-.architecture-explanation {
-  margin-top: 1.5rem;
-}
-
-.flow-description {
-  background: rgba(144, 168, 255, 0.08);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-  border-left: 3px solid #90a8ff;
-}
-
-.flow-description h4 {
-  color: #b8c5ff;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.flow-description p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.architecture-summary {
-  background: rgba(144, 168, 255, 0.15);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 2px solid rgba(144, 168, 255, 0.2);
-  margin-top: 1.5rem;
-}
-
-.architecture-summary p {
+.timeline-content p {
+  color: var(--text-medium);
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
 }
 
-/* Responsive */
-@media (max-width: 1186px) {
-  .scrollspy-nav {
-    display: none;
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .internship-container {
+    padding: 0 1.5rem;
+    margin-top: 6rem;
   }
 
-  .stage-view {
-    width: 100%;
-    padding: 0 1rem;
+  .hero-content {
+    padding: 2rem;
   }
 
-  .tech-stack,
-  .features-grid,
-  .competences-grid {
+  .objectives-grid,
+  .responsibilities-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-marker {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .internship-container {
+    padding: 0 1rem;
+    margin-top: 4rem;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
   }
 
   .timeline-item {
     flex-direction: column;
-    align-items: flex-start;
   }
 
-  .week {
-    margin-bottom: 0.5rem;
-    margin-right: 0;
+  .timeline-marker {
+    margin-bottom: 1rem;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
   }
 }
 </style>
