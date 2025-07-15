@@ -39,7 +39,7 @@
           </div>
           <h3 class="style-name">Minimaliste</h3>
           <div class="style-description">
-            Design épuré et élégant inspiré de la typographie classique
+            Design épuré et élégant inspiré de la typographie classique (Brutalism + Swiss Design)
           </div>
           <div class="minimalist-accent"></div>
         </div>
