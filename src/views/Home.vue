@@ -5,7 +5,7 @@
       <div class="hero-content">
         <div class="profile-container">
           <div class="profile-image-wrapper">
-            <img src="../assets/moon-pfp.jpg" alt="Gaël Röthlin" class="profile-image" />
+            <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
             <div class="profile-glow"></div>
           </div>
           <div class="profile-info">
@@ -58,6 +58,17 @@
       <Internship />
     </div>
 
+    <!-- UI/UX Section -->
+    <div class="uiux-section section">
+      <div class="section-header">
+        <h2 class="section-title">Compétences UI/UX</h2>
+        <div class="section-subtitle">
+          <p>Découvrez mes différents styles et thèmes d'interface utilisateur</p>
+        </div>
+      </div>
+      <UIUX />
+    </div>
+
     <!-- Skills Section -->
     <div class="skills-section section">
       <div class="section-header">
@@ -79,17 +90,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- UI/UX Section -->
-    <div class="uiux-section section">
-      <div class="section-header">
-        <h2 class="section-title">Compétences UI/UX</h2>
-        <div class="section-subtitle">
-          <p>Découvrez mes différents styles et thèmes d'interface utilisateur</p>
-        </div>
-      </div>
-      <UIUX />
     </div>
 
     <!-- About Section -->
