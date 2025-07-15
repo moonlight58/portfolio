@@ -63,7 +63,7 @@
       <div class="section-header">
         <h2 class="section-title">Compétences UI/UX</h2>
         <div class="section-subtitle">
-          <p>Découvrez mes différents styles et thèmes d'interface utilisateur</p>
+          <p>Découvrez mes compétences artistiques et techniques en création de page web à travers une idée ou un style</p>
         </div>
       </div>
       <UIUX />
