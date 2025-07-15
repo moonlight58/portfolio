@@ -81,6 +81,17 @@
       </div>
     </div>
 
+    <!-- UI/UX Section -->
+    <div class="uiux-section section">
+      <div class="section-header">
+        <h2 class="section-title">Compétences UI/UX</h2>
+        <div class="section-subtitle">
+          <p>Découvrez mes différents styles et thèmes d'interface utilisateur</p>
+        </div>
+      </div>
+      <UIUX />
+    </div>
+
     <!-- About Section -->
     <div class="about-section section">
       <div class="section-header">
@@ -124,6 +135,7 @@
 <script>
 import Carousel from "@/components/CarouselProject.vue";
 import Internship from "@/components/StageComponent.vue";
+import UIUX from "@/components/UI-UX.vue";
 import skills from "@/datasource/skills.json";
 
 export default {
@@ -131,6 +143,7 @@ export default {
   components: {
     Carousel,
     Internship,
+    UIUX,
   },
   data() {
     return {
