@@ -22,7 +22,7 @@
       <!-- Placeholder pour styles futurs -->
       <div class="style-card coming-soon">
         <div class="style-preview">
-          <h3 class="style-name">Cyberpunk</h3>
+          <h3 class="style-name">Neumorphism</h3>
           <div class="style-description">
             Prochainement...
           </div>
