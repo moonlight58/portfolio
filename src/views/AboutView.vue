@@ -18,7 +18,6 @@
       </div>
     </div>
 
-    <!-- About Content -->
     <div class="about-content">
       <!-- Introduction Section -->
       <section class="content-section">
