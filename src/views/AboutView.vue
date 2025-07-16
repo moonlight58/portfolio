@@ -4,7 +4,7 @@
     <div class="hero-section">
       <div class="profile-container">
         <div class="profile-image-wrapper">
-          <img src="../assets/moon-pfp.jpg" alt="Gaël Röthlin" class="profile-image" />
+          <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
           <div class="profile-glow"></div>
         </div>
         <div class="profile-info">

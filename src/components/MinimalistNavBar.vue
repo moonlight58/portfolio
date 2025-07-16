@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       links: [
-        { name: 'PROJETS', path: '/projets' },
+        { name: 'PROJETS', path: '/projects' },
         { name: 'DESSINS', path: '/drawings' },
         { name: 'À PROPOS', path: '/about-me' }
       ]
