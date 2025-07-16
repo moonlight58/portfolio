@@ -19,15 +19,15 @@
         </div>
       </div>
 
-      <!-- Placeholder pour styles futurs -->
-      <div class="style-card coming-soon">
+      <!-- Neumorphism Style -->
+      <div class="style-card neumorphism-theme" @click="navigateToStyle('neumorphism')">
         <div class="style-preview">
+          <div class="neumorphism-overlay">
+            <div class="neumorphism-btn"></div>
+          </div>
           <h3 class="style-name">Neumorphism</h3>
           <div class="style-description">
-            Prochainement...
-          </div>
-          <div class="locked-overlay">
-            <span class="locked-text">EN DÉVELOPPEMENT</span>
+            Design moderne avec effets de profondeur et ombres douces
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
           </div>
           <h3 class="style-name">Minimaliste</h3>
           <div class="style-description">
-            Design épuré et élégant inspiré de la typographie classique (Brutalism + Swiss Design)
+            Design épuré et élégant inspiré de la typographie classique <br> (Brutalism + Swiss Design)
           </div>
           <div class="minimalist-accent"></div>
         </div>
@@ -168,46 +168,76 @@ export default {
   animation: pulse 1.5s infinite;
 }
 
-/* Coming Soon Style */
-.coming-soon {
+/* Neumorphism Style */
+.neumorphism-theme {
+  background: #1a1a1a;
+  border-radius: 20px;
   position: relative;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  cursor: not-allowed;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.8),
+    -8px -8px 16px rgba(255, 255, 255, 0.1);
 }
 
-.coming-soon .style-name {
-  color: rgba(255, 255, 255, 0.7);
+.neumorphism-theme:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.8),
+    -12px -12px 24px rgba(255, 255, 255, 0.1);
+}
+
+.neumorphism-theme .style-name {
+  color: #e0e0e0;
   font-size: 1.8rem;
+  font-weight: 700;
   text-align: center;
   margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.coming-soon .style-description {
-  color: rgba(255, 255, 255, 0.5);
+.neumorphism-theme .style-description {
+  color: #b0b0b0;
   text-align: center;
   font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
 
-.locked-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+.neumorphism-overlay {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 1.5rem;
 }
 
-.locked-text {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+.neumorphism-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.8),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.neumorphism-btn {
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background: #1a1a1a;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.8),
+    -4px -4px 8px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.neumorphism-theme:hover .neumorphism-btn {
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.8),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+  transform: scale(0.95);
 }
 
 /* Minimalist Style */

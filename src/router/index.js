@@ -51,6 +51,11 @@ const routes = [
         path: 'minimalist',
         name: 'minimalist',
         component: () => import('@/views/Minimalist.vue')
+      },
+      {
+        path: 'neumorphism',
+        name: 'neumorphism',
+        component: () => import('@/views/Neumorphism.vue')
       }
     ]
   },

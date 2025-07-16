@@ -158,7 +158,7 @@ export default {
     $route: {
       immediate: true,
       handler(to) {
-        this.CustomNavBar = to.name === 'readyornot' || to.name === 'minimalist';
+        this.CustomNavBar = to.name === 'readyornot' || to.name === 'minimalist' || to.name === 'neumorphism';
       }
     }
   },
