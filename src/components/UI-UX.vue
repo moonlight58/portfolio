@@ -45,6 +45,10 @@
         </div>
       </div>
     </div>
+    <div class="view-all-btn" @click="navigateToGallery">
+      <span class="btn-icon">🎨</span>
+      <span class="btn-text">View All UI Styles</span>
+    </div>
   </div>
 </template>
 
@@ -54,6 +58,9 @@ export default {
   methods: {
     navigateToStyle(style) {
       this.$router.push(`/competences/${style}`);
+    },
+    navigateToGallery() {
+      this.$router.push('/competences');
     }
   }
 }
@@ -62,6 +69,36 @@ export default {
 <style scoped>
 .uiux-container {
   width: 100%;
+  padding-top: 2rem;
+}
+
+.view-all-btn {
+  margin: 0 auto 2rem;
+  padding: 1rem 2rem;
+  background: rgba(167, 139, 250, 0.1);
+  border: 2px solid rgba(167, 139, 250, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: rgba(167, 139, 250, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  font-size: 1.5rem;
+}
+
+.btn-text {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .styles-grid {

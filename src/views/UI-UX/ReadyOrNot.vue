@@ -41,7 +41,7 @@
         
         <div class="profile-section">
           <div class="profile-image-container">
-            <img src="../assets/moon-pfp.jpg" alt="Gaël Röthlin" class="tactical-profile-image" />
+            <img src="@/assets/moon-pfp.jpg" alt="Gaël Röthlin" class="tactical-profile-image" />
             <div class="scan-line"></div>
           </div>
           
@@ -206,7 +206,7 @@
               @click="playSound('transmit')"
             >
               <div class="link-icon">
-                <img src="../assets/email.svg" alt="Email" />
+                <img src="@/assets/email.svg" alt="Email" />
               </div>
               <span>SECURE EMAIL</span>
               <div class="link-status"></div>
@@ -218,7 +218,7 @@
               @click="playSound('transmit')"
             >
               <div class="link-icon">
-                <img src="../assets/instagram.svg" alt="Instagram" />
+                <img src="@/assets/instagram.svg" alt="Instagram" />
               </div>
               <span>SOCIAL RECON</span>
               <div class="link-status"></div>
@@ -230,7 +230,7 @@
               @click="playSound('transmit')"
             >
               <div class="link-icon">
-                <img src="../assets/github.svg" alt="GitHub" />
+                <img src="@/assets/github.svg" alt="GitHub" />
               </div>
               <span>CODE REPOSITORY</span>
               <div class="link-status"></div>

@@ -6,7 +6,7 @@
       <div class="hero-card">
         <div class="profile-wrapper">
           <div class="profile-image-container">
-            <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
+            <img src="@/assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
             <div class="profile-ring"></div>
           </div>
           <div class="profile-content">
@@ -24,7 +24,7 @@
         
         <div class="social-section">
           <a href="https://www.instagram.com/osiris._25" target="_blank" rel="noopener noreferrer" class="social-btn instagram-btn">
-            <img src="../assets/instagram.svg" alt="Instagram" class="social-icon" />
+            <img src="@/assets/instagram.svg" alt="Instagram" class="social-icon" />
             <span>@osiris._25</span>
           </a>
         </div>
@@ -102,19 +102,19 @@
         <div class="contact-grid">
           <a href="mailto:gael.rothlin@proton.me" target="_blank" rel="noopener noreferrer" class="contact-item">
             <div class="contact-icon-wrapper">
-              <img src="../assets/email.svg" alt="Email" class="contact-icon" />
+              <img src="@/assets/email.svg" alt="Email" class="contact-icon" />
             </div>
             <span class="contact-label">Email</span>
           </a>
           <a href="https://www.instagram.com/osiris._25" target="_blank" rel="noopener noreferrer" class="contact-item">
             <div class="contact-icon-wrapper">
-              <img src="../assets/instagram.svg" alt="Instagram" class="contact-icon" />
+              <img src="@/assets/instagram.svg" alt="Instagram" class="contact-icon" />
             </div>
             <span class="contact-label">Instagram</span>
           </a>
           <a href="https://github.com/moonlight58" target="_blank" rel="noopener noreferrer" class="contact-item">
             <div class="contact-icon-wrapper">
-              <img src="../assets/github.svg" alt="GitHub" class="contact-icon" />
+              <img src="@/assets/github.svg" alt="GitHub" class="contact-icon" />
             </div>
             <span class="contact-label">GitHub</span>
           </a>

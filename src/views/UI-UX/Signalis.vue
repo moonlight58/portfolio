@@ -36,7 +36,7 @@
             <div class="profile-content">
               <div class="profile-image-container">
                 <div class="profile-image pixelated">
-                  <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" />
+                  <img src="@/assets/moon-pfp.webp" alt="Gaël Röthlin" />
                 </div>
                 <div class="profile-data">
                   <div class="data-line">

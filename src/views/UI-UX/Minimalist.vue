@@ -6,7 +6,7 @@
       <div class="hero-grid">
         <div class="profile-block">
           <div class="profile-image-container">
-            <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
+            <img src="@/assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
           </div>
           <div class="geometric-accent"></div>
         </div>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import ProjectView from "@/views/ProjectView.vue";
 import AboutView from "@/views/AboutView.vue"
+import UIGalleryView from '@/views/UIGalleryView.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/competences',
     name: 'competences',
     children: [
+      {
+        path: '',
+        name: 'ui-gallery',
+        component: UIGalleryView
+      },
       {
         path: 'readyornot',
         name: 'readyornot',
