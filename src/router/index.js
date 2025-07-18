@@ -45,22 +45,22 @@ const routes = [
       {
         path: 'readyornot',
         name: 'readyornot',
-        component: () => import('@/views/ReadyOrNot.vue')
+        component: () => import('@/views/UI-UX/ReadyOrNot.vue')
       },
       {
         path: 'minimalist',
         name: 'minimalist',
-        component: () => import('@/views/Minimalist.vue')
+        component: () => import('@/views/UI-UX/Minimalist.vue')
       },
       {
         path: 'neumorphism',
         name: 'neumorphism',
-        component: () => import('@/views/Neumorphism.vue')
+        component: () => import('@/views/UI-UX/Neumorphism.vue')
       },
       {
         path: 'signalis',
         name: 'signalis',
-        component: () => import('@/views/Signalis.vue')
+        component: () => import('@/views/UI-UX/Signalis.vue')
       }
     ]
   },
