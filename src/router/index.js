@@ -56,6 +56,11 @@ const routes = [
         path: 'neumorphism',
         name: 'neumorphism',
         component: () => import('@/views/Neumorphism.vue')
+      },
+      {
+        path: 'signalis',
+        name: 'signalis',
+        component: () => import('@/views/Signalis.vue')
       }
     ]
   },
