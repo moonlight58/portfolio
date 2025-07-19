@@ -73,6 +73,14 @@ export default {
           path: '/competences/Y2K',
           tags: ['Y2K', 'Bold Colors', 'Playful Design'],
           style: 'y2k'
+        },
+        {
+          name: 'Vintage/Analog',
+          theme: 'Vintage and Analog',
+          description: 'A vintage-inspired interface with analog effects, reminiscent of old-school technology and design.',
+          path: '/competences/VintageAnalog',
+          tags: ['Vintage', 'Analog', 'Retro'],
+          style: 'vintageanalog'
         }
       ]
     }
@@ -441,6 +449,101 @@ export default {
     0 20px 40px rgba(255, 107, 193, 0.4),
     0 0 60px rgba(69, 202, 255, 0.4),
     inset 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Vintage/Analog Style */
+.gallery-card[data-theme="vintageanalog"] {
+  background: #e6ddd0;
+  border: 12px solid #2b2b2b;
+  color: #2b2b2b;
+  box-shadow: 
+    inset 0 0 60px rgba(43, 43, 43, 0.3),
+    0 0 30px rgba(43, 43, 43, 0.2);
+  position: relative;
+}
+
+.gallery-card[data-theme="vintageanalog"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at center, transparent 0%, rgba(43, 43, 43, 0.3) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+}
+
+.gallery-card[data-theme="vintageanalog"] .card-background-effects {
+  background: 
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(43, 43, 43, 0.03) 3px,
+      transparent 3px
+    );
+  opacity: 0.4;
+}
+
+.gallery-card[data-theme="vintageanalog"] .card-theme {
+  background: #2b2b2b;
+  color: #e6ddd0;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  border: none;
+  box-shadow: 3px 3px 0 rgba(43, 43, 43, 0.2);
+  transform: rotate(-1deg);
+}
+
+.gallery-card[data-theme="vintageanalog"] .card-header h2 {
+  font-family: "Courier New", monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gallery-card[data-theme="vintageanalog"] .visit-button {
+  background: #2b2b2b;
+  color: #e6ddd0;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  box-shadow: 4px 4px 0 rgba(43, 43, 43, 0.2);
+  transform: rotate(-1deg);
+}
+
+.gallery-card[data-theme="vintageanalog"] .visit-button:hover {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(43, 43, 43, 0.3);
+}
+
+.gallery-card[data-theme="vintageanalog"] .tag {
+  background: rgba(43, 43, 43, 0.1);
+  border: 1px solid #2b2b2b;
+  color: #2b2b2b;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.gallery-card[data-theme="vintageanalog"]:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 
+    inset 0 0 80px rgba(43, 43, 43, 0.4),
+    0 20px 40px rgba(43, 43, 43, 0.3);
+}
+
+@keyframes filmGrain {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.9; }
 }
 
 /* Styles communs améliorés */
