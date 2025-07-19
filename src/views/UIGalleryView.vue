@@ -55,7 +55,7 @@ export default {
           theme: 'Modern Clean',
           description: 'Clean and modern interface using neumorphic design principles with soft shadows and minimal colors.',
           path: '/competences/Neumorphism',
-          tags: ['Modern', 'Light Theme', 'Minimal'],
+          tags: ['Modern', 'Dark Theme', 'Minimal'],
           style: 'neumorphism'
         },
         {
@@ -248,41 +248,41 @@ export default {
     inset 0 0 0 1px rgba(255, 87, 34, 0.3);
 }
 
-/* Neumorphism Style - Beaucoup amélioré */
+/* Neumorphism Style */
 .gallery-card[data-theme="neumorphism"] {
-  background: linear-gradient(145deg, #f0f0f3, #cacce0);
-  color: #31344b;
+  background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+  color: #e0e0e0;
   border-radius: 25px;
   border: none;
   box-shadow:
-    12px 12px 24px rgba(163, 177, 198, 0.6),
-    -12px -12px 24px rgba(255, 255, 255, 0.8),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    inset -2px -2px 4px rgba(163, 177, 198, 0.1);
+    12px 12px 24px rgba(0, 0, 0, 0.7),
+    -12px -12px 24px rgba(60, 60, 60, 0.4),
+    inset 2px 2px 4px rgba(60, 60, 60, 0.2),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-card[data-theme="neumorphism"] .card-background-effects {
   background: 
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(163, 177, 198, 0.4) 0%, transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(60, 60, 60, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
 }
 
 .gallery-card[data-theme="neumorphism"] .card-theme {
-  background: linear-gradient(145deg, #f0f0f3, #d1d9e6);
-  color: #31344b;
+  background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+  color: #e0e0e0;
   box-shadow:
-    inset 6px 6px 12px rgba(163, 177, 198, 0.4),
-    inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+    inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 8px rgba(60, 60, 60, 0.3);
   border-radius: 20px;
   font-weight: 600;
 }
 
 .gallery-card[data-theme="neumorphism"] .visit-button {
-  background: linear-gradient(145deg, #f0f0f3, #d1d9e6);
-  color: #31344b;
+  background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+  color: #e0e0e0;
   box-shadow:
-    6px 6px 12px rgba(163, 177, 198, 0.4),
-    -6px -6px 12px rgba(255, 255, 255, 0.8);
+    6px 6px 12px rgba(0, 0, 0, 0.5),
+    -6px -6px 12px rgba(60, 60, 60, 0.3);
   border: none;
   border-radius: 15px;
   font-weight: 600;
@@ -290,27 +290,28 @@ export default {
 
 .gallery-card[data-theme="neumorphism"] .visit-button:hover {
   box-shadow:
-    inset 4px 4px 8px rgba(163, 177, 198, 0.4),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+    inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 8px rgba(60, 60, 60, 0.3);
   transform: scale(0.98);
+  background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
 }
 
 .gallery-card[data-theme="neumorphism"]:hover {
   transform: translateY(-5px);
   box-shadow:
-    16px 16px 32px rgba(163, 177, 198, 0.6),
-    -16px -16px 32px rgba(255, 255, 255, 0.9),
-    inset 3px 3px 6px rgba(255, 255, 255, 0.2),
-    inset -3px -3px 6px rgba(163, 177, 198, 0.2);
+    16px 16px 32px rgba(0, 0, 0, 0.8),
+    -16px -16px 32px rgba(60, 60, 60, 0.5),
+    inset 3px 3px 6px rgba(60, 60, 60, 0.3),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-card[data-theme="neumorphism"] .tag {
-  background: linear-gradient(145deg, #e6e7ee, #d1d9e6);
+  background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
   box-shadow:
-    3px 3px 6px rgba(163, 177, 198, 0.3),
-    -3px -3px 6px rgba(255, 255, 255, 0.7);
+    3px 3px 6px rgba(0, 0, 0, 0.5),
+    -3px -3px 6px rgba(60, 60, 60, 0.3);
   border-radius: 12px;
-  color: #31344b;
+  color: #e0e0e0;
 }
 
 /* Minimalist Style */
