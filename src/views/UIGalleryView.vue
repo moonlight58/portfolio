@@ -81,6 +81,14 @@ export default {
           path: '/competences/VintageAnalog',
           tags: ['Vintage', 'Analog', 'Retro'],
           style: 'vintageanalog'
+        },
+        {
+          name: 'ASCII/Pixel Art',
+          theme: 'Text-Based',
+          description: 'An ASCII art-inspired interface that uses text characters to create a unique visual style.',
+          path: '/competences/ASCII',
+          tags: ['ASCII', 'Text Art', 'Pixel Art'],
+          style: 'ascii'
         }
       ]
     }
@@ -635,6 +643,87 @@ export default {
 
 .visit-button:hover .button-arrow {
   transform: translateX(3px);
+}
+
+/* ASCII/Pixel Art Style */
+.gallery-card[data-theme="ascii"] {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  box-shadow: 
+    0 0 10px rgba(51, 255, 51, 0.3),
+    inset 0 0 20px rgba(51, 255, 51, 0.1);
+  text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
+}
+
+.gallery-card[data-theme="ascii"] .card-background-effects {
+  background: 
+    linear-gradient(rgba(51, 255, 51, 0.1) 50%, rgba(51, 255, 51, 0.05) 50%),
+    linear-gradient(90deg, rgba(51, 255, 51, 0.1), rgba(51, 255, 51, 0.05));
+  background-size: 4px 4px, 4px 4px;
+  animation: scanlines 2s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+.gallery-card[data-theme="ascii"] .card-header h2 {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gallery-card[data-theme="ascii"] .card-theme {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
+}
+
+.gallery-card[data-theme="ascii"] .visit-button {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card[data-theme="ascii"] .visit-button:hover {
+  background: #33ff33;
+  color: #000000;
+  text-shadow: none;
+}
+
+.gallery-card[data-theme="ascii"] .tag {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.gallery-card[data-theme="ascii"]:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(51, 255, 51, 0.2),
+    0 0 30px rgba(51, 255, 51, 0.4),
+    inset 0 0 20px rgba(51, 255, 51, 0.2);
+  border-color: #ffffff;
+}
+
+.gallery-card[data-theme="ascii"]:hover .card-background-effects::before {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
