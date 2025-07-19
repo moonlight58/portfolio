@@ -235,8 +235,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  min-width: 200vw;
+  min-height: 200vh;
   background-image: 
     radial-gradient(circle, transparent 1px, rgba(0,0,0,0.15) 1px);
   background-size: 4px 4px;
@@ -244,6 +244,19 @@ export default {
   pointer-events: none;
   z-index: 1000;
   animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0) }
+  10% { transform: translate(-0.5%, -0.5%) }
+  20% { transform: translate(-0.8%, 0.3%) }
+  30% { transform: translate(0.3%, -0.7%) }
+  40% { transform: translate(-0.3%, 0.6%) }
+  50% { transform: translate(-0.5%, 0.2%) }
+  60% { transform: translate(0.7%, 0%) }
+  70% { transform: translate(0%, 0.5%) }
+  80% { transform: translate(0.4%, 0.7%) }
+  90% { transform: translate(-0.5%, 0.3%) }
 }
 
 .vignette {
