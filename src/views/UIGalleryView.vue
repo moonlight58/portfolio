@@ -19,18 +19,24 @@
           <router-link :to="page.path" class="visit-button">
             <span class="button-text">Visit Page</span>
             <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </router-link>
         </div>
       </div>
     </div>
+    <GalleryFooter />
   </div>
 </template>
 
 <script>
+import GalleryFooter from '@/components/GalleryFooter.vue';
 export default {
   name: 'UIGalleryView',
+  components: {
+    GalleryFooter
+  },
   data() {
     return {
       pages: [
@@ -97,6 +103,15 @@ export default {
 </script>
 
 <style scoped>
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-rgb: 99, 102, 241;
+  --color-primary-dark-rgb: 79, 70, 229;
+  --color-text: #f8fafc;
+  --color-text-light: #cbd5e1;
+}
+
 .gallery-container {
   max-width: 1300px;
   margin: 0 auto;
@@ -555,6 +570,87 @@ export default {
   50% { opacity: 0.9; }
 }
 
+/* ASCII/Pixel Art Style */
+.gallery-card[data-theme="ascii"] {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  box-shadow: 
+    0 0 10px rgba(51, 255, 51, 0.3),
+    inset 0 0 20px rgba(51, 255, 51, 0.1);
+  text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
+}
+
+.gallery-card[data-theme="ascii"] .card-background-effects {
+  background: 
+    linear-gradient(rgba(51, 255, 51, 0.1) 50%, rgba(51, 255, 51, 0.05) 50%),
+    linear-gradient(90deg, rgba(51, 255, 51, 0.1), rgba(51, 255, 51, 0.05));
+  background-size: 4px 4px, 4px 4px;
+  animation: scanlines 2s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+.gallery-card[data-theme="ascii"] .card-header h2 {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gallery-card[data-theme="ascii"] .card-theme {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
+}
+
+.gallery-card[data-theme="ascii"] .visit-button {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card[data-theme="ascii"] .visit-button:hover {
+  background: #33ff33;
+  color: #000000;
+  text-shadow: none;
+}
+
+.gallery-card[data-theme="ascii"] .tag {
+  background: #000000;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.gallery-card[data-theme="ascii"]:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(51, 255, 51, 0.2),
+    0 0 30px rgba(51, 255, 51, 0.4),
+    inset 0 0 20px rgba(51, 255, 51, 0.2);
+  border-color: #ffffff;
+}
+
+.gallery-card[data-theme="ascii"]:hover .card-background-effects::before {
+  opacity: 1;
+}
+
 /* Styles communs améliorés */
 .card-header {
   display: flex;
@@ -645,87 +741,6 @@ export default {
   transform: translateX(3px);
 }
 
-/* ASCII/Pixel Art Style */
-.gallery-card[data-theme="ascii"] {
-  background: #000000;
-  color: #33ff33;
-  border: 1px solid #33ff33;
-  font-family: 'Courier New', monospace;
-  box-shadow: 
-    0 0 10px rgba(51, 255, 51, 0.3),
-    inset 0 0 20px rgba(51, 255, 51, 0.1);
-  text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
-}
-
-.gallery-card[data-theme="ascii"] .card-background-effects {
-  background: 
-    linear-gradient(rgba(51, 255, 51, 0.1) 50%, rgba(51, 255, 51, 0.05) 50%),
-    linear-gradient(90deg, rgba(51, 255, 51, 0.1), rgba(51, 255, 51, 0.05));
-  background-size: 4px 4px, 4px 4px;
-  animation: scanlines 2s linear infinite;
-}
-
-@keyframes scanlines {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(4px); }
-}
-
-.gallery-card[data-theme="ascii"] .card-header h2 {
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.gallery-card[data-theme="ascii"] .card-theme {
-  background: #000000;
-  color: #33ff33;
-  border: 1px solid #33ff33;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
-}
-
-.gallery-card[data-theme="ascii"] .visit-button {
-  background: #000000;
-  color: #33ff33;
-  border: 1px solid #33ff33;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-}
-
-.gallery-card[data-theme="ascii"] .visit-button:hover {
-  background: #33ff33;
-  color: #000000;
-  text-shadow: none;
-}
-
-.gallery-card[data-theme="ascii"] .tag {
-  background: #000000;
-  color: #33ff33;
-  border: 1px solid #33ff33;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-}
-
-.gallery-card[data-theme="ascii"]:hover {
-  transform: translateY(-8px);
-  box-shadow: 
-    0 20px 40px rgba(51, 255, 51, 0.2),
-    0 0 30px rgba(51, 255, 51, 0.4),
-    inset 0 0 20px rgba(51, 255, 51, 0.2);
-  border-color: #ffffff;
-}
-
-.gallery-card[data-theme="ascii"]:hover .card-background-effects::before {
-  opacity: 1;
-}
-
 @media (max-width: 768px) {
   .gallery-container {
     padding: 2rem 1rem;
@@ -739,11 +754,11 @@ export default {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .gallery-card {
     min-height: 280px;
   }
-  
+
   .card-content {
     padding: 1.5rem;
   }
@@ -759,7 +774,7 @@ export default {
   .gallery-title {
     font-size: 2rem;
   }
-  
+
   .card-header h2 {
     font-size: 1.5rem;
   }
