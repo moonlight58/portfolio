@@ -158,7 +158,8 @@ export default {
     $route: {
       immediate: true,
       handler(to) {
-        this.CustomNavBar = to.name === 'readyornot' || to.name === 'minimalist' || to.name === 'neumorphism' || to.name === 'signalis';
+        // On vérifie si la route commence par /competences/
+        this.CustomNavBar = to.path.startsWith('/competences/');
       }
     }
   },

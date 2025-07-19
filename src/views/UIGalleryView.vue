@@ -38,7 +38,7 @@ export default {
           name: 'Signalis',
           theme: 'Retro Sci-fi',
           description: 'A dark, atmospheric interface inspired by the game Signalis, featuring CRT effects and glitch animations.',
-          path: '/competences/signalis',
+          path: '/competences/Signalis',
           tags: ['CRT Effect', 'Dark Theme', 'Retro', 'Animation'],
           style: 'signalis'
         },
@@ -46,7 +46,7 @@ export default {
           name: 'Ready or Not',
           theme: 'Tactical Interface',
           description: 'Military-style interface inspired by Ready or Not, with tactical overlay elements and status displays.',
-          path: '/competences/readyornot',
+          path: '/competences/ReadyOrNot',
           tags: ['Military', 'HUD', 'Dark Theme'],
           style: 'readyornot'
         },
@@ -54,7 +54,7 @@ export default {
           name: 'Neumorphism',
           theme: 'Modern Clean',
           description: 'Clean and modern interface using neumorphic design principles with soft shadows and minimal colors.',
-          path: '/competences/neumorphism',
+          path: '/competences/Neumorphism',
           tags: ['Modern', 'Light Theme', 'Minimal'],
           style: 'neumorphism'
         },
@@ -62,9 +62,17 @@ export default {
           name: 'Minimalist',
           theme: 'Elegant',
           description: 'A minimalist design focusing on typography and whitespace, inspired by Swiss design principles.',
-          path: '/competences/minimalist',
+          path: '/competences/Minimalist',
           tags: ['Minimalist', 'Typography', 'Swiss Design'],
           style: 'minimalist'
+        },
+        {
+          name: 'Y2K',
+          theme: 'Y2K Aesthetic',
+          description: 'A vibrant and nostalgic interface inspired by the Y2K aesthetic, featuring bold colors and playful elements.',
+          path: '/competences/Y2K',
+          tags: ['Y2K', 'Bold Colors', 'Playful Design'],
+          style: 'y2k'
         }
       ]
     }
@@ -352,6 +360,87 @@ export default {
   text-transform: uppercase;
   font-size: 0.7rem;
   letter-spacing: 0.5px;
+}
+
+/* Y2K Style */
+.gallery-card[data-theme="y2k"] {
+  background: linear-gradient(135deg, #ff6bc1, #45caff);
+  border: 3px solid #fff;
+  color: #ffffff;
+  box-shadow: 
+    0 0 30px rgba(255, 107, 193, 0.5),
+    inset 0 0 20px rgba(69, 202, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card[data-theme="y2k"] .card-background-effects {
+  background: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%) -20px 0,
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%) -20px 0,
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+  background-size: 40px 40px;
+  animation: y2kBackgroundScroll 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes y2kBackgroundScroll {
+  0% {
+    background-position: -20px 0, -20px 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: -60px 0, -60px 0, -40px 0, -40px 0;
+  }
+}
+
+.gallery-card[data-theme="y2k"] .card-theme {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff6bc1;
+  border: 2px solid #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #45caff;
+  box-shadow: 3px 3px 0 #45caff;
+  transform: rotate(-2deg);
+}
+
+.gallery-card[data-theme="y2k"] .visit-button {
+  background: #ffffff;
+  color: #ff6bc1;
+  border: 3px solid #45caff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0 #45caff;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 0 #45caff;
+}
+
+.gallery-card[data-theme="y2k"] .visit-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #45caff;
+}
+
+.gallery-card[data-theme="y2k"] .tag {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff6bc1;
+  border: 2px solid #45caff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  transform: rotate(-1deg);
+  padding: 0.4rem 1rem;
+}
+
+.gallery-card[data-theme="y2k"]:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(255, 107, 193, 0.4),
+    0 0 60px rgba(69, 202, 255, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Styles communs améliorés */

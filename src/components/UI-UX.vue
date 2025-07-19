@@ -2,7 +2,7 @@
   <div class="uiux-container">
     <div class="styles-grid">
       <!-- Ready or Not Style -->
-      <div class="style-card tactical-theme" @click="navigateToStyle('readyornot')">
+      <div class="style-card tactical-theme" @click="navigateToStyle('ReadyOrNot')">
         <div class="style-preview">
           <div class="tactical-overlay">
             <div class="tactical-line"></div>
@@ -20,7 +20,7 @@
       </div>
 
       <!-- Neumorphism Style -->
-      <div class="style-card neumorphism-theme" @click="navigateToStyle('neumorphism')">
+      <div class="style-card neumorphism-theme" @click="navigateToStyle('Neumorphism')">
         <div class="style-preview">
           <div class="neumorphism-overlay">
             <div class="neumorphism-btn"></div>
@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <div class="style-card minimalist-theme" @click="navigateToStyle('minimalist')">
+      <div class="style-card minimalist-theme" @click="navigateToStyle('Minimalist')">
         <div class="style-preview">
           <div class="minimalist-overlay">
             <div class="minimalist-line"></div>

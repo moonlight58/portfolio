@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import ProjectView from "@/views/ProjectView.vue";
 import AboutView from "@/views/AboutView.vue"
-import UIGalleryView from '@/views/UIGalleryView.vue'
+import { uiRoutes } from './ui-routes'
 
 const routes = [
   {
@@ -42,33 +42,7 @@ const routes = [
   {
     path: '/competences',
     name: 'competences',
-    children: [
-      {
-        path: '',
-        name: 'ui-gallery',
-        component: UIGalleryView
-      },
-      {
-        path: 'readyornot',
-        name: 'readyornot',
-        component: () => import('@/views/UI-UX/ReadyOrNot.vue')
-      },
-      {
-        path: 'minimalist',
-        name: 'minimalist',
-        component: () => import('@/views/UI-UX/Minimalist.vue')
-      },
-      {
-        path: 'neumorphism',
-        name: 'neumorphism',
-        component: () => import('@/views/UI-UX/Neumorphism.vue')
-      },
-      {
-        path: 'signalis',
-        name: 'signalis',
-        component: () => import('@/views/UI-UX/Signalis.vue')
-      }
-    ]
+    children: uiRoutes
   },
   {
     path: '/:pathMatch(.*)*',
