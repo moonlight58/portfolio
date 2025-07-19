@@ -226,7 +226,6 @@ export default {
     this.createMatrixEffect();
   },
   methods: {
-    ...this.methods,
     redirectToUrl(url) {
       if (url) {
         window.open(url, "_blank");
