@@ -51,7 +51,7 @@
         <div class="ascii-section">
           <div class="section-header">
             <span class="ascii-border">╔══════════════════════════════════════╗</span>
-            <span class="ascii-title">║              [ABOUT.TXT]             ║</span>
+            <span class="ascii-title">║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ABOUT.TXT]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║</span>
             <span class="ascii-border">╚══════════════════════════════════════╝</span>
           </div>
           <div class="ascii-content">
@@ -85,7 +85,7 @@
         <div class="ascii-section">
           <div class="section-header">
             <span class="ascii-border">╔══════════════════════════════════════╗</span>
-            <span class="ascii-title">║            [SKILLS.DAT]              ║</span>
+            <span class="ascii-title">║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SKILLS.DAT]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║</span>
             <span class="ascii-border">╚══════════════════════════════════════╝</span>
           </div>
           
@@ -118,7 +118,7 @@
         <div class="ascii-section">
           <div class="section-header">
             <span class="ascii-border">╔══════════════════════════════════════╗</span>
-            <span class="ascii-title">║           [PROJECTS.EXE]             ║</span>
+            <span class="ascii-title">║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PROJECTS.EXE]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║</span>
             <span class="ascii-border">╚══════════════════════════════════════╝</span>
           </div>
           <div class="projects-list">
@@ -143,7 +143,7 @@
         <div class="ascii-section">
           <div class="section-header">
             <span class="ascii-border">╔══════════════════════════════════════╗</span>
-            <span class="ascii-title">║           [CONTACT.BAT]              ║</span>
+            <span class="ascii-title">║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CONTACT.BAT]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║</span>
             <span class="ascii-border">╚══════════════════════════════════════╝</span>
           </div>
           <div class="contact-menu">
@@ -405,7 +405,7 @@ Erreur: Pilule rouge non trouvée 💊`;
   background: #0a0a0a;
   color: #00ff41;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 99vw;
   padding: 20px;
   overflow-x: auto;
 }
