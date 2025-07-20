@@ -25,7 +25,7 @@
       <div class="footer-highlights">
         <div class="highlight-item">
           <span class="highlight-icon">🎨</span>
-          <span>7 univers visuels distincts</span>
+          <span>{{ universCount }} univers visuels distincts</span>
         </div>
         <div class="highlight-item">
           <span class="highlight-icon">⚡</span>
@@ -46,7 +46,18 @@
 
 <script>
 export default {
-  name: 'GalleryFooter'
+  name: 'GalleryFooter',
+  props: {
+    pages: {
+      type: Array,
+      default: () => []
+    }
+  },
+  computed: {
+    universCount() {
+      return this.pages.length;
+    }
+  }
 }
 </script>
 

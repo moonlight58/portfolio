@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <GalleryFooter />
+    <GalleryFooter :pages="pages" />
   </div>
 </template>
 
