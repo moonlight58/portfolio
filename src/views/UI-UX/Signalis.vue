@@ -1,5 +1,7 @@
 <template>
   <div class="signalis-container">
+    <SignalisNavBar />
+
     <!-- CRT Effect Overlay -->
     <div class="crt-overlay"></div>
     <div class="scanlines"></div>
@@ -159,8 +161,13 @@
 </template>
 
 <script>
+import SignalisNavBar from '@/components/SignalisNavBar.vue';
+
 export default {
   name: 'SignalisPortfolio',
+  components: {
+    SignalisNavBar,
+  },
   data() {
     return {
       currentScreen: 'boot',

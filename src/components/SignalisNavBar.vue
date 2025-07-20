@@ -44,7 +44,7 @@ export default {
         { name: 'HOME', path: '/' },
         { name: 'PROJECTS', path: '/projects' },
         { name: 'DRAWINGS', path: '/drawings' },
-        { name: 'ABOUT', path: '/about' }
+        { name: 'ABOUT', path: '/about-me' }
       ]
     }
   },
@@ -86,8 +86,8 @@ export default {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.95);
-  border-bottom: 1px solid rgba(57, 255, 20, 0.3);
-  box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
+  border-bottom: 1px solid rgba(255, 20, 20, 0.3);
+  box-shadow: 0 0 10px rgba(255, 20, 20, 0.1);
 }
 
 .nav-content {
@@ -138,13 +138,13 @@ export default {
 
 .nav-link {
   text-decoration: none;
-  color: rgba(57, 255, 20, 0.8);
+  color: rgba(255, 20, 20, 0.8);
   font-family: 'Share Tech Mono', monospace;
   font-size: 12px;
   position: relative;
   padding: 8px 12px;
   transition: all 0.3s ease;
-  text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+  text-shadow: 0 0 5px rgba(255, 20, 20, 0.3);
 }
 
 .link-content {
@@ -154,7 +154,7 @@ export default {
 }
 
 .link-id {
-  color: rgba(57, 255, 20, 0.6);
+  color: rgba(255, 20, 20, 0.6);
   font-size: 10px;
 }
 
@@ -168,8 +168,8 @@ export default {
   left: 0;
   width: 0;
   height: 1px;
-  background: rgba(57, 255, 20, 0.5);
-  box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+  background: rgba(255, 20, 20, 0.5);
+  box-shadow: 0 0 5px rgba(255, 20, 20, 0.5);
   transition: width 0.3s ease;
 }
 
@@ -179,8 +179,8 @@ export default {
 }
 
 .nav-link:hover {
-  color: rgba(57, 255, 20, 1);
-  text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+  color: rgb(255, 20, 20);
+  text-shadow: 0 0 8px rgba(255, 20, 20, 0.5);
 }
 
 .nav-status {
@@ -197,28 +197,28 @@ export default {
 .indicator-dot {
   width: 8px;
   height: 8px;
-  background: rgb(57, 255, 20);
+  background: rgb(255, 20, 20);
   border-radius: 50%;
   animation: pulse 2s infinite;
-  box-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+  box-shadow: 0 0 8px rgba(255, 20, 20, 0.8);
 }
 
 .status-text {
   font-family: 'Share Tech Mono', monospace;
   font-size: 10px;
-  color: rgb(57, 255, 20);
+  color: rgb(255, 20, 20);
   letter-spacing: 1px;
-  text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+  text-shadow: 0 0 5px rgba(255, 20, 20, 0.5);
 }
 
 @keyframes pulse {
   0%, 100% { 
     opacity: 1;
-    box-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+    box-shadow: 0 0 8px rgba(255, 20, 20, 0.8);
   }
   50% { 
     opacity: 0.5;
-    box-shadow: 0 0 4px rgba(57, 255, 20, 0.4);
+    box-shadow: 0 0 4px rgba(255, 20, 20, 0.4);
   }
 }
 
