@@ -111,6 +111,14 @@ export default {
           path: '/competences/RetroSynthwave',
           tags: ['Retro', 'Synthwave', 'Neon Colors'],
           style: 'retro-synthwave'
+        },
+        {
+          name: 'Professional',
+          theme: 'Modern Slick',
+          description: 'A sleek, professional interface design that emphasizes usability and modern aesthetics, suitable for business applications.',
+          path: '/competences/Professional',
+          tags: ['Professional', 'Slick Design', 'Usability'],
+          style: 'professional'
         }
       ]
     }
@@ -147,8 +155,8 @@ export default {
   background: linear-gradient(135deg, #f8fafc, #6366f1);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent; /* le texte devient transparent pour laisser apparaître le fond */
-  -webkit-text-fill-color: transparent; /* nécessaire pour WebKit (Chrome, Safari) */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .gallery-subtitle {
@@ -879,6 +887,207 @@ export default {
     0 20px 40px rgba(255, 0, 255, 0.4),
     0 0 60px rgba(0, 255, 255, 0.3),
     inset 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+/* Professional Style */
+.gallery-card[data-theme="professional"] {
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.gallery-card[data-theme="professional"] .card-background-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(51, 51, 51, 0.02) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.gallery-card[data-theme="professional"]:hover .card-background-effects {
+  opacity: 1;
+}
+
+.gallery-card[data-theme="professional"] .card-header {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.gallery-card[data-theme="professional"] .card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background-color: #333333;
+  transition: width 0.3s ease;
+}
+
+.gallery-card[data-theme="professional"]:hover .card-header::after {
+  width: 60px;
+}
+
+.gallery-card[data-theme="professional"] .card-header h2 {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.gallery-card[data-theme="professional"] .card-theme {
+  background: transparent;
+  color: #888888;
+  border: 1px solid #1a1a1a;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.gallery-card[data-theme="professional"]:hover .card-theme {
+  border-color: #333333;
+  color: #cccccc;
+}
+
+.gallery-card[data-theme="professional"] .card-description {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.gallery-card[data-theme="professional"] .card-tags {
+  margin-bottom: 2rem;
+}
+
+.gallery-card[data-theme="professional"] .tag {
+  background: transparent;
+  color: #666666;
+  border: 1px solid #1a1a1a;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.gallery-card[data-theme="professional"] .tag:hover {
+  border-color: #333333;
+  color: #888888;
+}
+
+.gallery-card[data-theme="professional"] .visit-button {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #1a1a1a;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card[data-theme="professional"] .visit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.gallery-card[data-theme="professional"] .visit-button:hover::before {
+  left: 0;
+}
+
+.gallery-card[data-theme="professional"] .visit-button:hover {
+  border-color: #333333;
+  transform: translateY(-1px);
+}
+
+.gallery-card[data-theme="professional"] .button-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+}
+
+.gallery-card[data-theme="professional"] .visit-button:hover .button-arrow {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+.gallery-card[data-theme="professional"]:hover {
+  border-color: #333333;
+  background-color: #111111;
+  transform: translateY(-2px);
+}
+
+/* Focus states pour l'accessibilité */
+.gallery-card[data-theme="professional"] .visit-button:focus {
+  outline: 1px solid #333333;
+  outline-offset: 2px;
+}
+
+/* Animation subtile au chargement */
+.gallery-card[data-theme="professional"] {
+  animation: fadeInProfessional 0.6s ease-out;
+}
+
+@keyframes fadeInProfessional {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-card[data-theme="professional"] .card-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .gallery-card[data-theme="professional"] .visit-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-card[data-theme="professional"] .card-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .gallery-card[data-theme="professional"] .card-description {
+    font-size: 0.9rem;
+  }
 }
 
 /* Styles communs améliorés */
