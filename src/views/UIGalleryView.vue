@@ -130,7 +130,7 @@ export default {
 
 .gallery-container {
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 6rem auto auto auto;
   padding: 3rem 2rem;
   min-height: 100vh;
 }
@@ -143,12 +143,12 @@ export default {
 .gallery-title {
   font-size: 3.5rem;
   font-weight: 800;
-  color: var(--color-text);
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  background: linear-gradient(135deg, #f8fafc, #6366f1);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent; /* le texte devient transparent pour laisser apparaître le fond */
+  -webkit-text-fill-color: transparent; /* nécessaire pour WebKit (Chrome, Safari) */
 }
 
 .gallery-subtitle {
