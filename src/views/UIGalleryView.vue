@@ -114,7 +114,7 @@ export default {
         },
         {
           name: 'Professional',
-          theme: 'Modern Slick',
+          theme: 'Modern Sleek',
           description: 'A sleek, professional interface design that emphasizes usability and modern aesthetics, suitable for business applications.',
           path: '/competences/Professional',
           tags: ['Professional', 'Slick Design', 'Usability'],
