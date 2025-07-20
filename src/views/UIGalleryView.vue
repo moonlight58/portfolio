@@ -965,14 +965,8 @@ export default {
 .gallery-card[data-theme="professional"] .card-description {
   color: #cccccc;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
-
-.gallery-card[data-theme="professional"] .card-tags {
-  margin-bottom: 2rem;
-}
-
 .gallery-card[data-theme="professional"] .tag {
   background: transparent;
   color: #666666;
@@ -981,7 +975,6 @@ export default {
   font-size: 0.75rem;
   font-weight: 400;
   margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
   display: inline-block;
   transition: all 0.3s ease;
 }
