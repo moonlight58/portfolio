@@ -95,6 +95,14 @@ export default {
           path: '/competences/ASCII',
           tags: ['ASCII', 'Text Art', 'Pixel Art'],
           style: 'ascii'
+        },
+        {
+          name: 'Claymorphism',
+          theme: 'Claymorphism',
+          description: 'A soft, tactile interface design that mimics the look and feel of clay, with rounded shapes and shadows.',
+          path: '/competences/Claymorphism',
+          tags: ['Claymorphism', 'Soft Design', 'Tactile'],
+          style: 'claymorphism'
         }
       ]
     }
@@ -649,6 +657,88 @@ export default {
 
 .gallery-card[data-theme="ascii"]:hover .card-background-effects::before {
   opacity: 1;
+}
+
+/* Claymorphism Style */
+.gallery-card[data-theme="claymorphism"] {
+  background: #f5f3f0;
+  color: #5d4e37;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 
+    20px 20px 60px rgba(139, 115, 85, 0.15),
+    -20px -20px 60px rgba(255, 255, 255, 0.7),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.2),
+    inset -10px -10px 20px rgba(139, 115, 85, 0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-card[data-theme="claymorphism"] .card-background-effects {
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(200, 168, 130, 0.2) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+.gallery-card[data-theme="claymorphism"] .card-header h2 {
+  color: #8b7355;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8b7355, #c8a882);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gallery-card[data-theme="claymorphism"] .card-theme {
+  background: linear-gradient(135deg, #f5f3f0, #e8ddd4);
+  color: #8b7355;
+  font-weight: 600;
+  border: none;
+  box-shadow: 
+    8px 8px 16px rgba(139, 115, 85, 0.1),
+    -8px -8px 16px rgba(255, 255, 255, 0.7),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 4px rgba(139, 115, 85, 0.1);
+}
+
+.gallery-card[data-theme="claymorphism"] .visit-button {
+  background: linear-gradient(135deg, #e8ddd4, #d4c4b0);
+  color: #8b7355;
+  border: none;
+  font-weight: 600;
+  box-shadow: 
+    12px 12px 24px rgba(139, 115, 85, 0.15),
+    -8px -8px 20px rgba(255, 255, 255, 0.7),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.gallery-card[data-theme="claymorphism"] .visit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    15px 15px 30px rgba(139, 115, 85, 0.2),
+    -10px -10px 25px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.gallery-card[data-theme="claymorphism"] .tag {
+  background: linear-gradient(135deg, #e8ddd4, #d4c4b0);
+  color: #8b7355;
+  font-weight: 500;
+  border: none;
+  box-shadow: 
+    6px 6px 12px rgba(139, 115, 85, 0.1),
+    -4px -4px 8px rgba(255, 255, 255, 0.6),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.gallery-card[data-theme="claymorphism"]:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    25px 25px 70px rgba(139, 115, 85, 0.2),
+    -25px -25px 70px rgba(255, 255, 255, 0.8),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.3),
+    inset -10px -10px 20px rgba(139, 115, 85, 0.15);
 }
 
 /* Styles communs améliorés */
