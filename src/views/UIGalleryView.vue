@@ -103,6 +103,14 @@ export default {
           path: '/competences/Claymorphism',
           tags: ['Claymorphism', 'Soft Design', 'Tactile'],
           style: 'claymorphism'
+        },
+        {
+          name: 'Retro/Synthwave',
+          theme: 'Retro Synthwave',
+          description: 'A vibrant, neon-lit interface inspired by the retro-futuristic synthwave aesthetic, featuring bold colors and geometric shapes.',
+          path: '/competences/RetroSynthwave',
+          tags: ['Retro', 'Synthwave', 'Neon Colors'],
+          style: 'retro-synthwave'
         }
       ]
     }
@@ -739,6 +747,138 @@ export default {
     -25px -25px 70px rgba(255, 255, 255, 0.8),
     inset 10px 10px 20px rgba(255, 255, 255, 0.3),
     inset -10px -10px 20px rgba(139, 115, 85, 0.15);
+}
+
+/* Retro/Synthwave Style */
+.gallery-card[data-theme="retro-synthwave"] {
+  background: linear-gradient(135deg, #1a0f3c 0%, #2d1b69 100%);
+  border: 2px solid #ff00ff;
+  color: #fff;
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    inset 0 0 15px rgba(255, 0, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card[data-theme="retro-synthwave"] .card-background-effects {
+  background: 
+    linear-gradient(transparent 0%, rgba(255, 0, 255, 0.1) 100%),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+  background-size: 100% 2px, 3px 100%;
+  animation: synthwaveGrid 20s linear infinite;
+}
+
+@keyframes synthwaveGrid {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(20px);
+  }
+}
+
+.gallery-card[data-theme="retro-synthwave"] .card-header h2 {
+  color: #fff;
+  text-shadow: 
+    0 0 10px rgba(255, 0, 255, 0.8),
+    2px 2px 0px #ff00ff;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.gallery-card[data-theme="retro-synthwave"] .card-theme {
+  background: rgba(255, 0, 255, 0.2);
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.8),
+    1px 1px 0px #00ffff;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.4),
+    inset 0 0 5px rgba(0, 255, 255, 0.2);
+}
+
+.gallery-card[data-theme="retro-synthwave"] .card-description {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.gallery-card[data-theme="retro-synthwave"] .visit-button {
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 0 15px rgba(255, 0, 255, 0.4),
+    0 0 30px rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card[data-theme="retro-synthwave"] .visit-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  transform: rotate(45deg);
+  animation: synthwaveButtonShine 4s linear infinite;
+}
+
+@keyframes synthwaveButtonShine {
+  0% {
+    transform: rotate(45deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%);
+  }
+}
+
+.gallery-card[data-theme="retro-synthwave"] .visit-button:hover {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.6),
+    0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+.gallery-card[data-theme="retro-synthwave"] .tag {
+  background: rgba(255, 0, 255, 0.2);
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.2),
+    inset 0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+.gallery-card[data-theme="retro-synthwave"]:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(255, 0, 255, 0.4),
+    0 0 60px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(255, 0, 255, 0.3);
 }
 
 /* Styles communs améliorés */
