@@ -1,36 +1,50 @@
 <template>
   <div class="container">
     <!-- Hero Section -->
-    <div class="hero-section">
-      <div class="hero-content">
-        <div class="profile-container">
-          <div class="profile-image-wrapper">
-            <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
-            <div class="profile-glow"></div>
-          </div>
-          <div class="profile-info">
-            <h1 class="profile-name">Gaël Röthlin</h1>
-            <p class="profile-subtitle">{{ $t("HomeTitle") }}</p>
-          </div>
+    <div class="hero-section" :class="{ visible: isVisible }">
+      <div class="hero-card">
+        <div class="avatar-container">
+          <div class="avatar-glow"></div>
+          <div class="avatar-ring"></div>
+          <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="avatar-image" />
         </div>
 
-        <div class="intro-card">
-          <p class="intro-text">
-            {{ $t("BodyPart1") }}, BUT<span class="warning">*</span>,
-            {{ $t("BodyPart2") }}
-          </p>
-          <p class="precision">
-            <span class="warning">*</span>({{ $t("Precision") }})
-          </p>
-          <p class="description-text">
-            {{ $t("Description") }}
-          </p>
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="name-text gradient-text">Gaël Röthlin</span>
+          </h1>
+          <p class="hero-subtitle">{{ $t("HomeTitle") }}</p>
 
-          <div class="social-link-container">
-            <a class="instagram-link" href="https://www.instagram.com/osiris._25" target="_blank"
+          <div class="status-badges">
+            <div class="badge badge-student">
+              <span class="badge-icon">🎓</span>
+              <span>{{ $t("BodyPart1") }}</span>
+            </div>
+          </div>
+
+          <div class="hero-description">
+            <p class="description-text">
+              {{ $t("BodyPart2") }}
+              <span class="warning-text">*</span>
+            </p>
+            <p class="precision-text">
+              <span class="warning-text">*</span>({{ $t("Precision") }})
+            </p>
+            <p class="main-description">
+              {{ $t("Description") }}
+            </p>
+          </div>
+
+          <div class="cta-container">
+            <a class="instagram-cta" href="https://www.instagram.com/osiris._25" target="_blank"
               rel="noopener noreferrer">
-              <img src="../assets/instagram.svg" class="social-icon" alt="Instagram logo" />
-              <span class="social-text">osiris._25</span>
+              <div class="instagram-icon">
+                <img src="../assets/instagram.svg" alt="Instagram" class="social-icon" />
+              </div>
+              <div class="cta-content">
+                <span class="cta-label">Suivez-moi sur</span>
+                <span class="cta-handle">@osiris._25</span>
+              </div>
             </a>
           </div>
         </div>
@@ -38,93 +52,103 @@
     </div>
 
     <!-- Projects Section -->
-    <div class="projects-section section">
+    <div class="content-section projects-section">
       <div class="section-header">
-        <h2 class="section-title">{{ $t("Projects") }}</h2>
-        <div class="section-subtitle">
-          <p>{{ $t("ProjectContent") }}</p>
-        </div>
+        <h2 class="section-title gradient-text">{{ $t("Projects") }}</h2>
+        <p class="section-subtitle">{{ $t("ProjectContent") }}</p>
       </div>
-      <div class="carousel-container">
+      <div class="glass-card carousel-wrapper">
         <Carousel />
       </div>
     </div>
 
     <!-- Internship Section -->
-    <div class="internship-section">
+    <div class="content-section internship-section">
       <div class="section-header">
-        <h2 class="section-title">{{ $t('Internship') }}</h2>
+        <h2 class="section-title gradient-text">{{ $t('Internship') }}</h2>
       </div>
-      <Internship />
-    </div>
-
-    <!-- UI/UX Section -->
-    <div class="uiux-section section">
-      <div class="section-header">
-        <h2 class="section-title">Compétences UI/UX</h2>
-        <div class="section-subtitle">
-          <p>Découvrez mes compétences artistiques et techniques en création de page web à travers une idée ou un style</p>
-        </div>
+      <div class="glass-card internship-wrapper">
+        <Internship />
       </div>
-      <UIUX />
     </div>
 
     <!-- Skills Section -->
-    <div class="skills-section section">
+    <div class="content-section skills-section">
       <div class="section-header">
-        <h2 class="section-title">{{ $t("Skills") }}</h2>
+        <h2 class="section-title gradient-text">{{ $t("Skills") }}</h2>
       </div>
-      <div class="skills-content">
-        <div class="skill-category" v-for="(skillType, index) in Object.keys(skills)" :key="index">
-          <div class="skill-category-header">
-            <h3>{{ $t(skillType) }}</h3>
+      <div class="skills-grid">
+        <div class="skill-card dev-card" v-for="(skillType, index) in Object.keys(skills)" :key="index">
+          <div class="skill-header">
+            <div class="skill-icon">
+              <img :src="getSkillIcon(skillType)" alt="Skill Icon" class="skill-icon-image" />
+            </div>
+
+            <h3 class="skill-title">{{ $t(skillType) }}</h3>
           </div>
-          <div class="skills-grid">
-            <div class="skill-card" v-for="(language, langIndex) in skills[skillType].language" :key="langIndex"
-              @click="redirectToUrl(language.url)">
-              <div class="skill-icon-wrapper">
-                <img :src="require(`@/assets/skills/${language.name}.svg`)" :alt="language.name" class="skill-icon" />
+          <div class="skill-content">
+            <div class="skill-items">
+              <div class="skill-item" v-for="(language, langIndex) in skills[skillType].language" :key="langIndex"
+                @click="redirectToUrl(language.url)">
+                <img :src="require(`@/assets/skills/${language.name}.svg`)" :alt="language.name" class="skill-logo" />
+                <span class="skill-name">{{ language.name }}</span>
               </div>
-              <p class="skill-name">{{ language.name }}</p>
             </div>
           </div>
+          <div class="skill-glow dev-glow"></div>
         </div>
+      </div>
+    </div>
+
+    <!-- UI/UX Section -->
+    <div class="content-section uiux-section">
+      <div class="section-header">
+        <h2 class="section-title gradient-text">Compétences UI/UX</h2>
+        <p class="section-subtitle">Découvrez mes compétences artistiques et techniques</p>
+      </div>
+      <div class="glass-card uiux-wrapper">
+        <UIUX />
       </div>
     </div>
 
     <!-- About Section -->
-    <div class="about-section section">
+    <div class="content-section about-section">
       <div class="section-header">
-        <h2 class="section-title">{{ $t("WhyPortfolio") }}</h2>
+        <h2 class="section-title gradient-text">{{ $t("WhyPortfolio") }}</h2>
       </div>
-      <div class="about-card">
-        <p class="about-text">
-          {{ $t("WhyPortfolioContent") }}
-        </p>
+      <div class="glass-card about-card">
+        <p class="about-text">{{ $t("WhyPortfolioContent") }}</p>
       </div>
     </div>
 
     <!-- Contact Section -->
-    <div class="contact-section">
-      <div class="contact-card">
+    <div class="content-section contact-section">
+      <div class="glass-card contact-card">
         <div class="contact-header">
-          <h2 class="contact-title">Contact</h2>
-          <p class="contact-subtitle">
-            {{ $t("Contact") }}
-          </p>
+          <h2 class="contact-title gradient-text">Contact</h2>
+          <p class="contact-subtitle">{{ $t("Contact") }}</p>
         </div>
-        <div class="contact-links">
-          <a class="contact-btn" href="mailto:gael.rothlin@proton.me" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/email.svg" alt="Email" class="contact-icon" />
-            <span>Email</span>
+        <div class="contact-grid">
+          <a class="contact-btn email-btn" href="mailto:gael.rothlin@proton.me" target="_blank"
+            rel="noopener noreferrer">
+            <div class="contact-icon-wrapper">
+              <img src="../assets/email.svg" alt="Email" class="contact-icon" />
+            </div>
+            <span class="contact-label">Email</span>
           </a>
-          <a class="contact-btn" href="https://www.instagram.com/osiris._25" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/instagram.svg" alt="Instagram" class="contact-icon" />
-            <span>Instagram</span>
+          <a class="contact-btn instagram-btn" href="https://www.instagram.com/osiris._25" target="_blank"
+            rel="noopener noreferrer">
+            <div class="contact-icon-wrapper">
+              <img src="../assets/instagram.svg" alt="Instagram" class="contact-icon" />
+            </div>
+            <span class="contact-label">Instagram</span>
           </a>
-          <a class="contact-btn" href="https://github.com/moonlight58" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/github.svg" alt="GitHub" class="contact-icon" />
-            <span>GitHub</span>
+          <a class="contact-btn github-btn" href="https://github.com/moonlight58" target="_blank"
+            rel="noopener noreferrer">
+            <div class="contact-icon-wrapper">
+              <img src="../assets/github.svg" alt="GitHub" class="contact-icon" />
+            </div>
+            <span class="contact-label">GitHub</span>
           </a>
         </div>
       </div>
@@ -148,7 +172,17 @@ export default {
   data() {
     return {
       skills: skills,
+      isVisible: false,
     };
+  },
+  mounted() {
+    // Animation d'entrée progressive
+    setTimeout(() => {
+      this.isVisible = true;
+    }, 100);
+
+    // Observer pour les animations au scroll
+    this.setupScrollAnimations();
   },
   methods: {
     redirectToUrl(url) {
@@ -158,39 +192,247 @@ export default {
         console.warn("No URL provided");
       }
     },
+    getSkillIcon(skillType) {
+      const icons = {
+        "Software Development": require('@/assets/software.svg'),
+        "Développement de logiciels": require('@/assets/software.svg'),
+        "Back-end Web": require('@/assets/backend.svg'),
+        "Front-end Web": require('@/assets/frontend.svg'),
+        "Développement de jeux": require('@/assets/game_dev.svg'),
+        "Game Development": require('@/assets/game_dev.svg'),
+        "Art": require('@/assets/art.svg')
+      };
+
+      const icon = icons[skillType];
+      if (!icon) {
+        console.warn(`No icon found for skill type: ${skillType}`);
+        return '';
+      }
+      return icon;
+    },
+    setupScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => observer.observe(section));
+    }
   },
 };
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Variables CSS */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --tertiary-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --blur-strength: 20px;
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Container principal */
 .container {
-  font-family: "Inter", "N27", sans-serif;
-  margin-top: 10rem;
-  padding: 0 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: "Inter", sans-serif;
+  margin-top: 7rem;
+  padding: 1rem 2rem;
+  max-width: 1400px;
   margin-bottom: 6rem;
   color: #ffffff;
   background: linear-gradient(135deg,
-      rgba(147, 197, 253, 0.02) 0%,
-      rgba(167, 139, 250, 0.02) 50%,
-      rgba(196, 181, 253, 0.02) 100%);
+      rgba(102, 126, 234, 0.05) 0%,
+      rgba(118, 75, 162, 0.08) 25%,
+      rgba(240, 147, 251, 0.05) 50%,
+      rgba(75, 172, 254, 0.08) 75%,
+      rgba(0, 242, 254, 0.05) 100%);
   min-height: 100vh;
 }
 
 /* Hero Section */
 .hero-section {
   margin-bottom: 8rem;
-  animation: fadeInUp 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeInUp {
+.hero-section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 32px;
+  padding: 4rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(102, 126, 234, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Ajout de la transition ici */
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.8;
+}
+
+.hero-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 80px rgba(102, 126, 234, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(-8px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Avatar avec effets */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.avatar-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  z-index: 3;
+  position: relative;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(20px);
+  z-index: 1;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.avatar-ring {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background-clip: border-box;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar-container:hover .avatar-ring {
+  opacity: 0.6;
+  animation: rotate 8s linear infinite;
+}
+
+.avatar-container:hover .avatar-image {
+  transform: scale(1.05);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contenu Hero */
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  margin: 0 0 1.5rem 0;
+}
+
+.name-text {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  animation: slideInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 2.5rem 0;
+  font-weight: 400;
+  opacity: 0.9;
+  animation: slideInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+@keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
 
   to {
@@ -199,774 +441,72 @@ export default {
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-}
-
-.profile-container {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  border-radius: 24px;
-  padding: 3rem 2rem;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-  box-shadow:
-    0 8px 32px rgba(167, 139, 250, 0.1),
-    0 0 80px rgba(147, 197, 253, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.profile-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(147, 197, 253, 0.8),
-      rgba(167, 139, 250, 0.8),
-      rgba(196, 181, 253, 0.8),
-      transparent);
-}
-
-.profile-container:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 16px 48px rgba(167, 139, 250, 0.15),
-    0 0 120px rgba(147, 197, 253, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.profile-image-wrapper {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.profile-image {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(167, 139, 250, 0.6);
-  box-shadow:
-    0 8px 32px rgba(167, 139, 250, 0.3),
-    0 0 60px rgba(147, 197, 253, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.profile-image:hover {
-  transform: scale(1.08);
-  box-shadow:
-    0 12px 48px rgba(167, 139, 250, 0.4),
-    0 0 100px rgba(147, 197, 253, 0.3);
-}
-
-.profile-glow {
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.4), transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.profile-image-wrapper:hover .profile-glow {
-  opacity: 1;
-}
-
-.profile-name {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-  background: linear-gradient(135deg,
-      #ffffff 0%,
-      #a7cbfa 30%,
-      #a78bfa 70%,
-      #c4b5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(167, 139, 250, 0.3);
-  animation: slideInLeft 0.8s ease-out 0.2s both;
-}
-
-.profile-subtitle {
-  font-size: 1.2rem;
-  color: rgba(167, 139, 250, 0.9);
-  font-style: italic;
-  margin: 0;
-  opacity: 0.9;
-  font-weight: 300;
-  animation: slideInLeft 0.8s ease-out 0.4s both;
-}
-
-.intro-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(147, 197, 253, 0.15);
-  border-radius: 20px;
-  padding: 2.5rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  text-align: justify;
-  box-shadow:
-    0 8px 32px rgba(147, 197, 253, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.8s ease-out 0.6s both;
-}
-
-.intro-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(147, 197, 253, 0.6),
-      rgba(167, 139, 250, 0.6),
-      transparent);
-}
-
-.intro-card:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 40px rgba(147, 197, 253, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.intro-text,
-.description-text {
-  margin: 0 0 1rem 0;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 400;
-}
-
-.precision {
-  font-size: 0.9rem;
-  color: rgba(167, 139, 250, 0.7);
-  font-style: italic;
-  margin: 0.5rem 0 1.5rem 0;
-  font-weight: 300;
-}
-
-.warning {
-  color: #fca5a5;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(252, 165, 165, 0.3);
-}
-
-.social-link-container {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.instagram-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: linear-gradient(135deg,
-      rgba(253, 89, 73, 0.9) 0%,
-      rgba(214, 36, 159, 0.9) 50%,
-      rgba(40, 90, 235, 0.9) 100%);
-  color: white;
-  padding: 1.2rem 2.5rem;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  box-shadow:
-    0 8px 32px rgba(253, 89, 73, 0.3),
-    0 0 60px rgba(214, 36, 159, 0.2);
-}
-
-.instagram-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.25),
-      transparent);
-  transition: left 0.6s ease;
-}
-
-.instagram-link:hover::before {
-  left: 100%;
-}
-
-.instagram-link:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 16px 48px rgba(253, 89, 73, 0.4),
-    0 0 100px rgba(214, 36, 159, 0.3);
-}
-
-.social-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.social-text {
-  font-weight: 600;
-}
-
-/* Section Styling */
-.section {
-  margin-bottom: 6rem;
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  background: linear-gradient(135deg,
-      #ffffff 0%,
-      #a7cbfa 30%,
-      #a78bfa 70%,
-      #c4b5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 40px rgba(167, 139, 250, 0.3);
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(167, 139, 250, 0.8),
-      transparent);
-}
-
-.section-subtitle p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.1rem;
-  margin: 0;
-  opacity: 0.9;
-  font-weight: 300;
-}
-
-/* Projects Section */
-.carousel-container {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(147, 197, 253, 0.15);
-  border-radius: 20px;
-  padding: 2.5rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: relative;
-  box-shadow:
-    0 8px 32px rgba(147, 197, 253, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.carousel-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(147, 197, 253, 0.6),
-      rgba(167, 139, 250, 0.6),
-      transparent);
-}
-
-.carousel-container:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 40px rgba(147, 197, 253, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-/* Skills Section */
-.skills-content {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.skill-category {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(167, 139, 250, 0.15);
-  border-radius: 20px;
-  padding: 2.5rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: relative;
-  box-shadow:
-    0 8px 32px rgba(167, 139, 250, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.skill-category::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(167, 139, 250, 0.6),
-      rgba(196, 181, 253, 0.6),
-      transparent);
-}
-
-.skill-category:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 40px rgba(167, 139, 250, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.skill-category-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.skill-category-header h3 {
-  color: rgba(167, 139, 250, 0.9);
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0;
-  text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(147, 197, 253, 0.12);
-  border-radius: 16px;
-  padding: 1.8rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(147, 197, 253, 0.8),
-      transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(147, 197, 253, 0.3);
-  box-shadow:
-    0 16px 48px rgba(147, 197, 253, 0.15),
-    0 0 80px rgba(167, 139, 250, 0.1);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.skill-card:hover::before {
-  opacity: 1;
-}
-
-.skill-icon-wrapper {
-  margin-bottom: 1.2rem;
-  position: relative;
-}
-
-.skill-icon {
-  width: 64px;
-  height: 64px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 12px rgba(167, 139, 250, 0.2));
-}
-
-.skill-card:hover .skill-icon {
-  transform: scale(1.15);
-  filter: drop-shadow(0 8px 24px rgba(167, 139, 250, 0.3));
-}
-
-.skill-name {
-  margin: 0;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.skill-card:hover .skill-name {
-  color: rgba(147, 197, 253, 0.9);
-}
-
-/* About Section */
-.about-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(196, 181, 253, 0.15);
-  border-radius: 20px;
-  padding: 2.5rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: relative;
-  text-align: center;
-  box-shadow:
-    0 8px 32px rgba(196, 181, 253, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.about-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(196, 181, 253, 0.6),
-      rgba(167, 139, 250, 0.6),
-      transparent);
-}
-
-.about-card:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 40px rgba(196, 181, 253, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.about-text {
-  margin: 0;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 400;
-}
-
-/* Contact Section */
-.contact-section {
-  margin-top: 6rem;
-}
-
-.contact-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  border-radius: 24px;
-  padding: 3rem 2rem;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  position: relative;
-  text-align: center;
-  box-shadow:
-    0 8px 32px rgba(167, 139, 250, 0.1),
-    0 0 80px rgba(147, 197, 253, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.contact-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(147, 197, 253, 0.8),
-      rgba(167, 139, 250, 0.8),
-      rgba(196, 181, 253, 0.8),
-      transparent);
-}
-
-.contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 16px 48px rgba(167, 139, 250, 0.15),
-    0 0 120px rgba(147, 197, 253, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.contact-header {
-  margin-bottom: 2.5rem;
-}
-
-.contact-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  background: linear-gradient(135deg,
-      #ffffff 0%,
-      #a7cbfa 30%,
-      #a78bfa 70%,
-      #c4b5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(167, 139, 250, 0.3);
-}
-
-.contact-subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.1rem;
-  margin: 0;
-  opacity: 0.9;
-  font-weight: 300;
-}
-
-.contact-links {
+/* Badges de statut */
+.status-badges {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
+  animation: slideInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
 }
 
-.contact-btn {
+.badge {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  border-radius: 16px;
-  color: rgba(167, 139, 250, 0.9);
-  padding: 1.2rem 2rem;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
   font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
 }
 
-.contact-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(167, 139, 250, 0.1),
-      transparent);
-  transition: left 0.6s ease;
+.badge-student {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+  color: #c7d2fe;
 }
 
-.contact-btn:hover::before {
-  left: 100%;
-}
-
-.contact-btn:hover {
-  background: rgba(167, 139, 250, 0.9);
-  color: #1a1a1a;
+.badge:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 12px 40px rgba(167, 139, 250, 0.3),
-    0 0 60px rgba(147, 197, 253, 0.2);
-  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
 }
 
-.contact-icon {
-  width: 20px;
-  height: 20px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  flex-shrink: 0;
+.badge-icon {
+  font-size: 1.2rem;
 }
 
-.contact-btn:hover .contact-icon {
-  filter: brightness(0) invert(1);
-  transform: scale(1.1);
+/* Description Hero */
+.hero-description {
+  margin-bottom: 3rem;
+  animation: slideInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-    margin-top: 6rem;
-  }
-
-  .profile-container {
-    padding: 2rem 1.5rem;
-  }
-
-  .intro-card {
-    padding: 2rem;
-    text-align: left;
-  }
-
-  .profile-name {
-    font-size: 1.8rem;
-  }
-
-  .profile-subtitle {
-    font-size: 1rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-  }
-
-  .skill-card {
-    padding: 1.5rem;
-  }
-
-  .skill-icon {
-    width: 48px;
-    height: 48px;
-  }
-
-  .contact-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-btn {
-    min-width: 200px;
-    justify-content: center;
-  }
-
-  .hero-content {
-    gap: 2rem;
-  }
-
-  .section {
-    margin-bottom: 4rem;
-  }
-
-  .section-header {
-    margin-bottom: 2.5rem;
-  }
-
-  .carousel-container,
-  .skill-category,
-  .about-card {
-    padding: 2rem;
-  }
-
-  .contact-card {
-    padding: 2rem 1.5rem;
-  }
+.description-text,
+.main-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 1rem 0;
 }
 
-@media (max-width: 480px) {
-  .profile-name {
-    font-size: 1.6rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .intro-text,
-  .description-text,
-  .about-text {
-    font-size: 1rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-
-  .skill-card {
-    padding: 1.2rem;
-  }
-
-  .skill-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .contact-btn {
-    padding: 1rem 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .instagram-link {
-    padding: 1rem 2rem;
-  }
+.precision-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  margin: 0.5rem 0 1.5rem 0;
 }
 
-/* Animations pour les éléments qui apparaissent */
-@keyframes pulse {
+.warning-text {
+  color: #fca5a5;
+  font-weight: 700;
+  animation: pulse-warning 2s ease-in-out infinite;
+}
+
+@keyframes pulse-warning {
 
   0%,
   100% {
@@ -978,72 +518,550 @@ export default {
   }
 }
 
-.warning {
-  animation: pulse 2s infinite;
+/* CTA Instagram */
+.cta-container {
+  animation: slideInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both;
 }
 
-/* Scroll smooth */
-html {
-  scroll-behavior: smooth;
+.instagram-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2.5rem;
+  background: rgba(240, 147, 251, 0.1);
+  border: 2px solid rgba(240, 147, 251, 0.2);
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
-/* Sélection de texte */
-::selection {
-  background: rgba(167, 139, 250, 0.3);
+.instagram-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(240, 147, 251, 0.15) 50%,
+      transparent 100%);
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.instagram-cta:hover::before {
+  left: 100%;
+}
+
+.instagram-cta:hover {
+  transform: translateY(-3px);
+  border-color: rgba(240, 147, 251, 0.4);
+  box-shadow: 0 20px 60px rgba(240, 147, 251, 0.3);
+}
+
+.instagram-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.instagram-cta:hover .instagram-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.cta-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.2rem;
+}
+
+.cta-handle {
+  font-size: 1.1rem;
+  font-weight: 600;
   color: #ffffff;
 }
 
-::-moz-selection {
-  background: rgba(167, 139, 250, 0.3);
-  color: #ffffff;
-}
-
-/* Scrollbar personnalisée */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(167, 139, 250, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(167, 139, 250, 0.5);
-}
-
-/* Focus states pour l'accessibilité */
-.contact-btn:focus,
-.instagram-link:focus,
-.skill-card:focus {
-  outline: 2px solid rgba(167, 139, 250, 0.6);
-  outline-offset: 2px;
-}
-
-/* Animation d'apparition pour les sections */
-.section {
+/* Sections de contenu */
+.content-section {
+  margin-bottom: 6rem;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
+  transform: translateY(30px);
+  transition: all 0.05s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section:nth-child(2) {
-  animation-delay: 0.1s;
+.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.section:nth-child(3) {
-  animation-delay: 0.2s;
+.content-section:nth-child(2) {
+  transition-delay: 0.1s;
 }
 
-.section:nth-child(4) {
-  animation-delay: 0.3s;
+.content-section:nth-child(3) {
+  transition-delay: 0.2s;
 }
 
-.section:nth-child(5) {
-  animation-delay: 0.4s;
+.content-section:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.content-section:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.content-section:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+.content-section:nth-child(7) {
+  transition-delay: 0.6s;
+}
+
+/* Headers de sections */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Carte en verre générique */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  opacity: 0.5;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+}
+
+/* Texte avec gradients */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Support pour navigateurs anciens */
+@supports not (-webkit-background-clip: text) {
+  .gradient-text {
+    color: #ffffff;
+  }
+}
+
+/* Grille de compétences */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(75, 172, 254, 0.3);
+}
+
+.skill-icon-image {
+  width: 40px;
+  height: 40px;
+}
+
+
+.skill-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.skill-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(75, 172, 254, 0.3);
+}
+
+.skill-logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-logo {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.skill-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  filter: blur(30px);
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.dev-glow {
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+}
+
+.skill-card:hover .skill-glow {
+  opacity: 1;
+}
+
+/* Section About */
+.about-card {
+  text-align: center;
+  padding: 3rem;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section Contact */
+.contact-card {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.contact-header {
+  margin-bottom: 3rem;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.contact-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.contact-btn:hover::before {
+  left: 100%;
+}
+
+.contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.email-btn:hover {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.instagram-btn:hover {
+  background: rgba(240, 147, 251, 0.1);
+  border-color: rgba(240, 147, 251, 0.3);
+}
+
+.github-btn:hover {
+  background: rgba(156, 163, 175, 0.1);
+  border-color: rgba(156, 163, 175, 0.3);
+}
+
+.contact-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.contact-btn:hover .contact-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.contact-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-label {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.contact-btn:hover .contact-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Ajout d'effets supplémentaires pour les boutons de contact */
+.contact-btn .contact-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-btn:hover .contact-icon {
+  transform: scale(1.2);
+}
+
+/* Style pour les sections de contenu */
+.content-section {
+  margin-bottom: 6rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation pour les sections de contenu */
+.content-section:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.content-section:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.content-section:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.content-section:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.content-section:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+.content-section:nth-child(7) {
+  transition-delay: 0.6s;
+}
+
+/* Style pour les en-têtes de section */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 400;
 }
 </style>
