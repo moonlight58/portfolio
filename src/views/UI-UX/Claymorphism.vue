@@ -1237,7 +1237,10 @@ section {
 
 /* Mode sombre (optionnel) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  
+  .clay-container {
+    background: linear-gradient(135deg, var(--clay-bg) 0%, #1a1a1a 100%);
+
     --clay-bg: #2a2a2a;
     --clay-primary: #3a3a3a;
     --clay-secondary: #4a4a4a;
@@ -1248,10 +1251,6 @@ section {
     --clay-shadow: rgba(0, 0, 0, 0.3);
     --clay-shadow-dark: rgba(0, 0, 0, 0.5);
     --clay-glow: rgba(200, 168, 130, 0.2);
-  }
-  
-  .clay-container {
-    background: linear-gradient(135deg, var(--clay-bg) 0%, #1a1a1a 100%);
   }
 }
 

@@ -230,20 +230,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Variables CSS */
-:root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --tertiary-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --blur-strength: 20px;
-  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* Container principal */
 .container {
   font-family: "Inter", sans-serif;
@@ -259,6 +245,19 @@ export default {
       rgba(75, 172, 254, 0.08) 75%,
       rgba(0, 242, 254, 0.05) 100%);
   min-height: 100vh;
+
+  /* Variables CSS */
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --tertiary-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --blur-strength: 20px;
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Hero Section */

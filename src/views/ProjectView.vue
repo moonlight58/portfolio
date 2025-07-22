@@ -212,19 +212,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Variables CSS selon la documentation */
-:root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --blur-strength: 20px;
-}
-
 .container {
   font-family: "N27", sans-serif;
   margin-top: 8rem;
@@ -244,6 +231,17 @@ onMounted(() => {
       rgba(0, 242, 254, 0.02) 100%);
   border-radius: 40px;
   position: relative;
+
+  /* Variables CSS selon la documentation */
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --blur-strength: 20px;
 }
 
 /* Hero Section avec animation d'entrée progressive */

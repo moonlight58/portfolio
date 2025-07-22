@@ -121,7 +121,7 @@ export default {
       showModal: false,
       currentImage: null,
       currentImageIndex: 0,
-      
+
       categories: [
         { id: 'all', name: 'Toutes', icon: '🎨' },
         { id: 'dark-art', name: 'Dark Art', icon: '🌙' },
@@ -129,7 +129,7 @@ export default {
         { id: 'tattoos', name: 'Tattoos', icon: '🖊️' },
         { id: 'abstract', name: 'Abstrait', icon: '🌀' }
       ],
-      
+
       artworks: [
         {
           id: 1,
@@ -207,7 +207,7 @@ export default {
       ]
     }
   },
-  
+
   computed: {
     filteredArtworks() {
       if (this.activeCategory === 'all') {
@@ -216,24 +216,24 @@ export default {
       return this.artworks.filter(artwork => artwork.category === this.activeCategory)
     }
   },
-  
+
   mounted() {
     // Animation d'entrée progressive
     setTimeout(() => {
       this.isVisible = true
     }, 100)
   },
-  
+
   methods: {
     setActiveCategory(categoryId) {
       this.activeCategory = categoryId
     },
-    
+
     getCurrentCategoryTitle() {
       const category = this.categories.find(cat => cat.id === this.activeCategory)
       return category ? category.name : 'Toutes les œuvres'
     },
-    
+
     getCurrentCategoryDescription() {
       const descriptions = {
         'all': 'Découvrez l\'ensemble de mes créations artistiques, des œuvres sombres aux doodles spontanés.',
@@ -244,26 +244,26 @@ export default {
       }
       return descriptions[this.activeCategory] || descriptions['all']
     },
-    
+
     openModal(artwork, index) {
       this.currentImage = artwork
       this.currentImageIndex = index
       this.showModal = true
       document.body.style.overflow = 'hidden'
     },
-    
+
     closeModal() {
       this.showModal = false
       document.body.style.overflow = 'auto'
     },
-    
+
     nextImage() {
       if (this.currentImageIndex < this.filteredArtworks.length - 1) {
         this.currentImageIndex++
         this.currentImage = this.filteredArtworks[this.currentImageIndex]
       }
     },
-    
+
     previousImage() {
       if (this.currentImageIndex > 0) {
         this.currentImageIndex--
@@ -275,8 +275,18 @@ export default {
 </script>
 
 <style scoped>
-/* Variables CSS du guide de style */
-:root {
+.drawing-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg,
+      rgba(102, 126, 234, 0.05) 0%,
+      rgba(118, 75, 162, 0.08) 25%,
+      rgba(240, 147, 251, 0.05) 50%,
+      rgba(75, 172, 254, 0.08) 75%,
+      rgba(0, 242, 254, 0.05) 100%);
+  color: var(--text-primary);
+  padding: 2rem;
+
+  /* Variables CSS du guide de style */
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -286,18 +296,6 @@ export default {
   --text-secondary: rgba(255, 255, 255, 0.8);
   --text-muted: rgba(255, 255, 255, 0.6);
   --blur-strength: 20px;
-}
-
-.drawing-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg,
-    rgba(102, 126, 234, 0.05) 0%,
-    rgba(118, 75, 162, 0.08) 25%,
-    rgba(240, 147, 251, 0.05) 50%,
-    rgba(75, 172, 254, 0.08) 75%,
-    rgba(0, 242, 254, 0.05) 100%);
-  color: var(--text-primary);
-  padding: 2rem;
 }
 
 /* Hero Section */
@@ -321,7 +319,7 @@ export default {
   padding: 4rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(102, 126, 234, 0.15),
     0 0 0 1px rgba(255, 255, 255, 0.05) inset;
   transition: all 0.6s ease;
@@ -344,8 +342,15 @@ export default {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .profile-section {
@@ -387,8 +392,17 @@ export default {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
 }
 
 .avatar-ring {
@@ -411,8 +425,13 @@ export default {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Texte du profil */
@@ -431,7 +450,8 @@ export default {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: #ffffff; /* Fallback */
+  color: #ffffff;
+  /* Fallback */
   display: block;
   line-height: 1.1;
 }
@@ -502,10 +522,21 @@ export default {
   transform: translateY(0);
 }
 
-.content-section:nth-child(2) { transition-delay: 0.1s; }
-.content-section:nth-child(3) { transition-delay: 0.2s; }
-.content-section:nth-child(4) { transition-delay: 0.3s; }
-.content-section:nth-child(5) { transition-delay: 0.4s; }
+.content-section:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.content-section:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.content-section:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.content-section:nth-child(5) {
+  transition-delay: 0.4s;
+}
 
 /* Navigation des catégories */
 .nav-card {
@@ -609,7 +640,8 @@ export default {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: #ffffff; /* Fallback */
+  color: #ffffff;
+  /* Fallback */
 }
 
 .category-text {
@@ -665,12 +697,10 @@ export default {
 .artwork-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -750,7 +780,9 @@ export default {
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
@@ -769,7 +801,9 @@ export default {
 }
 
 @keyframes scaleIn {
-  to { transform: scale(1); }
+  to {
+    transform: scale(1);
+  }
 }
 
 .modal-close {
@@ -930,7 +964,8 @@ export default {
   background: var(--secondary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
-  color: #ffffff; /* Fallback */
+  color: #ffffff;
+  /* Fallback */
 }
 
 .instagram-card p {
@@ -968,9 +1003,9 @@ export default {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(240, 147, 251, 0.1) 50%,
-    transparent 100%);
+      transparent 0%,
+      rgba(240, 147, 251, 0.1) 50%,
+      transparent 100%);
   transition: left 0.6s ease;
 }
 
@@ -1070,13 +1105,16 @@ export default {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { 
-    opacity: 0.3; 
-    transform: scale(1); 
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
   }
-  50% { 
-    opacity: 0.5; 
-    transform: scale(1.05); 
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
   }
 }
 
@@ -1090,7 +1128,8 @@ export default {
   background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
-  color: #ffffff; /* Fallback */
+  color: #ffffff;
+  /* Fallback */
   margin: 0 0 1rem 0;
   line-height: 1.1;
 }
@@ -1150,6 +1189,7 @@ export default {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1164,10 +1204,21 @@ export default {
   animation: fadeInUp 0.8s ease-out;
 }
 
-.gallery-nav { animation-delay: 0.1s; }
-.gallery-description { animation-delay: 0.2s; }
-.gallery-section { animation-delay: 0.3s; }
-.instagram-section { animation-delay: 0.4s; }
+.gallery-nav {
+  animation-delay: 0.1s;
+}
+
+.gallery-description {
+  animation-delay: 0.2s;
+}
+
+.gallery-section {
+  animation-delay: 0.3s;
+}
+
+.instagram-section {
+  animation-delay: 0.4s;
+}
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -1175,7 +1226,7 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
   }
-  
+
   .container {
     padding: 0 1.5rem;
   }
@@ -1187,53 +1238,53 @@ export default {
     text-align: center;
     gap: 2rem;
   }
-  
+
   .profile-image {
     width: 120px;
     height: 120px;
   }
-  
+
   .profile-name {
     font-size: 2.5rem;
   }
-  
+
   .profile-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .nav-buttons {
     justify-content: center;
     gap: 0.5rem;
   }
-  
+
   .nav-btn {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
   }
-  
+
   .gallery-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .modal-content {
     max-width: 95vw;
     max-height: 95vh;
   }
-  
+
   .modal-navigation {
     padding: 1rem;
   }
-  
+
   .nav-arrow {
     width: 50px;
     height: 50px;
     font-size: 1.5rem;
   }
-  
+
   .instagram-card {
     padding: 2.5rem 1.5rem;
   }
-  
+
   .instagram-card h2 {
     font-size: 2rem;
   }
@@ -1243,35 +1294,35 @@ export default {
   .profile-name {
     font-size: 2rem;
   }
-  
+
   .profile-badges {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .badge {
     width: fit-content;
   }
-  
+
   .nav-buttons {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .nav-btn {
     justify-content: center;
   }
-  
+
   .instagram-link {
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
   }
-  
+
   .modal-info {
     padding: 2rem 1.5rem;
   }
-  
+
   .modal-meta {
     flex-direction: column;
     gap: 1rem;
@@ -1285,11 +1336,11 @@ export default {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .profile-glow {
     animation: none;
   }
-  
+
   .empty-state .empty-icon {
     animation: none;
   }
@@ -1307,6 +1358,7 @@ export default {
 
 /* Support pour les anciens navigateurs */
 @supports not (backdrop-filter: blur(20px)) {
+
   .hero-section,
   .nav-card,
   .description-card,
@@ -1319,6 +1371,7 @@ export default {
 
 /* Fallback pour background-clip: text */
 @supports not (-webkit-background-clip: text) {
+
   .profile-name,
   .instagram-card h2 {
     color: #ffffff;

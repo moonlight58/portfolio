@@ -306,20 +306,6 @@ export default {
 </script>
 
 <style scoped>
-/* Variables CSS pour le style glassmorphism */
-:root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --blur-strength: 20px;
-  --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 /* Container principal */
 .project-details-container {
@@ -335,6 +321,19 @@ export default {
       rgba(0, 242, 254, 0.05) 100%);
   min-height: 100vh;
   position: relative;
+
+  /* Variables CSS pour le style glassmorphism */
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --blur-strength: 20px;
+  --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-details-container::before {

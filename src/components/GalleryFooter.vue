@@ -5,8 +5,7 @@
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
           <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"
             opacity="0.8" />
-          <path d="M5 16L5.5 18.5L8 19L5.5 19.5L5 22L4.5 19.5L2 19L4.5 18.5L5 16Z" fill="currentColor"
-            opacity="0.6" />
+          <path d="M5 16L5.5 18.5L8 19L5.5 19.5L5 22L4.5 19.5L2 19L4.5 18.5L5 16Z" fill="currentColor" opacity="0.6" />
           <path d="M19 16L19.5 18.5L22 19L19.5 19.5L19 22L18.5 19.5L16 19L18.5 18.5L19 16Z" fill="currentColor"
             opacity="0.6" />
         </svg>
@@ -62,32 +61,29 @@ export default {
 </script>
 
 <style scoped>
-/* Variables CSS définies localement */
-:root {
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-primary-rgb: 99, 102, 241;
-  --color-primary-dark-rgb: 79, 70, 229;
-  --color-text: #f8fafc;
-  --color-text-light: #cbd5e1;
-}
-
 .gallery-footer {
   margin-top: 6rem;
   padding: 0;
-  background: linear-gradient(135deg, 
-    rgba(99, 102, 241, 0.05) 0%, 
-    rgba(79, 70, 229, 0.08) 100%);
+  background: linear-gradient(135deg,
+      rgba(99, 102, 241, 0.05) 0%,
+      rgba(79, 70, 229, 0.08) 100%);
   border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 24px;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(99, 102, 241, 0.1),
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-rgb: 99, 102, 241;
+  --color-primary-dark-rgb: 79, 70, 229;
+  --color-text: #f8fafc;
+  --color-text-light: #cbd5e1;
 }
 
 .gallery-footer::before {
@@ -97,7 +93,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(79, 70, 229, 0.08) 0%, transparent 50%);
   pointer-events: none;
@@ -119,9 +115,9 @@ export default {
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, 
-    rgba(99, 102, 241, 0.15), 
-    rgba(79, 70, 229, 0.2));
+  background: linear-gradient(135deg,
+      rgba(99, 102, 241, 0.15),
+      rgba(79, 70, 229, 0.2));
   border-radius: 20px;
   margin-bottom: 2rem;
   color: #6366f1;
@@ -131,8 +127,15 @@ export default {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .footer-title {
@@ -226,21 +229,21 @@ export default {
   .footer-content {
     padding: 2.5rem 2rem;
   }
-  
+
   .footer-title {
     font-size: 1.6rem;
   }
-  
+
   .footer-description {
     font-size: 1rem;
   }
-  
+
   .footer-highlights {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  
+
   .footer-philosophy {
     font-size: 1rem;
     padding: 0 1rem;
@@ -251,22 +254,22 @@ export default {
   .footer-content {
     padding: 2rem 1.5rem;
   }
-  
+
   .footer-icon {
     width: 60px;
     height: 60px;
     margin-bottom: 1.5rem;
   }
-  
+
   .footer-icon svg {
     width: 30px;
     height: 30px;
   }
-  
+
   .footer-title {
     font-size: 1.4rem;
   }
-  
+
   .highlight-item {
     padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
