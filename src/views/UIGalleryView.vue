@@ -32,6 +32,8 @@
 
 <script>
 import GalleryFooter from '@/components/GalleryFooter.vue';
+import UICardGallery from '@/datasource/UICardGallery.json';
+
 export default {
   name: 'UIGalleryView',
   components: {
@@ -39,89 +41,8 @@ export default {
   },
   data() {
     return {
-      pages: [
-        {
-          name: 'Signalis',
-          theme: 'Retro Sci-fi',
-          description: 'A dark, atmospheric interface inspired by the game Signalis, featuring CRT effects and glitch animations.',
-          path: '/competences/Signalis',
-          tags: ['CRT Effect', 'Dark Theme', 'Retro', 'Animation'],
-          style: 'signalis'
-        },
-        {
-          name: 'Ready or Not',
-          theme: 'Tactical Interface',
-          description: 'Military-style interface inspired by Ready or Not, with tactical overlay elements and status displays.',
-          path: '/competences/ReadyOrNot',
-          tags: ['Military', 'HUD', 'Dark Theme'],
-          style: 'readyornot'
-        },
-        {
-          name: 'Neumorphism',
-          theme: 'Modern Clean',
-          description: 'Clean and modern interface using neumorphic design principles with soft shadows and minimal colors.',
-          path: '/competences/Neumorphism',
-          tags: ['Modern', 'Dark Theme', 'Minimal'],
-          style: 'neumorphism'
-        },
-        {
-          name: 'Minimalist',
-          theme: 'Elegant',
-          description: 'A minimalist design focusing on typography and whitespace, inspired by Swiss design principles.',
-          path: '/competences/Minimalist',
-          tags: ['Minimalist', 'Typography', 'Swiss Design'],
-          style: 'minimalist'
-        },
-        {
-          name: 'Y2K',
-          theme: 'Y2K Aesthetic',
-          description: 'A vibrant and nostalgic interface inspired by the Y2K aesthetic, featuring bold colors and playful elements.',
-          path: '/competences/Y2K',
-          tags: ['Y2K', 'Bold Colors', 'Playful Design'],
-          style: 'y2k'
-        },
-        {
-          name: 'Vintage/Analog',
-          theme: 'Vintage and Analog',
-          description: 'A vintage-inspired interface with analog effects, reminiscent of old-school technology and design.',
-          path: '/competences/VintageAnalog',
-          tags: ['Vintage', 'Analog', 'Retro'],
-          style: 'vintageanalog'
-        },
-        {
-          name: 'ASCII/Pixel Art',
-          theme: 'Text-Based',
-          description: 'An ASCII art-inspired interface that uses text characters to create a unique visual style.',
-          path: '/competences/ASCII',
-          tags: ['ASCII', 'Text Art', 'Pixel Art'],
-          style: 'ascii'
-        },
-        {
-          name: 'Claymorphism',
-          theme: 'Claymorphism',
-          description: 'A soft, tactile interface design that mimics the look and feel of clay, with rounded shapes and shadows.',
-          path: '/competences/Claymorphism',
-          tags: ['Claymorphism', 'Soft Design', 'Tactile'],
-          style: 'claymorphism'
-        },
-        {
-          name: 'Retro/Synthwave',
-          theme: 'Retro Synthwave',
-          description: 'A vibrant, neon-lit interface inspired by the retro-futuristic synthwave aesthetic, featuring bold colors and geometric shapes.',
-          path: '/competences/RetroSynthwave',
-          tags: ['Retro', 'Synthwave', 'Neon Colors'],
-          style: 'retro-synthwave'
-        },
-        {
-          name: 'Professional',
-          theme: 'Modern Sleek',
-          description: 'A sleek, professional interface design that emphasizes usability and modern aesthetics, suitable for business applications.',
-          path: '/competences/Professional',
-          tags: ['Professional', 'Slick Design', 'Usability'],
-          style: 'professional'
-        }
-      ]
-    }
+      pages: UICardGallery.pages
+    };
   }
 }
 </script>

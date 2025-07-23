@@ -1,129 +1,114 @@
 <template>
   <div v-if="!CustomNavBar" class="navbar-container">
-    <div class="navbar" :class="{ 'navbar-small': isScrollingDown }">
-      <!-- Logo avec effet amélioré -->
+    <div class="navbar" :class="{ 'navbar-scrolled': isScrollingDown }">
+      <!-- Logo avec effet glassmorphism -->
       <router-link to="/" class="logo">
-        <div class="logo-icon">🌙</div>
-        <span class="logo-text">moonlight</span>
-      </router-link>
-      
-      <div class="navbar-right">
-        <div class="links">
-          <router-link to="/projects" class="nav-link">
-            <span class="link-icon">📁</span>
-            <span class="link-text">projects</span>
-          </router-link>
-          <router-link to="/drawings" class="nav-link">
-            <span class="link-icon">🎨</span>
-            <span class="link-text">drawings</span>
-          </router-link>
-          <router-link to="/about-me" class="nav-link">
-            <span class="link-icon">👤</span>
-            <span class="link-text">about me</span>
-          </router-link>
+        <div class="logo-glow"></div>
+        <div class="logo-icon">
+          <span class="moon-icon">🌙</span>
         </div>
+        <span class="logo-text gradient-text">moonlight</span>
+      </router-link>
 
-        <!-- Language Slider amélioré -->
-        <div class="language-slider">
-          <div class="slider-track" @click="toggleLanguage">
-            <div
-              class="slider-thumb"
-              :class="{ 'slider-thumb-en': currentLanguage === 'EN' }"
-            >
+      <div class="navbar-right">
+        <!-- Navigation links avec glassmorphism -->
+        <nav class="nav-links" v-if="!isMobile">
+          <router-link to="/projects" class="nav-link glass-link">
+            <div class="link-icon-wrapper">
+              <span class="link-icon">📁</span>
+            </div>
+            <span class="link-text">projects</span>
+            <div class="link-glow"></div>
+          </router-link>
+          <router-link to="/drawings" class="nav-link glass-link">
+            <div class="link-icon-wrapper">
+              <span class="link-icon">🎨</span>
+            </div>
+            <span class="link-text">drawings</span>
+            <div class="link-glow"></div>
+          </router-link>
+          <router-link to="/about-me" class="nav-link glass-link">
+            <div class="link-icon-wrapper">
+              <span class="link-icon">👤</span>
+            </div>
+            <span class="link-text">about me</span>
+            <div class="link-glow"></div>
+          </router-link>
+        </nav>
+
+        <!-- Language Slider glassmorphism -->
+        <div class="language-selector glass-card" v-if="!isMobile">
+          <div class="language-track" @click="toggleLanguage">
+            <div class="language-thumb" :class="{ 'thumb-en': currentLanguage === 'EN' }">
               <span class="language-indicator">{{ currentLanguage }}</span>
             </div>
-            <div class="language-labels">
-              <span
-                class="lang-label lang-fr"
-                :class="{ active: currentLanguage === 'FR' }"
-                >FR</span
-              >
-              <span
-                class="lang-label lang-en"
-                :class="{ active: currentLanguage === 'EN' }"
-                >EN</span
-              >
+            <div class="language-options">
+              <span class="lang-option" :class="{ active: currentLanguage === 'FR' }">FR</span>
+              <span class="lang-option" :class="{ active: currentLanguage === 'EN' }">EN</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Bouton burger amélioré -->
-      <button 
-        class="burger-btn" 
-        @click="toggleMenu" 
-        v-if="isMobile"
-        :class="{ 'burger-active': showMenu }"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Burger menu glassmorphism -->
+      <button class="burger-menu glass-card" @click="toggleMenu" v-if="isMobile" :class="{ 'burger-active': showMenu }">
+        <div class="burger-lines">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </div>
+        <div class="burger-glow"></div>
       </button>
     </div>
 
-    <!-- Overlay pour fermer le menu -->
-    <div 
-      class="mobile-overlay" 
-      v-if="showMenu && isMobile" 
-      @click="closeMenu"
-    ></div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" v-if="showMenu && isMobile" @click="closeMenu" :class="{ 'overlay-visible': showMenu }">
+    </div>
 
-    <!-- Menu mobile amélioré -->
-    <div 
-      class="mobile-menu" 
-      :class="{ 'mobile-menu-open': showMenu }" 
-      v-if="isMobile"
-    >
+    <!-- Mobile Menu avec glassmorphism -->
+    <div class="mobile-menu glass-card" :class="{ 'menu-open': showMenu }" v-if="isMobile">
       <div class="mobile-menu-header">
         <div class="mobile-logo">
-          <div class="logo-icon">🌙</div>
-          <h3>Menu</h3>
+          <div class="mobile-logo-icon">🌙</div>
+          <h3 class="gradient-text">Navigation</h3>
         </div>
-        <button class="close-btn" @click="closeMenu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-          </svg>
-        </button>
       </div>
-      
+
       <div class="mobile-menu-content">
-        <router-link to="/projects" @click="closeMenu" class="mobile-nav-link">
-          <span class="mobile-link-icon">📁</span>
-          <span>Projects</span>
-          <div class="link-arrow">→</div>
+        <router-link to="/projects" @click="closeMenu" class="mobile-nav-link glass-link">
+          <div class="mobile-link-icon">📁</div>
+          <span class="mobile-link-text">Projects</span>
+          <div class="mobile-link-arrow">→</div>
+          <div class="mobile-link-glow"></div>
         </router-link>
-        <router-link to="/drawings" @click="closeMenu" class="mobile-nav-link">
-          <span class="mobile-link-icon">🎨</span>
-          <span>Drawings</span>
-          <div class="link-arrow">→</div>
+
+        <router-link to="/drawings" @click="closeMenu" class="mobile-nav-link glass-link">
+          <div class="mobile-link-icon">🎨</div>
+          <span class="mobile-link-text">Drawings</span>
+          <div class="mobile-link-arrow">→</div>
+          <div class="mobile-link-glow"></div>
         </router-link>
-        <router-link to="/about-me" @click="closeMenu" class="mobile-nav-link">
-          <span class="mobile-link-icon">👤</span>
-          <span>About Me</span>
-          <div class="link-arrow">→</div>
+
+        <router-link to="/about-me" @click="closeMenu" class="mobile-nav-link glass-link">
+          <div class="mobile-link-icon">👤</div>
+          <span class="mobile-link-text">About Me</span>
+          <div class="mobile-link-arrow">→</div>
+          <div class="mobile-link-glow"></div>
         </router-link>
-        
+
         <div class="mobile-language-section">
-          <h4>🌐 Language</h4>
-          <div class="language-slider mobile-language-slider">
-            <div class="slider-track" @click="toggleLanguage">
-              <div
-                class="slider-thumb"
-                :class="{ 'slider-thumb-en': currentLanguage === 'EN' }"
-              >
+          <h4 class="section-title">
+            <span class="section-icon">🌐</span>
+            Language
+          </h4>
+          <div class="mobile-language-selector glass-card">
+            <div class="language-track" @click="toggleLanguage">
+              <div class="language-thumb" :class="{ 'thumb-en': currentLanguage === 'EN' }">
                 <span class="language-indicator">{{ currentLanguage }}</span>
               </div>
-              <div class="language-labels">
-                <span
-                  class="lang-label lang-fr"
-                  :class="{ active: currentLanguage === 'FR' }"
-                  >FR</span
-                >
-                <span
-                  class="lang-label lang-en"
-                  :class="{ active: currentLanguage === 'EN' }"
-                  >EN</span
-                >
+              <div class="language-options">
+                <span class="lang-option" :class="{ active: currentLanguage === 'FR' }">FR</span>
+                <span class="lang-option" :class="{ active: currentLanguage === 'EN' }">EN</span>
               </div>
             </div>
           </div>
@@ -132,6 +117,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "NavBar",
@@ -158,7 +144,6 @@ export default {
     $route: {
       immediate: true,
       handler(to) {
-        // On vérifie si la route commence par /competences/
         this.CustomNavBar = to.path.startsWith('/competences/');
       }
     }
@@ -167,6 +152,14 @@ export default {
     this.prevScrollPos = window.scrollY;
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("resize", this.handleResize);
+
+    // Animation d'entrée progressive
+    setTimeout(() => {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) {
+        navbar.classList.add('navbar-visible');
+      }
+    }, 100);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -175,7 +168,16 @@ export default {
   methods: {
     handleScroll() {
       const currentScrollPos = window.scrollY;
-      this.isScrollingDown = currentScrollPos > this.prevScrollPos && currentScrollPos > 100;
+
+      // Navbar visible quand on scroll vers le haut OU qu'on est en haut de page
+      if (currentScrollPos < this.prevScrollPos || currentScrollPos <= 50) {
+        this.isScrollingDown = false;
+      }
+      // Navbar cachée quand on scroll vers le bas
+      else if (currentScrollPos > this.prevScrollPos && currentScrollPos > 50) {
+        this.isScrollingDown = true;
+      }
+
       this.prevScrollPos = currentScrollPos;
     },
     toggleLanguage() {
@@ -199,408 +201,413 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+/* Container principal */
 .navbar-container {
-  width: 100%;
-  display: flex;
-  top: 0;
   position: fixed;
-  justify-content: center;
-  backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(16, 21, 45, 0.85);
-  border-bottom: 1px solid rgba(144, 168, 255, 0.15);
-  z-index: 100;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 2rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+
+  /* Variables CSS selon la documentation */
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --blur-strength: 20px;
 }
 
-.navbar-container::before {
+/* Navbar avec glassmorphism */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-strength));
+  -webkit-backdrop-filter: blur(var(--blur-strength));
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 1rem 2rem;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.navbar-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accent lumineux en haut */
+.navbar::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(144, 168, 255, 0.3), transparent);
+  background: var(--accent-gradient);
+  opacity: 0.5;
 }
 
-.navbar {
-  display: flex;
-  padding: 1.5rem 2rem;
-  width: 100%;
-  max-width: 1200px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.navbar.navbar-scrolled {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+  /* Évite les interactions fantômes */
 }
 
-.navbar,
-.links {
-  font-family: "N27", sans-serif;
-  font-weight: 600;
+.navbar:not(.navbar-scrolled) {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
-/* Logo amélioré */
+/* Logo avec effets */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   text-decoration: none;
-  color: #90a8ff;
-  font-weight: 700;
-  font-size: 1.3rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-}
-
-.logo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-
-.logo:hover::before {
-  opacity: 1;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 16px;
+  transition: all 0.4s ease;
 }
 
 .logo:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(144, 168, 255, 0.2);
-  border-color: rgba(144, 168, 255, 0.3);
+}
+
+.logo-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: var(--primary-gradient);
+  border-radius: 20px;
+  opacity: 0;
+  filter: blur(15px);
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.logo:hover .logo-glow {
+  opacity: 0.3;
 }
 
 .logo-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
-  filter: drop-shadow(0 0 8px rgba(144, 168, 255, 0.5));
-  transition: transform 0.4s ease;
+  position: relative;
+  transition: all 0.4s ease;
 }
 
 .logo:hover .logo-icon {
-  transform: rotate(15deg) scale(1.1);
+  transform: scale(1.1) rotate(5deg);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.moon-icon {
+  filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.5));
 }
 
 .logo-text {
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
 }
 
+/* Texte avec gradient */
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--text-primary);
+}
+
+@supports not (-webkit-background-clip: text) {
+  .gradient-text {
+    color: var(--text-primary);
+  }
+}
+
+/* Navigation desktop */
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.links {
+.nav-links {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-/* Liens de navigation améliorés */
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
-  font-size: 1rem;
-  padding: 0.75rem 1.25rem;
-  color: #ccc;
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-secondary);
+  border-radius: 16px;
   position: relative;
-  background: rgba(144, 168, 255, 0.03);
-  border: 1px solid rgba(144, 168, 255, 0.08);
-  font-weight: 600;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
-  border-radius: 12px 12px 0 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.nav-link:hover::before,
-.nav-link.router-link-active::before {
-  opacity: 1;
+.glass-link {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  backdrop-filter: blur(10px);
 }
 
 .nav-link:hover {
-  color: #90a8ff;
-  background: rgba(144, 168, 255, 0.1);
-  border-color: rgba(144, 168, 255, 0.25);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(144, 168, 255, 0.15);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+  border-color: var(--glass-border);
+  background: var(--glass-bg);
 }
 
-.nav-link.router-link-active {
-  color: #90a8ff;
-  background: rgba(144, 168, 255, 0.12);
-  border-color: rgba(144, 168, 255, 0.3);
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.1);
+.link-icon-wrapper {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Styling spécial pour le lien drawings avec dégradé artistique */
-.nav-link[href="/drawings"] {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.03), rgba(255, 107, 107, 0.03), rgba(255, 165, 0, 0.03));
-  border: 1px solid rgba(144, 168, 255, 0.08);
-}
-
-.nav-link[href="/drawings"]:hover {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(255, 107, 107, 0.08), rgba(255, 165, 0, 0.08));
-  border-color: rgba(144, 168, 255, 0.25);
-  color: #90a8ff;
-}
-
-.nav-link[href="/drawings"].router-link-active {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.12), rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.1));
+.nav-link:hover .link-icon-wrapper {
+  background: var(--primary-gradient);
+  transform: scale(1.1);
 }
 
 .link-icon {
   font-size: 1rem;
-  transition: transform 0.3s ease;
 }
 
-.nav-link:hover .link-icon {
-  transform: scale(1.1);
-}
-
-/* Animation spéciale pour l'icône drawings */
-.nav-link[href="/drawings"]:hover .link-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.navbar-small {
-  padding: 1rem 2rem;
-}
-
-.navbar-small .links {
-  display: none;
-}
-
-/* Language Slider amélioré */
-.language-slider {
-  display: flex;
-  align-items: center;
-}
-
-.slider-track {
-  position: relative;
-  width: 85px;
-  height: 40px;
-  background: rgba(144, 168, 255, 0.08);
-  border: 2px solid rgba(144, 168, 255, 0.2);
-  border-radius: 24px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-}
-
-.slider-track::before {
-  content: '';
+.link-glow {
   position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border-radius: 24px;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  filter: blur(20px);
   z-index: -1;
+  transition: opacity 0.6s ease;
 }
 
-.slider-track:hover::before {
+.nav-link:hover .link-glow {
   opacity: 1;
 }
 
-.slider-track:hover {
-  background: rgba(144, 168, 255, 0.12);
-  border-color: rgba(144, 168, 255, 0.35);
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.15);
-  transform: translateY(-1px);
+/* Router link actif */
+.nav-link.router-link-active {
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
 }
 
-.slider-thumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 38px;
+.nav-link.router-link-active .link-icon-wrapper {
+  background: var(--primary-gradient);
+}
+
+/* Language Selector */
+.language-selector {
+  padding: 0.5rem;
+  border-radius: 16px;
+  min-width: 80px;
+}
+
+.language-track {
+  position: relative;
+  width: 64px;
   height: 32px;
-  background: linear-gradient(135deg, #90a8ff, #b8c5ff);
-  border-radius: 20px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-track:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 28px;
+  background: var(--primary-gradient);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
-.slider-thumb-en {
-  transform: translateX(43px);
+.language-thumb.thumb-en {
+  transform: translateX(32px);
 }
 
 .language-indicator {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #1a1a1a;
-  font-family: "N27", sans-serif;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
-.language-labels {
+.language-options {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
+  justify-content: space-around;
   pointer-events: none;
 }
 
-.lang-label {
+.lang-option {
   font-size: 0.7rem;
-  font-weight: 700;
-  font-family: "N27", sans-serif;
-  color: #638297;
-  transition: all 0.4s ease;
-  opacity: 0.7;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
-.lang-label.active {
-  opacity: 0;
+.lang-option.active {
+  color: transparent;
 }
 
-.lang-label:not(.active) {
-  color: #90a8ff;
-  opacity: 1;
-  text-shadow: 0 0 8px rgba(144, 168, 255, 0.5);
-}
-
-/* Burger Button amélioré */
-.burger-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* Burger Menu */
+.burger-menu {
   width: 48px;
   height: 48px;
-  background: rgba(144, 168, 255, 0.08);
-  border: 2px solid rgba(144, 168, 255, 0.2);
   border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  z-index: 101;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  gap: 4px;
+  border: none;
   position: relative;
+  transition: all 0.4s ease;
 }
 
-.burger-btn::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-
-.burger-btn:hover::before {
-  opacity: 1;
-}
-
-.burger-btn:hover {
-  background: rgba(144, 168, 255, 0.15);
-  border-color: rgba(144, 168, 255, 0.4);
+.burger-menu:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(144, 168, 255, 0.2);
+  border-color: var(--glass-border);
 }
 
-.burger-btn span {
-  display: block;
-  height: 3px;
-  width: 22px;
-  background: #90a8ff;
-  border-radius: 2px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
-  box-shadow: 0 1px 3px rgba(144, 168, 255, 0.3);
+.burger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.burger-btn.burger-active span:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 7px);
+.line {
+  width: 20px;
+  height: 2px;
+  background: var(--text-secondary);
+  border-radius: 1px;
+  transition: all 0.3s ease;
 }
 
-.burger-btn.burger-active span:nth-child(2) {
+.burger-active .line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger-active .line-2 {
   opacity: 0;
-  transform: scale(0);
 }
 
-.burger-btn.burger-active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+.burger-active .line-3 {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Mobile Overlay amélioré */
+.burger-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: var(--primary-gradient);
+  border-radius: 16px;
+  opacity: 0;
+  filter: blur(15px);
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.burger-menu:hover .burger-glow {
+  opacity: 0.3;
+}
+
+/* Mobile Overlay */
 .mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 98;
+  backdrop-filter: blur(5px);
   opacity: 0;
-  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition: opacity 0.3s ease;
+  z-index: 999;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+.mobile-overlay.overlay-visible {
+  opacity: 1;
 }
 
-/* Mobile Menu amélioré */
+/* Mobile Menu */
 .mobile-menu {
   position: fixed;
-  top: 0;
-  right: -100%;
-  width: 340px;
-  max-width: 90vw;
-  height: 100vh;
-  background: linear-gradient(135deg, rgba(16, 21, 45, 0.97), rgba(16, 21, 45, 0.99));
-  backdrop-filter: blur(24px) saturate(180%);
-  border-left: 2px solid rgba(144, 168, 255, 0.25);
-  z-index: 102;
-  transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  box-shadow: -12px 0 48px rgba(0, 0, 0, 0.4);
+  top: 6rem;
+  left: 2rem;
+  right: 2rem;
+  max-height: calc(100vh - 8rem);
+  border-radius: 24px;
+  padding: 2rem;
+  transform: translateY(-20px) scale(0.95);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1001;
+  overflow-y: auto;
 }
 
 .mobile-menu::before {
@@ -608,86 +615,48 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, rgba(144, 168, 255, 0.5), transparent);
+  right: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  opacity: 0.8;
 }
 
-.mobile-menu-open {
-  right: 0;
+.mobile-menu.menu-open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .mobile-menu-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 2rem 1.5rem 1.5rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.15);
-  background: rgba(144, 168, 255, 0.03);
+  margin-bottom: 2rem;
 }
 
 .mobile-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.mobile-logo .logo-icon {
-  font-size: 1.5rem;
-  filter: drop-shadow(0 0 8px rgba(144, 168, 255, 0.5));
-}
-
-.mobile-menu-header h3 {
-  color: #90a8ff;
-  font-family: "N27", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0;
-  text-shadow: 0 0 12px rgba(144, 168, 255, 0.3);
-}
-
-.close-btn {
-  background: rgba(144, 168, 255, 0.08);
-  border: 2px solid rgba(144, 168, 255, 0.2);
+.mobile-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
-  color: #90a8ff;
-  width: 42px;
-  height: 42px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  font-size: 1.2rem;
 }
 
-.close-btn::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(45deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-
-.close-btn:hover::before {
-  opacity: 1;
-}
-
-.close-btn:hover {
-  background: rgba(144, 168, 255, 0.15);
-  transform: scale(1.05) rotate(90deg);
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.2);
+.mobile-logo h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .mobile-menu-content {
-  flex: 1;
-  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -696,378 +665,158 @@ export default {
 .mobile-nav-link {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  color: #ccc;
-  font-size: 1.1rem;
+  gap: 1.5rem;
+  padding: 1.5rem;
   text-decoration: none;
-  font-family: "N27", sans-serif;
-  font-weight: 600;
-  padding: 1.25rem 1.5rem;
+  color: var(--text-secondary);
   border-radius: 16px;
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  justify-content: space-between;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  font-weight: 500;
 }
 
-.mobile-nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
-  border-radius: 16px 16px 0 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.mobile-nav-link:hover::before,
-.mobile-nav-link.router-link-active::before {
-  opacity: 1;
-}
-
-.mobile-nav-link:hover,
-.mobile-nav-link.router-link-active {
-  color: #90a8ff;
-  background: rgba(144, 168, 255, 0.12);
-  border-color: rgba(144, 168, 255, 0.25);
-  transform: translateX(6px);
-  box-shadow: 0 6px 20px rgba(144, 168, 255, 0.15);
-}
-
-/* Style spécial pour le lien drawings en mobile */
-.mobile-nav-link[href="/drawings"] {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.05), rgba(255, 107, 107, 0.03), rgba(255, 165, 0, 0.03));
-}
-
-.mobile-nav-link[href="/drawings"]:hover,
-.mobile-nav-link[href="/drawings"].router-link-active {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.12), rgba(255, 107, 107, 0.08), rgba(255, 165, 0, 0.08));
+.mobile-nav-link:hover {
+  transform: translateY(-2px);
+  color: var(--text-primary);
+  border-color: var(--glass-border);
 }
 
 .mobile-link-icon {
-  font-size: 1.3rem;
-  min-width: 28px;
-  text-align: center;
-  transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .mobile-nav-link:hover .mobile-link-icon {
+  background: var(--primary-gradient);
   transform: scale(1.1);
 }
 
-/* Animation spéciale pour l'icône drawings en mobile */
-.mobile-nav-link[href="/drawings"]:hover .mobile-link-icon {
-  transform: scale(1.1) rotate(5deg);
+.mobile-link-text {
+  flex: 1;
+  font-size: 1.1rem;
 }
 
-.link-arrow {
+.mobile-link-arrow {
   font-size: 1.2rem;
-  transition: transform 0.4s ease;
-  opacity: 0.6;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
 }
 
-.mobile-nav-link:hover .link-arrow {
+.mobile-nav-link:hover .mobile-link-arrow {
   transform: translateX(4px);
+  color: var(--text-primary);
+}
+
+.mobile-link-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  filter: blur(30px);
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.mobile-nav-link:hover .mobile-link-glow {
   opacity: 1;
 }
 
 .mobile-language-section {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(144, 168, 255, 0.15);
-  background: rgba(144, 168, 255, 0.02);
-  border-radius: 12px;
-  padding: 2rem 1rem;
+  border-top: 1px solid var(--glass-border);
 }
 
-.mobile-language-section h4 {
-  color: #90a8ff;
-  font-family: "N27", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 1.5rem 0;
-  text-align: center;
-  text-shadow: 0 0 8px rgba(144, 168, 255, 0.3);
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
-.mobile-language-slider {
-  justify-content: center;
+.section-icon {
+  font-size: 1.2rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 800px) {
-  .burger-btn {
-    display: flex;
-  }
-  
-  .navbar .links,
-  .navbar-right .language-slider {
-    display: none;
-  }
-  
-  .navbar {
+.mobile-language-selector {
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-strength));
+  -webkit-backdrop-filter: blur(var(--blur-strength));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .navbar-container {
     padding: 1rem 1.5rem;
   }
-  
-  .navbar-small {
-    padding: 0.75rem 1.5rem;
-  }
 }
 
-@media (min-width: 801px) {
-  .navbar {
-    max-width: 1000px;
-    padding: 1.8rem 2.5rem;
-  }
-
-  .navbar-small {
-    padding: 1.2rem 2.5rem;
-  }
-
-  .nav-link {
-    font-size: 1.1rem;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .navbar-right {
-    gap: 2.5rem;
-  }
-
-  .slider-track {
-    width: 95px;
-    height: 42px;
-  }
-
-  .slider-thumb {
-    width: 40px;
-    height: 34px;
-  }
-
-  .slider-thumb-en {
-    transform: translateX(45px);
-  }
-
-  .language-indicator {
-    font-size: 0.8rem;
-  }
-
-  .lang-label {
-    font-size: 0.75rem;
-  }
-
-  .language-labels {
-    padding: 0 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar {
+@media (max-width: 800px) {
+  .navbar-container {
     padding: 1rem;
   }
 
-  .navbar-small {
-    padding: 0.75rem 1rem;
+  .navbar {
+    padding: 0.75rem 1.5rem;
   }
 
-  .logo {
-    font-size: 1.1rem;
-    padding: 0.6rem 1rem;
-    gap: 0.5rem;
-  }
-
-  .logo-icon {
+  .logo-text {
     font-size: 1.3rem;
   }
 
-  .mobile-menu {
-    width: 100vw;
-    max-width: 100vw;
-  }
-
-  .mobile-menu-content {
-    padding: 1.5rem 1rem;
-  }
-
-  .mobile-nav-link {
-    padding: 1rem 1.25rem;
-    font-size: 1rem;
-  }
-
-  .mobile-link-icon {
-    font-size: 1.2rem;
-    min-width: 24px;
+  .logo-icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    padding: 0.8rem;
+  .mobile-menu {
+    left: 1rem;
+    right: 1rem;
+    padding: 1.5rem;
   }
 
-  .logo {
-    font-size: 1rem;
-    padding: 0.5rem 0.8rem;
+  .mobile-nav-link {
+    padding: 1.25rem;
   }
 
-  .logo-text {
-    display: none;
-  }
-
-  .logo-icon {
-    font-size: 1.4rem;
-  }
-
-  .burger-btn {
-    width: 44px;
-    height: 44px;
-  }
-
-  .burger-btn span {
-    width: 20px;
-    height: 2px;
+  .mobile-link-icon {
+    width: 36px;
+    height: 36px;
   }
 }
 
-/* Animations avancées */
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOutToRight {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-.mobile-menu-open {
-  animation: slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Animation pour les éléments du menu mobile */
-.mobile-nav-link {
-  opacity: 0;
-  transform: translateX(30px);
-  animation: slideInNavLink 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.mobile-nav-link:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.mobile-nav-link:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.mobile-nav-link:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.mobile-language-section {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: slideInLanguage 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
-}
-
-@keyframes slideInNavLink {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInLanguage {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Effet de glow pour les éléments actifs */
-.nav-link.router-link-active,
-.mobile-nav-link.router-link-active {
-  position: relative;
-}
-
-.nav-link.router-link-active::after,
-.mobile-nav-link.router-link-active::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(144, 168, 255, 0.1) 0%, transparent 70%);
-  border-radius: 12px;
-  z-index: -1;
-  animation: pulseGlow 2s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-}
-
-/* Smooth scrolling pour les transitions */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Amélioration de l'accessibilité */
+/* Animation de réduction de mouvement */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* Focus states pour l'accessibilité */
-.nav-link:focus,
-.mobile-nav-link:focus,
-.burger-btn:focus,
-.close-btn:focus,
-.slider-track:focus {
-  outline: 2px solid #90a8ff;
-  outline-offset: 2px;
-}
-
-/* Amélioration du contraste pour l'accessibilité */
-@media (prefers-contrast: high) {
-  .navbar-container {
-    background: rgba(0, 0, 0, 0.95);
-  }
-  
-  .nav-link,
-  .mobile-nav-link {
-    border-color: #90a8ff;
-  }
-  
-  .nav-link:hover,
-  .mobile-nav-link:hover {
-    background: rgba(144, 168, 255, 0.3);
   }
 }
 </style>
