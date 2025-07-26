@@ -502,25 +502,6 @@ export default {
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
-.image-ring {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border: 2px solid transparent;
-  background: var(--accent-gradient);
-  border-radius: 20px;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 2;
-}
-
-.project-image-container:hover .image-ring {
-  opacity: 0.6;
-  animation: rotate 8s linear infinite;
-}
-
 @keyframes pulse-glow {
 
   0%,
