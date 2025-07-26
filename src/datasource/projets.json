@@ -83,5 +83,15 @@
     "status": "finished",
     "categorie": "Application",
     "url": "https://github.com/moonlight58/SoundBoard-Python"
+  },
+  "VentSafe": {
+    "titre": "Vent Safe",
+    "description": "VentSafe is a small personal website made for me and my bf to be able to share our vent idea and feelings without having to feel the 'I'm disturbing you' feeling and being able to express ourselves without constraint",
+    "language": "VueJS",
+    "technologies": ["CSS", "Tailwind"],
+    "image": "VentSafe.png",
+    "status": "finished",
+    "categorie": "Website",
+    "url": "https://github.com/moonlight58/VentSafe"
   }
 }
