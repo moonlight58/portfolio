@@ -5,7 +5,11 @@
       <div class="header-content">
         <div class="profile-minimal">
           <div class="avatar-container">
-            <img src="@/assets/moon-pfp.webp" alt="Gaël Röthlin" class="avatar" />
+            <img
+              src="@/assets/moon-pfp.webp"
+              alt="Gaël Röthlin"
+              class="avatar"
+            />
             <div class="avatar-border"></div>
           </div>
           <div class="identity">
@@ -14,7 +18,10 @@
           </div>
         </div>
         <div class="intro-line">
-          <p>{{ $t("BodyPart1") }}, BUT<span class="accent">*</span>, {{ $t("BodyPart2") }}</p>
+          <p>
+            {{ $t("BodyPart1") }}, BUT<span class="accent">*</span>,
+            {{ $t("BodyPart2") }}
+          </p>
           <small><span class="accent">*</span>({{ $t("Precision") }})</small>
         </div>
       </div>
@@ -29,7 +36,11 @@
           <div class="content-block">
             <p>{{ $t("Description") }}</p>
             <div class="social-minimal">
-              <a href="https://www.instagram.com/osiris._25" target="_blank" class="social-link">
+              <a
+                href="https://www.instagram.com/osiris._25"
+                target="_blank"
+                class="social-link"
+              >
                 @osiris._25
               </a>
             </div>
@@ -50,7 +61,11 @@
               <h3 class="project-name">Projet {{ n }}</h3>
               <p class="project-desc">Description du projet {{ n }}</p>
               <div class="project-tech">
-                <span class="tech-tag" v-for="tech in ['Vue.js', 'CSS', 'JS']" :key="tech">
+                <span
+                  class="tech-tag"
+                  v-for="tech in ['Vue.js', 'CSS', 'JS']"
+                  :key="tech"
+                >
                   {{ tech }}
                 </span>
               </div>
@@ -62,14 +77,16 @@
       <!-- Section Stage (Template) -->
       <section class="internship-section">
         <div class="section-border">
-          <h2 class="section-title">{{ $t('Internship') }}</h2>
+          <h2 class="section-title">{{ $t("Internship") }}</h2>
           <div class="internship-timeline">
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <h3 class="internship-title">Stage de développement</h3>
                 <p class="internship-company">Entreprise • 2024</p>
-                <p class="internship-desc">Mission de développement web et création d'applications.</p>
+                <p class="internship-desc">
+                  Mission de développement web et création d'applications.
+                </p>
               </div>
             </div>
             <div class="timeline-item">
@@ -77,7 +94,9 @@
               <div class="timeline-content">
                 <h3 class="internship-title">Projet personnel</h3>
                 <p class="internship-company">Freelance • 2023</p>
-                <p class="internship-desc">Développement de solutions web sur mesure.</p>
+                <p class="internship-desc">
+                  Développement de solutions web sur mesure.
+                </p>
               </div>
             </div>
           </div>
@@ -89,12 +108,24 @@
         <div class="section-border">
           <h2 class="section-title">{{ $t("Skills") }}</h2>
           <div class="skills-categories">
-            <div class="skill-category" v-for="(skillType, index) in Object.keys(skills)" :key="index">
+            <div
+              class="skill-category"
+              v-for="(skillType, index) in Object.keys(skills)"
+              :key="index"
+            >
               <h3 class="category-name">{{ $t(skillType) }}</h3>
               <div class="skills-list">
-                <div class="skill-item" v-for="(language, langIndex) in skills[skillType].language" :key="langIndex"
-                  @click="redirectToUrl(language.url)">
-                  <img :src="require(`@/assets/skills/${language.name}.svg`)" :alt="language.name" class="skill-icon" />
+                <div
+                  class="skill-item"
+                  v-for="(language, langIndex) in skills[skillType].language"
+                  :key="langIndex"
+                  @click="redirectToUrl(language.url)"
+                >
+                  <img
+                    :src="require(`@/assets/skills/${language.name}.svg`)"
+                    :alt="language.name"
+                    class="skill-icon"
+                  />
                   <span class="skill-name">{{ language.name }}</span>
                 </div>
               </div>
@@ -122,11 +153,19 @@
               <span class="contact-label">Email</span>
               <span class="contact-value">gael.rothlin@proton.me</span>
             </a>
-            <a href="https://www.instagram.com/osiris._25" target="_blank" class="contact-item">
+            <a
+              href="https://www.instagram.com/osiris._25"
+              target="_blank"
+              class="contact-item"
+            >
               <span class="contact-label">Instagram</span>
               <span class="contact-value">@osiris._25</span>
             </a>
-            <a href="https://github.com/moonlight58" target="_blank" class="contact-item">
+            <a
+              href="https://github.com/moonlight58"
+              target="_blank"
+              class="contact-item"
+            >
               <span class="contact-label">GitHub</span>
               <span class="contact-value">moonlight58</span>
             </a>
@@ -169,7 +208,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -299,7 +338,7 @@ export default {
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -457,6 +496,18 @@ export default {
   font-weight: 500;
   margin: 0 0 1.5rem;
   color: #cccccc;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.category-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background-color: #333333;
 }
 
 .skills-list {
@@ -465,9 +516,25 @@ export default {
   gap: 1.5rem;
 }
 
-.skills-categories:hover .skill-icon {
-  filter: grayscale(100%) opacity(0.8);
-  transition: filter 0.3s;
+.skill-item:hover ~ .skill-item .skill-icon,
+.skill-category:has(.skill-item:hover) .skill-item:not(:hover) .skill-icon {
+  filter: grayscale(100%) opacity(0.4);
+  transition: filter 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  filter: grayscale(0%) opacity(1);
+  transition: filter 0.3s ease;
+}
+
+.skill-item:hover ~ .skill-item .skill-name,
+.skill-category:has(.skill-item:hover) .skill-item:not(:hover) .skill-name {
+  color: #555555;
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+  color: #888888;
 }
 
 .skill-item {
