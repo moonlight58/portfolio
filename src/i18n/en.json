@@ -12,11 +12,6 @@
   "Uni": "University",
   "Done": "Done",
   "On Going": "On Going",
-  "Spotify-TUI_content": "Terminal-based Spotify client lighter than the original application made in C and uses Spotify Web API",
-  "SteamToLinux_content": "Game compatibility check on Linux",
-  "Moonify_content": "Music player with Imgur API and Discord RPC",
-  "B.I.E.N._content": "Website about climate change and technology",
-  "Roi-des-Roses_content": "Board Game with JavaFX",
 
   "Internship": "Internship",
   "InternshipContent1": "I had the opportunity to work as a web full-stack intern at the",
@@ -25,29 +20,73 @@
   "InternshipExperience": "Web Full-Stack Developer",
   "InternshipLocation": "Learning Centre Claude Oytana",
   "InternshipDuration": "7 April 2025 - 30 May 2025",
-  
+
   "Skills": "What are my Skills ?",
   "Software Development": "Software Development",
   "Back-end Web": "Back-end Web",
   "Front-end Web": "Front-end Web",
   "Game Development": "Game Development",
   "Art": "Art",
-  
+
   "WhyPortfolio": "Why this Portfolio ?",
   "WhyPortfolioContent": "This site is developed as part of my Portfolio project during the three years in the BUT. It will be continually updated to reflect my academic and personal projects.",
   "Contact": "Want to chat, collaborate or just say hello? Don't hesitate to contact me!",
 
-  "Roi-des-Roses_description": "Roi des Roses is a game that I created in 2024 with a team of 3 students. It is a card game based on the famous game 'King of Tokyo'. The goal is to be the first player to reach 20 points. The game is played with 2 players and takes about 30 minutes to play. You can play against a player or against a bot.",
-  "B.I.E.N._description": "SAE-SiteInfo-BIEN is an educational and interactive website designed to raise public awareness of the environmental impact of digital technology, and in particular of technology-related CO2 production. The main objective is to help users become aware of the technology sector's carbon footprint through visual and customizable data.",
-  "SteamToLinux_description": "SteamToLinux is a tool designed to effortlessly check the compatibility of your games on Linux. It leverages the SteamAPI for accessing your game library and scrapes data from ProtonDB to provide comprehensive compatibility information.",
-  "Spotify-TUI_description": "Spotify-TUI is a terminal user interface for Spotify. It allows you to control your Spotify account from the command line. You can search for songs, albums, and playlists, and play them directly from the terminal. It is still in development due to the lack of time to finish it. The goal is to make it a complete Spotify client with all the features of the official client.",
-  "Moonify_description": "Moonify is a command-line Spotify client that lets you listen to music on your terminal. It's designed to be light and fast, while offering a pleasant user experience. A GUI version has also been implemented for people who aren't comfortable with CLIs, enabling a better experience and handling.",
-  "ArchLinuxTutorial_description": "ArchLinuxTutorial is a comprehensive guide to installing and configuring Arch Linux. It covers everything from the initial installation to advanced configuration, making it a valuable resource for both beginners and experienced users.",
-  "DnD_Prototype_description": "Role-playing game prototype using the rules of the 5th edition of Dungeons And Dragons, with a JRPG-like aspect. The game is still in development, but the goal is to create a complete game with a story, characters, and battles.",
-  "Install-UpdateDiscord_description": "Install-UpdateDiscord is a Bash script that allows you to install and update Discord on Linux-based systems and installs the Vencord mod client. It is designed to be simple and efficient, making it easy for Linux users to install Discord.",
-  "SoundBoard-Python_description": "SoundBoard-Python is a sound management application for anyone. It lets you play sounds, organize them into categories and associate them with shortcut keys. It's a project currently under development, aimed at providing an intuitive user interface and advanced features for sound management.",
-  "Vent Safe_description": "VentSafe is a small personal website made for me and my bf to be able to share our vent idea and feelings without having to feel the 'I'm disturbing you' feeling and being able to express ourselves without constraint",
-  
+  "B.I.E.N._description": "B.I.E.N. is an educational and interactive website designed to raise public awareness of the environmental impact of digital technology, and in particular the CO2 produced by technology. The main aim is to help users become more aware of the carbon footprint of the technology sector through visual and customisable data.",
+  "B.I.E.N._content": "Website on climate change and technology",
+  "B.I.E.N._technical_learning": "",
+  "B.I.E.N._soft_learning": "",
+  "B.I.E.N._challenges_learning": "",
+
+  "SteamToLinux_content": "Checking game compatibility on Linux",
+  "SteamToLinux_description": "SteamToLinux is a tool designed to easily check the compatibility of your games on Linux. It uses the Steam API to access your games library and retrieves data from ProtonDB to provide comprehensive compatibility information.",
+  "SteamToLinux_technical_learning": "",
+  "SteamToLinux_soft_learning": "",
+  "SteamToLinux_challenges_learning": "",
+
+  "Spotify-tui_content": "Spotify terminal client, lighter than the original application, built in C using the Spotify Web API",
+  "Spotify-tui_description": "Spotify-tui is a terminal-based user interface for Spotify. It lets you control your Spotify account from the command line. You can search for songs, albums and playlists, and play them directly from the terminal. It's still in development due to lack of time. The aim is to make it a full Spotify client with all the features of the official client.",
+  "Spotify-tui_technical_learning": "",
+  "Spotify-tui_soft_learning": "",
+  "Spotify-tui_challenges_learning": "",
+
+  "Moonify_content": "Music player with Imgur API and Discord RPC",
+  "Moonify_description": "Moonify is a command-line music player that lets you listen to music on your terminal. It is designed to be light and fast, while offering a pleasant user experience. A graphical version has also been implemented for those who are not comfortable with CLI (Command-Line Interface) interfaces, offering a better experience and handling.",
+  "Moonify_technical_learning": "Learn more about Python, managing the Imgur and Discord RPC APIs, optimising performance with multithreading...",
+  "Moonify_soft_learning": "",
+  "Moonify_challenges_learning": "",
+
+  "ArchLinuxTutorial_description": "ArchLinuxTutorial is a comprehensive guide to installing and configuring Arch Linux. It covers everything from initial installation to advanced configuration, making it a valuable resource for beginners and experienced users alike.",
+  "ArchLinuxTutorial_technical_learning": "System configuration, Service management, Package installation, User management...",
+  "ArchLinuxTutorial_soft_learning": "Creation of clear and concise documentation...",
+  "ArchLinuxTutorial_challenges_learning": "Dependency management, Compatibility with different versions of Arch Linux...",
+
+  "DnD_Prototype_description": "Prototype role-playing game using the 5th edition Dungeons And Dragons rules, with a look and feel similar to a JRPG. The game is still in development, but the aim is to create a complete game with a story, characters and combat.",
+  "DnD_Prototype_technical_learning": "Deeper understanding of Java, event management, game state management...",
+  "DnD_Prototype_soft_learning": "",
+  "DnD_Prototype_challenges_learning": "",
+
+  "Install-UpdateDiscord_description": "Install-UpdateDiscord is a Bash script that installs and updates Discord on Linux-based systems and installs the Vencord mod client. It is designed to be simple and efficient, making it easy for Linux users to install Discord.",
+  "Install-UpdateDiscord_technical_learning": "More in-depth knowledge of Bash, Linux package management, Installing the Vencord mod client using Curl requests, Task automation, Error management...",
+  "Install-UpdateDiscord_soft_learning": "",
+  "Install-UpdateDiscord_challenges_learning": "Dependency management, Compatibility with different Linux distributions, Script optimisation for improved performance...",
+
+  "SoundBoard-Python_description": "SoundBoard-Python is a sound management application for anyone. It lets you play sounds, organise them into categories and associate them with shortcut keys. It is a project currently under development, aimed at providing an intuitive user interface and advanced sound management features.",
+  "SoundBoard-Python_technical_learning": "Learn more about Python, event management, using third-party libraries, handling audio and virtual audio outputs...",
+  "SoundBoard-Python_soft_learning": "Communicating with users to gather feedback...",
+  "SoundBoard-Python_challenges_learning": "Performance management to avoid latency, optimisation of the user interface for a better experience with the use of libraries such as “TKinter”...",
+
+  "Roi-des-Roses_content": "Board game made with JavaFX",
+  "Roi-des-Roses_description": "Roi des Roses is a game I created in 2024 with a team of 3 students. It's a card game based on the famous “King of Tokyo” game. The aim is to be the first player to reach 20 points. The game is played by 2 players and lasts around 30 minutes. You can play against one player or against a bot.",
+  "Roi-des-Roses_technical_learning": "Deepening my skills in Java and JavaFX, event management...",
+  "Roi-des-Roses_soft_learning": "Working in a team of 3 people, conflict management...",
+  "Roi-des-Roses_challenges_learning": "Implementing the bot's AI, optimising performance...",
+
+  "Vent Safe_content": "Personal website made with VueJS and Firebase Realtime Database",
+  "Vent Safe_description": "VentSafe is a little personal site created for me and my boyfriend so that we can share our ideas and feelings without having to feel “I'm bothering you” and so that we can express ourselves without constraint.",
+  "Vent Safe_technical_learning": "CSS and Tailwind, mastering and optimising animations and styles for less powerful devices",
+  "Vent Safe_soft_learning": "Understanding the importance of communication between people, Thinking about what you say before you say it, Better understanding of my emotions and myself",
+  "Vent Safe_challenges_learning": "Integration and optimisation of the use of Discord Webhooks, automated sending of private messages to notify when a text is created.",
 
   "Website": "Website",
   "Application": "Application",

@@ -19,14 +19,14 @@
   "InternshipExperience": "Développeur Web Full-Stack",
   "InternshipLocation": "Learning Centre Claude Oytana",
   "InternshipDuration": "7 avril 2025 - 30 mai 2025",
-  
+
   "Skills": "Quelles sont mes compétences ?",
   "Software Development": "Développement de logiciels",
   "Back-end Web": "Back-end Web",
   "Front-end Web": "Front-end Web",
   "Game Development": "Développement de jeux",
   "Art": "Art",
-  
+
   "WhyPortfolio": "Pourquoi ce Portfolio ?",
   "WhyPortfolioContent": "Ce site est développé dans le cadre de mon projet de Portfolio durant les trois années du BUT. Il sera continuellement mis à jour pour refléter mes projets académiques et personnels.",
   "Contact": "Envie de discuter, de collaborer ou simplement de dire bonjour ? N'hésitez pas à me contacter !",
@@ -54,24 +54,22 @@
   "Moonify_technical_learning": "Approfondissement de Python, gestion des API Imgur et Discord RPC, Optimisation des performances avec le multithreading...",
   "Moonify_soft_learning": "",
   "Moonify_challenges_learning": "",
-  
+
   "ArchLinuxTutorial_description": "ArchLinuxTutorial est un guide complet pour l'installation et la configuration d'Arch Linux. Il couvre tout, de l'installation initiale à la configuration avancée, ce qui en fait une ressource précieuse pour les débutants comme pour les utilisateurs expérimentés.",
   "ArchLinuxTutorial_technical_learning": "Configuration du système, Gestion des services, Installation de paquets, Gestion des utilisateurs...",
   "ArchLinuxTutorial_soft_learning": "Création de documentation claire et concise...",
   "ArchLinuxTutorial_challenges_learning": "Gestion des dépendances, Compatibilité avec différentes versions d'Arch Linux...",
-  
+
   "DnD_Prototype_description": "Prototype de jeu de rôle utilisant les règles de la 5ème édition de Dungeons And Dragons, avec un aspect similaire à un JRPG. Le jeu est encore en développement, mais l'objectif est de créer un jeu complet avec une histoire, des personnages et des combats.",
   "DnD_Prototype_technical_learning": "Approfondissement de Java, Gestion des événements, Gestion des états du jeu...",
   "DnD_Prototype_soft_learning": "",
   "DnD_Prototype_challenges_learning": "",
- 
-  
+
   "Install-UpdateDiscord_description": "Install-UpdateDiscord est un script Bash qui permet d'installer et de mettre à jour Discord sur les systèmes basés sur Linux et installe le client mod Vencord. Il est conçu pour être simple et efficace, facilitant l'installation de Discord pour les utilisateurs de Linux.",
   "Install-UpdateDiscord_technical_learning": "Approfondissement de Bash, Gestion des paquets Linux, Installation du client mod Vencord au travers de requête Curl, Automatisation des tâches, Gestion des erreurs...",
   "Install-UpdateDiscord_soft_learning": "",
   "Install-UpdateDiscord_challenges_learning": "Gestion des dépendances, Compatibilité avec différentes distributions Linux, Optimisation du script pour une meilleure performance...",
 
-  
   "SoundBoard-Python_description": "SoundBoard-Python est une application de gestion de son pour n'importe qui. Elle permet de jouer des sons, de les organiser en catégories et de les associer à des touches de raccourci. C'est un projet en cours de développement, visant à offrir une interface utilisateur intuitive et des fonctionnalités avancées pour la gestion des sons.",
   "SoundBoard-Python_technical_learning": "Approfondissement de Python, Gestion des événements, Utilisation de bibliothèques tierces, Manipulation des sorties audios et virtual audio...",
   "SoundBoard-Python_soft_learning": "Communication avec les utilisateurs pour recueillir des retours...",
@@ -83,10 +81,11 @@
   "Roi-des-Roses_soft_learning": "Collaboration en équipe de 3 personnes, Gestion des conflits...",
   "Roi-des-Roses_challenges_learning": "Implémentation de l'IA du bot, Optimisation des performances...",
 
-  "Vent Safe_content": "",
+  "Vent Safe_content": "Site web personnel réalisé avec VueJS et Firebase Realtime Database",
   "Vent Safe_description": "VentSafe est un petit site personnel créé pour moi et mon copain afin de pouvoir partager nos idées et nos sentiments sans avoir à ressentir le sentiment de « je te dérange » et de pouvoir nous exprimer sans contrainte.",
   "Vent Safe_technical_learning": "Approfondissement de CSS et Tailwind, Maitrise et optimisations des animations et styles pour les appareils moins performants",
   "Vent Safe_soft_learning": "Compréhension de l'importance de la communication entre des personnes, Réflexions des propos avant de les dire, Travail sur soi-même",
+  "Vent Safe_challenges_learning": "Intégration et optimisations de l'utilisation des Webhooks de Discord, Automatisation d'envoie de message privé pour notifier lors de la création d'un texte",
 
   "Website": "Site web",
   "Application": "Application",

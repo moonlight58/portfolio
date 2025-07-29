@@ -1,13 +1,17 @@
 <template>
   <div class="about-container">
     <!-- Hero Section avec animation d'entrée -->
-    <section class="hero-section" :class="{ 'visible': isLoaded }">
+    <section class="hero-section" :class="{ visible: isLoaded }">
       <div class="hero-card">
         <div class="profile-showcase">
           <div class="avatar-container">
             <div class="avatar-glow"></div>
-            <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin - Portrait" class="avatar-image"
-              @load="handleImageLoad" />
+            <img
+              src="../assets/moon-pfp.webp"
+              alt="Gaël Röthlin - Portrait"
+              class="avatar-image"
+              @load="handleImageLoad"
+            />
             <div class="avatar-ring"></div>
           </div>
 
@@ -41,7 +45,7 @@
     <!-- Sections de contenu -->
     <div class="content-sections">
       <!-- Section Introduction -->
-      <section class="content-section" :class="{ 'visible': sectionsVisible }">
+      <section class="content-section" :class="{ visible: sectionsVisible }">
         <div class="section-header">
           <div class="section-icon">🎯</div>
           <h2 class="section-title">À propos de moi</h2>
@@ -51,10 +55,13 @@
         <div class="glass-card intro-card">
           <div class="card-content">
             <p class="intro-text">
-              Je suis étudiant en deuxième année de <span class="highlight">BUT Informatique</span>,
-              passionné à la fois par le hardware et le software. Récemment, j'ai développé un
-              intérêt particulier pour la création d'applications <span class="highlight">TUI</span>
-              (Text User Interface), qui est rapidement devenu l'un de mes domaines d'exploration favoris.
+              Je suis étudiant en deuxième année de
+              <span class="highlight">BUT Informatique</span>, passionné à la
+              fois par le hardware et le software. Récemment, j'ai développé un
+              intérêt particulier pour la création d'applications
+              <span class="highlight">TUI</span>
+              (Text User Interface), qui est rapidement devenu l'un de mes
+              domaines d'exploration favoris.
             </p>
 
             <div class="note-container">
@@ -68,7 +75,7 @@
       </section>
 
       <!-- Section Passion -->
-      <section class="content-section" :class="{ 'visible': sectionsVisible }">
+      <section class="content-section" :class="{ visible: sectionsVisible }">
         <div class="section-header">
           <div class="section-icon">💻</div>
           <h2 class="section-title">Ma passion</h2>
@@ -81,7 +88,8 @@
               <div class="highlight-icon">✨</div>
               <h3>Projet actuel</h3>
               <p>
-                Transformation d'applications complètes comme <span class="brand-highlight">Spotify</span>
+                Transformation d'applications complètes comme
+                <span class="brand-highlight">Spotify</span>
                 en versions TUI optimisées
               </p>
             </div>
@@ -89,25 +97,29 @@
             <div class="philosophy-box">
               <blockquote>
                 <p>
-                  "Bien que j'aime construire des applications, ma véritable passion réside dans leur
-                  perfectionnement : les rendre sans bugs, accessibles et conviviales."
+                  "Bien que j'aime construire des applications, ma véritable
+                  passion réside dans leur perfectionnement : les rendre sans
+                  bugs, accessibles et conviviales."
                 </p>
               </blockquote>
             </div>
 
             <p class="passion-description">
-              Cette attention aux détails s'étend à mes autres projets, comme la création
-              d'un tutoriel complet pour l'installation et la maintenance d'<span class="tech-highlight">Arch
-                Linux</span>.
-              Je me concentre sur la décomposition détaillée de chaque étape pour aider
-              les utilisateurs à surmonter les défis avec confiance.
+              Cette attention aux détails s'étend à mes autres projets, comme la
+              création d'un tutoriel complet pour l'installation et la
+              maintenance d'<span class="tech-highlight">Arch Linux</span>. Je
+              me concentre sur la décomposition détaillée de chaque étape pour
+              aider les utilisateurs à surmonter les défis avec confiance.
             </p>
           </div>
         </div>
       </section>
 
       <!-- Section Compétences -->
-      <section class="content-section skills-section" :class="{ 'visible': sectionsVisible }">
+      <section
+        class="content-section skills-section"
+        :class="{ visible: sectionsVisible }"
+      >
         <div class="section-header">
           <div class="section-icon">🚀</div>
           <h2 class="section-title">Compétences & Expertise</h2>
@@ -166,7 +178,7 @@
       </section>
 
       <!-- Section Art -->
-      <section class="content-section" :class="{ 'visible': sectionsVisible }">
+      <section class="content-section" :class="{ visible: sectionsVisible }">
         <div class="section-header">
           <div class="section-icon">🎨</div>
           <h2 class="section-title">Côté artistique</h2>
@@ -177,24 +189,39 @@
           <div class="card-content">
             <div class="art-description">
               <p>
-                Dans mon temps libre, j'explore mon côté artistique à travers le dessin.
-                Bien que j'expérimente avec différents styles d'art, j'ai trouvé ma spécialité
-                dans le <span class="art-highlight">dark art</span> et le <span class="art-highlight">doodling</span>.
+                Dans mon temps libre, j'explore mon côté artistique à travers le
+                dessin. Bien que j'expérimente avec différents styles d'art,
+                j'ai trouvé ma spécialité dans le
+                <span class="art-highlight">dark art</span> et le
+                <span class="art-highlight">doodling</span>.
               </p>
             </div>
 
             <div class="social-showcase">
               <div class="social-header">
                 <h4>Découvrez mon travail</h4>
-                <div class="social-subtitle">Explorez mes créations sur Instagram</div>
+                <div class="social-subtitle">
+                  Explorez mes créations sur Instagram
+                </div>
               </div>
 
-              <a href="https://www.instagram.com/osiris._25/" target="_blank" class="instagram-cta"
-                rel="noopener noreferrer" @click="trackInstagramClick">
+              <a
+                href="https://www.instagram.com/osiris._25/"
+                target="_blank"
+                class="instagram-cta"
+                rel="noopener noreferrer"
+                @click="trackInstagramClick"
+              >
                 <div class="instagram-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
-                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
                   </svg>
                 </div>
                 <div class="instagram-content">
@@ -209,7 +236,10 @@
       </section>
 
       <!-- Section Philosophy -->
-      <section class="content-section final-section" :class="{ 'visible': sectionsVisible }">
+      <section
+        class="content-section final-section"
+        :class="{ visible: sectionsVisible }"
+      >
         <div class="section-header">
           <div class="section-icon">🌟</div>
           <h2 class="section-title">Philosophie</h2>
@@ -219,14 +249,16 @@
         <div class="glass-card philosophy-card">
           <div class="card-content">
             <div class="quote-container">
-              <div class="quote-mark">"</div>
+              <div class="quote-mark-left">“</div>
               <blockquote class="philosophy-quote">
                 <p>
-                  Je suis toujours avide d'expérimenter, d'apprendre de nouvelles techniques
-                  de développement et d'explorer des approches innovantes dans le monde de
-                  l'informatique.
+                  Je suis toujours avide d'expérimenter, d'apprendre de
+                  nouvelles techniques de développement et d'explorer des
+                  approches innovantes dans le monde de l'informatique.
                 </p>
               </blockquote>
+              <div class="quote-mark-right">”</div>
+
               <div class="quote-attribution">
                 <div class="attribution-line"></div>
                 <span>Gaël Röthlin</span>
@@ -241,34 +273,34 @@
 
 <script>
 export default {
-  name: 'AboutView',
+  name: "AboutView",
   data() {
     return {
       isLoaded: false,
-      sectionsVisible: false
-    }
+      sectionsVisible: false,
+    };
   },
   mounted() {
     // Animation d'entrée progressive
     setTimeout(() => {
-      this.isLoaded = true
-    }, 100)
+      this.isLoaded = true;
+    }, 100);
 
     setTimeout(() => {
-      this.sectionsVisible = true
-    }, 600)
+      this.sectionsVisible = true;
+    }, 600);
   },
   methods: {
     handleImageLoad() {
       // Gestion du chargement d'image si nécessaire
-      console.log('Profile image loaded')
+      console.log("Profile image loaded");
     },
     trackInstagramClick() {
       // Analytics ou tracking si nécessaire
-      console.log('Instagram link clicked')
-    }
-  }
-}
+      console.log("Instagram link clicked");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -276,12 +308,14 @@ export default {
 .about-container {
   font-family: "N27", -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
-  background: linear-gradient(135deg,
-      rgba(102, 126, 234, 0.05) 0%,
-      rgba(118, 75, 162, 0.08) 25%,
-      rgba(240, 147, 251, 0.05) 50%,
-      rgba(75, 172, 254, 0.08) 75%,
-      rgba(0, 242, 254, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.05) 0%,
+    rgba(118, 75, 162, 0.08) 25%,
+    rgba(240, 147, 251, 0.05) 50%,
+    rgba(75, 172, 254, 0.08) 75%,
+    rgba(0, 242, 254, 0.05) 100%
+  );
   padding: 2rem;
   margin-top: 8rem;
   color: #ffffff;
@@ -322,14 +356,13 @@ export default {
   padding: 4rem;
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 20px 60px rgba(102, 126, 234, 0.15),
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15),
     0 0 0 1px rgba(255, 255, 255, 0.05) inset;
   transition: all 0.6s ease;
 }
 
 .hero-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -341,8 +374,7 @@ export default {
 
 .hero-card:hover {
   transform: translateY(-8px);
-  box-shadow:
-    0 30px 80px rgba(102, 126, 234, 0.25),
+  box-shadow: 0 30px 80px rgba(102, 126, 234, 0.25),
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
@@ -411,7 +443,6 @@ export default {
 }
 
 @keyframes pulse-glow {
-
   0%,
   100% {
     opacity: 0.3;
@@ -656,7 +687,7 @@ export default {
 }
 
 .glass-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -814,7 +845,7 @@ export default {
 }
 
 .skill-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -882,7 +913,7 @@ export default {
 }
 
 .skill-list li::before {
-  content: '▸';
+  content: "▸";
   position: absolute;
   left: 0;
   color: rgba(102, 126, 234, 0.7);
@@ -918,15 +949,27 @@ export default {
 }
 
 .dev-glow {
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.3) 0%,
+    transparent 70%
+  );
 }
 
 .system-glow {
-  background: radial-gradient(circle, rgba(75, 172, 254, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(75, 172, 254, 0.3) 0%,
+    transparent 70%
+  );
 }
 
 .art-glow {
-  background: radial-gradient(circle, rgba(240, 147, 251, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(240, 147, 251, 0.3) 0%,
+    transparent 70%
+  );
 }
 
 .skill-card:hover .skill-glow {
@@ -935,9 +978,11 @@ export default {
 
 /* Art Showcase Card */
 .art-showcase-card {
-  background: linear-gradient(135deg,
-      rgba(240, 147, 251, 0.08) 0%,
-      rgba(245, 87, 108, 0.06) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(240, 147, 251, 0.08) 0%,
+    rgba(245, 87, 108, 0.06) 100%
+  );
   border: 1px solid rgba(240, 147, 251, 0.15);
 }
 
@@ -1011,16 +1056,18 @@ export default {
 }
 
 .instagram-cta::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(240, 147, 251, 0.1) 50%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(240, 147, 251, 0.1) 50%,
+    transparent 100%
+  );
   transition: left 0.6s ease;
 }
 
@@ -1083,9 +1130,11 @@ export default {
 
 /* Philosophy Card */
 .philosophy-card {
-  background: linear-gradient(135deg,
-      rgba(102, 126, 234, 0.08) 0%,
-      rgba(118, 75, 162, 0.06) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.08) 0%,
+    rgba(118, 75, 162, 0.06) 100%
+  );
   border: 1px solid rgba(102, 126, 234, 0.15);
 }
 
@@ -1094,13 +1143,22 @@ export default {
   text-align: center;
 }
 
-.quote-mark {
+.quote-mark-left,
+.quote-mark-right {
   font-size: 6rem;
   font-family: serif;
   color: rgba(102, 126, 234, 0.3);
   line-height: 1;
+  display: flex;
+}
+
+.quote-mark-left {
   margin-bottom: -2rem;
-  display: block;
+}
+
+.quote-mark-right {
+  line-height: 0;
+  flex-direction: row-reverse;
 }
 
 .philosophy-quote {
@@ -1260,7 +1318,6 @@ export default {
 
 /* Animations additionnelles */
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0px);
