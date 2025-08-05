@@ -1343,3 +1343,4 @@ export default {
 .hud-section:nth-child(5) { transition-delay: 0.6s; }
 .hud-section:nth-child(6) { transition-delay: 0.8s; }
 .hud-section:nth-child(7) { transition-delay: 1.0s; }
+</style>
