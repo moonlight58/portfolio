@@ -876,3 +876,293 @@
     font-size: 0.9rem;
   }
 }
+
+/* GTFO Style */
+.gallery-card[data-theme="gtfo"] {
+  background: linear-gradient(135deg, #0a0e0f 0%, #1a1f20 100%);
+  border: 2px solid #00d4ff;
+  color: #ffffff;
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.3),
+    0 0 40px rgba(0, 212, 255, 0.1),
+    inset 0 0 0 1px rgba(0, 212, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.gallery-card[data-theme="gtfo"] .card-background-effects {
+  background: 
+    /* Grille technique */
+    linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    /* Effet de scan */
+    linear-gradient(180deg, 
+      transparent 0%, 
+      rgba(0, 212, 255, 0.03) 25%, 
+      rgba(0, 212, 255, 0.05) 50%, 
+      rgba(0, 212, 255, 0.03) 75%, 
+      transparent 100%
+    );
+  background-size: 20px 20px, 20px 20px, 100% 100%;
+  animation: gtfoScan 4s linear infinite, gtfoFlicker 8s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes gtfoScan {
+  0% {
+    background-position: 0 0, 0 0, 0 -100%;
+  }
+  100% {
+    background-position: 20px 20px, 20px 20px, 0 100%;
+  }
+}
+
+@keyframes gtfoFlicker {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+  97% { opacity: 0.6; }
+  98% { opacity: 0.9; }
+  99% { opacity: 0.6; }
+}
+
+/* Badge de danger en haut à droite */
+.gallery-card[data-theme="gtfo"]::before {
+  content: '⚠';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #ff4444;
+  font-size: 1.2rem;
+  z-index: 3;
+  animation: gtfoWarning 2s ease-in-out infinite;
+}
+
+@keyframes gtfoWarning {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.gallery-card[data-theme="gtfo"] .card-header {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gallery-card[data-theme="gtfo"] .card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    #00d4ff 0%, 
+    transparent 50%, 
+    #00d4ff 100%
+  );
+  opacity: 0.5;
+}
+
+.gallery-card[data-theme="gtfo"] .card-header h2 {
+  color: #00d4ff;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-shadow: 
+    0 0 10px rgba(0, 212, 255, 0.8),
+    0 0 20px rgba(0, 212, 255, 0.4);
+  position: relative;
+}
+
+.gallery-card[data-theme="gtfo"] .card-header h2::before {
+  content: '> ';
+  color: #ff4444;
+  font-size: 0.8em;
+  animation: gtfoCursor 1.5s ease-in-out infinite;
+}
+
+@keyframes gtfoCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.gallery-card[data-theme="gtfo"] .card-theme {
+  background: rgba(0, 212, 255, 0.15);
+  color: #00d4ff;
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.4rem 1rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 
+    0 0 10px rgba(0, 212, 255, 0.2),
+    inset 0 0 5px rgba(0, 212, 255, 0.1);
+  position: relative;
+}
+
+.gallery-card[data-theme="gtfo"] .card-theme::before {
+  content: '[';
+  margin-right: 0.3rem;
+}
+
+.gallery-card[data-theme="gtfo"] .card-theme::after {
+  content: ']';
+  margin-left: 0.3rem;
+}
+
+.gallery-card[data-theme="gtfo"] .card-description {
+  color: #b0c4de;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-shadow: 0 0 5px rgba(176, 196, 222, 0.3);
+}
+
+.gallery-card[data-theme="gtfo"] .card-tags {
+  margin: 1.5rem 0;
+}
+
+.gallery-card[data-theme="gtfo"] .tag {
+  background: rgba(255, 68, 68, 0.15);
+  color: #ff4444;
+  border: 1px solid rgba(255, 68, 68, 0.5);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  position: relative;
+  backdrop-filter: blur(5px);
+}
+
+.gallery-card[data-theme="gtfo"] .tag::before {
+  content: '#';
+  margin-right: 0.2rem;
+  opacity: 0.7;
+}
+
+.gallery-card[data-theme="gtfo"] .visit-button {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.2) 0%, 
+    rgba(0, 212, 255, 0.3) 100%
+  );
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 15px rgba(0, 212, 255, 0.3),
+    inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+.gallery-card[data-theme="gtfo"] .visit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 212, 255, 0.3), 
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.gallery-card[data-theme="gtfo"] .visit-button:hover::before {
+  left: 100%;
+}
+
+.gallery-card[data-theme="gtfo"] .visit-button:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.4) 0%, 
+    rgba(0, 212, 255, 0.6) 100%
+  );
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 25px rgba(0, 212, 255, 0.5),
+    0 5px 15px rgba(0, 212, 255, 0.3),
+    inset 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.gallery-card[data-theme="gtfo"] .button-text::before {
+  content: '> ';
+  animation: gtfoButtonCursor 1s ease-in-out infinite;
+}
+
+@keyframes gtfoButtonCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+.gallery-card[data-theme="gtfo"] .button-arrow {
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.8));
+}
+
+.gallery-card[data-theme="gtfo"]:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #ffffff;
+  box-shadow: 
+    0 20px 40px rgba(0, 212, 255, 0.4),
+    0 0 60px rgba(0, 212, 255, 0.3),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.gallery-card[data-theme="gtfo"]:hover .card-background-effects {
+  animation-duration: 2s, 4s;
+  opacity: 1;
+}
+
+/* Effet de glitch occasionnel */
+.gallery-card[data-theme="gtfo"]:hover .card-header h2 {
+  animation: gtfoGlitch 0.3s ease-in-out;
+}
+
+@keyframes gtfoGlitch {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-card[data-theme="gtfo"] .card-header h2 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+  
+  .gallery-card[data-theme="gtfo"] .visit-button {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-card[data-theme="gtfo"] .card-header h2 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .gallery-card[data-theme="gtfo"] .card-description {
+    font-size: 0.85rem;
+  }
+}
