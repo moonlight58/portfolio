@@ -120,6 +120,18 @@
                 "Usability"
             ],
             "style": "professional"
+        },
+        {
+            "name": "GTFO",
+            "theme": "Techno-Industrial",
+            "description": "",
+            "path": "/competences/GTFO",
+            "tags": [
+                "Technical",
+                "Industrial",
+                "Game"
+            ],
+            "style": "gtfo"
         }
     ]
 }
