@@ -41,7 +41,7 @@
             <div class="profile-header">
               <div class="avatar-container">
                 <div class="avatar-scanner"></div>
-                <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="avatar-image" />
+                <img src="@/assets/moon-pfp.webp" alt="Gaël Röthlin" class="avatar-image" />
                 <div class="avatar-grid"></div>
               </div>
               <div class="profile-data">
@@ -186,7 +186,7 @@
                 <span class="protocol-name">EMAIL_LINK</span>
               </div>
               <div class="protocol-content">
-                <img src="../assets/email.svg" alt="Email" class="protocol-icon" />
+                <img src="@/assets/email.svg" alt="Email" class="protocol-icon" />
                 <span class="protocol-address">gael.rothlin@proton.me</span>
               </div>
             </a>
@@ -200,7 +200,7 @@
                 <span class="protocol-name">SOCIAL_LINK</span>
               </div>
               <div class="protocol-content">
-                <img src="../assets/instagram.svg" alt="Instagram" class="protocol-icon" />
+                <img src="@/assets/instagram.svg" alt="Instagram" class="protocol-icon" />
                 <span class="protocol-address">@osiris._25</span>
               </div>
             </a>
@@ -214,7 +214,7 @@
                 <span class="protocol-name">CODE_REPO</span>
               </div>
               <div class="protocol-content">
-                <img src="../assets/github.svg" alt="GitHub" class="protocol-icon" />
+                <img src="@/assets/github.svg" alt="GitHub" class="protocol-icon" />
                 <span class="protocol-address">moonlight58</span>
               </div>
             </a>
