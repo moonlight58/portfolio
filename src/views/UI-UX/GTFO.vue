@@ -561,14 +561,6 @@ export default {
   border: 2px solid var(--gtfo-green);
   border-radius: 8px;
   opacity: 0;
-  animation: scanner-sweep 3s linear infinite;
-}
-
-@keyframes scanner-sweep {
-  0% { opacity: 0; transform: translateY(100%); }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-100%); }
 }
 
 .avatar-grid {
