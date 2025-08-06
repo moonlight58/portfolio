@@ -22,7 +22,7 @@
           <div class="profile-header">
             <div class="profile-image-container">
               <div class="hex-overlay"></div>
-              <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
+              <img src="@/assets/moon-pfp.webp" alt="Gaël Röthlin" class="profile-image" />
               <div class="status-indicator"></div>
             </div>
             <div class="profile-info">
@@ -155,7 +155,7 @@
         <div class="contact-grid">
           <a class="contact-link email" href="mailto:gael.rothlin@proton.me">
             <div class="contact-icon">
-              <img src="../assets/email.svg" alt="Email" />
+              <img src="@/assets/email.svg" alt="Email" />
             </div>
             <div class="contact-info">
               <div class="contact-label">SECURE_MAIL</div>
@@ -166,7 +166,7 @@
           
           <a class="contact-link github" href="https://github.com/moonlight58" target="_blank">
             <div class="contact-icon">
-              <img src="../assets/github.svg" alt="GitHub" />
+              <img src="@/assets/github.svg" alt="GitHub" />
             </div>
             <div class="contact-info">
               <div class="contact-label">REPOSITORY</div>
@@ -177,7 +177,7 @@
           
           <a class="contact-link instagram" href="https://www.instagram.com/osiris._25" target="_blank">
             <div class="contact-icon">
-              <img src="../assets/instagram.svg" alt="Instagram" />
+              <img src="@/assets/instagram.svg" alt="Instagram" />
             </div>
             <div class="contact-info">
               <div class="contact-label">SOCIAL_FEED</div>
