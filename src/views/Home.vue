@@ -24,8 +24,10 @@
 
           <div class="hero-description">
             <p class="description-text">
-              {{ $t("BodyPart2") }}
+              BUT
               <span class="warning-text">*</span>
+              ,
+              {{ $t("BodyPart2") }}
             </p>
             <p class="precision-text">
               <span class="warning-text">*</span>({{ $t("Precision") }})
