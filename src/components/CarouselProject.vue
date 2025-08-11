@@ -386,7 +386,7 @@ export default {
     var(--dark-bg) 0%,
     var(--dark-surface) 100%
   );
-  border-radius: 15px;
+  border-radius: 25px;
   overflow: hidden;
   opacity: 0;
   transform: translateY(50px);

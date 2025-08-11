@@ -107,9 +107,7 @@
           <span class="heading-main">{{ $t("Internship") }}</span>
         </h2>
       </div>
-      <div class="internship-content">
-        <Internship />
-      </div>
+      <Internship />
     </section>
 
     <!-- Skills Section avec grille hexagonale -->

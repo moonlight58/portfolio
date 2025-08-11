@@ -15,9 +15,9 @@ export default {
   },
   computed: {
     isHome2Route() {
-      return this.$route.name === 'readyornot';
-    }
-  }
+      return this.$route.name === "readyornot";
+    },
+  },
 };
 </script>
 
@@ -39,17 +39,21 @@ export default {
   background-color: #10152d;
   color: white;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-h1, h2, h4 {
+h1,
+h2,
+h4 {
   font-family: "Titillium Web", sans-serif;
   font-weight: bold;
 }
 
-p, li, ul, strong, h3, span {
+p,
+li,
+ul,
+strong,
+h3,
+span {
   font-family: "N27", sans-serif;
   font-size: 1.1rem;
   line-height: 1.4;

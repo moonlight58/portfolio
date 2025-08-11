@@ -1,654 +1,757 @@
 <template>
-  <div class="stage-component section">    
-    <div class="internship-card glass-card">
-      <div class="internship-content">
-        <div class="internship-description">
-          <p class="intro-text">
-            {{ $t('InternshipContent1') }}
-            <a
-              href="https://bu.univ-fcomte.fr/bibliotheques/learning-centre-claude-oytana/"
-              target="_blank"
-              class="stage-link gradient-text"
-            >Learning Centre Claude Oytana</a>
-            {{ $t('InternshipContent2') }}
-          </p>
+  <section class="stage-zone" :class="{ 'stage-loaded': isVisible }">
+    <div class="stage-content">
+      <div class="stage-grid">
+        <div class="stage-info">
+          <div class="stage-description">
+            <p class="body-text">
+              {{ $t("InternshipContent1") }}
+              <a
+                href="https://bu.univ-fcomte.fr/bibliotheques/learning-centre-claude-oytana/"
+                target="_blank"
+                class="interactive-link"
+                >Learning Centre Claude Oytana</a
+              >
+              {{ $t("InternshipContent2") }}
+            </p>
+          </div>
+
+          <div class="stage-details">
+            <div class="detail-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                    />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <h4 class="card-title">
+                    {{
+                      $t("InternshipExperience") || "Expérience Professionnelle"
+                    }}
+                  </h4>
+                  <p class="card-description">
+                    Stage en développement et gestion de projet
+                  </p>
+                </div>
+              </div>
+              <div class="card-accent"></div>
+            </div>
+
+            <div class="detail-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <h4 class="card-title">
+                    {{
+                      $t("InternshipLocation") || "Université de Franche-Comté"
+                    }}
+                  </h4>
+                  <p class="card-description">
+                    Learning Centre Claude Oytana - Belfort
+                  </p>
+                </div>
+              </div>
+              <div class="card-accent"></div>
+            </div>
+
+            <div class="detail-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H18V1h-2v1H8V1H6v1H4.5C3.12 2 2.01 3.09 2.01 4.5L2 19.5C2 20.91 3.09 22 4.5 22h15c1.38 0 2.5-1.12 2.5-2.5v-15C22 3.09 20.91 2 19.5 2z"
+                    />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <h4 class="card-title">
+                    {{ $t("InternshipDuration") || "Stage Académique" }}
+                  </h4>
+                  <p class="card-description">
+                    Durée déterminée selon le cursus
+                  </p>
+                </div>
+              </div>
+              <div class="card-accent"></div>
+            </div>
+          </div>
+
+          <div class="cta-wrapper">
+            <router-link class="interactive-element cta-button" to="/stage">
+              <span class="cta-content">
+                <div class="cta-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"
+                    />
+                  </svg>
+                </div>
+                <span class="cta-text">{{
+                  $t("InternshipMoreAbout") || "En savoir plus"
+                }}</span>
+                <div class="cta-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </div>
+              </span>
+            </router-link>
+          </div>
         </div>
 
-        <div class="internship-details">
-          <div class="detail-item badge">
-            <div class="detail-icon skill-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <span class="detail-text">{{ $t('InternshipExperience') || 'Professional Experience' }}</span>
-          </div>
-          
-          <div class="detail-item badge">
-            <div class="detail-icon skill-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-            </div>
-            <span class="detail-text">{{ $t('InternshipLocation') || 'Université de Franche-Comté' }}</span>
-          </div>
-          
-          <div class="detail-item badge">
-            <div class="detail-icon skill-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H18V1h-2v1H8V1H6v1H4.5C3.12 2 2.01 3.09 2.01 4.5L2 19.5C2 20.91 3.09 22 4.5 22h15c1.38 0 2.5-1.12 2.5-2.5v-15C22 3.09 20.91 2 19.5 2z"/>
-              </svg>
-            </div>
-            <span class="detail-text">{{ $t('InternshipDuration') || 'Academic Internship' }}</span>
-          </div>
-        </div>
+        <div class="stage-visual">
+          <div class="visual-container">
+            <div class="floating-particle particle-1"></div>
+            <div class="floating-particle particle-2"></div>
+            <div class="floating-particle particle-3"></div>
 
-        <div class="cta-section">
-          <router-link
-            class="internship-cta action-button"
-            to="/stage"
-            target="_blank"
-          >
-            <div class="cta-icon-wrapper">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-              </svg>
+            <div class="stage-illustration">
+              <div class="illustration-inner">
+                <div class="visual-icon icon-primary">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"
+                    />
+                  </svg>
+                </div>
+                <div class="visual-glow"></div>
+              </div>
             </div>
-            <span class="cta-text">{{ $t('InternshipMoreAbout') || 'En savoir plus' }}</span>
-            <div class="cta-arrow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-              </svg>
-            </div>
-          </router-link>
-        </div>
-      </div>
-      
-      <div class="internship-visual">
-        <div class="visual-element">
-          <div class="floating-icon icon-1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-            </svg>
           </div>
-          <div class="floating-icon icon-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <div class="floating-icon icon-3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-          </div>
-          <div class="visual-glow internship-glow"></div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+
+const isVisible = ref(false);
+
+onMounted(() => {
+  // Animation d'entrée avec Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true;
+          entry.target.classList.add("in-view");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  const elements = document.querySelectorAll(
+    ".section-intro, .detail-card, .stage-visual"
+  );
+  elements.forEach((el) => observer.observe(el));
+});
+</script>
 
 <style scoped>
-/* Variables CSS conformes à la documentation du style */
-:root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --blur-strength: 20px;
-}
-
-.stage-component {
-  font-family: "N27", sans-serif;
-  margin-bottom: 4rem;
+/* Section principale suivant le pattern standard */
+.stage-zone {
+  padding: 100px 5%;
+  background: linear-gradient(
+    180deg,
+    var(--dark-bg) 0%,
+    var(--dark-surface) 100%
+  );
+  border-radius: 25px;
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease-out forwards;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-color: #f72585;
+  --dark-bg: #0a0e27;
+  --dark-surface: #151937;
+  --text-primary: #ffffff;
+  --text-secondary: #a8b2d1;
+  --border-color: rgba(102, 126, 234, 0.1);
 }
 
-/* Animation d'entrée progressive conforme à la doc */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.stage-zone.stage-loaded {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Glassmorphism Card - Technique principale conforme à la doc */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur-strength));
-  -webkit-backdrop-filter: blur(var(--blur-strength));
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
-  position: relative;
-  overflow: hidden;
+/* Contenu principal */
+.stage-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stage-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2.5rem;
+  gap: 80px;
   align-items: center;
-  padding: 2.5rem;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-/* Accent lumineux en haut conforme à la doc */
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--primary-gradient);
-  opacity: 0.8;
-  border-radius: 24px 24px 0 0;
-}
-
-/* Hover effect conforme à la doc */
-.glass-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(-8px); }
-  50% { transform: translateY(-18px); }
-}
-
-.internship-content {
+.stage-info {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
+  gap: 40px;
 }
 
-.internship-description {
-  margin-bottom: 1.5rem;
-}
-
-.intro-text {
-  margin: 0;
-  line-height: 1.8;
+/* Description */
+.stage-description .body-text {
   font-size: 1.1rem;
+  line-height: 1.8;
   color: var(--text-secondary);
-  text-align: justify;
-  font-weight: 300;
-  letter-spacing: 0.3px;
+  margin: 0;
 }
 
-/* Gradient text conforme à la doc */
-.gradient-text {
-  background: var(--accent-gradient);
+/* Lien interactif suivant le pattern */
+.interactive-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  font-weight: 600;
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  position: relative;
   padding: 0 4px;
-  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* Support navigateurs anciens */
-@supports not (-webkit-background-clip: text) {
-  .gradient-text {
-    color: #ffffff;
-  }
-}
-
-.gradient-text::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(79, 172, 254, 0.1);
-  border-radius: 8px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gradient-text:hover::before {
-  opacity: 1;
-}
-
-.gradient-text::after {
-  content: '';
+.interactive-link::after {
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-gradient);
-  border-radius: 1px;
+  background: var(--primary-gradient);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gradient-text:hover::after {
+.interactive-link:hover::after {
   width: 100%;
 }
 
-.internship-details {
+/* Cards interactives suivant le pattern de la documentation */
+.stage-details {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
-/* Système de badges conforme à la doc */
-.badge {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  background: rgba(102, 126, 234, 0.15);
-  border: 1px solid rgba(102, 126, 234, 0.3);
+.detail-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  font-weight: 600;
-  transition: all 0.4s ease;
-  color: #c7d2fe;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-.badge:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-  background: rgba(102, 126, 234, 0.2);
-  border-color: rgba(102, 126, 234, 0.5);
+.detail-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.skill-icon {
+.detail-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+  border-color: var(--accent-color);
+}
+
+.card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.card-icon {
   background: var(--primary-gradient);
   border-radius: 12px;
-  padding: 8px;
+  padding: 12px;
   color: var(--text-primary);
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-.detail-text {
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.card-description {
   color: var(--text-secondary);
   font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.2px;
+  line-height: 1.6;
+  margin: 0;
 }
 
-.cta-section {
-  margin-top: 2rem;
+.card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
-/* Bouton d'action stylisé conforme à la doc */
-.action-button {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem 2rem;
-  background: rgba(240, 147, 251, 0.1);
-  border: 2px solid rgba(240, 147, 251, 0.2);
-  border-radius: 16px;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.4s ease;
+.detail-card:hover .card-accent {
+  transform: translateX(0);
+}
+
+/* CTA Button suivant le pattern interactive-element */
+.cta-wrapper {
+  margin-top: 20px;
+}
+
+.interactive-element {
   position: relative;
+  padding: 20px 40px;
+  background: transparent;
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
   overflow: hidden;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 4px 16px rgba(240, 147, 251, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* Effet de balayage lumineux conforme à la doc */
-.action-button::before {
-  content: '';
+.interactive-element::before {
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(240, 147, 251, 0.1) 50%,
-    transparent 100%);
-  transition: left 0.6s ease;
+  background: var(--primary-gradient);
+  transition: left 0.3s ease;
+  z-index: -1;
 }
 
-.action-button:hover::before {
-  left: 100%;
+.interactive-element:hover::before {
+  left: 0;
 }
 
-.action-button:hover {
-  background: var(--secondary-gradient);
+.interactive-element:hover {
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   color: var(--text-primary);
-  transform: translateY(-4px);
-  box-shadow: 
-    0 12px 32px rgba(240, 147, 251, 0.3),
-    0 0 40px rgba(240, 147, 251, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.cta-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  background: var(--secondary-gradient);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
-  transition: all 0.3s ease;
-}
-
-.action-button:hover .cta-icon-wrapper {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.cta-text {
-  white-space: nowrap;
   font-weight: 600;
-}
-
-.cta-arrow {
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-
-.action-button:hover .cta-arrow {
-  transform: translateX(6px);
-}
-
-/* Visual Elements avec glow effects */
-.internship-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 240px;
+  font-size: 1.1rem;
   position: relative;
   z-index: 1;
 }
 
-.visual-element {
-  position: relative;
-  width: 180px;
-  height: 180px;
-}
-
-.floating-icon {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  background: var(--glass-bg);
-  border: 2px solid var(--glass-border);
-  border-radius: 50%;
+.cta-icon {
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4facfe;
-  backdrop-filter: blur(var(--blur-strength));
-  -webkit-backdrop-filter: blur(var(--blur-strength));
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 8px 32px rgba(79, 172, 254, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.floating-icon:hover {
-  transform: scale(1.1);
-  box-shadow: 
-    0 12px 48px rgba(79, 172, 254, 0.3),
-    0 0 40px rgba(79, 172, 254, 0.2);
-  border-color: rgba(79, 172, 254, 0.6);
+.cta-arrow {
+  transition: transform 0.3s ease;
 }
 
-/* Glow effect conforme à la doc */
+.interactive-element:hover .cta-arrow {
+  transform: translateX(5px);
+}
+
+/* Visual Elements */
+.stage-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease 0.4s;
+}
+
+.stage-visual.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.visual-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.stage-illustration {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+}
+
+.illustration-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-primary {
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 .visual-glow {
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.2) 0%,
+    transparent 70%
+  );
   filter: blur(30px);
   z-index: -1;
+  opacity: 0;
   transition: opacity 0.6s ease;
 }
 
-.internship-glow {
-  background: radial-gradient(circle, rgba(79, 172, 254, 0.3) 0%, transparent 70%);
-}
-
-.glass-card:hover .visual-glow {
+.stage-visual:hover .visual-glow {
   opacity: 1;
 }
 
-.icon-1 {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: float1 6s ease-in-out infinite;
+/* Particules flottantes */
+.floating-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.6;
 }
 
-.icon-2 {
-  bottom: 30px;
-  left: 10px;
-  animation: float2 6s ease-in-out infinite 2s;
+.particle-1 {
+  top: 20%;
+  left: 10%;
+  animation: float1 20s infinite;
 }
 
-.icon-3 {
-  bottom: 30px;
-  right: 10px;
-  animation: float3 6s ease-in-out infinite 4s;
+.particle-2 {
+  top: 60%;
+  right: 15%;
+  animation: float2 25s infinite 5s;
+}
+
+.particle-3 {
+  bottom: 30%;
+  left: 20%;
+  animation: float3 30s infinite 10s;
 }
 
 @keyframes float1 {
-  0%, 100% {
-    transform: translateY(0px) translateX(-50%) rotate(0deg);
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.2);
+    opacity: 1;
   }
   50% {
-    transform: translateY(-15px) translateX(-50%) rotate(5deg);
+    transform: translate(-20px, -40px) scale(0.8);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(40px, -10px) scale(1.1);
+    opacity: 0.8;
   }
 }
 
 @keyframes float2 {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.6;
   }
-  50% {
-    transform: translateY(-12px) rotate(-5deg);
+  33% {
+    transform: translate(-25px, 30px) rotate(120deg);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(35px, -25px) rotate(240deg);
+    opacity: 0.4;
   }
 }
 
 @keyframes float3 {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
   }
   50% {
-    transform: translateY(-10px) rotate(5deg);
+    transform: translate(-30px, 20px) scale(1.3);
+    opacity: 0.9;
   }
 }
 
-/* Responsive Design conforme à la doc */
+/* Responsive Design suivant les breakpoints de la documentation */
 @media (max-width: 1200px) {
-  .glass-card {
+  .stage-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 60px;
   }
-  
-  .internship-visual {
-    height: 180px;
+
+  .stage-visual {
     order: -1;
+    height: 300px;
   }
-  
-  .visual-element {
+
+  .visual-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .stage-illustration {
     width: 150px;
     height: 150px;
   }
-  
-  .floating-icon {
-    width: 48px;
-    height: 48px;
+
+  .icon-primary {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 968px) {
+  .stage-zone {
+    padding: 80px 5%;
+  }
+
+  .section-intro {
+    margin-bottom: 60px;
+  }
+
+  .stage-grid {
+    gap: 50px;
+  }
+
+  .stage-info {
+    gap: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .stage-component {
-    margin-bottom: 3rem;
-    padding: 1.5rem 0;
+  .stage-zone {
+    padding: 80px 5%;
   }
 
-  .glass-card {
-    padding: 1.5rem;
-    gap: 1.5rem;
-    border-radius: 20px;
+  .section-intro {
+    margin-bottom: 50px;
   }
-  
-  .internship-content {
-    gap: 1.5rem;
+
+  .section-heading {
+    gap: 8px;
   }
-  
-  .intro-text {
-    font-size: 1rem;
-    text-align: left;
+
+  .heading-sub {
+    font-size: 1.1rem;
   }
-  
-  .internship-details {
-    gap: 1rem;
+
+  .stage-info {
+    gap: 25px;
   }
-  
-  .badge {
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
+
+  .detail-card {
+    padding: 25px;
+    border-radius: 15px;
   }
-  
-  .skill-icon {
-    width: 32px;
-    height: 32px;
+
+  .card-inner {
+    gap: 15px;
   }
-  
-  .detail-text {
-    font-size: 0.9rem;
-  }
-  
-  .action-button {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    width: 100%;
-    justify-content: center;
-    border-radius: 12px;
-  }
-  
-  .cta-icon-wrapper {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .internship-visual {
-    height: 140px;
-  }
-  
-  .visual-element {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .floating-icon {
+
+  .card-icon {
     width: 42px;
     height: 42px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+  }
+
+  .interactive-element {
+    padding: 15px 30px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stage-visual {
+    height: 250px;
+  }
+
+  .visual-container {
+    width: 200px;
+    height: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .glass-card {
-    padding: 1.25rem;
-    gap: 1.25rem;
-    border-radius: 16px;
+  .stage-zone {
+    padding: 60px 5%;
   }
-  
-  .internship-content {
-    gap: 1.25rem;
+
+  .section-intro {
+    margin-bottom: 40px;
   }
-  
-  .intro-text {
-    font-size: 0.95rem;
-    line-height: 1.7;
+
+  .stage-info {
+    gap: 20px;
   }
-  
-  .badge {
-    padding: 0.625rem 0.875rem;
-    gap: 0.75rem;
+
+  .detail-card {
+    padding: 20px;
   }
-  
-  .skill-icon {
-    width: 28px;
-    height: 28px;
+
+  .card-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
-  
-  .detail-text {
-    font-size: 0.85rem;
+
+  .interactive-element {
+    padding: 12px 25px;
   }
-  
-  .action-button {
-    padding: 0.875rem 1.25rem;
-    font-size: 0.95rem;
+
+  .cta-content {
+    font-size: 1rem;
   }
-  
-  .cta-icon-wrapper {
-    width: 36px;
-    height: 36px;
+
+  .stage-visual {
+    height: 200px;
   }
-  
-  .internship-visual {
+
+  .visual-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .stage-illustration {
+    width: 120px;
     height: 120px;
   }
-  
-  .visual-element {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .floating-icon {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .floating-icon svg {
-    width: 20px;
-    height: 20px;
+
+  .icon-primary {
+    width: 50px;
+    height: 50px;
   }
 }
 
-/* Accessibilité - Focus states */
-.action-button:focus {
-  outline: 2px solid #4facfe;
+/* États de focus pour l'accessibilité */
+.interactive-element:focus,
+.interactive-link:focus {
+  outline: 2px solid var(--accent-color);
   outline-offset: 2px;
-}
-
-.gradient-text:focus {
-  outline: 2px solid #4facfe;
-  outline-offset: 2px;
-  border-radius: 4px;
 }
 
 /* Support pour prefers-reduced-motion */
