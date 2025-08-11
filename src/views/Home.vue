@@ -94,9 +94,7 @@
         </h2>
       </div>
       <div class="projects-container">
-        <div class="projects-frame">
-          <Carousel />
-        </div>
+        <Carousel />
       </div>
     </section>
 
