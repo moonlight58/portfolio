@@ -19,9 +19,19 @@
           <div class="role-wrapper">
             <div class="role-badge">
               <span class="role-text">{{ $t("HomeTitle") }}</span>
-              <div class="role-accent"></div>
+              <div class="role-accent-primary"></div>
+            </div>
+            <div class="role-badge">
+              <span class="role-text"
+                >{{ $t("AcademicTitle") }}<sup class="asterisk">*</sup></span
+              >
+              <div class="role-accent-secondary"></div>
             </div>
           </div>
+
+          <p class="bio-note">
+            <sup class="asterisk">*</sup>{{ $t("Precision") }}
+          </p>
 
           <div class="bio-container">
             <div class="bio-line">
@@ -30,9 +40,8 @@
             </div>
             <div class="bio-line">
               <span class="bio-icon">🚀</span>
-              <p>{{ $t("BodyPart2") }}<sup class="asterisk">*</sup></p>
+              <p>{{ $t("BodyPart2") }}</p>
             </div>
-            <p class="bio-note"><sup>*</sup>{{ $t("Precision") }}</p>
           </div>
 
           <div class="hero-actions">
@@ -66,7 +75,7 @@
             <div class="orbit-ring delay-2"></div>
             <div class="avatar-frame">
               <div class="avatar-inner">
-                <img src="../assets/moon-pfp.webp" alt="Gaël Röthlin" />
+                <img src="../assets/moon-pfp.jpg" alt="Gaël Röthlin" />
               </div>
               <div class="avatar-border"></div>
             </div>
@@ -298,6 +307,7 @@ export default {
   position: relative;
 
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #764ba2 0%, #831e55 100%);
   --accent-color: #f72585;
   --dark-bg: #0a0e27;
   --dark-surface: #151937;
@@ -488,6 +498,12 @@ export default {
   margin-top: -10px;
 }
 
+.first-name,
+.last-name {
+  line-height: normal;
+  font-size: 4rem !important;
+}
+
 @keyframes glitch {
   0%,
   100% {
@@ -500,7 +516,8 @@ export default {
 
 /* Role Badge */
 .role-wrapper {
-  margin-bottom: 40px;
+  display: inline-flex;
+  gap: 5px;
 }
 
 .role-badge {
@@ -520,7 +537,7 @@ export default {
   color: var(--text-secondary);
 }
 
-.role-accent {
+.role-accent-primary {
   position: absolute;
   top: 50%;
   left: -100%;
@@ -531,7 +548,19 @@ export default {
   transition: left 0.3s ease;
 }
 
-.role-badge:hover .role-accent {
+.role-accent-secondary {
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-gradient);
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.role-badge:hover .role-accent-primary,
+.role-badge:hover .role-accent-secondary {
   left: 0;
 }
 
@@ -571,6 +600,7 @@ export default {
 
 .bio-line p {
   margin: 0;
+  max-width: 80%;
   color: var(--text-secondary);
   font-size: 1.1rem;
 }
@@ -581,7 +611,7 @@ export default {
 }
 
 .bio-note {
-  margin-top: 10px;
+  margin: 15px 0 40px 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
   opacity: 0.7;
@@ -970,7 +1000,6 @@ section {
 .tech-item img {
   width: 30px;
   height: 30px;
-  filter: brightness(0) invert(1);
 }
 
 .tech-item span {
