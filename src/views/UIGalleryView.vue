@@ -1,11 +1,21 @@
 <template>
   <div class="gallery-container">
-    <div class="header-section">
-      <h1 class="gallery-title">Interface Gallery</h1>
-      <p class="gallery-subtitle">Découvrez ma collection d'interfaces utilisateur uniques</p>
+    <div class="section-intro" :class="{ 'in-view': isVisible }">
+      <span class="section-number">UI - UX</span>
+      <h2 class="section-heading">
+        <span class="heading-main">Interface Gallery</span>
+        <span class="heading-sub"
+          >Découvrez ma collection d'interfaces utilisateur uniques</span
+        >
+      </h2>
     </div>
     <div class="gallery-grid">
-      <div v-for="(page, index) in pages" :key="index" class="gallery-card" :data-theme="page.style">
+      <div
+        v-for="(page, index) in pages"
+        :key="index"
+        class="gallery-card"
+        :data-theme="page.style"
+      >
         <div class="card-background-effects"></div>
         <div class="card-content">
           <div class="card-header">
@@ -14,13 +24,26 @@
           </div>
           <p class="card-description">{{ page.description }}</p>
           <div class="card-tags">
-            <span v-for="tag in page.tags" :key="tag" class="tag">{{ tag }}</span>
+            <span v-for="tag in page.tags" :key="tag" class="tag">{{
+              tag
+            }}</span>
           </div>
           <router-link :to="page.path" class="visit-button">
             <span class="button-text">Visit Page</span>
-            <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
+            <svg
+              class="button-arrow"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </router-link>
         </div>
@@ -31,20 +54,51 @@
 </template>
 
 <script>
-import GalleryFooter from '@/components/GalleryFooter.vue';
-import UICardGallery from '@/datasource/UICardGallery.json';
+import { ref, onMounted, onUnmounted } from "vue";
+import GalleryFooter from "@/components/GalleryFooter.vue";
+import UICardGallery from "@/datasource/UICardGallery.json";
 
 export default {
-  name: 'UIGalleryView',
+  name: "UIGalleryView",
   components: {
-    GalleryFooter
+    GalleryFooter,
   },
-  data() {
-    return {
-      pages: UICardGallery.pages
+  setup() {
+    const isVisible = ref(false);
+    const cardsVisible = ref(false);
+    const pages = ref(UICardGallery.pages);
+
+    const handleScroll = () => {
+      const sectionIntro = document.querySelector(".section-intro");
+
+      if (sectionIntro) {
+        const rect = sectionIntro.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          isVisible.value = true;
+          // Déclencher l'animation des cartes après l'intro
+          setTimeout(() => {
+            cardsVisible.value = true;
+          }, 400);
+        }
+      }
     };
-  }
-}
+
+    onMounted(() => {
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // Check initial state
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("scroll", handleScroll);
+    });
+
+    return {
+      pages,
+      isVisible,
+      cardsVisible,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -56,38 +110,70 @@ export default {
   padding: 3rem 2rem;
   min-height: 100vh;
 
+  --accent-color: #f72585;
   --color-primary: #6366f1;
   --color-primary-dark: #4f46e5;
   --color-primary-rgb: 99, 102, 241;
   --color-primary-dark-rgb: 79, 70, 229;
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --color-text: #f8fafc;
   --color-text-light: #cbd5e1;
+  --text-secondary: #a8b2d1;
 }
 
-.header-section {
+/* Section Intro */
+.section-intro {
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
   text-align: center;
-  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-title {
-  font-size: 3.5rem;
+.section-intro.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-number {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  background: rgba(247, 37, 133, 0.1);
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(247, 37, 133, 0.2);
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.heading-main {
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  margin-bottom: 1rem;
-  background: var(--gradient-primary); ;
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  line-height: 1.1;
 }
 
-.gallery-subtitle {
-  font-size: 1.2rem;
-  color: #cbd5e1;
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0.8;
+.heading-sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  opacity: 0.9;
+  line-height: 1.6;
 }
 
 .gallery-grid {
@@ -195,13 +281,18 @@ export default {
 }
 
 .visit-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 

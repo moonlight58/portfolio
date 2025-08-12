@@ -239,7 +239,16 @@ export default {
 
 /* Variables CSS pour le thème Claymorphism */
 .clay-container {
-  /* Définition locale des variables pour éviter les conflits avec le thème global */
+  /* Styles du conteneur */
+  min-height: 100vh;
+  min-width: 99vw;
+  background: linear-gradient(135deg, var(--clay-bg) 0%, var(--clay-light) 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  color: var(--clay-text);
+  padding: 2rem;
+
   --clay-bg: #f5f3f0;
   --clay-primary: #e8ddd4;
   --clay-secondary: #d4c4b0;
@@ -250,16 +259,6 @@ export default {
   --clay-shadow: rgba(139, 115, 85, 0.15);
   --clay-shadow-dark: rgba(139, 115, 85, 0.25);
   --clay-glow: rgba(200, 168, 130, 0.3);
-
-  /* Styles du conteneur */
-  min-height: 100vh;
-  min-width: 99vw;
-  background: linear-gradient(135deg, var(--clay-bg) 0%, var(--clay-light) 100%);
-  position: relative;
-  overflow-x: hidden;
-  font-family: "Inter", sans-serif;
-  color: var(--clay-text);
-  padding: 2rem;
 }
 
 /* Formes flottantes en arrière-plan */

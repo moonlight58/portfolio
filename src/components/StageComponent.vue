@@ -194,7 +194,7 @@ onMounted(() => {
 <style scoped>
 /* Section principale suivant le pattern standard */
 .stage-zone {
-  padding: 100px 5%;
+  margin: 5% 15%;
   background: linear-gradient(
     180deg,
     var(--dark-bg) 0%,

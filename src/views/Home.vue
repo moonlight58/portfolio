@@ -1348,7 +1348,6 @@ section {
 }
 
 .split-right {
-  background: rgba(255, 255, 255, 0.02);
   border-radius: 20px;
   padding: 40px;
   backdrop-filter: blur(10px);

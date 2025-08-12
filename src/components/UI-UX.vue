@@ -101,6 +101,8 @@ export default {
 /* Zone principale suivant le pattern standard */
 .uiux-zone {
   padding: 100px 5%;
+  border: var(--border-color) 1px solid;
+  border-radius: 20px;
   background: linear-gradient(
     180deg,
     var(--dark-bg) 0%,
