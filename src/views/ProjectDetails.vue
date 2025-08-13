@@ -354,10 +354,30 @@
   <div v-else class="error-zone">
     <div class="error-content">
       <div class="error-card glass-card">
-        <div class="error-icon">❌</div>
-        <h2 class="heading-main">Projet introuvable</h2>
-        <p class="body-text">Le projet demandé n'a pas pu être trouvé.</p>
-        <button class="interactive-element" @click="$router.back()">
+        <div class="error-icon">⚠️</div>
+        <h2 class="error-title">Projet introuvable</h2>
+        <p class="error-text">Le projet demandé n'a pas pu être trouvé.</p>
+        <button
+          class="error-button interactive-element"
+          @click="$router.back()"
+        >
+          <span class="button-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 12H5M12 19L5 12L12 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
           <span>Retour à la liste des projets</span>
         </button>
       </div>
@@ -573,12 +593,13 @@ section {
 }
 
 .heading-main {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .heading-sub {
@@ -1086,20 +1107,87 @@ section {
 .error-card {
   text-align: center;
   padding: 60px 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
 }
 
 .error-icon {
   font-size: 4rem;
   margin-bottom: 30px;
+  display: block;
 }
 
-.error-card .heading-main {
+.error-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
+  /* Fallback pour les navigateurs qui ne supportent pas background-clip */
+  color: var(--text-primary);
 }
 
-.error-card .body-text {
+.error-text {
   margin-bottom: 40px;
   font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.error-button {
+  position: relative;
+  padding: 15px 30px;
+  background: transparent;
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.error-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.error-button:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.error-button:hover::before {
+  left: 0;
+}
+
+.error-button:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.error-button .button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ================================
@@ -1220,6 +1308,15 @@ section {
   .learning-title {
     font-size: 1.1rem;
   }
+
+  .error-card {
+    padding: 40px 25px;
+  }
+
+  .error-button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
 }
 
 /* Extra small screens */
@@ -1273,6 +1370,10 @@ section {
 
   .error-icon {
     font-size: 3rem;
+  }
+
+  .error-card {
+    padding: 30px 20px;
   }
 }
 
@@ -1365,7 +1466,7 @@ section {
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  :root {
+  .project-details-zone {
     --border-color: rgba(102, 126, 234, 0.6);
     --glass-bg: rgba(255, 255, 255, 0.1);
   }
