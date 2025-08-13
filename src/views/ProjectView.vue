@@ -1,12 +1,14 @@
 <template>
-  <div class="projects-zone" :class="{ 'loaded': isVisible }">
+  <div class="projects-zone" :class="{ loaded: isVisible }">
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="section-intro">
         <span class="section-number">Technological - Creations</span>
         <h2 class="section-heading">
           <span class="heading-main">Mes Projets</span>
-          <span class="heading-sub">Découvrez mes réalisations techniques et créatives</span>
+          <span class="heading-sub"
+            >Découvrez mes réalisations techniques et créatives</span
+          >
         </h2>
       </div>
 
@@ -16,30 +18,40 @@
             <h3>Choisissez une catégorie</h3>
             <p>Explorez mes projets personnels ou universitaires</p>
           </div>
-          
+
           <div class="selector-buttons">
-            <button 
-              @click="fetchGithubRepos('personal'); toggleButton('personal');"
-              :class="['selector-btn', { 'active': activeButton === 'personal' }]"
+            <button
+              @click="
+                fetchGithubRepos('personal');
+                toggleButton('personal');
+              "
+              :class="['selector-btn', { active: activeButton === 'personal' }]"
               :disabled="isLoading"
             >
               <div class="btn-icon">👤</div>
               <div class="btn-content">
                 <span class="btn-label">Projets Personnels</span>
-                <span class="btn-description">Créations et expérimentations</span>
+                <span class="btn-description"
+                  >Créations et expérimentations</span
+                >
               </div>
               <div class="btn-accent"></div>
             </button>
-            
-            <button 
-              @click="fetchGithubRepos('uni'); toggleButton('uni');"
-              :class="['selector-btn', { 'active': activeButton === 'uni' }]"
+
+            <button
+              @click="
+                fetchGithubRepos('uni');
+                toggleButton('uni');
+              "
+              :class="['selector-btn', { active: activeButton === 'uni' }]"
               :disabled="isLoading"
             >
               <div class="btn-icon">🎓</div>
               <div class="btn-content">
                 <span class="btn-label">Projets Universitaires</span>
-                <span class="btn-description">Travaux académiques et études</span>
+                <span class="btn-description"
+                  >Travaux académiques et études</span
+                >
               </div>
               <div class="btn-accent"></div>
             </button>
@@ -54,7 +66,12 @@
         <div class="loading-animation">
           <div class="loading-spinner"></div>
           <div class="loading-particles">
-            <span v-for="i in 6" :key="i" class="particle" :style="{ '--delay': i * 0.1 + 's' }"></span>
+            <span
+              v-for="i in 6"
+              :key="i"
+              class="particle"
+              :style="{ '--delay': i * 0.1 + 's' }"
+            ></span>
           </div>
         </div>
         <h3>Chargement des projets...</h3>
@@ -67,9 +84,14 @@
       <div class="stats-container">
         <div class="stats-intro">
           <h3>Statistiques</h3>
-          <p>Aperçu de mes contributions {{ activeButton === 'personal' ? 'personnelles' : 'universitaires' }}</p>
+          <p>
+            Aperçu de mes contributions
+            {{
+              activeButton === "personal" ? "personnelles" : "universitaires"
+            }}
+          </p>
         </div>
-        
+
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-icon">📊</div>
@@ -78,7 +100,7 @@
               <span class="stat-label">Projets</span>
             </div>
           </div>
-          
+
           <div class="stat-card">
             <div class="stat-icon">⭐</div>
             <div class="stat-info">
@@ -86,7 +108,7 @@
               <span class="stat-label">Stars</span>
             </div>
           </div>
-          
+
           <div class="stat-card">
             <div class="stat-icon">🍴</div>
             <div class="stat-info">
@@ -94,7 +116,7 @@
               <span class="stat-label">Forks</span>
             </div>
           </div>
-          
+
           <div class="stat-card">
             <div class="stat-icon">💻</div>
             <div class="stat-info">
@@ -110,25 +132,25 @@
     <section v-if="!isLoading" class="projects-grid-zone">
       <div class="projects-container">
         <div v-if="filteredProjects.length > 0" class="projects-grid">
-          <article 
-            v-for="(project, index) in filteredProjects" 
+          <article
+            v-for="(project, index) in filteredProjects"
             :key="project.id"
             class="project-card"
             :style="{ '--animation-delay': index * 0.1 + 's' }"
           >
             <div class="project-glow"></div>
-            
+
             <!-- Project Image -->
             <div class="project-image-section">
               <div class="project-image-wrapper">
-                <img 
-                  :src="getProjectImage(project.name)" 
-                  :alt="`Aperçu du projet ${project.name}`" 
+                <img
+                  :src="getProjectImage(project.name)"
+                  :alt="`Aperçu du projet ${project.name}`"
                   class="project-image"
                   loading="lazy"
                 />
                 <div class="image-overlay">
-                  <button 
+                  <button
                     @click="$router.push('/project-details/' + project.name)"
                     class="view-project-btn"
                   >
@@ -137,10 +159,15 @@
                   </button>
                 </div>
               </div>
-              
+
               <!-- Language Badge -->
               <div v-if="project.language" class="language-badge">
-                <span class="language-dot" :style="{ backgroundColor: getLanguageColor(project.language) }"></span>
+                <span
+                  class="language-dot"
+                  :style="{
+                    backgroundColor: getLanguageColor(project.language),
+                  }"
+                ></span>
                 <span class="language-name">{{ project.language }}</span>
               </div>
             </div>
@@ -148,10 +175,17 @@
             <!-- Project Content -->
             <div class="project-content">
               <header class="project-header">
-                <h3 class="project-title">{{ formatProjectName(project.name) }}</h3>
+                <h3 class="project-title">
+                  {{ formatProjectName(project.name) }}
+                </h3>
                 <div class="project-status">
-                  <span class="status-indicator" :class="getProjectStatus(project)"></span>
-                  <span class="status-text">{{ getProjectStatusText(project) }}</span>
+                  <span
+                    class="status-indicator"
+                    :class="getProjectStatus(project)"
+                  ></span>
+                  <span class="status-text">{{
+                    getProjectStatusText(project)
+                  }}</span>
                 </div>
               </header>
 
@@ -163,19 +197,27 @@
               <div class="project-metrics">
                 <div class="metric-item">
                   <span class="metric-icon">⭐</span>
-                  <span class="metric-value">{{ project.stargazers_count || 0 }}</span>
+                  <span class="metric-value">{{
+                    project.stargazers_count || 0
+                  }}</span>
                 </div>
                 <div class="metric-item">
                   <span class="metric-icon">🍴</span>
-                  <span class="metric-value">{{ project.forks_count || 0 }}</span>
+                  <span class="metric-value">{{
+                    project.forks_count || 0
+                  }}</span>
                 </div>
                 <div class="metric-item">
                   <span class="metric-icon">👁️</span>
-                  <span class="metric-value">{{ project.watchers_count || 0 }}</span>
+                  <span class="metric-value">{{
+                    project.watchers_count || 0
+                  }}</span>
                 </div>
                 <div class="metric-item">
                   <span class="metric-icon">📝</span>
-                  <span class="metric-value">{{ formatFileSize(project.size) }}</span>
+                  <span class="metric-value">{{
+                    formatFileSize(project.size)
+                  }}</span>
                 </div>
               </div>
 
@@ -189,20 +231,27 @@
                 </div>
 
                 <div class="project-actions">
-                  <a 
-                    :href="project.html_url" 
-                    target="_blank" 
+                  <a
+                    :href="project.html_url"
+                    target="_blank"
                     class="action-btn primary-btn"
                     rel="noopener noreferrer"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"/>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"
+                      />
                     </svg>
                     <span>GitHub</span>
                   </a>
-                  
-                  <button 
-                    v-if="project.homepage" 
+
+                  <button
+                    v-if="project.homepage"
                     @click="window.open(project.homepage, '_blank')"
                     class="action-btn secondary-btn"
                   >
@@ -221,9 +270,10 @@
             <div class="empty-icon">📂</div>
             <h3>Aucun projet trouvé</h3>
             <p>
-              {{ activeButton === 'personal' 
-                ? 'Aucun projet personnel avec description trouvé.' 
-                : 'Aucun projet universitaire avec description trouvé.' 
+              {{
+                activeButton === "personal"
+                  ? "Aucun projet personnel avec description trouvé."
+                  : "Aucun projet universitaire avec description trouvé."
               }}
             </p>
           </div>
@@ -232,14 +282,24 @@
     </section>
 
     <!-- GitHub Profile Section -->
-    <section v-if="username && !isLoading && projects.length > 0" class="github-profile-zone">
+    <section
+      v-if="username && !isLoading && projects.length > 0"
+      class="github-profile-zone"
+    >
       <div class="github-profile-card">
         <div class="profile-glow"></div>
         <div class="profile-content">
           <div class="profile-header">
             <div class="github-avatar">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"/>
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"
+                />
               </svg>
             </div>
             <div class="profile-info">
@@ -253,9 +313,9 @@
             </div>
           </div>
 
-          <a 
-            :href="`https://github.com/${username}`" 
-            target="_blank" 
+          <a
+            :href="`https://github.com/${username}`"
+            target="_blank"
             class="profile-link"
             rel="noopener noreferrer"
           >
@@ -279,21 +339,29 @@ const isVisible = ref(false);
 
 // Computed properties
 const filteredProjects = computed(() => {
-  return projects.value.filter(p => p.description && p.description.trim() !== '');
+  return projects.value.filter(
+    (p) => p.description && p.description.trim() !== ""
+  );
 });
 
 const totalStars = computed(() => {
-  return filteredProjects.value.reduce((sum, project) => sum + (project.stargazers_count || 0), 0);
+  return filteredProjects.value.reduce(
+    (sum, project) => sum + (project.stargazers_count || 0),
+    0
+  );
 });
 
 const totalForks = computed(() => {
-  return filteredProjects.value.reduce((sum, project) => sum + (project.forks_count || 0), 0);
+  return filteredProjects.value.reduce(
+    (sum, project) => sum + (project.forks_count || 0),
+    0
+  );
 });
 
 const uniqueLanguages = computed(() => {
   const languages = filteredProjects.value
-    .map(p => p.language)
-    .filter(lang => lang)
+    .map((p) => p.language)
+    .filter((lang) => lang)
     .filter((lang, index, arr) => arr.indexOf(lang) === index);
   return languages;
 });
@@ -307,7 +375,9 @@ async function fetchGithubRepos(type) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Error fetching repositories: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `Error fetching repositories: ${response.status} ${response.statusText}`
+      );
     }
     const repos = await response.json();
     projects.value = repos;
@@ -355,7 +425,7 @@ function getProjectImage(name) {
     try {
       return require(`@/assets/images/${name}.jpg`);
     } catch {
-      return require('@/assets/images/default.png');
+      return require("@/assets/images/default.png");
     }
   }
 }
@@ -363,8 +433,8 @@ function getProjectImage(name) {
 function formatProjectName(name) {
   return name
     .split(/[-_]/)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 function formatDate(dateString) {
@@ -372,18 +442,18 @@ function formatDate(dateString) {
   const now = new Date();
   const diffTime = Math.abs(now - date);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  
+
   if (diffDays < 7) {
-    return `Il y a ${diffDays} jour${diffDays > 1 ? 's' : ''}`;
+    return `Il y a ${diffDays} jour${diffDays > 1 ? "s" : ""}`;
   } else if (diffDays < 30) {
     const weeks = Math.floor(diffDays / 7);
-    return `Il y a ${weeks} semaine${weeks > 1 ? 's' : ''}`;
+    return `Il y a ${weeks} semaine${weeks > 1 ? "s" : ""}`;
   } else if (diffDays < 365) {
     const months = Math.floor(diffDays / 30);
     return `Il y a ${months} mois`;
   } else {
     const years = Math.floor(diffDays / 365);
-    return `Il y a ${years} an${years > 1 ? 's' : ''}`;
+    return `Il y a ${years} an${years > 1 ? "s" : ""}`;
   }
 }
 
@@ -397,42 +467,42 @@ function formatFileSize(sizeInKB) {
 
 function getLanguageColor(language) {
   const colors = {
-    JavaScript: '#f7df1e',
-    TypeScript: '#3178c6',
-    Python: '#3776ab',
-    Java: '#ed8b00',
-    'C++': '#00599c',
-    C: '#a8b9cc',
-    HTML: '#e34c26',
-    CSS: '#1572b6',
-    Vue: '#4fc08d',
-    React: '#61dafb',
-    PHP: '#777bb4',
-    Ruby: '#cc342d',
-    Go: '#00add8',
-    Rust: '#000000',
-    Swift: '#fa7343',
-    Kotlin: '#7f52ff',
+    JavaScript: "#f7df1e",
+    TypeScript: "#3178c6",
+    Python: "#3776ab",
+    Java: "#ed8b00",
+    "C++": "#00599c",
+    C: "#a8b9cc",
+    HTML: "#e34c26",
+    CSS: "#1572b6",
+    Vue: "#4fc08d",
+    React: "#61dafb",
+    PHP: "#777bb4",
+    Ruby: "#cc342d",
+    Go: "#00add8",
+    Rust: "#000000",
+    Swift: "#fa7343",
+    Kotlin: "#7f52ff",
   };
-  return colors[language] || '#667eea';
+  return colors[language] || "#667eea";
 }
 
 function getProjectStatus(project) {
   const lastUpdate = new Date(project.updated_at);
   const now = new Date();
   const diffDays = (now - lastUpdate) / (1000 * 60 * 60 * 24);
-  
-  if (diffDays < 30) return 'active';
-  if (diffDays < 90) return 'recent';
-  return 'stable';
+
+  if (diffDays < 30) return "active";
+  if (diffDays < 90) return "recent";
+  return "stable";
 }
 
 function getProjectStatusText(project) {
   const status = getProjectStatus(project);
   const statusTexts = {
-    active: 'Actif',
-    recent: 'Récent',
-    stable: 'Stable'
+    active: "Actif",
+    recent: "Récent",
+    stable: "Stable",
   };
   return statusTexts[status];
 }
@@ -645,8 +715,12 @@ onMounted(() => {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-particles {
@@ -665,9 +739,12 @@ onMounted(() => {
 }
 
 @keyframes bounce {
-  0%, 80%, 100% { 
+  0%,
+  80%,
+  100% {
     transform: scale(0);
-  } 40% { 
+  }
+  40% {
     transform: scale(1);
   }
 }
@@ -950,8 +1027,13 @@ onMounted(() => {
 }
 
 @keyframes pulse-green {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .status-text {
@@ -966,6 +1048,7 @@ onMounted(() => {
   line-height: 1.6;
   margin-bottom: 20px;
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -1140,8 +1223,12 @@ onMounted(() => {
 }
 
 @keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .profile-content {

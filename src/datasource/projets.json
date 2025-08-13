@@ -93,5 +93,15 @@
     "status": "finished",
     "categorie": "Website",
     "url": "https://github.com/moonlight58/VentSafe"
+  },
+  "DotIC": {
+    "titre": "DotIC",
+    "description": "DotIC (Dot Image Converter), a halftone art generator that transforms your images into works of art made up of dots of varying sizes based on luminance. The resulting effect resembles traditional printing techniques or modern dot tattooing.",
+    "language": "Python",
+    "technologies": ["NumPy", "Matplotlib", "OpenCV"],
+    "image": "DotIC.png",
+    "status": "finished",
+    "categorie": "Application",
+    "url": "https://github.com/moonlight58/DotIC"
   }
 }

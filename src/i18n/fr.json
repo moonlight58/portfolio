@@ -82,15 +82,30 @@
   "Roi-des-Roses_soft_learning": "Collaboration en équipe de 3 personnes, Gestion des conflits...",
   "Roi-des-Roses_challenges_learning": "Implémentation de l'IA du bot, Optimisation des performances...",
 
-  "Vent Safe_content": "Site web personnel réalisé avec VueJS et Firebase Realtime Database",
   "Vent Safe_description": "VentSafe est un petit site personnel créé pour moi et mon copain afin de pouvoir partager nos idées et nos sentiments sans avoir à ressentir le sentiment de « je te dérange » et de pouvoir nous exprimer sans contrainte.",
   "Vent Safe_technical_learning": "Approfondissement de CSS et Tailwind, Maitrise et optimisations des animations et styles pour les appareils moins performants",
   "Vent Safe_soft_learning": "Compréhension de l'importance de la communication entre des personnes, Réflexions des propos avant de les dire, Travail sur soi-même",
   "Vent Safe_challenges_learning": "Intégration et optimisations de l'utilisation des Webhooks de Discord, Automatisation d'envoie de message privé pour notifier lors de la création d'un texte",
 
+  "DotIC_description": "DotIC (Dot Image Converter) est un générateur d'images en demi-teintes qui transforme vos images en œuvres d'art composées de points de différentes tailles en fonction de la luminance. L'effet obtenu ressemble aux techniques d'impression traditionnelles ou au tatouage moderne à points.",
+  "DotIC_technical_learning": "Approfondir mes connaissances en Python, en traitement d'images et en optimisation d'algorithmes pour la génération d'œuvres d'art en demi-teintes.",
+  "DotIC_soft_learning": "Améliorer mes compétences en résolution de problèmes, comprendre les besoins des utilisateurs pour une meilleure conception de l'expérience utilisateur.",
+  "DotIC_challenges_learning": "Assurer la compatibilité avec divers formats d'image, optimiser les performances pour les images volumineuses et affiner l'algorithme pour une meilleure répartition des points.",
+
   "Website": "Site web",
   "Application": "Application",
   "Game": "Jeu",
   "finished": "Terminé",
-  "in progress": "En cours"
+  "in progress": "En cours",
+
+  "ProjectDetails": "Détails du projet",
+  "ProjectDescription": "Vue d'ensemble du projet",
+  "ProjectLanguage": "Stack technique utilisé",
+  "ProjectLearning": "Compétences développées",
+  "ProjectApprentice": "Apprentissages",
+  "ProjectTechnical": "Compétences techniques",
+  "ProjectSoft": "Compétences humaines",
+  "ProjectChallenges": "Défis relevés",
+  "ProjectLink": "Lien du projet",
+  "ProjectAccess": "Accéder au projet"
 }

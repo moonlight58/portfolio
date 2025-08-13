@@ -83,15 +83,30 @@
   "Roi-des-Roses_soft_learning": "Working in a team of 3 people, conflict management...",
   "Roi-des-Roses_challenges_learning": "Implementing the bot's AI, optimising performance...",
 
-  "Vent Safe_content": "Personal website made with VueJS and Firebase Realtime Database",
   "Vent Safe_description": "VentSafe is a little personal site created for me and my boyfriend so that we can share our ideas and feelings without having to feel “I'm bothering you” and so that we can express ourselves without constraint.",
   "Vent Safe_technical_learning": "CSS and Tailwind, mastering and optimising animations and styles for less powerful devices",
   "Vent Safe_soft_learning": "Understanding the importance of communication between people, Thinking about what you say before you say it, Better understanding of my emotions and myself",
   "Vent Safe_challenges_learning": "Integration and optimisation of the use of Discord Webhooks, automated sending of private messages to notify when a text is created.",
 
+  "DotIC_description": "DotIC (Dot Image Converter), a halftone art generator that transforms your images into works of art made up of dots of varying sizes based on luminance. The resulting effect resembles traditional printing techniques or modern dot tattooing.",
+  "DotIC_technical_learning": "Deepening my knowledge of Python, image processing, and algorithm optimisation for halftone art generation.",
+  "DotIC_soft_learning": "Improving my problem-solving skills, understanding user needs for better UX design.",
+  "DotIC_challenges_learning": "Ensuring compatibility with various image formats, optimising performance for large images, and refining the algorithm for better dot distribution.",
+
   "Website": "Website",
   "Application": "Application",
   "Game": "Game",
   "finished": "Finished",
-  "in progress": "In progress"
+  "in progress": "In progress",
+
+  "ProjectDetails": "Project details",
+  "ProjectDescription": "Project description",
+  "ProjectLanguage": "Technologies used",
+  "ProjectApprentice": "Apprenticeships",
+  "ProjectLearning": "Skills developed",
+  "ProjectTechnical": "Technical skills",
+  "ProjectSoft": "Soft skills",
+  "ProjectChallenges": "Challenges faced",
+  "ProjectLink": "Project link",
+  "ProjectAccess": "Access the project"
 }
