@@ -1,128 +1,166 @@
 <template>
-  <div class="internship-container">
-    <!-- Back Button -->
-    <div class="back-button-container">
-      <button class="back-button" @click="$router.push('/')">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19 12H5M12 19L5 12L12 5"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        Retour
-      </button>
+  <div class="internship-zone">
+    <!-- Particules d'arrière-plan -->
+    <div class="particles-container">
+      <div v-for="i in 20" :key="i" class="particle"></div>
     </div>
 
     <!-- Hero Section -->
-    <div class="hero-section">
-      <div class="hero-content">
-        <div class="project-logo">
-          <div class="logo-container">
-            <h1 class="logo-text">Euphron</h1>
-            <div class="logo-glow"></div>
+    <section class="hero-stage">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="project-logo">
+            <div class="logo-container">
+              <h1 class="logo-text">Euphron</h1>
+              <div class="logo-glow"></div>
+            </div>
+          </div>
+          <div class="hero-info">
+            <h2 class="hero-title">Stage Web Full-Stack</h2>
+            <p class="hero-subtitle">
+              Learning Centre Claude Oytana • Besançon, France
+            </p>
+            <div class="duration-badge">Avril 2025 - Mai 2025 • 8 semaines</div>
           </div>
         </div>
-        <img src="@/assets/Euphron.svg" class="project-image">
-        <div class="hero-info">
-          <h2 class="hero-title">Stage Web Full-Stack</h2>
-          <p class="hero-subtitle">Learning Centre Claude Oytana • Besançon, France</p>
-          <div class="duration-badge">Avril 2025 - Mai 2025 • 8 semaines</div>
+        <div class="hero-right">
+          <div class="project-visual">
+            <img
+              src="@/assets/Euphron.svg"
+              class="project-image"
+              alt="Logo Euphron"
+            />
+            <div class="visual-accent"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Context Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🎯 Contexte et objectifs du projet</h2>
+    <section class="context-zone">
+      <div class="section-intro">
+        <span class="section-number">01</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Contexte & Objectifs</span>
+          <span class="heading-sub">Mission et enjeux du projet</span>
+        </h2>
       </div>
-      <div class="content-card">
-        <p>
-          J'ai eu l'opportunité de travailler en tant que stagiaire web full-stack au Learning Centre Claude Oytana à Besançon, France, d'avril 2025 à mai 2025. Ma mission était de créer une application mobile appelée « Euphron », permettant aux étudiants de l'Université de Franche-Comté de donner ou de prendre du matériel sportif d'occasion sur un système de don.
-        </p>
-        <p>
-          La réalisation de cette application a été proposée par des étudiants en STAPS, à la suite d'une étude de marché portant sur l'accès au matériel sportif dans leur cursus. Cette étude a révélé que, si certaines écoles parviennent à fournir le matériel nécessaire à leurs étudiants, dans de nombreuses autres, ce sont les étudiants eux-mêmes qui doivent financer leur équipement.
-        </p>
-        
-        <div class="objectives-grid">
-          <div class="objective-card">
-            <div class="objective-icon">🏃‍♂️</div>
-            <h4>Promouvoir l'accès au sport</h4>
-            <p>Pour tous les étudiants en Franche-Comté</p>
-          </div>
-          <div class="objective-card">
-            <div class="objective-icon">🤝</div>
-            <h4>Encourager la solidarité</h4>
-            <p>En facilitant l'échange de matériel</p>
-          </div>
-          <div class="objective-card">
-            <div class="objective-icon">♻️</div>
-            <h4>Favoriser la réutilisation</h4>
-            <p>Dans une démarche écoresponsable</p>
-          </div>
-        </div>
 
-        <div class="constraint-badge">
-          <strong>Contrainte principale :</strong> Aucun gain monétaire autorisé - tout devait être gratuit, basé sur la solidarité étudiante.
+      <div class="context-content">
+        <div class="content-wrapper">
+          <p class="context-description">
+            J'ai eu l'opportunité de travailler en tant que stagiaire web
+            full-stack au Learning Centre Claude Oytana à Besançon, France,
+            d'avril 2025 à mai 2025. Ma mission était de créer une application
+            mobile appelée « Euphron », permettant aux étudiants de l'Université
+            de Franche-Comté de donner ou de prendre du matériel sportif
+            d'occasion sur un système de don.
+          </p>
+          <p class="context-description">
+            La réalisation de cette application a été proposée par des étudiants
+            en STAPS, à la suite d'une étude de marché portant sur l'accès au
+            matériel sportif dans leur cursus. Cette étude a révélé que, si
+            certaines écoles parviennent à fournir le matériel nécessaire à
+            leurs étudiants, dans de nombreuses autres, ce sont les étudiants
+            eux-mêmes qui doivent financer leur équipement.
+          </p>
+
+          <div class="objectives-grid">
+            <div class="objective-card">
+              <div class="objective-icon">🏃‍♂️</div>
+              <h4>Promouvoir l'accès au sport</h4>
+              <p>Pour tous les étudiants en Franche-Comté</p>
+            </div>
+            <div class="objective-card">
+              <div class="objective-icon">🤝</div>
+              <h4>Encourager la solidarité</h4>
+              <p>En facilitant l'échange de matériel</p>
+            </div>
+            <div class="objective-card">
+              <div class="objective-icon">♻️</div>
+              <h4>Favoriser la réutilisation</h4>
+              <p>Dans une démarche écoresponsable</p>
+            </div>
+          </div>
+
+          <div class="constraint-badge">
+            <strong>Contrainte principale :</strong> Aucun gain monétaire
+            autorisé - tout devait être gratuit, basé sur la solidarité
+            étudiante.
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Role Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>👨‍💻 Mon rôle et responsabilités</h2>
+    <section class="role-zone">
+      <div class="section-intro">
+        <span class="section-number">02</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Mon Rôle</span>
+          <span class="heading-sub"
+            >Responsabilités & développement autonome</span
+          >
+        </h2>
       </div>
-      <div class="content-card">
-        <p>
-          J'ai été chargé de réaliser l'entièreté de l'application web (compatible ordinateur et mobile) en totale autonomie. Mes responsabilités incluaient :
+
+      <div class="role-content">
+        <p class="role-description">
+          J'ai été chargé de réaliser l'entièreté de l'application web
+          (compatible ordinateur et mobile) en totale autonomie.
         </p>
-        
+
         <div class="responsibilities-grid">
           <div class="responsibility-card">
             <div class="responsibility-icon">🎨</div>
-            <h4>Conception visuelle</h4>
-            <p>Design sur Figma pour validation client</p>
+            <div class="card-inner">
+              <h4>Conception visuelle</h4>
+              <p>Design sur Figma pour validation client</p>
+            </div>
+            <div class="card-accent"></div>
           </div>
+
           <div class="responsibility-card">
             <div class="responsibility-icon">💻</div>
-            <h4>Développement frontend</h4>
-            <p>Interface utilisateur responsive</p>
+            <div class="card-inner">
+              <h4>Développement frontend</h4>
+              <p>Interface utilisateur responsive</p>
+            </div>
+            <div class="card-accent"></div>
           </div>
+
           <div class="responsibility-card">
             <div class="responsibility-icon">⚙️</div>
-            <h4>Développement backend</h4>
-            <p>API et logique métier</p>
+            <div class="card-inner">
+              <h4>Développement backend</h4>
+              <p>API et logique métier</p>
+            </div>
+            <div class="card-accent"></div>
           </div>
+
           <div class="responsibility-card">
             <div class="responsibility-icon">🗄️</div>
-            <h4>Base de données</h4>
-            <p>Conception et gestion complète</p>
-          </div>
-          <div class="responsibility-card">
-            <div class="responsibility-icon">🏢</div>
-            <h4>Collaboration DSIN</h4>
-            <p>Pour l'hébergement futur</p>
+            <div class="card-inner">
+              <h4>Base de données</h4>
+              <p>Conception et gestion complète</p>
+            </div>
+            <div class="card-accent"></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Organization Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>⏱️ Organisation du projet</h2>
+    <section class="organization-zone">
+      <div class="section-intro">
+        <span class="section-number">03</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Organisation</span>
+          <span class="heading-sub">Planning & méthodologie</span>
+        </h2>
       </div>
-      <div class="content-card">
+
+      <div class="organization-content">
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-marker">1-2</div>
@@ -146,20 +184,29 @@
             </div>
           </div>
         </div>
-        
+
         <div class="methodology-card">
           <h4>Méthodologie</h4>
-          <p>Réunions hebdomadaires avec l'équipe de la BU et mon tuteur de stage. Utilisation de Git pour le versioning et Trello pour la gestion des tâches.</p>
+          <p>
+            Réunions hebdomadaires avec l'équipe de la BU et mon tuteur de
+            stage. Utilisation de Git pour le versioning et Trello pour la
+            gestion des tâches.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Tech Stack Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🛠️ Choix techniques et architecture</h2>
+    <section class="tech-zone">
+      <div class="section-intro">
+        <span class="section-number">04</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Stack Technique</span>
+          <span class="heading-sub">Technologies & architecture</span>
+        </h2>
       </div>
-      <div class="content-card">
+
+      <div class="tech-content">
         <div class="tech-stack-grid">
           <div class="tech-stack-section">
             <h3>Frontend</h3>
@@ -194,7 +241,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="tech-stack-section">
             <h3>Backend</h3>
             <div class="tech-list">
@@ -229,49 +276,71 @@
             </div>
           </div>
         </div>
-        
+
         <div class="justification-card">
           <h4>Justification des choix</h4>
-          <p>J'ai privilégié Vue.js car je maîtrise bien ce framework, contrairement à Angular ou React. Quasar était le choix idéal pour la compatibilité mobile native, répondant parfaitement aux exigences du projet.</p>
+          <p>
+            J'ai privilégié Vue.js car je maîtrise bien ce framework,
+            contrairement à Angular ou React. Quasar était le choix idéal pour
+            la compatibilité mobile native, répondant parfaitement aux exigences
+            du projet.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Features Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>⚡ Fonctionnalités développées</h2>
+    <section class="features-zone">
+      <div class="section-intro">
+        <span class="section-number">05</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Fonctionnalités</span>
+          <span class="heading-sub">Développement & implémentation</span>
+        </h2>
       </div>
-      <div class="content-card">
+
+      <div class="features-content">
         <div class="features-grid">
           <div class="feature-category">
-            <h3>👤 Gestion utilisateur</h3>
+            <div class="feature-header">
+              <span class="feature-icon">👤</span>
+              <h3>Gestion utilisateur</h3>
+            </div>
             <ul>
               <li>Inscription / Connexion</li>
               <li>Modification du profil</li>
               <li>Système d'authentification</li>
             </ul>
           </div>
-          
+
           <div class="feature-category">
-            <h3>📦 Gestion des articles</h3>
+            <div class="feature-header">
+              <span class="feature-icon">📦</span>
+              <h3>Gestion des articles</h3>
+            </div>
             <ul>
               <li>Ajout d'articles sportifs</li>
               <li>Modification / Suppression</li>
               <li>Système de catégories</li>
             </ul>
           </div>
-          
+
           <div class="feature-category">
-            <h3>💬 Communication</h3>
+            <div class="feature-header">
+              <span class="feature-icon">💬</span>
+              <h3>Communication</h3>
+            </div>
             <ul>
               <li>Chat en temps réel (Socket.IO)</li>
               <li>Messagerie entre utilisateurs</li>
             </ul>
           </div>
-          
+
           <div class="feature-category">
-            <h3>⚙️ Administration</h3>
+            <div class="feature-header">
+              <span class="feature-icon">⚙️</span>
+              <h3>Administration</h3>
+            </div>
             <ul>
               <li>Gestion des catégories de sport</li>
               <li>Gestion des comptes utilisateurs</li>
@@ -279,12 +348,17 @@
             </ul>
           </div>
         </div>
-        
+
         <div class="highlight-card">
           <h4>💡 Partie la plus enrichissante</h4>
-          <p>Le développement du chat en temps réel avec Socket.IO était une première pour moi. La documentation excellente m'a permis de comprendre rapidement les concepts et d'implémenter cette fonctionnalité avec succès.</p>
+          <p>
+            Le développement du chat en temps réel avec Socket.IO était une
+            première pour moi. La documentation excellente m'a permis de
+            comprendre rapidement les concepts et d'implémenter cette
+            fonctionnalité avec succès.
+          </p>
         </div>
-        
+
         <div class="progress-card">
           <div class="progress-header">
             <h4>État d'avancement</h4>
@@ -299,153 +373,156 @@
     </section>
 
     <!-- Architecture Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🏗️ Architecture technique</h2>
+    <section class="architecture-zone">
+      <div class="section-intro">
+        <span class="section-number">06</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Architecture</span>
+          <span class="heading-sub">Structure technique & flux de données</span>
+        </h2>
       </div>
-      <div class="diagram-card">
-        <img src="@/assets/stage/Diagram.png" alt="Diagramme architecture frontend/backend" class="architecture-diagram" />
-        <div class="diagram-caption">
-          <em>Schéma du flux de communication entre le frontend (Vue/Quasar) et le backend (Express, Socket.io, MySQL).</em>
-        </div>
-      </div>
-      <div class="content-card">
-        <p>L'architecture de l'application repose sur une séparation claire entre le frontend, développé avec Quasar/Vue.js, et le backend, construit autour d'Express, Socket.io et MySQL.</p>
-        
-        <div class="architecture-sections">
-          <div class="arch-section">
-            <h4>🔄 Flux de données classiques (HTTP)</h4>
-            <p>Lorsqu'un utilisateur interagit avec l'interface via son navigateur, ses actions sont prises en charge par les composants Vue, qui orchestrent l'affichage et la logique de l'application. Ces composants, lorsqu'ils ont besoin d'accéder à des données ou de déclencher des opérations côté serveur, font appel à des services JavaScript dédiés.</p>
-          </div>
-          
-          <div class="arch-section">
-            <h4>⚡ Communication temps réel (WebSockets)</h4>
-            <p>Parallèlement à ce fonctionnement traditionnel, l'application intègre également une dimension temps réel grâce à Socket.io. Pour des fonctionnalités comme le chat ou les notifications instantanées, les composants Vue communiquent avec le serveur via le client Socket.io.</p>
+
+      <div class="architecture-content">
+        <div class="diagram-container">
+          <img
+            src="@/assets/stage/Diagram.png"
+            alt="Diagramme architecture frontend/backend"
+            class="architecture-diagram"
+          />
+          <div class="diagram-caption">
+            <em
+              >Schéma du flux de communication entre le frontend (Vue/Quasar) et
+              le backend (Express, Socket.io, MySQL).</em
+            >
           </div>
         </div>
-        
-        <div class="result-card">
-          <h4>🎯 Résultat</h4>
-          <p>L'ensemble du système permet à la fois une gestion efficace des données via des requêtes HTTP classiques et une communication instantanée grâce aux WebSockets, offrant à l'utilisateur une expérience fluide et réactive.</p>
+
+        <div class="architecture-description">
+          <p>
+            L'architecture de l'application repose sur une séparation claire
+            entre le frontend, développé avec Quasar/Vue.js, et le backend,
+            construit autour d'Express, Socket.io et MySQL.
+          </p>
+
+          <div class="architecture-sections">
+            <div class="arch-section">
+              <h4>🔄 Flux de données classiques (HTTP)</h4>
+              <p>
+                Lorsqu'un utilisateur interagit avec l'interface via son
+                navigateur, ses actions sont prises en charge par les composants
+                Vue, qui orchestrent l'affichage et la logique de l'application.
+                Ces composants, lorsqu'ils ont besoin d'accéder à des données ou
+                de déclencher des opérations côté serveur, font appel à des
+                services JavaScript dédiés.
+              </p>
+            </div>
+
+            <div class="arch-section">
+              <h4>⚡ Communication temps réel (WebSockets)</h4>
+              <p>
+                Parallèlement à ce fonctionnement traditionnel, l'application
+                intègre également une dimension temps réel grâce à Socket.io.
+                Pour des fonctionnalités comme le chat ou les notifications
+                instantanées, les composants Vue communiquent avec le serveur
+                via le client Socket.io.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Security Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🛡️ Sécurité et bonnes pratiques</h2>
+    <section class="security-zone">
+      <div class="section-intro">
+        <span class="section-number">07</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Sécurité</span>
+          <span class="heading-sub">Protection & bonnes pratiques</span>
+        </h2>
       </div>
-      <div class="content-card">
-        <p>Durant le développement, j'ai appris l'importance de la sécurisation contre les injections SQL. J'ai implémenté une double protection :</p>
-        
+
+      <div class="security-content">
+        <p class="security-intro">
+          Durant le développement, j'ai appris l'importance de la sécurisation
+          contre les injections SQL. J'ai implémenté une double protection :
+        </p>
+
         <div class="security-methods">
-          <div class="security-method security-method-stack">
-            <div class="security-method-text">
-              <h4>1. Vérification frontend (Regex)</h4>
-              <p>Cette méthode côté frontend vérifie que l'utilisateur n'essaie pas de nuire au fonctionnement de l'application en utilisant une expression régulière. Cette expression vérifie que les champs (nom, email, téléphone) ne contiennent pas de caractères suspects comme ' " ; -- / * , etc.</p>
-            </div>
-            <div class="security-image-wrapper">
-              <img src="@/assets/stage/RegexCheck.png" alt="Vérification Regex" class="security-image-large" />
-            </div>
-          </div>
-          
-          <div class="security-method security-method-stack">
-            <div class="security-method-text">
-              <h4>2. Requêtes préparées (Backend)</h4>
-              <p>Les requêtes préparées (ou paramétrées) offrent une protection robuste car elles :</p>
-              <ul>
-                <li>Empêchent les injections SQL</li>
-                <li>Sont supportées par tous les moteurs SQL modernes</li>
-                <li>Constituent la base de tous les ORM modernes</li>
-              </ul>
-            </div>
-            <div class="security-image-wrapper">
-              <img src="@/assets/stage/PreparedQuery.png" alt="Requête préparée" class="security-image-large" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Challenges Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🔧 Défis techniques rencontrés</h2>
-      </div>
-      <div class="content-card">
-        <div class="challenges-grid">
-          <div class="challenge-card">
-            <h4>Intégration Capacitor</h4>
-            <div class="challenge-content">
-              <div class="problem">
-                <strong>Problème :</strong> Pour tester l'application mobile, je devais la connecter au serveur local. Malgré mes tentatives de création d'une adresse accessible via le réseau local, cette intégration s'est révélée problématique.
+          <div class="security-method">
+            <div class="security-method-content">
+              <div class="security-method-text">
+                <h4>1. Vérification frontend (Regex)</h4>
+                <p>
+                  Cette méthode côté frontend vérifie que l'utilisateur n'essaie
+                  pas de nuire au fonctionnement de l'application en utilisant
+                  une expression régulière. Cette expression vérifie que les
+                  champs (nom, email, téléphone) ne contiennent pas de
+                  caractères suspects comme ' " ; -- / * , etc.
+                </p>
               </div>
-              <div class="solution">
-                <strong>Solution :</strong> J'ai mis cette partie de côté pour me concentrer sur le développement des fonctionnalités core, tout en maintenant la compatibilité mobile.
+              <div class="security-image-wrapper">
+                <img
+                  src="@/assets/stage/RegexCheck.png"
+                  alt="Vérification Regex"
+                  class="security-image"
+                />
               </div>
             </div>
           </div>
-          
-          <div class="challenge-card">
-            <h4>Tests utilisateurs limités</h4>
-            <div class="challenge-content">
-              <p>Seule une dizaine d'utilisateurs (étudiants STAPS et équipe BU) ont pu tester l'application en raison du manque de peaufinage à ce stade du développement.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Status Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🚀 État d'avancement et suite à donner</h2>
-      </div>
-      <div class="content-card">
-        <div class="status-grid">
-          <div class="status-card current">
-            <h4>Actuellement en développement</h4>
-            <p>L'application n'a pas encore été mise en production, nécessitant encore du peaufinage et le développement des fonctionnalités restantes.</p>
-          </div>
-          
-          <div class="status-card remaining">
-            <h4>Fonctionnalités restantes</h4>
-            <ul>
-              <li>Gestion complète des articles en tant qu'admin</li>
-              <li>Amélioration de la gestion utilisateurs (administration)</li>
-              <li>Peaufinage du système de chat en temps réel</li>
-            </ul>
-          </div>
-          
-          <div class="status-card proposals">
-            <h4>Mes propositions d'amélioration</h4>
-            <ul>
-              <li><strong>Optimisation stockage :</strong> Passage à deux bases de données si le stockage des images devient problématique</li>
-              <li><strong>Performance chat :</strong> Migration du chat vers MongoDB pour améliorer l'efficacité des messages temps réel</li>
-            </ul>
+          <div class="security-method">
+            <div class="security-method-content">
+              <div class="security-method-text">
+                <h4>2. Requêtes préparées (Backend)</h4>
+                <p>
+                  Les requêtes préparées (ou paramétrées) offrent une protection
+                  robuste car elles :
+                </p>
+                <ul>
+                  <li>Empêchent les injections SQL</li>
+                  <li>Sont supportées par tous les moteurs SQL modernes</li>
+                  <li>Constituent la base de tous les ORM modernes</li>
+                </ul>
+              </div>
+              <div class="security-image-wrapper">
+                <img
+                  src="@/assets/stage/PreparedQuery.png"
+                  alt="Requête préparée"
+                  class="security-image"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Learning Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🎓 Apprentissages et retour d'expérience</h2>
+    <section class="learning-zone">
+      <div class="section-intro">
+        <span class="section-number">08</span>
+        <h2 class="section-heading">
+          <span class="heading-main">Apprentissages</span>
+          <span class="heading-sub">Compétences & retour d'expérience</span>
+        </h2>
       </div>
-      <div class="content-card">
+
+      <div class="learning-content">
         <div class="learning-grid">
           <div class="learning-section">
             <h3>Compétences techniques acquises</h3>
             <ul>
               <li>Maîtrise de Socket.IO pour la communication temps réel</li>
-              <li>Approfondissement de la sécurité web (injections SQL, requêtes préparées)</li>
+              <li>
+                Approfondissement de la sécurité web (injections SQL, requêtes
+                préparées)
+              </li>
               <li>Expérience complète du développement full-stack</li>
               <li>Utilisation de Quasar pour le développement mobile</li>
             </ul>
           </div>
-          
+
           <div class="learning-section">
             <h3>Compétences transversales</h3>
             <ul>
@@ -456,77 +533,15 @@
             </ul>
           </div>
         </div>
-        
+
         <div class="reflection-card">
           <h4>Si c'était à refaire</h4>
-          <p>J'aurais préféré travailler en équipe pour plus d'efficacité. En étant seul, je n'ai pas pu réaliser autant de fonctionnalités que souhaité, bien que cela m'ait permis de développer mon autonomie et ma capacité à gérer un projet dans sa globalité.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <h2>🧠 Compétences ciblées</h2>
-      </div>
-      <div class="content-card">
-        <p>Durant ce stage, j'ai ciblé spécifiquement plusieurs compétences du référentiel officiel du B.U.T. Informatique :</p>
-        
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-header">
-              <h4>UE1 - Réaliser</h4>
-              <span class="skill-subtitle">Élaborer une application informatique</span>
-            </div>
-            <ul>
-              <li>Conception complète de l'application Euphron sur Figma</li>
-              <li>Développement frontend avec Vue.js et Quasar</li>
-              <li>Architecture backend avec Node.js et Express</li>
-              <li>Intégration de fonctionnalités temps réel (Socket.IO)</li>
-            </ul>
-          </div>
-          
-          <div class="skill-card">
-            <div class="skill-header">
-              <h4>UE4 - Administrer</h4>
-              <span class="skill-subtitle">Sécuriser des données</span>
-            </div>
-            <ul>
-              <li>Implémentation de requêtes préparées contre les injections SQL</li>
-              <li>Validation des données côté frontend (regex)</li>
-              <li>Système d'authentification sécurisé</li>
-            </ul>
-          </div>
-          
-          <div class="skill-card">
-            <div class="skill-header">
-              <h4>UE6 - Collaborer</h4>
-              <span class="skill-subtitle">Élaborer, gérer et transmettre de l'information</span>
-            </div>
-            <ul>
-              <li>Communication régulière avec l'équipe de la BU</li>
-              <li>Présentation des avancements lors des réunions</li>
-              <li>Rédaction du document "suite à donner"</li>
-            </ul>
-          </div>
-          
-          <div class="skill-card">
-            <div class="skill-header">
-              <h4>UE4-5-6 - Transverse</h4>
-              <span class="skill-subtitle">Lancer un nouveau projet</span>
-            </div>
-            <ul>
-              <li>Prise d'initiative pour l'architecture technique</li>
-              <li>Gestion autonome du planning et des priorités</li>
-              <li>Adaptation aux changements de spécifications</li>
-              <li>Propositions d'améliorations futures</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="synthesis-card">
-          <h4>Synthèse des apprentissages</h4>
-          <p>Ce stage m'a permis de mettre en pratique de manière concrète les compétences théoriques et pratiques acquises durant ma formation. L'autonomie complète sur le projet m'a particulièrement aidé à développer les aspects transversaux comme la gestion de projet et la communication client, tout en approfondissant mes compétences techniques en développement full-stack et en sécurité.</p>
+          <p>
+            J'aurais préféré travailler en équipe pour plus d'efficacité. En
+            étant seul, je n'ai pas pu réaliser autant de fonctionnalités que
+            souhaité, bien que cela m'ait permis de développer mon autonomie et
+            ma capacité à gérer un projet dans sa globalité.
+          </p>
         </div>
       </div>
     </section>
@@ -535,104 +550,169 @@
 
 <script>
 export default {
-  name: 'InternshipPage',
+  name: "InternshipPage",
   mounted() {
-    // Ajouter des animations d'entrée si nécessaire
     this.animateElements();
   },
   methods: {
     animateElements() {
-      // Animation pour les éléments quand ils apparaissent
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
 
-      document.querySelectorAll('.content-section').forEach(el => {
-        observer.observe(el);
-      });
-    }
-  }
-}
+      const elements = document.querySelectorAll(
+        ".section-intro, .responsibility-card, .timeline-item, .feature-category, .security-method"
+      );
+      elements.forEach((el) => observer.observe(el));
+    },
+  },
+};
 </script>
 
 <style scoped>
-.internship-container {
-  font-family: "N27", sans-serif;
-  margin-top: 10rem;
-  padding: 0 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 6rem;
-  color: #fff;
+.internship-zone {
+  min-height: 100vh;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-color: #f72585;
+  --background-accent-color: rgba(247, 37, 133, 0.1);
+  --dark-bg: #0a0e27;
+  --dark-surface: #151937;
+  --text-primary: #ffffff;
+  --text-secondary: #a8b2d1;
+  --border-color: rgba(102, 126, 234, 0.1);
+}
+
+/* Particules d'arrière-plan */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  animation: float 20s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle:nth-child(odd) {
+  left: 10%;
+  animation-delay: -5s;
+}
+
+.particle:nth-child(even) {
+  left: 90%;
+  animation-delay: -15s;
 }
 
 /* Back Button */
 .back-button-container {
-  margin-bottom: 2rem;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 1000;
 }
 
 .back-button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(144, 168, 255, 0.1);
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  color: #90a8ff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  color: var(--text-primary);
+  text-decoration: none;
   backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .back-button:hover {
-  background: rgba(144, 168, 255, 0.2);
-  border-color: #90a8ff;
-  transform: translateX(-2px);
-}
-
-.back-button svg {
-  transition: transform 0.3s ease;
-}
-
-.back-button:hover svg {
-  transform: translateX(-2px);
+  transform: translateX(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 20px rgba(247, 37, 133, 0.3);
 }
 
 /* Hero Section */
-.hero-section {
-  margin-bottom: 4rem;
-}
-
-.hero-content {
-  background: rgba(26, 26, 26, 0.6);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  backdrop-filter: blur(10px);
+.hero-stage {
+  padding: 120px 5% 100px;
   position: relative;
-  text-align: center;
+  z-index: 1;
 }
 
-.hero-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hero-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s ease forwards;
+}
+
+.hero-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 1s ease 0.3s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .project-logo {
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
 .logo-container {
@@ -641,333 +721,398 @@ export default {
 }
 
 .logo-text {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0;
-  background: linear-gradient(135deg, #90a8ff, #fff, #90a8ff);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  z-index: 1;
-}
-
-.project-image {
-  width: 200px;
-  height: auto;
-  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .logo-glow {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 100px;
-  background: radial-gradient(ellipse, rgba(144, 168, 255, 0.3), transparent);
-  z-index: 0;
-  animation: pulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-gradient);
+  filter: blur(20px);
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .hero-title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 15px;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #90a8ff;
-  margin: 0 0 1.5rem 0;
-  opacity: 0.9;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
 }
 
 .duration-badge {
   display: inline-block;
-  background: rgba(144, 168, 255, 0.2);
-  color: #90a8ff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 20px;
+  padding: 10px 20px;
+  background: rgba(247, 37, 133, 0.1);
+  border: 1px solid var(--accent-color);
+  border-radius: 25px;
+  color: var(--accent-color);
   font-weight: 600;
-  border: 1px solid rgba(144, 168, 255, 0.3);
 }
 
-/* Content Sections */
-.content-section {
-  margin-bottom: 4rem;
+.project-visual {
+  position: relative;
+  text-align: center;
+}
+
+.project-image {
+  max-width: 300px;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(102, 126, 234, 0.3));
+}
+
+.visual-accent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.1) 0%,
+    transparent 50%
+  );
+  z-index: -1;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Sections communes */
+section:not(.hero-stage) {
+  padding: 100px 5%;
+  position: relative;
+  z-index: 1;
+}
+
+.section-intro {
+  max-width: 1200px;
+  margin: 0 auto 80px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
-.content-section.animate-in {
+.section-intro.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-.section-header {
-  margin-bottom: 2rem;
-}
-
-.section-header h2 {
-  color: #90a8ff;
-  font-size: 1.8rem;
+.section-number {
+  display: inline-block;
+  padding: 5px 15px;
+  background: var(--background-accent-color);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 20px;
   font-weight: 600;
-  margin: 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
 }
 
-.content-card {
-  background: rgba(26, 26, 26, 0.6);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading-main {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.heading-sub {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Content wrappers */
+.content-wrapper,
+.context-content,
+.role-content,
+.organization-content,
+.tech-content,
+.features-content,
+.architecture-content,
+.security-content,
+.learning-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
   backdrop-filter: blur(10px);
-  position: relative;
 }
 
-.content-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
+/* Context Section */
+.context-description,
+.role-description,
+.security-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
 }
 
-.content-card p {
-  line-height: 1.7;
-  color: #e0e0e0;
-  margin-bottom: 1rem;
-}
-
-/* Objectives Grid */
 .objectives-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
 }
 
 .objective-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
   text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.objective-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .objective-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(144, 168, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
-}
-
-.objective-card:hover::before {
-  opacity: 1;
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
 }
 
 .objective-icon {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  display: block;
+  margin-bottom: 15px;
 }
 
 .objective-card h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   font-weight: 600;
-  margin: 0 0 0.5rem 0;
 }
 
 .objective-card p {
-  color: #ccc;
-  font-size: 0.9rem;
-  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-/* Constraint Badge */
 .constraint-badge {
-  background: rgba(255, 107, 107, 0.1);
-  border: 1px solid rgba(255, 107, 107, 0.3);
-  border-radius: 12px;
-  padding: 1rem;
-  margin-top: 2rem;
-  text-align: center;
-  color: #ff6b6b;
+  background: rgba(247, 37, 133, 0.1);
+  border: 1px solid var(--accent-color);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 30px;
+  color: var(--text-primary);
 }
 
 /* Responsibilities Grid */
 .responsibilities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
 .responsibility-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.responsibility-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .responsibility-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(144, 168, 255, 0.3);
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+  border-color: var(--accent-color);
 }
 
 .responsibility-icon {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   display: block;
 }
 
-.responsibility-card h4 {
-  color: #90a8ff;
-  font-size: 1rem;
+.card-inner h4 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   font-weight: 600;
-  margin: 0 0 0.5rem 0;
 }
 
-.responsibility-card p {
-  color: #ccc;
-  font-size: 0.85rem;
-  margin: 0;
+.card-inner p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.responsibility-card:hover .card-accent {
+  transform: translateX(0);
 }
 
 /* Timeline */
 .timeline {
   position: relative;
-  padding: 2rem 0;
+  padding: 20px 0;
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
-  left: 30px;
   top: 0;
-  bottom: 0;
+  left: 30px;
+  height: 100%;
   width: 2px;
-  background: linear-gradient(180deg, #90a8ff, rgba(144, 168, 255, 0.3));
+  background: var(--primary-gradient);
 }
 
 .timeline-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 2rem;
   position: relative;
+  margin-bottom: 40px;
+  padding-left: 80px;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease;
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .timeline-marker {
-  background: #90a8ff;
-  color: #1a1a1a;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  height: 40px;
+  background: var(--primary-gradient);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  color: white;
+  font-weight: 600;
   font-size: 0.9rem;
-  margin-right: 2rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(144, 168, 255, 0.3);
 }
 
 .timeline-content h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
   font-weight: 600;
-  margin: 0 0 0.5rem 0;
 }
 
 .timeline-content p {
-  color: #ccc;
-  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-/* Methodology Card */
 .methodology-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 40px;
+  backdrop-filter: blur(10px);
 }
 
 .methodology-card h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
   font-weight: 600;
-  margin: 0 0 1rem 0;
 }
 
-/* Tech Stack Grid */
+/* Tech Stack */
 .tech-stack-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 .tech-stack-section h3 {
-  color: #90a8ff;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 0 0 1.5rem 0;
-  text-align: center;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  font-weight: 700;
 }
 
 .tech-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 20px;
 }
 
 .tech-item {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
 .tech-item:hover {
-  border-color: rgba(144, 168, 255, 0.3);
-  transform: translateX(4px);
+  border-color: var(--accent-color);
+  transform: translateX(5px);
 }
 
 .tech-icon {
@@ -976,671 +1121,397 @@ export default {
 }
 
 .tech-item strong {
-  color: #90a8ff;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 5px;
 }
 
 .tech-item p {
-  color: #ccc;
-  font-size: 0.85rem;
-  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
-/* Justification Card */
 .justification-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
 }
 
 .justification-card h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
   font-weight: 600;
-  margin: 0 0 1rem 0;
 }
 
-/* Features Grid */
+/* Features */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
 .feature-category {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-category.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .feature-category:hover {
-  border-color: rgba(144, 168, 255, 0.3);
-  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.feature-icon {
+  font-size: 1.8rem;
 }
 
 .feature-category h3 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.3rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
 }
 
 .feature-category ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .feature-category li {
-  color: #ccc;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 8px 0;
+  padding-left: 20px;
   position: relative;
-  padding-left: 1.5rem;
-}
-
-.feature-category li:last-child {
-  border-bottom: none;
+  line-height: 1.5;
 }
 
 .feature-category li::before {
-  content: '✓';
-  color: #90a8ff;
+  content: "→";
   position: absolute;
   left: 0;
-  font-weight: bold;
-}
-
-/* Highlight Card */
-.highlight-card {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.highlight-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
-}
-
-.highlight-card h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--accent-color);
   font-weight: 600;
-  margin: 0 0 1rem 0;
 }
 
-/* Progress Card */
+.highlight-card,
+.reflection-card {
+  background: rgba(247, 37, 133, 0.1);
+  border: 1px solid var(--accent-color);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+}
+
+.highlight-card h4,
+.reflection-card h4 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
 .progress-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
 }
 
 .progress-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
 .progress-header h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
   font-weight: 600;
-  margin: 0;
 }
 
 .progress-percentage {
-  color: #90a8ff;
+  color: var(--accent-color);
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .progress-bar {
-  background: rgba(144, 168, 255, 0.1);
+  width: 100%;
   height: 8px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
 }
 
 .progress-fill {
-  background: linear-gradient(90deg, #90a8ff, #ffffff);
   height: 100%;
-  border-radius: 4px;
+  background: var(--primary-gradient);
   transition: width 1s ease;
 }
 
-/* Architecture Sections */
-.architecture-sections {
-  margin: 2rem 0;
-}
-
-.arch-section {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.arch-section h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-}
-
-.diagram-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.15);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+/* Architecture */
+.diagram-container {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .architecture-diagram {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 24px rgba(144, 168, 255, 0.08);
-  background: #fff;
-  margin-bottom: 0.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .diagram-caption {
-  color: #90a8ff;
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  opacity: 0.85;
+  margin-top: 15px;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
-/* Result Card */
-.result-card {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
-
-.result-card h4 {
-  color: #90a8ff;
+.architecture-description p {
+  color: var(--text-secondary);
   font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
+  line-height: 1.8;
+  margin-bottom: 30px;
 }
 
-/* Security Methods */
+.architecture-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.arch-section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.arch-section h4 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Security */
 .security-methods {
-  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .security-method {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease;
 }
 
-.security-method h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+.security-method.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.security-method-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+  align-items: center;
+}
+
+.security-method-text h4 {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
   font-weight: 600;
-  margin: 0 0 1rem 0;
 }
 
-.security-method ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
+.security-method-text p,
+.security-method-text li {
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-.security-method li {
-  color: #ccc;
-  padding: 0.25rem 0;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.security-method li::before {
-  content: '→';
-  color: #90a8ff;
-  position: absolute;
-  left: 0;
-}
-
-/* Nouveau layout pour les images de sécurité */
-.security-method-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: flex-start;
+.security-method-text ul {
+  margin-top: 15px;
+  padding-left: 20px;
 }
 
 .security-image-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
-.security-image-large {
-  max-width: 420px;
-  width: 100%;
+.security-image {
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 2px 16px rgba(144, 168, 255, 0.16);
-  background: #fff;
-  margin-top: 0.5rem;
+  border: 1px solid var(--border-color);
 }
 
-@media (max-width: 600px) {
-  .security-image-large {
-    max-width: 100%;
-  }
-}
-
-/* Challenges Grid */
-.challenges-grid {
-  display: grid;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.challenge-card {
-  background: rgba(255, 107, 107, 0.05);
-  border: 1px solid rgba(255, 107, 107, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-
-.challenge-card h4 {
-  color: #ff6b6b;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-}
-
-.challenge-content {
-  margin-top: 1rem;
-}
-
-.problem, .solution {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.problem {
-  background: rgba(255, 107, 107, 0.1);
-  border-left: 3px solid #ff6b6b;
-}
-
-.solution {
-  background: rgba(144, 168, 255, 0.1);
-  border-left: 3px solid #90a8ff;
-}
-
-.problem strong, .solution strong {
-  color: #ff6b6b;
-}
-
-.solution strong {
-  color: #90a8ff;
-}
-
-/* Status Grid */
-.status-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.status-card {
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid;
-}
-
-.status-card.current {
-  background: rgba(255, 193, 7, 0.05);
-  border-color: rgba(255, 193, 7, 0.3);
-}
-
-.status-card.remaining {
-  background: rgba(255, 107, 107, 0.05);
-  border-color: rgba(255, 107, 107, 0.3);
-}
-
-.status-card.proposals {
-  background: rgba(144, 168, 255, 0.05);
-  border-color: rgba(144, 168, 255, 0.3);
-}
-
-.status-card h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-}
-
-.status-card.current h4 {
-  color: #ffc107;
-}
-
-.status-card.remaining h4 {
-  color: #ff6b6b;
-}
-
-.status-card.proposals h4 {
-  color: #90a8ff;
-}
-
-.status-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.status-card li {
-  color: #ccc;
-  padding: 0.5rem 0;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.status-card li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-}
-
-.status-card.current li::before {
-  color: #ffc107;
-}
-
-.status-card.remaining li::before {
-  color: #ff6b6b;
-}
-
-.status-card.proposals li::before {
-  color: #90a8ff;
-}
-
-/* Learning Grid */
+/* Learning */
 .learning-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 .learning-section {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
 }
 
 .learning-section h3 {
-  color: #90a8ff;
-  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
   font-weight: 600;
-  margin: 0 0 1rem 0;
 }
 
 .learning-section ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .learning-section li {
-  color: #ccc;
-  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  padding: 10px 0;
+  padding-left: 25px;
   position: relative;
-  padding-left: 1.5rem;
+  line-height: 1.6;
 }
 
 .learning-section li::before {
-  content: '✓';
-  color: #90a8ff;
+  content: "✓";
   position: absolute;
   left: 0;
-  font-weight: bold;
-}
-
-/* Reflection Card */
-.reflection-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  border-left: 4px solid #90a8ff;
-}
-
-.reflection-card h4 {
-  color: #90a8ff;
-  font-size: 1.1rem;
+  color: var(--accent-color);
   font-weight: 600;
-  margin: 0 0 1rem 0;
-}
-
-/* Skills Grid pour la section compétences */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.skill-card {
-  background: rgba(144, 168, 255, 0.05);
-  border: 1px solid rgba(144, 168, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(144, 168, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(144, 168, 255, 0.15);
-}
-
-.skill-card:hover::before {
-  opacity: 1;
-}
-
-.skill-header {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(144, 168, 255, 0.2);
-}
-
-.skill-header h4 {
-  color: #90a8ff;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 0.25rem 0;
-}
-
-.skill-subtitle {
-  color: #ccc;
-  font-size: 0.9rem;
-  font-style: italic;
-}
-
-.skill-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skill-card li {
-  color: #e0e0e0;
-  padding: 0.5rem 0;
-  position: relative;
-  padding-left: 1.5rem;
-  line-height: 1.4;
-}
-
-.skill-card li::before {
-  content: '→';
-  color: #90a8ff;
-  position: absolute;
-  left: 0;
-}
-
-/* Synthesis Card */
-.synthesis-card {
-  background: linear-gradient(135deg, rgba(144, 168, 255, 0.1), rgba(144, 168, 255, 0.05));
-  border: 1px solid rgba(144, 168, 255, 0.3);
-  border-radius: 12px;
-  padding: 2rem;
-  margin-top: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.synthesis-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #90a8ff, transparent);
-}
-
-.synthesis-card h4 {
-  color: #90a8ff;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  text-align: center;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .internship-container {
-    padding: 0 1rem;
-    margin-top: 4rem;
-  }
-
-  .hero-content {
-    padding: 2rem 1rem;
-  }
-
-  .logo-text {
-    font-size: 2.5rem;
-  }
-
-  .hero-title {
-    font-size: 1.75rem;
-  }
-
-  .objectives-grid,
-  .responsibilities-grid,
-  .features-grid,
-  .status-grid,
-  .learning-grid,
-  .skills-grid {
+@media (max-width: 968px) {
+  .hero-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 40px;
+    text-align: center;
   }
 
-  .tech-stack-grid {
+  .back-button-container {
+    top: 20px;
+    left: 20px;
+  }
+
+  section:not(.hero-stage) {
+    padding: 80px 5%;
+  }
+
+  .hero-stage {
+    padding: 100px 5% 80px;
+  }
+
+  .tech-stack-grid,
+  .architecture-sections,
+  .learning-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 30px;
+  }
+
+  .security-method-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .timeline::before {
     left: 20px;
   }
 
+  .timeline-item {
+    padding-left: 60px;
+  }
+
   .timeline-marker {
     width: 40px;
-    height: 40px;
-    margin-right: 1rem;
+    height: 30px;
     font-size: 0.8rem;
   }
+}
 
-  .content-card {
-    padding: 1.5rem;
+@media (max-width: 768px) {
+  .objectives-grid,
+  .responsibilities-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .section-header h2 {
-    font-size: 1.5rem;
+  .content-wrapper {
+    padding: 30px;
+  }
+
+  .section-intro {
+    margin-bottom: 60px;
+  }
+
+  .heading-main {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
 }
 
 @media (max-width: 480px) {
-  .logo-text {
-    font-size: 2rem;
+  .back-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
 
-  .hero-title {
-    font-size: 1.5rem;
+  .content-wrapper,
+  .methodology-card,
+  .justification-card,
+  .highlight-card,
+  .reflection-card,
+  .progress-card {
+    padding: 20px;
   }
 
-  .duration-badge {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .content-card {
-    padding: 1rem;
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .timeline-marker {
-    margin-bottom: 1rem;
-    margin-right: 0;
-  }
-
-  .timeline::before {
-    display: none;
+  section:not(.hero-stage) {
+    padding: 60px 5%;
   }
 }
 </style>
