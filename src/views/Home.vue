@@ -1056,7 +1056,6 @@ section {
 
 .tech-bubble:hover img {
   transform: scale(1.1);
-  filter: brightness(0) invert(1);
 }
 
 .tech-bubble span {
