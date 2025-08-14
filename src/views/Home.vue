@@ -487,7 +487,7 @@ export default {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: glitch 3s infinite;
+  animation: glitch 5s infinite;
 }
 
 .last-name {
@@ -503,11 +503,10 @@ export default {
 }
 
 @keyframes glitch {
-  0%,
-  100% {
+  0% {
     text-shadow: 0 0 0 transparent;
   }
-  95% {
+  50% {
     text-shadow: 2px 2px 0 #f72585, -2px -2px 0 #667eea;
   }
 }
