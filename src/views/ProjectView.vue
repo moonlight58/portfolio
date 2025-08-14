@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="section-intro">
-        <span class="section-number">Technological - Creations</span>
+        <span class="section-number">{{ $t("Badge.Project") }}</span>
         <h2 class="section-heading">
           <span class="heading-main">Mes Projets</span>
           <span class="heading-sub"

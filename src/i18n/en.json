@@ -108,5 +108,11 @@
   "ProjectSoft": "Soft skills",
   "ProjectChallenges": "Challenges faced",
   "ProjectLink": "Project link",
-  "ProjectAccess": "Access the project"
+  "ProjectAccess": "Access the project",
+
+  "Badge": {
+    "Project": "Technological - Creations",
+    "Drawing": "Artistic - Drawings",
+    "About": "Informational - About Me"
+  }
 }

@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="section-intro">
-        <span class="section-number">Art - Creations</span>
+        <span class="section-number">{{ $t("Badge.Drawing") }}</span>
         <h2 class="section-heading">
           <span class="heading-main">Portfolio Artistique</span>
           <span class="heading-sub">Dark Art & Créations Personnelles</span>

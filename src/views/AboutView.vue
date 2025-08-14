@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="hero-zone" :class="{ 'hero-loaded': isLoaded }">
       <div class="section-intro">
-        <span class="section-number">Informational</span>
+        <span class="section-number">{{ $t("Badge.About") }}</span>
         <h1 class="section-heading">
           <span class="heading-main">À propos</span>
           <span class="heading-sub">Découvrez mon parcours</span>

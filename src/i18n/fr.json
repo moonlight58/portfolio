@@ -107,5 +107,13 @@
   "ProjectSoft": "Compétences humaines",
   "ProjectChallenges": "Défis relevés",
   "ProjectLink": "Lien du projet",
-  "ProjectAccess": "Accéder au projet"
+  "ProjectAccess": "Accéder au projet",
+
+  "Badge": {
+    "Project": "Technologique - Créations",
+    "Drawing": "Artistique - Dessins",
+    "About": "Informations - À propos de moi"
+  }
+
+  
 }
