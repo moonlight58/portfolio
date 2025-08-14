@@ -113,5 +113,11 @@
     "Project": "Technologique - Créations",
     "Drawing": "Artistique - Dessins",
     "About": "Informations - À propos de moi"
+  },
+
+  "Navbar": {
+    "Projects": "Projets",
+    "Drawings": "Dessins",
+    "About": "À propos de moi"
   }
 }

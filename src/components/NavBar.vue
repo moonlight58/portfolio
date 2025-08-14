@@ -35,7 +35,7 @@
       <div class="nav-content" v-if="!isMobile">
         <div class="nav-links-container">
           <router-link
-            v-for="(link, index) in navLinks"
+            v-for="(link, index) in translatedNavLinks"
             :key="link.path"
             :to="link.path"
             class="nav-item"
@@ -125,7 +125,7 @@
           <!-- Contenu du menu mobile -->
           <div class="mobile-menu-content">
             <router-link
-              v-for="(link, index) in navLinks"
+              v-for="(link, index) in translatedNavLinks"
               :key="link.path"
               :to="link.path"
               class="mobile-nav-item"
@@ -197,9 +197,9 @@ export default {
       isMobile: false,
       CustomNavBar: false,
       navLinks: [
-        { path: "/projects", name: "Projects", icon: "📁" },
-        { path: "/drawings", name: "Drawings", icon: "🎨" },
-        { path: "/about-me", name: "About Me", icon: "👤" },
+        { path: "/projects", icon: "📁" },
+        { path: "/drawings", icon: "🎨" },
+        { path: "/about-me", icon: "👤" },
       ],
     };
   },
@@ -211,6 +211,13 @@ export default {
       set(val) {
         this.$i18n.locale = val.toLowerCase();
       },
+    },
+    translatedNavLinks() {
+      return [
+        { path: "/projects", name: this.$t("Navbar.Projects"), icon: "📁" },
+        { path: "/drawings", name: this.$t("Navbar.Drawings"), icon: "🎨" },
+        { path: "/about-me", name: this.$t("Navbar.About"), icon: "👤" },
+      ];
     },
   },
   watch: {
@@ -265,13 +272,11 @@ export default {
 
     toggleLanguage() {
       this.currentLanguage = this.currentLanguage === "FR" ? "EN" : "FR";
-      this.playClickSound();
     },
 
     toggleMobileMenu() {
       this.showMobileMenu = !this.showMobileMenu;
       document.body.style.overflow = this.showMobileMenu ? "hidden" : "";
-      this.playClickSound();
     },
 
     closeMobileMenu() {
@@ -286,16 +291,6 @@ export default {
       if (!this.isMobile && wasMobile && this.showMobileMenu) {
         this.closeMobileMenu();
       }
-    },
-
-    playHoverSound() {
-      // Placeholder pour effet sonore hover
-      console.log("Hover sound effect");
-    },
-
-    playClickSound() {
-      // Placeholder pour effet sonore click
-      console.log("Click sound effect");
     },
   },
 };
