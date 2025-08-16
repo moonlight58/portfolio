@@ -1109,7 +1109,7 @@ export default {
   padding: 30px;
   background: rgba(75, 172, 254, 0.08);
   border: 1px solid rgba(75, 172, 254, 0.2);
-  border-radius: 15px;
+  border-radius: 0 0 15px 15px;
   position: relative;
 }
 

@@ -621,7 +621,7 @@ onMounted(() => {
 
 @media (max-width: 968px) {
   .stage-zone {
-    padding: 80px 5%;
+    margin: auto;
   }
 
   .section-intro {
@@ -752,6 +752,7 @@ onMounted(() => {
 .interactive-link:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Support pour prefers-reduced-motion */
