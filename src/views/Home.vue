@@ -1526,3 +1526,4 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
 }
+</style>
