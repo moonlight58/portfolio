@@ -849,15 +849,7 @@ onMounted(() => {
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  opacity: 0;
   transform: translateY(30px);
-}
-
-.project-card.in-view {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.6s ease forwards;
-  animation-delay: var(--animation-delay);
 }
 
 .project-card:hover {
