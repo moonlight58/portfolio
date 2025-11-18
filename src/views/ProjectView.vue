@@ -370,22 +370,16 @@ const uniqueLanguages = computed(() => {
 async function fetchGithubRepos(type) {
   isLoading.value = true;
   username.value = type === "personal" ? "moonlight58" : "grothlin-iut90";
-  const url = `https://api.github.com/users/${username.value}/repos?sort=updated&per_page=50`;
-
   try {
-    const response = await fetch(url);
+    const response = await fetch(
+      `/.netlify/functions/github-proxy?username=${username.value}`
+    );
     if (!response.ok) {
-      throw new Error(
-        `Error fetching repositories: ${response.status} ${response.statusText}`
-      );
+      throw new Error(`Error: ${response.status}`);
     }
     const repos = await response.json();
     projects.value = repos;
-
-    // Animation des cards après chargement
-    setTimeout(() => {
-      setupIntersectionObserver();
-    }, 100);
+    setupIntersectionObserver();
   } catch (error) {
     console.error(error.message);
     projects.value = [];
@@ -393,6 +387,7 @@ async function fetchGithubRepos(type) {
     isLoading.value = false;
   }
 }
+
 
 function toggleButton(type) {
   activeButton.value = type;
