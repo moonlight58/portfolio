@@ -73,7 +73,7 @@ export default {
     async fetchNowPlaying() {
       try {
         // Utilise la fonction Netlify
-        const response = await fetch('/.netlify/functions/spotifynowplaying/spotify-now-playing');
+        const response = await fetch('/.netlify/functions/spotify-now-playing');
         
         if (!response.ok) {
           this.isPlaying = false;
