@@ -1,13 +1,13 @@
 {
     "projects": [
         {
-            "titre": "Spotify-tui",
+            "titre": "SpotCLI",
             "contenu": "Terminal-based Spotify client lighter than the original application made in C and uses Spotify Web API",
-            "image": "Spotify-tui.png",
+            "image": "SpotCLI.png",
             "categorie": "Personal",
             "status": "On Going",
             "language": "C",
-            "url": "https://github.com/moonlight58/Spotify-tui"
+            "url": "https://github.com/moonlight58/spotCLI"
         },
         {
             "titre": "SteamToLinux",

@@ -46,11 +46,11 @@
   "SteamToLinux_soft_learning": "",
   "SteamToLinux_challenges_learning": "",
 
-  "Spotify-tui_content": "Spotify terminal client, lighter than the original application, built in C using the Spotify Web API",
-  "Spotify-tui_description": "Spotify-tui is a terminal-based user interface for Spotify. It lets you control your Spotify account from the command line. You can search for songs, albums and playlists, and play them directly from the terminal. It's still in development due to lack of time. The aim is to make it a full Spotify client with all the features of the official client.",
-  "Spotify-tui_technical_learning": "",
-  "Spotify-tui_soft_learning": "",
-  "Spotify-tui_challenges_learning": "",
+  "SpotCLI_content": "Spotify terminal client, lighter than the original application, built in C using the Spotify Web API",
+  "SpotCLI_description": "SpotCLI is a terminal-based user interface for Spotify. It lets you control your Spotify account from the command line. You can search for songs, albums and playlists, and play them directly from the terminal. It's still in development due to lack of time. The aim is to make it a full Spotify client with all the features of the official client.",
+  "SpotCLI_technical_learning": "",
+  "SpotCLI_soft_learning": "",
+  "SpotCLI_challenges_learning": "",
 
   "Moonify_content": "Music player with Imgur API and Discord RPC",
   "Moonify_description": "Moonify is a command-line music player that lets you listen to music on your terminal. It is designed to be light and fast, while offering a pleasant user experience. A graphical version has also been implemented for those who are not comfortable with CLI (Command-Line Interface) interfaces, offering a better experience and handling.",
