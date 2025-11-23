@@ -33,7 +33,7 @@
     "titre": "SpotCLI",
     "description": "SpotCLI is a terminal user interface for Spotify. It allows you to control your Spotify account from the command line. You can search for songs, albums, and playlists, and play them directly from the terminal. It is still in development due to the lack of time to finish it. The goal is to make it a complete Spotify client with all the features of the official client.",
     "language": "C",
-    "technologies": "Spotify Web API",
+    "technologies": "Spotify API",
     "image": "SpotCLI.png",
     "status": "in progress",
     "categorie": "Application",

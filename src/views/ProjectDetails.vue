@@ -609,6 +609,8 @@ section {
 }
 
 .body-text {
+  text-align: justify;
+  text-justify: inter-word;
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-secondary);
