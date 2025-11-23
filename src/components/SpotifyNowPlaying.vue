@@ -72,9 +72,8 @@ export default {
   methods: {
     async fetchNowPlaying() {
       try {
-        // Remplace cette URL par ton endpoint API
-        // Tu devras créer un backend qui appelle l'API Spotify
-        const response = await fetch('https://ton-api.com/spotify/now-playing');
+        // Utilise la fonction Netlify
+        const response = await fetch('/.netlify/functions/spotifynowplaying/spotify-now-playing');
         
         if (!response.ok) {
           this.isPlaying = false;
@@ -83,7 +82,7 @@ export default {
 
         const data = await response.json();
         
-        if (data.is_playing) {
+        if (data.is_playing && data.item) {
           this.isPlaying = true;
           this.currentTrack = {
             name: data.item.name,

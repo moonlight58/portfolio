@@ -27,6 +27,9 @@
               >
               <div class="role-accent-secondary"></div>
             </div>
+            <div class="role-badge">
+                <SpotifyNowPlaying />
+            </div>
           </div>
 
           <p class="bio-note">
@@ -219,6 +222,7 @@
 </template>
 
 <script>
+import SpotifyNowPlaying from '@/components/SpotifyNowPlaying.vue';
 import Carousel from "@/components/CarouselProject.vue";
 import Internship from "@/components/StageComponent.vue";
 import UIUX from "@/components/UI-UX.vue";
@@ -227,6 +231,7 @@ import skills from "@/datasource/skills.json";
 export default {
   name: "HomeView",
   components: {
+    SpotifyNowPlaying,
     Carousel,
     Internship,
     UIUX,
