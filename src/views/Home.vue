@@ -518,22 +518,53 @@ export default {
 
 /* Role Badge */
 .role-wrapper {
-  display: inline-flex;
-  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .role-badge {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   padding: 12px 24px;
   background: rgba(102, 126, 234, 0.1);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 50px;
   overflow: hidden;
+  align-items: center;
+  width: fit-content;
+}
+
+/* Make the Spotify badge match the style */
+.role-badge:has(.spotify-badge) {
+  padding: 12px 20px;
 }
 
 .role-text {
   position: relative;
+  z-index: 2;
+  font-size: 1.1rem;
+  color: #a8b2d1;
+}
+
+.role-accent-primary,
+.role-accent-secondary {
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.role-accent-secondary {
+  background: linear-gradient(135deg, #764ba2 0%, #831e55 100%);
+}
+
+.role-text { position: relative;
   z-index: 2;
   font-size: 1.1rem;
   color: var(--text-secondary);
@@ -567,7 +598,7 @@ export default {
 }
 
 .role-badge:hover .role-text {
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 /* Bio Container */
@@ -1088,6 +1119,43 @@ section {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .role-wrapper {
+    gap: 8px;
+  }
+
+  .role-badge {
+    padding: 10px 20px;
+  }
+
+  .role-badge:has(.spotify-badge) {
+    padding: 10px 16px;
+  }
+
+  .role-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-wrapper {
+    gap: 6px;
+  }
+
+  .role-badge {
+    padding: 8px 16px;
+  }
+
+  .role-badge:has(.spotify-badge) {
+    padding: 8px 14px;
+  }
+
+  .role-text {
+    font-size: 0.9rem;
   }
 }
 

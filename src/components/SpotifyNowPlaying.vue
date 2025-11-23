@@ -110,43 +110,45 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: rgba(30, 215, 96, 0.1);
-  border: 1px solid rgba(30, 215, 96, 0.2);
-  border-radius: 50px;
-  overflow: hidden;
+  gap: 10px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
   transition: all 0.3s ease;
-  min-width: 200px;
+  width: 100%;
 }
 
-.spotify-badge.is-playing {
-  background: rgba(30, 215, 96, 0.15);
-  border-color: rgba(30, 215, 96, 0.3);
+.spotify-badge.is-playing .spotify-logo {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(29, 185, 84, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(29, 185, 84, 0.6));
+  }
 }
 
 .spotify-bg {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(30, 215, 96, 0.2), transparent);
-  transition: left 0.3s ease;
-  z-index: 0;
-}
-
-.spotify-badge:hover .spotify-bg {
-  left: 100%;
+  display: none;
 }
 
 .spotify-logo {
   position: relative;
   z-index: 2;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: #1DB954;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.spotify-badge:hover .spotify-logo {
+  transform: scale(1.1);
 }
 
 .spotify-logo svg {
@@ -164,7 +166,7 @@ export default {
 .track-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .track-details {
@@ -176,20 +178,23 @@ export default {
 }
 
 .track-name {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-primary, #ffffff);
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .track-artist {
-  font-size: 0.8rem;
-  color: var(--text-secondary, #a8b2d1);
+  font-size: 0.75rem;
+  color: #a8b2d1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  opacity: 0.8;
+  line-height: 1.2;
 }
 
 .not-playing {
@@ -199,7 +204,7 @@ export default {
 
 .not-playing span {
   font-size: 0.85rem;
-  color: var(--text-secondary, #a8b2d1);
+  color: #a8b2d1;
   opacity: 0.7;
 }
 
@@ -207,15 +212,15 @@ export default {
 .equalizer {
   display: flex;
   align-items: flex-end;
-  gap: 3px;
-  height: 16px;
+  gap: 2px;
+  height: 14px;
   flex-shrink: 0;
 }
 
 .bar {
-  width: 3px;
+  width: 2.5px;
   background: #1DB954;
-  border-radius: 3px;
+  border-radius: 2px;
   animation: equalize 1.2s ease-in-out infinite;
 }
 
@@ -233,29 +238,31 @@ export default {
 
 @keyframes equalize {
   0%, 100% {
-    height: 4px;
+    height: 3px;
   }
   50% {
-    height: 16px;
+    height: 14px;
   }
 }
 
 .spotify-link {
   position: relative;
   z-index: 2;
-  width: 20px;
-  height: 20px;
-  color: var(--text-secondary, #a8b2d1);
+  width: 18px;
+  height: 18px;
+  color: #a8b2d1;
   transition: all 0.3s ease;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.6;
 }
 
 .spotify-link:hover {
   color: #1DB954;
-  transform: scale(1.1);
+  transform: scale(1.15);
+  opacity: 1;
 }
 
 .spotify-link svg {
@@ -265,29 +272,9 @@ export default {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .spotify-badge {
-    min-width: 180px;
-    padding: 10px 14px;
-  }
-
-  .track-name {
-    font-size: 0.85rem;
-  }
-
-  .track-artist {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .spotify-badge {
-    min-width: 160px;
-    padding: 8px 12px;
-  }
-
   .spotify-logo {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
   .track-name {
@@ -299,23 +286,59 @@ export default {
   }
 
   .equalizer {
-    height: 14px;
+    height: 12px;
+  }
+
+  .spotify-link {
+    width: 16px;
+    height: 16px;
   }
 }
 
-/* Animation lors du chargement */
-.spotify-badge {
-  animation: slideIn 0.5s ease-out;
+@media (max-width: 480px) {
+  .spotify-logo {
+    width: 16px;
+    height: 16px;
+  }
+
+  .track-name {
+    font-size: 0.75rem;
+  }
+
+  .track-artist {
+    font-size: 0.65rem;
+  }
+
+  .equalizer {
+    height: 10px;
+    gap: 1.5px;
+  }
+
+  .bar {
+    width: 2px;
+  }
+
+  @keyframes equalize {
+    0%, 100% {
+      height: 2px;
+    }
+    50% {
+      height: 10px;
+    }
+  }
 }
 
-@keyframes slideIn {
+/* Animation d'entrée */
+.spotify-badge {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 </style>
