@@ -94,6 +94,11 @@
   "DotIC_soft_learning": "Improving my problem-solving skills, understanding user needs for better UX design.",
   "DotIC_challenges_learning": "Ensuring compatibility with various image formats, optimising performance for large images, and refining the algorithm for better dot distribution.",
 
+  "HFP Disable AutoScript_description": "HFP Disable AutoScript is a PowerShell script that automatically disables the Hands-Free Profile (HFP) on Windows when a Bluetooth audio device is connected. This helps to improve audio quality by preventing Windows from switching to the lower-quality HFP mode.",
+  "HFP Disable AutoScript_technical_learning": "Learning PowerShell scripting, Understanding Bluetooth profiles and Windows audio management.",
+  "HFP Disable AutoScript_soft_learning": "Enhancing my scripting skills, Improving my ability to research and implement technical solutions.",
+  "HFP Disable AutoScript_challenges_learning": "Handling different Bluetooth devices, Ensuring compatibility across various Windows versions.",
+
   "Website": "Website",
   "Application": "Application",
   "Game": "Game",

@@ -35,27 +35,27 @@
 
   "B.I.E.N._description": "SAE-SiteInfo-BIEN est un site éducatif et interactif conçu pour sensibiliser le public à l'impact environnemental du numérique, et en particulier à la production de CO2 liée à la technologie. L'objectif principal est d'aider les utilisateurs à prendre conscience de l'empreinte carbone du secteur technologique grâce à des données visuelles et personnalisables.",
   "B.I.E.N._content": "Site web sur le changement climatique et la technologie",
-  "B.I.E.N._technical_learning": "",
-  "B.I.E.N._soft_learning": "",
-  "B.I.E.N._challenges_learning": "",
+  "B.I.E.N._technical_learning": "Approfondissement de JavaScript, Python et SQL, Utilisation de VueJS pour le front-end, Gestion de bases de données...",
+  "B.I.E.N._soft_learning": "Travail en équipe avec des étudiants de différentes disciplines, Communication des concepts techniques à un public non technique...",
+  "B.I.E.N._challenges_learning": "Intégration de données en temps réel, Optimisation des performances pour une expérience utilisateur fluide...",
 
   "SteamToLinux_content": "Vérification de la compatibilité des jeux sur Linux",
   "SteamToLinux_description": "SteamToLinux est un outil conçu pour vérifier facilement la compatibilité de vos jeux sur Linux. Il utilise l'API Steam pour accéder à votre bibliothèque de jeux et récupère des données de ProtonDB pour fournir des informations complètes sur la compatibilité.",
-  "SteamToLinux_technical_learning": "",
-  "SteamToLinux_soft_learning": "",
-  "SteamToLinux_challenges_learning": "",
+  "SteamToLinux_technical_learning": "Approfondissement de Python, utilisation de l'API Steam, web scraping avec BeautifulSoup...",
+  "SteamToLinux_soft_learning": "Gestion du temps pour équilibrer le développement avec d'autres engagements...",
+  "SteamToLinux_challenges_learning": "Gestion des limites de l'API Steam, traitement des données incomplètes ou incohérentes...",
 
   "SpotCLI_content": "Client Spotify en terminal plus léger que l'application originale, réalisé en C et utilisant l'API Web Spotify",
   "SpotCLI_description": "SpotCLI est une interface utilisateur en terminal pour Spotify. Elle permet de contrôler votre compte Spotify depuis la ligne de commande. Vous pouvez rechercher des chansons, albums et playlists, et les lire directement depuis le terminal. Elle est encore en développement par manque de temps. L'objectif est d'en faire un client Spotify complet avec toutes les fonctionnalités du client officiel.",
-  "SpotCLI_technical_learning": "",
-  "SpotCLI_soft_learning": "",
-  "SpotCLI_challenges_learning": "",
+  "SpotCLI_technical_learning": "Approfondissement du langage C, gestion des requêtes HTTP avec l'API Web Spotify, manipulation de JSON, gestion de la mémoire...",
+  "SpotCLI_soft_learning": "Gestion du temps pour équilibrer le développement avec d'autres engagements, communication avec les utilisateurs pour recueillir des retours...",
+  "SpotCLI_challenges_learning": "Gestion des limites de l'API Spotify, optimisation des performances pour une expérience utilisateur fluide...",
 
   "Moonify_content": "Lecteur de musique avec API Imgur et Discord RPC",
   "Moonify_description": "Moonify est un lecteur de musique en ligne de commande qui vous permet d'écouter de la musique dans votre terminal. Il est conçu pour être léger et rapide, tout en offrant une expérience utilisateur agréable. Une version graphique a également été implémentée pour ceux qui ne sont pas à l'aise avec les interfaces CLI (Command-Line Interface), offrant ainsi une meilleure expérience et prise en main.",
   "Moonify_technical_learning": "Approfondissement de Python, gestion des API Imgur et Discord RPC, Optimisation des performances avec le multithreading...",
-  "Moonify_soft_learning": "",
-  "Moonify_challenges_learning": "",
+  "Moonify_soft_learning": "Communication avec les utilisateurs pour recueillir des retours, gestion du temps pour équilibrer le développement avec d'autres engagements...",
+  "Moonify_challenges_learning": "Gestion des limites de l'API, optimisation de la lecture musicale pour minimiser la latence...",
 
   "ArchLinuxTutorial_description": "ArchLinuxTutorial est un guide complet pour l'installation et la configuration d'Arch Linux. Il couvre tout, de l'installation initiale à la configuration avancée, ce qui en fait une ressource précieuse pour les débutants comme pour les utilisateurs expérimentés.",
   "ArchLinuxTutorial_technical_learning": "Configuration du système, Gestion des services, Installation de paquets, Gestion des utilisateurs...",
@@ -64,8 +64,8 @@
 
   "DnD_Prototype_description": "Prototype de jeu de rôle utilisant les règles de la 5ème édition de Dungeons And Dragons, avec un aspect similaire à un JRPG. Le jeu est encore en développement, mais l'objectif est de créer un jeu complet avec une histoire, des personnages et des combats.",
   "DnD_Prototype_technical_learning": "Approfondissement de Java, Gestion des événements, Gestion des états du jeu...",
-  "DnD_Prototype_soft_learning": "",
-  "DnD_Prototype_challenges_learning": "",
+  "DnD_Prototype_soft_learning": "Travail en équipe, Communication entre les membres de l'équipe...",
+  "DnD_Prototype_challenges_learning": "Implémentation des mécaniques de jeu, Optimisation des performances...",
 
   "Install-UpdateDiscord_description": "Install-UpdateDiscord est un script Bash qui permet d'installer et de mettre à jour Discord sur les systèmes basés sur Linux et installe le client mod Vencord. Il est conçu pour être simple et efficace, facilitant l'installation de Discord pour les utilisateurs de Linux.",
   "Install-UpdateDiscord_technical_learning": "Approfondissement de Bash, Gestion des paquets Linux, Installation du client mod Vencord au travers de requête Curl, Automatisation des tâches, Gestion des erreurs...",
@@ -92,6 +92,11 @@
   "DotIC_technical_learning": "Approfondir mes connaissances en Python, en traitement d'images et en optimisation d'algorithmes pour la génération d'œuvres d'art en demi-teintes.",
   "DotIC_soft_learning": "Améliorer mes compétences en résolution de problèmes, comprendre les besoins des utilisateurs pour une meilleure conception de l'expérience utilisateur.",
   "DotIC_challenges_learning": "Assurer la compatibilité avec divers formats d'image, optimiser les performances pour les images volumineuses et affiner l'algorithme pour une meilleure répartition des points.",
+
+  "HFP Disable AutoScript_description": "HFP Disable AutoScript est un script PowerShell qui désactive automatiquement le profil mains libres (HFP) sur Windows lorsqu'un appareil audio Bluetooth est connecté. Cela aide à améliorer la qualité audio en empêchant Windows de passer au mode HFP de moindre qualité.",
+  "HFP Disable AutoScript_technical_learning": "Apprentissage du scripting PowerShell, Compréhension des profils Bluetooth et de la gestion audio sous Windows.",
+  "HFP Disable AutoScript_soft_learning": "Amélioration de mes compétences en scripting, Amélioration de ma capacité à rechercher et à mettre en œuvre des solutions techniques.",
+  "HFP Disable AutoScript_challenges_learning": "Gestion de différents appareils Bluetooth, Assurance de la compatibilité avec diverses versions de Windows.",
 
   "Website": "Site web",
   "Application": "Application",

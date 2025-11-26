@@ -103,5 +103,14 @@
     "status": "finished",
     "categorie": "Application",
     "url": "https://github.com/moonlight58/DotIC"
+  },
+  "HFP-Disable-AutoScript": {
+    "titre": "HFP Disable AutoScript",
+    "description": "HFP Disable AutoScript is a PowerShell script that automatically disables the Hands-Free Profile (HFP) on Windows when a Bluetooth audio device is connected. This helps to improve audio quality by preventing Windows from switching to the lower-quality HFP mode.",
+    "language": "PowerShell",
+    "image": "HFP-Disable-AutoScript.png",
+    "status": "finished",
+    "categorie": "Script",
+    "url": "https://github.com/moonlight58/HFP-Disable-AutoScript"
   }
 }

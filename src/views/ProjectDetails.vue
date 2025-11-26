@@ -537,6 +537,7 @@ export default {
 ================================ */
 .back-navigation {
   padding: 0 5%;
+  margin-top: 100px;
   margin-bottom: 40px;
 }
 
