@@ -1,22 +1,21 @@
 <template>
   <div class="projects-zone" :class="{ loaded: isVisible }">
-    <!-- Hero Section -->
     <section class="hero-section">
       <div class="section-intro">
         <span class="section-number">{{ $t("Badge.Project") }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Mes Projets</span>
-          <span class="heading-sub"
-            >Découvrez mes réalisations techniques et créatives</span
-          >
+          <span class="heading-main">{{ $t("ProjectsPage.Hero.Title") }}</span>
+          <span class="heading-sub">{{
+            $t("ProjectsPage.Hero.Subtitle")
+          }}</span>
         </h2>
       </div>
 
       <div class="hero-content">
         <div class="project-selector">
           <div class="selector-intro">
-            <h3>Choisissez une catégorie</h3>
-            <p>Explorez mes projets personnels ou universitaires</p>
+            <h3>{{ $t("ProjectsPage.Hero.CategoryTitle") }}</h3>
+            <p>{{ $t("ProjectsPage.Hero.CategorySubtitle") }}</p>
           </div>
 
           <div class="selector-buttons">
@@ -30,10 +29,12 @@
             >
               <div class="btn-icon">👤</div>
               <div class="btn-content">
-                <span class="btn-label">Projets Personnels</span>
-                <span class="btn-description"
-                  >Créations et expérimentations</span
-                >
+                <span class="btn-label">{{
+                  $t("ProjectsPage.Hero.PersonalBtn")
+                }}</span>
+                <span class="btn-description">{{
+                  $t("ProjectsPage.Hero.PersonalDesc")
+                }}</span>
               </div>
               <div class="btn-accent"></div>
             </button>
@@ -48,10 +49,12 @@
             >
               <div class="btn-icon">🎓</div>
               <div class="btn-content">
-                <span class="btn-label">Projets Universitaires</span>
-                <span class="btn-description"
-                  >Travaux académiques et études</span
-                >
+                <span class="btn-label">{{
+                  $t("ProjectsPage.Hero.UniBtn")
+                }}</span>
+                <span class="btn-description">{{
+                  $t("ProjectsPage.Hero.UniDesc")
+                }}</span>
               </div>
               <div class="btn-accent"></div>
             </button>
@@ -60,7 +63,6 @@
       </div>
     </section>
 
-    <!-- Loading State -->
     <section v-if="isLoading" class="loading-zone">
       <div class="loading-card">
         <div class="loading-animation">
@@ -74,20 +76,21 @@
             ></span>
           </div>
         </div>
-        <h3>Chargement des projets...</h3>
-        <p>Récupération des données depuis GitHub</p>
+        <h3>{{ $t("ProjectsPage.Loading.Title") }}</h3>
+        <p>{{ $t("ProjectsPage.Loading.Subtitle") }}</p>
       </div>
     </section>
 
-    <!-- Projects Statistics -->
     <section v-if="!isLoading && projects.length > 0" class="stats-zone">
       <div class="stats-container">
         <div class="stats-intro">
-          <h3>Statistiques</h3>
+          <h3>{{ $t("ProjectsPage.Stats.Title") }}</h3>
           <p>
-            Aperçu de mes contributions
+            {{ $t("ProjectsPage.Stats.Intro") }}
             {{
-              activeButton === "personal" ? "personnelles" : "universitaires"
+              activeButton === "personal"
+                ? $t("ProjectsPage.Stats.Personal")
+                : $t("ProjectsPage.Stats.Uni")
             }}
           </p>
         </div>
@@ -97,7 +100,9 @@
             <div class="stat-icon">📊</div>
             <div class="stat-info">
               <span class="stat-number">{{ filteredProjects.length }}</span>
-              <span class="stat-label">Projets</span>
+              <span class="stat-label">{{
+                $t("ProjectsPage.Stats.Projects")
+              }}</span>
             </div>
           </div>
 
@@ -105,7 +110,9 @@
             <div class="stat-icon">⭐</div>
             <div class="stat-info">
               <span class="stat-number">{{ totalStars }}</span>
-              <span class="stat-label">Stars</span>
+              <span class="stat-label">{{
+                $t("ProjectsPage.Stats.Stars")
+              }}</span>
             </div>
           </div>
 
@@ -113,7 +120,9 @@
             <div class="stat-icon">🍴</div>
             <div class="stat-info">
               <span class="stat-number">{{ totalForks }}</span>
-              <span class="stat-label">Forks</span>
+              <span class="stat-label">{{
+                $t("ProjectsPage.Stats.Forks")
+              }}</span>
             </div>
           </div>
 
@@ -121,14 +130,15 @@
             <div class="stat-icon">💻</div>
             <div class="stat-info">
               <span class="stat-number">{{ uniqueLanguages.length }}</span>
-              <span class="stat-label">Langages</span>
+              <span class="stat-label">{{
+                $t("ProjectsPage.Stats.Languages")
+              }}</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Grid -->
     <section v-if="!isLoading" class="projects-grid-zone">
       <div class="projects-container">
         <div v-if="filteredProjects.length > 0" class="projects-grid">
@@ -140,7 +150,6 @@
           >
             <div class="project-glow"></div>
 
-            <!-- Project Image -->
             <div class="project-image-section">
               <div class="project-image-wrapper">
                 <img
@@ -155,12 +164,11 @@
                     class="view-project-btn"
                   >
                     <span class="view-icon">🔍</span>
-                    <span>Voir le projet</span>
+                    <span>{{ $t("ProjectsPage.Grid.ViewProject") }}</span>
                   </button>
                 </div>
               </div>
 
-              <!-- Language Badge -->
               <div v-if="project.language" class="language-badge">
                 <span
                   class="language-dot"
@@ -172,7 +180,6 @@
               </div>
             </div>
 
-            <!-- Project Content -->
             <div class="project-content">
               <header class="project-header">
                 <h3 class="project-title">
@@ -184,16 +191,17 @@
                     :class="getProjectStatus(project)"
                   ></span>
                   <span class="status-text">{{
-                    getProjectStatusText(project)
+                    $t("ProjectsPage.Status." + getProjectStatus(project))
                   }}</span>
                 </div>
               </header>
 
               <p class="project-description">
-                {{ project.description || "Aucune description disponible" }}
+                {{
+                  project.description || $t("ProjectsPage.Grid.NoDescription")
+                }}
               </p>
 
-              <!-- Project Metrics -->
               <div class="project-metrics">
                 <div class="metric-item">
                   <span class="metric-icon">⭐</span>
@@ -221,7 +229,6 @@
                 </div>
               </div>
 
-              <!-- Project Footer -->
               <footer class="project-footer">
                 <div class="project-dates">
                   <span class="date-info">
@@ -264,16 +271,15 @@
           </article>
         </div>
 
-        <!-- Empty State -->
         <div v-else class="empty-state">
           <div class="empty-content">
             <div class="empty-icon">📂</div>
-            <h3>Aucun projet trouvé</h3>
+            <h3>{{ $t("ProjectsPage.Grid.EmptyTitle") }}</h3>
             <p>
               {{
                 activeButton === "personal"
-                  ? "Aucun projet personnel avec description trouvé."
-                  : "Aucun projet universitaire avec description trouvé."
+                  ? $t("ProjectsPage.Grid.EmptyPersonal")
+                  : $t("ProjectsPage.Grid.EmptyUni")
               }}
             </p>
           </div>
@@ -281,7 +287,6 @@
       </div>
     </section>
 
-    <!-- GitHub Profile Section -->
     <section
       v-if="username && !isLoading && projects.length > 0"
       class="github-profile-zone"
@@ -303,12 +308,12 @@
               </svg>
             </div>
             <div class="profile-info">
-              <h3>Profil GitHub</h3>
-              <p>Explorez tous mes projets et contributions</p>
+              <h3>{{ $t("ProjectsPage.Github.Title") }}</h3>
+              <p>{{ $t("ProjectsPage.Github.Subtitle") }}</p>
               <div class="profile-stats">
                 <span>@{{ username }}</span>
                 <span>•</span>
-                <span>{{ projects.length }} repositories</span>
+                <span>{{ projects.length }} {{ $t("ProjectsPage.Github.Repos") }}</span>
               </div>
             </div>
           </div>
@@ -319,7 +324,7 @@
             class="profile-link"
             rel="noopener noreferrer"
           >
-            <span>Voir le profil complet</span>
+            <span>{{ $t("ProjectsPage.Github.Link") }}</span>
             <div class="link-bg"></div>
           </a>
         </div>
@@ -490,16 +495,6 @@ function getProjectStatus(project) {
   if (diffDays < 30) return "active";
   if (diffDays < 90) return "recent";
   return "stable";
-}
-
-function getProjectStatusText(project) {
-  const status = getProjectStatus(project);
-  const statusTexts = {
-    active: "Actif",
-    recent: "Récent",
-    stable: "Stable",
-  };
-  return statusTexts[status];
 }
 
 // Lifecycle

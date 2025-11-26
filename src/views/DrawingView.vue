@@ -1,12 +1,11 @@
 <template>
   <div class="drawing-zone" :class="{ loaded: isVisible }">
-    <!-- Hero Section -->
     <section class="hero-section">
       <div class="section-intro">
         <span class="section-number">{{ $t("Badge.Drawing") }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Portfolio Artistique</span>
-          <span class="heading-sub">Dark Art & Créations Personnelles</span>
+          <span class="heading-main">{{ $t("DrawingPage.Hero.Title") }}</span>
+          <span class="heading-sub">{{ $t("DrawingPage.Hero.Subtitle") }}</span>
         </h2>
       </div>
 
@@ -21,20 +20,19 @@
             <div class="profile-glow"></div>
           </div>
           <div class="profile-badges">
-            <span class="badge art-badge">Dessin</span>
-            <span class="badge style-badge">Dark Art</span>
-            <span class="badge creative-badge">Doodling</span>
+            <span class="badge art-badge">{{ $t("DrawingPage.Hero.Badge1") }}</span>
+            <span class="badge style-badge">{{ $t("DrawingPage.Hero.Badge2") }}</span>
+            <span class="badge creative-badge">{{ $t("DrawingPage.Hero.Badge3") }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Gallery Navigation -->
     <section class="navigation-zone">
       <div class="nav-container">
         <div class="nav-intro">
-          <h3>Explorez par Catégorie</h3>
-          <p>Découvrez mes créations organisées par thématiques</p>
+          <h3>{{ $t("DrawingPage.Nav.Title") }}</h3>
+          <p>{{ $t("DrawingPage.Nav.Subtitle") }}</p>
         </div>
 
         <div class="nav-grid">
@@ -45,33 +43,30 @@
             :class="['nav-card', { active: activeCategory === category.id }]"
           >
             <div class="nav-icon">{{ category.icon }}</div>
-            <span class="nav-label">{{ category.name }}</span>
+            <span class="nav-label">{{ $t("DrawingPage.Categories." + category.id) }}</span>
             <div class="nav-accent"></div>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Gallery Description -->
-    <section class="description-zone" v-if="getCurrentCategoryDescription()">
+    <section class="description-zone">
       <div class="description-card">
         <div class="card-inner">
-          <h3 class="category-title">{{ getCurrentCategoryTitle() }}</h3>
+          <h3 class="category-title">{{ $t("DrawingPage.Categories." + activeCategory) }}</h3>
           <p class="category-description">
-            {{ getCurrentCategoryDescription() }}
+            {{ $t("DrawingPage.CategoryDescriptions." + activeCategory) }}
           </p>
           <div class="artwork-count">
-            <span
-              >{{ filteredArtworks.length }} œuvre{{
-                filteredArtworks.length > 1 ? "s" : ""
-              }}</span
-            >
+            <span>
+              {{ filteredArtworks.length }} 
+              {{ filteredArtworks.length > 1 ? $t("DrawingPage.Gallery.Works") : $t("DrawingPage.Gallery.Work") }}
+            </span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Image Gallery -->
     <section class="gallery-zone">
       <div class="gallery-container">
         <div class="gallery-grid" v-if="filteredArtworks.length > 0">
@@ -84,18 +79,18 @@
             <div class="artwork-image-wrapper">
               <img
                 :src="artwork.thumbnail || artwork.src"
-                :alt="artwork.title"
+                :alt="$t('DrawingPage.Artworks.' + artwork.id + '.Title')"
                 class="artwork-image"
                 loading="lazy"
               />
               <div class="artwork-overlay">
                 <div class="artwork-info">
-                  <h4 class="artwork-title">{{ artwork.title }}</h4>
-                  <p class="artwork-description">{{ artwork.description }}</p>
+                  <h4 class="artwork-title">{{ $t("DrawingPage.Artworks." + artwork.id + ".Title") }}</h4>
+                  <p class="artwork-description">{{ $t("DrawingPage.Artworks." + artwork.id + ".Description") }}</p>
                   <div class="artwork-meta">
                     <span class="artwork-date">{{ artwork.date }}</span>
                     <span class="artwork-category">{{
-                      getCategoryName(artwork.category)
+                      $t("DrawingPage.Categories." + artwork.category)
                     }}</span>
                   </div>
                 </div>
@@ -105,20 +100,18 @@
           </div>
         </div>
 
-        <!-- Empty State -->
         <div v-else class="empty-state">
           <div class="empty-content">
             <div class="empty-icon">🎨</div>
-            <h3>Aucune œuvre dans cette catégorie</h3>
+            <h3>{{ $t("DrawingPage.Gallery.EmptyTitle") }}</h3>
             <p>
-              Cette section sera bientôt remplie avec mes créations artistiques.
+              {{ $t("DrawingPage.Gallery.EmptyDesc") }}
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Instagram Section -->
     <section class="instagram-zone">
       <div class="instagram-card">
         <div class="card-inner">
@@ -129,10 +122,9 @@
               />
             </svg>
           </div>
-          <h3>Découvrir Plus de Créations</h3>
+          <h3>{{ $t("DrawingPage.Insta.Title") }}</h3>
           <p>
-            Retrouvez toutes mes créations artistiques et mes dernières œuvres
-            sur Instagram. Suivez mon parcours créatif au quotidien !
+            {{ $t("DrawingPage.Insta.Description") }}
           </p>
           <a
             href="https://www.instagram.com/osiris._25/"
@@ -140,14 +132,13 @@
             class="instagram-button"
             rel="noopener noreferrer"
           >
-            <span>Suivre @osiris._25</span>
+            <span>{{ $t("DrawingPage.Insta.Button") }}</span>
             <div class="button-bg"></div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Modal for full-size viewing -->
     <div v-if="showModal" class="modal-overlay" @click="closeModal">
       <div class="modal-content" @click.stop>
         <button class="modal-close" @click="closeModal">✕</button>
@@ -172,18 +163,18 @@
         <div class="modal-image-container">
           <img
             :src="currentImage.src"
-            :alt="currentImage.title"
+            :alt="$t('DrawingPage.Artworks.' + currentImage.id + '.Title')"
             class="modal-image"
           />
         </div>
 
         <div class="modal-info">
-          <h3>{{ currentImage.title }}</h3>
-          <p>{{ currentImage.description }}</p>
+          <h3>{{ $t("DrawingPage.Artworks." + currentImage.id + ".Title") }}</h3>
+          <p>{{ $t("DrawingPage.Artworks." + currentImage.id + ".Description") }}</p>
           <div class="modal-meta">
             <span class="meta-date">{{ currentImage.date }}</span>
             <span class="meta-category">{{
-              getCategoryName(currentImage.category)
+              $t("DrawingPage.Categories." + currentImage.category)
             }}</span>
           </div>
         </div>
@@ -989,7 +980,7 @@ export default {
 .modal-info {
   padding: 30px;
   border-top: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-info h3 {

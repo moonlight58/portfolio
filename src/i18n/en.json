@@ -126,5 +126,199 @@
     "Projects": "Projects",
     "Drawings": "Drawings",
     "About": "About Me"
+  },
+
+  "AboutPage": {
+    "Hero": {
+      "Title": "About",
+      "Subtitle": "Discover my journey",
+      "Role1": "Developer",
+      "Role2": "Artist",
+      "Status1": "CS Student",
+      "Status2": "3rd year BUT",
+      "PassionTitle": "My Passion",
+      "PassionText1": "Creating innovative",
+      "PassionText2": "TUI",
+      "PassionText3": "applications",
+      "Description1": "I am a student in",
+      "Description2": "Computer Science (BUT)",
+      "Description3": ", passionate about developing text-based user interfaces. My goal is to create applications that are both",
+      "Description4": "performant",
+      "Description5": "and",
+      "Description6": "accessible",
+      "Note": "BUT = University Bachelor of Technology"
+    },
+    "Philosophy": {
+      "Title": "Philosophy",
+      "Subtitle": "My vision of development",
+      "Quote": "While I love building applications, my true passion lies in perfecting them: making them bug-free, accessible, and user-friendly.",
+      "Text1": "This attention to detail extends to my other projects, such as creating a comprehensive tutorial for the installation and maintenance of",
+      "Text2": "Arch Linux",
+      "Text3": ". I focus on breaking down every step to help users overcome challenges with confidence."
+    },
+    "Skills": {
+      "Title": "Skills",
+      "Subtitle": "My technical expertise",
+      "DevTitle": "Development",
+      "DevList": {
+        "1": "TUI Applications",
+        "2": "Code Refactoring",
+        "3": "Optimization",
+        "4": "Debug & Maintenance"
+      },
+      "SysTitle": "System",
+      "SysList": {
+        "1": "Arch Linux",
+        "2": "System Configuration",
+        "3": "Automated Scripts",
+        "4": "Server Maintenance"
+      },
+      "ArtTitle": "Art & Creativity",
+      "ArtList": {
+        "1": "Dark Art",
+        "2": "Doodling",
+        "3": "UI/UX Design",
+        "4": "Digital Illustration"
+      }
+    },
+    "Art": {
+      "Title": "Artistic Side",
+      "Subtitle": "Creativity and expression",
+      "Description1": "In my free time, I enjoy exploring my artistic side through drawing. While I experiment with various art styles, I have found my specialty in",
+      "Description2": "dark art",
+      "Description3": "and",
+      "Description4": "doodling",
+      "SocialTitle": "Discover my work",
+      "SocialSubtitle": "Explore my creations on Instagram",
+      "SocialTag": "Dark Art & Doodles"
+    },
+    "Work": {
+      "Title": "Current Project",
+      "Subtitle": "Innovation in progress",
+      "CardTitle": "TUI Transformation",
+      "CardDesc1": "Transforming complete applications like",
+      "CardDesc2": "Spotify",
+      "CardDesc3": "into TUI versions optimized for a unique user experience.",
+      "Note1": "Always eager to experiment",
+      "Note2": ", learn new development techniques, and explore innovative approaches in the world of computing."
+    }
+  },
+
+  "ProjectsPage": {
+    "Hero": {
+      "Title": "My Projects",
+      "Subtitle": "Discover my technical and creative achievements",
+      "CategoryTitle": "Choose a category",
+      "CategorySubtitle": "Explore my personal or academic projects",
+      "PersonalBtn": "Personal Projects",
+      "PersonalDesc": "Creations and experiments",
+      "UniBtn": "University Projects",
+      "UniDesc": "Academic work and studies"
+    },
+    "Loading": {
+      "Title": "Loading projects...",
+      "Subtitle": "Fetching data from GitHub"
+    },
+    "Stats": {
+      "Title": "Statistics",
+      "Intro": "Overview of my contributions",
+      "Personal": "personal",
+      "Uni": "academic",
+      "Projects": "Projects",
+      "Stars": "Stars",
+      "Forks": "Forks",
+      "Languages": "Languages"
+    },
+    "Grid": {
+      "ViewProject": "View project",
+      "NoDescription": "No description available",
+      "EmptyTitle": "No project found",
+      "EmptyPersonal": "No personal project with description found.",
+      "EmptyUni": "No academic project with description found."
+    },
+    "Status": {
+      "active": "Active",
+      "recent": "Recent",
+      "stable": "Stable"
+    },
+    "Github": {
+      "Title": "GitHub Profile",
+      "Subtitle": "Explore all my projects and contributions",
+      "Repos": "repositories",
+      "Link": "View full profile"
+    }
+  },
+
+  "DrawingPage": {
+    "Hero": {
+      "Title": "Artistic Portfolio",
+      "Subtitle": "Dark Art & Personal Creations",
+      "Badge1": "Drawing",
+      "Badge2": "Dark Art",
+      "Badge3": "Doodling"
+    },
+    "Nav": {
+      "Title": "Explore by Category",
+      "Subtitle": "Discover my creations organized by themes"
+    },
+    "Categories": {
+      "all": "All",
+      "dark-art": "Dark Art",
+      "doodles": "Doodles",
+      "tattoos": "Tattoos",
+      "abstract": "Abstract"
+    },
+    "CategoryDescriptions": {
+      "all": "Discover all my artistic creations, from dark artworks to spontaneous doodles.",
+      "dark-art": "Explorations of dark and mysterious themes through visual art.",
+      "doodles": "Spontaneous and expressive creations born from the inspiration of the moment.",
+      "tattoos": "Custom tattoo designs combining symbolism and aesthetics.",
+      "abstract": "Abstract works playing with shapes and colors."
+    },
+    "Gallery": {
+      "Work": "work",
+      "Works": "works",
+      "EmptyTitle": "No artwork in this category",
+      "EmptyDesc": "This section will soon be filled with my artistic creations."
+    },
+    "Insta": {
+      "Title": "Discover More Creations",
+      "Description": "Find all my artistic creations and latest works on Instagram. Follow my creative journey daily!",
+      "Button": "Follow @osiris._25"
+    },
+    "Artworks": {
+      "1": {
+        "Title": "Double Skulls",
+        "Description": "I was inspired by the music cover 'What the Fuck' from RHODAMINE."
+      },
+      "2": {
+        "Title": "PFP Social Media",
+        "Description": "I really wanted to try to draw a skeleton because I'm really obsessed with skulls, bones..."
+      },
+      "3": {
+        "Title": "Autel Skull",
+        "Description": "It was a training to understand how perspective works and how to draw hand holding a big object, such as a skull"
+      },
+      "4": {
+        "Title": "CyberSigilism",
+        "Description": "It was my first tattoo design, I got it tattooed on my right forearm/hand, to celebrate my graduation. It represents the choices made in life, starting with only one branch and dividing in multiple paths."
+      },
+      "5": {
+        "Title": "Death Spider",
+        "Description": "It was a request from a friend who wanted to challenge me to draw a spider in a dark art style. I really enjoyed drawing the details on the legs and the skull."
+      },
+      "6": {
+        "Title": "Fuming Skull",
+        "Description": "I saw a similar design by one of my favorite artist named 'orchard.mag' and it made me wonder if I can do something similar with my own style."
+      },
+      "7": {
+        "Title": "Doodle 1",
+        "Description": "A spontaneous doodle that came to life during a moment of inspiration."
+      },
+      "8": {
+        "Title": "Doodle 2",
+        "Description": "Another doodle, this time with a more abstract theme."
+      }
+    }
   }
 }

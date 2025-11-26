@@ -1,12 +1,11 @@
 <template>
   <div class="about-container">
-    <!-- Hero Section -->
     <section class="hero-zone" :class="{ 'hero-loaded': isLoaded }">
       <div class="section-intro">
         <span class="section-number">{{ $t("Badge.About") }}</span>
         <h1 class="section-heading">
-          <span class="heading-main">À propos</span>
-          <span class="heading-sub">Découvrez mon parcours</span>
+          <span class="heading-main">{{ $t("AboutPage.Hero.Title") }}</span>
+          <span class="heading-sub">{{ $t("AboutPage.Hero.Subtitle") }}</span>
         </h1>
       </div>
 
@@ -27,20 +26,28 @@
             <div class="profile-info">
               <h2 class="profile-name">Gaël Röthlin</h2>
               <div class="role-tags">
-                <span class="role-tag primary">Developer</span>
+                <span class="role-tag primary">{{
+                  $t("AboutPage.Hero.Role1")
+                }}</span>
                 <span class="role-separator">×</span>
-                <span class="role-tag secondary">Artist</span>
+                <span class="role-tag secondary">{{
+                  $t("AboutPage.Hero.Role2")
+                }}</span>
               </div>
             </div>
 
             <div class="status-indicators">
               <div class="status-item">
                 <span class="status-icon">🎓</span>
-                <span class="status-text">Étudiant Informatique</span>
+                <span class="status-text">{{
+                  $t("AboutPage.Hero.Status1")
+                }}</span>
               </div>
               <div class="status-item">
                 <span class="status-icon">🚀</span>
-                <span class="status-text">3ème année BUT</span>
+                <span class="status-text">{{
+                  $t("AboutPage.Hero.Status2")
+                }}</span>
               </div>
             </div>
           </div>
@@ -52,27 +59,36 @@
             <div class="card-inner">
               <div class="intro-highlight">
                 <div class="highlight-icon">✨</div>
-                <h3>Ma Passion</h3>
+                <h3>{{ $t("AboutPage.Hero.PassionTitle") }}</h3>
                 <p>
-                  Création d'applications
-                  <span class="text-gradient">TUI</span>
-                  innovantes
+                  {{ $t("AboutPage.Hero.PassionText1") }}
+                  <span class="text-gradient">{{
+                    $t("AboutPage.Hero.PassionText2")
+                  }}</span>
+                  {{ $t("AboutPage.Hero.PassionText3") }}
                 </p>
               </div>
 
               <p class="intro-description">
-                Je suis étudiant en
-                <span class="text-accent">BUT Informatique</span>, passionné par
-                le développement d'interfaces utilisateur en mode texte. Mon
-                objectif est de créer des applications à la fois
-                <span class="text-gradient">performantes</span> et
-                <span class="text-gradient">accessibles</span>.
+                {{ $t("AboutPage.Hero.Description1") }}
+                <span class="text-accent">{{
+                  $t("AboutPage.Hero.Description2")
+                }}</span>
+                {{ $t("AboutPage.Hero.Description3") }}
+                <span class="text-gradient">{{
+                  $t("AboutPage.Hero.Description4")
+                }}</span>
+                {{ $t("AboutPage.Hero.Description5") }}
+                <span class="text-gradient">{{
+                  $t("AboutPage.Hero.Description6")
+                }}</span>
+                .
               </p>
 
               <div class="info-note">
                 <div class="note-icon">ℹ️</div>
                 <p>
-                  <strong>BUT</strong> = Bachelor Universitaire de Technologie
+                  <strong>BUT</strong> = {{ $t("AboutPage.Hero.Note") }}
                 </p>
               </div>
             </div>
@@ -81,7 +97,6 @@
       </div>
     </section>
 
-    <!-- Philosophy Section -->
     <section
       class="philosophy-zone"
       :class="{ 'section-visible': sectionsVisible }"
@@ -89,8 +104,8 @@
       <div class="section-intro">
         <span class="section-number">02</span>
         <h2 class="section-heading">
-          <span class="heading-main">Philosophie</span>
-          <span class="heading-sub">Ma vision du développement</span>
+          <span class="heading-main">{{ $t("AboutPage.Philosophy.Title") }}</span>
+          <span class="heading-sub">{{ $t("AboutPage.Philosophy.Subtitle") }}</span>
         </h2>
       </div>
 
@@ -98,9 +113,7 @@
         <div class="quote-card">
           <div class="quote-marks">"</div>
           <blockquote class="philosophy-quote">
-            Bien que j'aime construire des applications, ma véritable passion
-            réside dans leur perfectionnement : les rendre sans bugs,
-            accessibles et conviviales.
+            {{ $t("AboutPage.Philosophy.Quote") }}
           </blockquote>
           <div class="quote-attribution">
             <div class="attribution-line"></div>
@@ -110,18 +123,14 @@
 
         <div class="philosophy-details">
           <p class="body-text">
-            Cette attention aux détails s'étend à mes autres projets, comme la
-            création d'un tutoriel complet pour l'installation et la maintenance
-            d'
-            <span class="text-accent">Arch Linux</span>. Je me concentre sur la
-            décomposition détaillée de chaque étape pour aider les utilisateurs
-            à surmonter les défis avec confiance.
+            {{ $t("AboutPage.Philosophy.Text1") }}
+            <span class="text-accent">{{ $t("AboutPage.Philosophy.Text2") }}</span>
+            {{ $t("AboutPage.Philosophy.Text3") }}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
     <section
       class="skills-zone"
       :class="{ 'section-visible': sectionsVisible }"
@@ -129,8 +138,8 @@
       <div class="section-intro">
         <span class="section-number">03</span>
         <h2 class="section-heading">
-          <span class="heading-main">Compétences</span>
-          <span class="heading-sub">Mon expertise technique</span>
+          <span class="heading-main">{{ $t("AboutPage.Skills.Title") }}</span>
+          <span class="heading-sub">{{ $t("AboutPage.Skills.Subtitle") }}</span>
         </h2>
       </div>
 
@@ -139,14 +148,14 @@
           <div class="skill-card dev-skill">
             <div class="skill-header">
               <div class="skill-icon">💻</div>
-              <h3 class="skill-title">Développement</h3>
+              <h3 class="skill-title">{{ $t("AboutPage.Skills.DevTitle") }}</h3>
             </div>
             <div class="skill-body">
               <ul class="skill-list">
-                <li class="skill-item">Applications TUI</li>
-                <li class="skill-item">Refactoring de code</li>
-                <li class="skill-item">Optimisation</li>
-                <li class="skill-item">Debug & maintenance</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.DevList.1") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.DevList.2") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.DevList.3") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.DevList.4") }}</li>
               </ul>
             </div>
             <div class="skill-accent dev-accent"></div>
@@ -155,14 +164,14 @@
           <div class="skill-card system-skill">
             <div class="skill-header">
               <div class="skill-icon">🔧</div>
-              <h3 class="skill-title">Système</h3>
+              <h3 class="skill-title">{{ $t("AboutPage.Skills.SysTitle") }}</h3>
             </div>
             <div class="skill-body">
               <ul class="skill-list">
-                <li class="skill-item">Arch Linux</li>
-                <li class="skill-item">Configuration système</li>
-                <li class="skill-item">Scripts automatisés</li>
-                <li class="skill-item">Maintenance serveur</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.SysList.1") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.SysList.2") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.SysList.3") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.SysList.4") }}</li>
               </ul>
             </div>
             <div class="skill-accent system-accent"></div>
@@ -171,14 +180,14 @@
           <div class="skill-card art-skill">
             <div class="skill-header">
               <div class="skill-icon">🎨</div>
-              <h3 class="skill-title">Art & Créativité</h3>
+              <h3 class="skill-title">{{ $t("AboutPage.Skills.ArtTitle") }}</h3>
             </div>
             <div class="skill-body">
               <ul class="skill-list">
-                <li class="skill-item">Dark Art</li>
-                <li class="skill-item">Doodling</li>
-                <li class="skill-item">Design UI/UX</li>
-                <li class="skill-item">Illustration digitale</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.ArtList.1") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.ArtList.2") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.ArtList.3") }}</li>
+                <li class="skill-item">{{ $t("AboutPage.Skills.ArtList.4") }}</li>
               </ul>
             </div>
             <div class="skill-accent art-accent"></div>
@@ -187,13 +196,12 @@
       </div>
     </section>
 
-    <!-- Art Section -->
     <section class="art-zone" :class="{ 'section-visible': sectionsVisible }">
       <div class="section-intro">
         <span class="section-number">04</span>
         <h2 class="section-heading">
-          <span class="heading-main">Côté artistique</span>
-          <span class="heading-sub">Créativité et expression</span>
+          <span class="heading-main">{{ $t("AboutPage.Art.Title") }}</span>
+          <span class="heading-sub">{{ $t("AboutPage.Art.Subtitle") }}</span>
         </h2>
       </div>
 
@@ -201,11 +209,11 @@
         <div class="art-description-card">
           <div class="card-inner">
             <p class="body-text">
-              Dans mon temps libre, j'explore mon côté artistique à travers le
-              dessin. Bien que j'expérimente avec différents styles d'art, j'ai
-              trouvé ma spécialité dans le
-              <span class="text-accent">dark art</span> et le
-              <span class="text-accent">doodling</span>.
+              {{ $t("AboutPage.Art.Description1") }}
+              <span class="text-accent">{{ $t("AboutPage.Art.Description2") }}</span>
+              {{ $t("AboutPage.Art.Description3") }}
+              <span class="text-accent">{{ $t("AboutPage.Art.Description4") }}</span>
+              .
             </p>
           </div>
         </div>
@@ -213,9 +221,9 @@
         <div class="social-card">
           <div class="card-inner">
             <div class="social-header">
-              <h4>Découvrez mon travail</h4>
+              <h4>{{ $t("AboutPage.Art.SocialTitle") }}</h4>
               <p class="social-subtitle">
-                Explorez mes créations sur Instagram
+                {{ $t("AboutPage.Art.SocialSubtitle") }}
               </p>
             </div>
 
@@ -241,7 +249,7 @@
               </div>
               <div class="instagram-content">
                 <span class="instagram-handle">@osiris._25</span>
-                <span class="instagram-subtitle">Dark Art & Doodles</span>
+                <span class="instagram-subtitle">{{ $t("AboutPage.Art.SocialTag") }}</span>
               </div>
               <div class="instagram-arrow">→</div>
             </a>
@@ -251,13 +259,12 @@
       </div>
     </section>
 
-    <!-- Current Work Section -->
     <section class="work-zone" :class="{ 'section-visible': sectionsVisible }">
       <div class="section-intro">
         <span class="section-number">05</span>
         <h2 class="section-heading">
-          <span class="heading-main">Projet actuel</span>
-          <span class="heading-sub">Innovation en cours</span>
+          <span class="heading-main">{{ $t("AboutPage.Work.Title") }}</span>
+          <span class="heading-sub">{{ $t("AboutPage.Work.Subtitle") }}</span>
         </h2>
       </div>
 
@@ -265,19 +272,17 @@
         <div class="project-highlight-card">
           <div class="card-inner">
             <div class="project-icon">✨</div>
-            <h3 class="project-title">Transformation TUI</h3>
+            <h3 class="project-title">{{ $t("AboutPage.Work.CardTitle") }}</h3>
             <p class="project-description">
-              Transformation d'applications complètes comme
-              <span class="text-accent">Spotify</span>
-              en versions TUI optimisées pour une expérience utilisateur unique.
+              {{ $t("AboutPage.Work.CardDesc1") }}
+              <span class="text-accent">{{ $t("AboutPage.Work.CardDesc2") }}</span>
+              {{ $t("AboutPage.Work.CardDesc3") }}
             </p>
 
             <div class="learning-note">
               <p class="body-text">
-                <span class="text-gradient">Toujours avide d'expérimenter</span
-                >, d'apprendre de nouvelles techniques de développement et
-                d'explorer des approches innovantes dans le monde de
-                l'informatique.
+                <span class="text-gradient">{{ $t("AboutPage.Work.Note1") }}</span>
+                {{ $t("AboutPage.Work.Note2") }}
               </p>
             </div>
           </div>
@@ -286,7 +291,6 @@
       </div>
     </section>
 
-    <!-- Particules de fond -->
     <div class="background-particles">
       <div
         v-for="i in 20"

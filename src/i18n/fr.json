@@ -125,5 +125,199 @@
     "Projects": "Projets",
     "Drawings": "Dessins",
     "About": "À propos de moi"
+  },
+
+  "AboutPage": {
+    "Hero": {
+      "Title": "À propos",
+      "Subtitle": "Découvrez mon parcours",
+      "Role1": "Développeur",
+      "Role2": "Artiste",
+      "Status1": "Étudiant Informatique",
+      "Status2": "3ème année BUT",
+      "PassionTitle": "Ma Passion",
+      "PassionText1": "Création d'applications",
+      "PassionText2": "TUI",
+      "PassionText3": "innovantes",
+      "Description1": "Je suis étudiant en",
+      "Description2": "BUT Informatique",
+      "Description3": ", passionné par le développement d'interfaces utilisateur en mode texte. Mon objectif est de créer des applications à la fois",
+      "Description4": "performantes",
+      "Description5": "et",
+      "Description6": "accessibles",
+      "Note": "BUT = Bachelor Universitaire de Technologie"
+    },
+    "Philosophy": {
+      "Title": "Philosophie",
+      "Subtitle": "Ma vision du développement",
+      "Quote": "Bien que j'aime construire des applications, ma véritable passion réside dans leur perfectionnement : les rendre sans bugs, accessibles et conviviales.",
+      "Text1": "Cette attention aux détails s'étend à mes autres projets, comme la création d'un tutoriel complet pour l'installation et la maintenance d'",
+      "Text2": "Arch Linux",
+      "Text3": ". Je me concentre sur la décomposition détaillée de chaque étape pour aider les utilisateurs à surmonter les défis avec confiance."
+    },
+    "Skills": {
+      "Title": "Compétences",
+      "Subtitle": "Mon expertise technique",
+      "DevTitle": "Développement",
+      "DevList": {
+        "1": "Applications TUI",
+        "2": "Refactoring de code",
+        "3": "Optimisation",
+        "4": "Debug & maintenance"
+      },
+      "SysTitle": "Système",
+      "SysList": {
+        "1": "Arch Linux",
+        "2": "Configuration système",
+        "3": "Scripts automatisés",
+        "4": "Maintenance serveur"
+      },
+      "ArtTitle": "Art & Créativité",
+      "ArtList": {
+        "1": "Dark Art",
+        "2": "Doodling",
+        "3": "Design UI/UX",
+        "4": "Illustration digitale"
+      }
+    },
+    "Art": {
+      "Title": "Côté artistique",
+      "Subtitle": "Créativité et expression",
+      "Description1": "Dans mon temps libre, j'aime explorer mon côté artistique à travers le dessin. Bien que j'expérimente avec différents styles d'art, j'ai trouvé ma spécialité dans le",
+      "Description2": "dark art",
+      "Description3": "et le",
+      "Description4": "doodling",
+      "SocialTitle": "Découvrez mon travail",
+      "SocialSubtitle": "Explorez mes créations sur Instagram",
+      "SocialTag": "Dark Art & Doodles"
+    },
+    "Work": {
+      "Title": "Projet actuel",
+      "Subtitle": "Innovation en cours",
+      "CardTitle": "Transformation TUI",
+      "CardDesc1": "Transformation d'applications complètes comme",
+      "CardDesc2": "Spotify",
+      "CardDesc3": "en versions TUI optimisées pour une expérience utilisateur unique.",
+      "Note1": "Toujours avide d'expérimenter",
+      "Note2": ", d'apprendre de nouvelles techniques de développement et d'explorer des approches innovantes dans le monde de l'informatique."
+    }
+  },
+
+  "ProjectsPage": {
+    "Hero": {
+      "Title": "Mes Projets",
+      "Subtitle": "Découvrez mes réalisations techniques et créatives",
+      "CategoryTitle": "Choisissez une catégorie",
+      "CategorySubtitle": "Explorez mes projets personnels ou universitaires",
+      "PersonalBtn": "Projets Personnels",
+      "PersonalDesc": "Créations et expérimentations",
+      "UniBtn": "Projets Universitaires",
+      "UniDesc": "Travaux académiques et études"
+    },
+    "Loading": {
+      "Title": "Chargement des projets...",
+      "Subtitle": "Récupération des données depuis GitHub"
+    },
+    "Stats": {
+      "Title": "Statistiques",
+      "Intro": "Aperçu de mes contributions",
+      "Personal": "personnelles",
+      "Uni": "universitaires",
+      "Projects": "Projets",
+      "Stars": "Stars",
+      "Forks": "Forks",
+      "Languages": "Langages"
+    },
+    "Grid": {
+      "ViewProject": "Voir le projet",
+      "NoDescription": "Aucune description disponible",
+      "EmptyTitle": "Aucun projet trouvé",
+      "EmptyPersonal": "Aucun projet personnel avec description trouvé.",
+      "EmptyUni": "Aucun projet universitaire avec description trouvé."
+    },
+    "Status": {
+      "active": "Actif",
+      "recent": "Récent",
+      "stable": "Stable"
+    },
+    "Github": {
+      "Title": "Profil GitHub",
+      "Subtitle": "Explorez tous mes projets et contributions",
+      "Repos": "repositories",
+      "Link": "Voir le profil complet"
+    }
+  },
+
+  "DrawingPage": {
+    "Hero": {
+      "Title": "Portfolio Artistique",
+      "Subtitle": "Dark Art & Créations Personnelles",
+      "Badge1": "Dessin",
+      "Badge2": "Dark Art",
+      "Badge3": "Doodling"
+    },
+    "Nav": {
+      "Title": "Explorez par Catégorie",
+      "Subtitle": "Découvrez mes créations organisées par thématiques"
+    },
+    "Categories": {
+      "all": "Toutes",
+      "dark-art": "Dark Art",
+      "doodles": "Doodles",
+      "tattoos": "Tattoos",
+      "abstract": "Abstrait"
+    },
+    "CategoryDescriptions": {
+      "all": "Découvrez l'ensemble de mes créations artistiques, des œuvres sombres aux doodles spontanés.",
+      "dark-art": "Explorations des thèmes sombres et mystérieux à travers l'art visuel.",
+      "doodles": "Créations spontanées et expressives nées de l'inspiration du moment.",
+      "tattoos": "Designs de tatouages personnalisés alliant symbolisme et esthétique.",
+      "abstract": "Œuvres abstraites jouant avec les formes et les couleurs."
+    },
+    "Gallery": {
+      "Work": "œuvre",
+      "Works": "œuvres",
+      "EmptyTitle": "Aucune œuvre dans cette catégorie",
+      "EmptyDesc": "Cette section sera bientôt remplie avec mes créations artistiques."
+    },
+    "Insta": {
+      "Title": "Découvrir Plus de Créations",
+      "Description": "Retrouvez toutes mes créations artistiques et mes dernières œuvres sur Instagram. Suivez mon parcours créatif au quotidien !",
+      "Button": "Suivre @osiris._25"
+    },
+    "Artworks": {
+      "1": {
+        "Title": "Double Skulls",
+        "Description": "Inspiré par la couverture musicale 'What the Fuck' de RHODAMINE."
+      },
+      "2": {
+        "Title": "PFP Réseaux Sociaux",
+        "Description": "Je voulais vraiment essayer de dessiner un squelette car je suis obsédé par les crânes et les os..."
+      },
+      "3": {
+        "Title": "Autel Skull",
+        "Description": "C'était un entraînement pour comprendre la perspective et comment dessiner une main tenant un gros objet, comme un crâne."
+      },
+      "4": {
+        "Title": "CyberSigilism",
+        "Description": "C'était mon premier design de tatouage, je l'ai fait sur mon avant-bras/main droite pour célébrer mon diplôme. Il représente les choix de vie, partant d'une seule branche et se divisant en plusieurs chemins."
+      },
+      "5": {
+        "Title": "Death Spider",
+        "Description": "Une demande d'un ami qui voulait me défier de dessiner une araignée dans un style dark art. J'ai beaucoup aimé dessiner les détails des pattes et du crâne."
+      },
+      "6": {
+        "Title": "Fuming Skull",
+        "Description": "J'ai vu un design similaire de l'un de mes artistes préférés 'orchard.mag' et cela m'a donné envie de faire quelque chose de similaire avec mon propre style."
+      },
+      "7": {
+        "Title": "Doodle 1",
+        "Description": "Un gribouillage spontané né d'un moment d'inspiration."
+      },
+      "8": {
+        "Title": "Doodle 2",
+        "Description": "Un autre gribouillage, cette fois avec un thème plus abstrait."
+      }
+    }
   }
 }
