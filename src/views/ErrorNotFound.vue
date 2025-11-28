@@ -102,14 +102,12 @@ export default {
 <style scoped>
 .error-container {
   font-family: "N27", sans-serif;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
   color: #fff;
   position: relative;
-  overflow: hidden;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
@@ -213,6 +211,7 @@ export default {
   padding: 4rem 3rem;
   backdrop-filter: blur(20px);
   box-shadow: 0 32px 128px rgba(0, 0, 0, 0.3);
+  margin-top: 10vh;
 }
 
 .error-content::before {

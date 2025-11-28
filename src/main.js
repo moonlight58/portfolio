@@ -15,6 +15,5 @@ app.use(router);
 app.use(store);
 app.use(i18n);
 
-
 // Mount the app to the DOM
 app.mount('#app');
