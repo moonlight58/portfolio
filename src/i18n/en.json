@@ -284,7 +284,7 @@
     "Insta": {
       "Title": "Discover More Creations",
       "Description": "Find all my artistic creations and latest works on Instagram. Follow my creative journey daily!",
-      "Button": "Follow @osiris._25"
+      "Button": "Follow {'@'}osiris._25"
     },
     "Artworks": {
       "1": {
