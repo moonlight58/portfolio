@@ -269,7 +269,11 @@
     "Navbar": {
         "Projects": "Projets",
         "Drawings": "Dessins",
-        "About": "À propos de moi"
+        "About": "À propos de moi",
+        "Actions": {
+            "QuickAccess":"Accès Rapide",
+            "TopPage":"Haut de page"
+        }
     },
 
     "AboutPage": {

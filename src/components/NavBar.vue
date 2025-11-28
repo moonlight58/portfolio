@@ -183,7 +183,7 @@
             <div v-if="!isMobile" class="quick-actions-section">
               <div class="mobile-section-header">
                 <span class="mobile-section-icon">⚡</span>
-                <h4 class="mobile-section-title">Accès rapide</h4>
+                <h4 class="mobile-section-title">{{ $t("Navbar.Actions.QuickAccess") }}</h4>
               </div>
               <div class="quick-actions-grid">
                 <a href="mailto:gael.rothlin@proton.me" class="quick-action-item" @click="closeMobileMenu">
@@ -200,7 +200,7 @@
                 </a>
                 <button @click="scrollToTop" class="quick-action-item">
                   <span class="quick-icon">⬆️</span>
-                  <span class="quick-text">Haut de page</span>
+                  <span class="quick-text">{{ $t("Navbar.Actions.TopPage") }}</span>
                 </button>
               </div>
             </div>
@@ -1255,8 +1255,7 @@ export default {
 .particle,
 .logo-glow,
 .burger-glow,
-.nav-accent,
-.mobile-nav-accent {
+.nav-accent {
   transform: translateZ(0);
 }
 
