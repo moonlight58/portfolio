@@ -319,5 +319,20 @@
         "Description": "Un autre gribouillage, cette fois avec un thème plus abstrait."
       }
     }
+  },
+  "ErrorPage": {
+      "Hero": {
+          "Title": "Page non trouvée",
+          "Description": "Oops ! Il semblerait que la page que vous cherchez n'existe pas ou a été déplacée. Elle s'est peut-être perdue dans les méandres du code...",
+          "HomeButton": "Retour à l'accueil",
+          "BackButton": "Page précédente"
+      },
+      "HelpfulLinks": {
+          "Title": "Peut-être cherchiez-vous :",
+          "Home": "Accueil",
+          "Projects": "Projets",
+          "About": "À propos",
+          "GitHub": "GitHub"
+      }
   }
 }

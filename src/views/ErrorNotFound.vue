@@ -1,3 +1,4 @@
+
 <template>
   <div class="error-container">
     <div class="error-content">
@@ -12,10 +13,9 @@
 
       <!-- Error Message -->
       <div class="error-message">
-        <h1 class="error-title">Page non trouvée</h1>
+        <h1 class="error-title">{{ $t('ErrorPage.Hero.Title') }}</h1>
         <p class="error-description">
-          Oops ! Il semblerait que la page que vous cherchez n'existe pas ou a
-          été déplacée. Elle s'est peut-être perdue dans les méandres du code...
+          {{ $t('ErrorPage.Hero.Description') }}
         </p>
       </div>
 
@@ -25,7 +25,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
           </svg>
-          <span>Retour à l'accueil</span>
+          <span>{{ $t('ErrorPage.Hero.HomeButton') }}</span>
         </button>
 
         <button @click="goBack" class="action-btn secondary-btn">
@@ -34,25 +34,25 @@
               d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
             />
           </svg>
-          <span>Page précédente</span>
+          <span>{{ $t('ErrorPage.Hero.BackButton') }}</span>
         </button>
       </div>
 
       <!-- Helpful Links -->
       <div class="helpful-links">
-        <h3>Peut-être cherchiez-vous :</h3>
+        <h3>{{ $t('ErrorPage.HelpfulLinks.Title') }}</h3>
         <div class="links-grid">
           <router-link to="/" class="help-link">
             <span class="link-icon">🏠</span>
-            <span>Accueil</span>
+            <span>{{ $t('ErrorPage.HelpfulLinks.Home') }}</span>
           </router-link>
           <router-link to="/projects" class="help-link">
             <span class="link-icon">💼</span>
-            <span>Projets</span>
+            <span>{{ $t('ErrorPage.HelpfulLinks.Projects') }}</span>
           </router-link>
           <router-link to="/about" class="help-link">
             <span class="link-icon">👨‍💻</span>
-            <span>À propos</span>
+            <span>{{ $t('ErrorPage.HelpfulLinks.About') }}</span>
           </router-link>
           <a
             href="https://github.com/moonlight58"
@@ -61,7 +61,7 @@
             rel="noopener noreferrer"
           >
             <span class="link-icon">📂</span>
-            <span>GitHub</span>
+            <span>{{ $t('ErrorPage.HelpfulLinks.GitHub') }}</span>
           </a>
         </div>
       </div>

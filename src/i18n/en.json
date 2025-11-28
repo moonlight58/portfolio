@@ -320,5 +320,20 @@
         "Description": "Another doodle, this time with a more abstract theme."
       }
     }
+  },
+  "ErrorPage": {
+      "Hero": {
+          "Title": "Page not found",
+          "Description": "Oops! It seems the page you're looking for doesn't exist or has been moved. It may have gotten lost in the code...",
+          "HomeButton": "Back to home",
+          "BackButton": "Previous page"
+      },
+      "HelpfulLinks": {
+          "Title": "Maybe you were looking for:",
+          "Home": "Home",
+          "Projects": "Projects",
+          "About": "About",
+          "GitHub": "GitHub"
+      }
   }
 }
