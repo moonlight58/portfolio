@@ -1,4 +1,4 @@
-<template><template>
+<template>
   <div class="internship-zone">
     <!-- Particules d'arrière-plan -->
     <div class="particles-container">
