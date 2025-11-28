@@ -283,7 +283,7 @@
     "Insta": {
       "Title": "Découvrir Plus de Créations",
       "Description": "Retrouvez toutes mes créations artistiques et mes dernières œuvres sur Instagram. Suivez mon parcours créatif au quotidien !",
-      "Button": "Suivre @osiris._25"
+      "Button": "Suivre {'@'}osiris._25"
     },
     "Artworks": {
       "1": {
