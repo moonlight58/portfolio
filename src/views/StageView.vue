@@ -1,26 +1,24 @@
-<template>
+<template><template>
   <div class="internship-zone">
     <!-- Particules d'arrière-plan -->
     <div class="particles-container">
       <div v-for="i in 20" :key="i" class="particle"></div>
     </div>
-
+    
     <!-- Hero Section -->
     <section class="hero-stage">
       <div class="hero-grid">
         <div class="hero-left">
           <div class="project-logo">
             <div class="logo-container">
-              <h1 class="logo-text">Euphron</h1>
+              <h1 class="logo-text">{{ $t('InternshipPage.Hero.Title') }}</h1>
               <div class="logo-glow"></div>
             </div>
           </div>
           <div class="hero-info">
-            <h2 class="hero-title">Stage Web Full-Stack</h2>
-            <p class="hero-subtitle">
-              Learning Centre Claude Oytana • Besançon, France
-            </p>
-            <div class="duration-badge">Avril 2025 - Mai 2025 • 8 semaines</div>
+            <h2 class="hero-title">{{ $t('InternshipPage.Hero.JobTitle') }}</h2>
+            <p class="hero-subtitle">{{ $t('InternshipPage.Hero.Location') }}</p>
+            <div class="duration-badge">{{ $t('InternshipPage.Hero.Duration') }}</div>
           </div>
         </div>
         <div class="hero-right">
@@ -39,54 +37,37 @@
     <!-- Context Section -->
     <section class="context-zone">
       <div class="section-intro">
-        <span class="section-number">01</span>
+        <span class="section-number">{{ $t('InternshipPage.Context.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Contexte & Objectifs</span>
-          <span class="heading-sub">Mission et enjeux du projet</span>
+          <span class="heading-main">{{ $t('InternshipPage.Context.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Context.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="context-content">
         <div class="content-wrapper">
-          <p class="context-description">
-            J'ai eu l'opportunité de travailler en tant que stagiaire web
-            full-stack au Learning Centre Claude Oytana à Besançon, France,
-            d'avril 2025 à mai 2025. Ma mission était de créer une application
-            mobile appelée « Euphron », permettant aux étudiants de l'Université
-            de Franche-Comté de donner ou de prendre du matériel sportif
-            d'occasion sur un système de don.
-          </p>
-          <p class="context-description">
-            La réalisation de cette application a été proposée par des étudiants
-            en STAPS, à la suite d'une étude de marché portant sur l'accès au
-            matériel sportif dans leur cursus. Cette étude a révélé que, si
-            certaines écoles parviennent à fournir le matériel nécessaire à
-            leurs étudiants, dans de nombreuses autres, ce sont les étudiants
-            eux-mêmes qui doivent financer leur équipement.
-          </p>
-
+          <p class="context-description">{{ $t('InternshipPage.Context.Description1') }}</p>
+          <p class="context-description">{{ $t('InternshipPage.Context.Description2') }}</p>
+          
           <div class="objectives-grid">
             <div class="objective-card">
               <div class="objective-icon">🏃‍♂️</div>
-              <h4>Promouvoir l'accès au sport</h4>
-              <p>Pour tous les étudiants en Franche-Comté</p>
+              <h4>{{ $t('InternshipPage.Context.Objective1Title') }}</h4>
+              <p>{{ $t('InternshipPage.Context.Objective1Desc') }}</p>
             </div>
             <div class="objective-card">
               <div class="objective-icon">🤝</div>
-              <h4>Encourager la solidarité</h4>
-              <p>En facilitant l'échange de matériel</p>
+              <h4>{{ $t('InternshipPage.Context.Objective2Title') }}</h4>
+              <p>{{ $t('InternshipPage.Context.Objective2Desc') }}</p>
             </div>
             <div class="objective-card">
               <div class="objective-icon">♻️</div>
-              <h4>Favoriser la réutilisation</h4>
-              <p>Dans une démarche écoresponsable</p>
+              <h4>{{ $t('InternshipPage.Context.Objective3Title') }}</h4>
+              <p>{{ $t('InternshipPage.Context.Objective3Desc') }}</p>
             </div>
           </div>
-
+          
           <div class="constraint-badge">
-            <strong>Contrainte principale :</strong> Aucun gain monétaire
-            autorisé - tout devait être gratuit, basé sur la solidarité
-            étudiante.
+            <strong>{{ $t('InternshipPage.Context.ConstraintLabel') }}</strong> {{ $t('InternshipPage.Context.ConstraintText') }}
           </div>
         </div>
       </div>
@@ -95,54 +76,45 @@
     <!-- Role Section -->
     <section class="role-zone">
       <div class="section-intro">
-        <span class="section-number">02</span>
+        <span class="section-number">{{ $t('InternshipPage.Role.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Mon Rôle</span>
-          <span class="heading-sub"
-            >Responsabilités & développement autonome</span
-          >
+          <span class="heading-main">{{ $t('InternshipPage.Role.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Role.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="role-content">
-        <p class="role-description">
-          J'ai été chargé de réaliser l'entièreté de l'application web
-          (compatible ordinateur et mobile) en totale autonomie.
-        </p>
-
+        <p class="role-description">{{ $t('InternshipPage.Role.Description') }}</p>
+        
         <div class="responsibilities-grid">
           <div class="responsibility-card">
             <div class="responsibility-icon">🎨</div>
             <div class="card-inner">
-              <h4>Conception visuelle</h4>
-              <p>Design sur Figma pour validation client</p>
+              <h4>{{ $t('InternshipPage.Role.Responsibility1Title') }}</h4>
+              <p>{{ $t('InternshipPage.Role.Responsibility1Desc') }}</p>
             </div>
             <div class="card-accent"></div>
           </div>
-
           <div class="responsibility-card">
             <div class="responsibility-icon">💻</div>
             <div class="card-inner">
-              <h4>Développement frontend</h4>
-              <p>Interface utilisateur responsive</p>
+              <h4>{{ $t('InternshipPage.Role.Responsibility2Title') }}</h4>
+              <p>{{ $t('InternshipPage.Role.Responsibility2Desc') }}</p>
             </div>
             <div class="card-accent"></div>
           </div>
-
           <div class="responsibility-card">
             <div class="responsibility-icon">⚙️</div>
             <div class="card-inner">
-              <h4>Développement backend</h4>
-              <p>API et logique métier</p>
+              <h4>{{ $t('InternshipPage.Role.Responsibility3Title') }}</h4>
+              <p>{{ $t('InternshipPage.Role.Responsibility3Desc') }}</p>
             </div>
             <div class="card-accent"></div>
           </div>
-
           <div class="responsibility-card">
             <div class="responsibility-icon">🗄️</div>
             <div class="card-inner">
-              <h4>Base de données</h4>
-              <p>Conception et gestion complète</p>
+              <h4>{{ $t('InternshipPage.Role.Responsibility4Title') }}</h4>
+              <p>{{ $t('InternshipPage.Role.Responsibility4Desc') }}</p>
             </div>
             <div class="card-accent"></div>
           </div>
@@ -153,45 +125,40 @@
     <!-- Organization Section -->
     <section class="organization-zone">
       <div class="section-intro">
-        <span class="section-number">03</span>
+        <span class="section-number">{{ $t('InternshipPage.Organization.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Organisation</span>
-          <span class="heading-sub">Planning & méthodologie</span>
+          <span class="heading-main">{{ $t('InternshipPage.Organization.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Organization.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="organization-content">
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-marker">1-2</div>
             <div class="timeline-content">
-              <h4>Semaines 1-2</h4>
-              <p>Préparation du visuel et définition des fonctionnalités</p>
+              <h4>{{ $t('InternshipPage.Organization.Week12Title') }}</h4>
+              <p>{{ $t('InternshipPage.Organization.Week12Desc') }}</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-marker">3</div>
             <div class="timeline-content">
-              <h4>Semaine 3</h4>
-              <p>Recherche de technologies et réunions de validation</p>
+              <h4>{{ $t('InternshipPage.Organization.Week3Title') }}</h4>
+              <p>{{ $t('InternshipPage.Organization.Week3Desc') }}</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-marker">4-8</div>
             <div class="timeline-content">
-              <h4>Semaines 4-8</h4>
-              <p>Développement (frontend, backend, base de données)</p>
+              <h4>{{ $t('InternshipPage.Organization.Week48Title') }}</h4>
+              <p>{{ $t('InternshipPage.Organization.Week48Desc') }}</p>
             </div>
           </div>
         </div>
-
+        
         <div class="methodology-card">
-          <h4>Méthodologie</h4>
-          <p>
-            Réunions hebdomadaires avec l'équipe de la BU et mon tuteur de
-            stage. Utilisation de Git pour le versioning et Trello pour la
-            gestion des tâches.
-          </p>
+          <h4>{{ $t('InternshipPage.Organization.MethodologyTitle') }}</h4>
+          <p>{{ $t('InternshipPage.Organization.MethodologyDesc') }}</p>
         </div>
       </div>
     </section>
@@ -199,92 +166,86 @@
     <!-- Tech Stack Section -->
     <section class="tech-zone">
       <div class="section-intro">
-        <span class="section-number">04</span>
+        <span class="section-number">{{ $t('InternshipPage.TechStack.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Stack Technique</span>
-          <span class="heading-sub">Technologies & architecture</span>
+          <span class="heading-main">{{ $t('InternshipPage.TechStack.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.TechStack.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="tech-content">
         <div class="tech-stack-grid">
           <div class="tech-stack-section">
-            <h3>Frontend</h3>
+            <h3>{{ $t('InternshipPage.TechStack.FrontendTitle') }}</h3>
             <div class="tech-list">
               <div class="tech-item">
                 <span class="tech-icon">⚛️</span>
                 <div>
-                  <strong>Vue.js 3</strong>
-                  <p>Framework principal (Composition API, script setup)</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Frontend1Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Frontend1Desc') }}</p>
                 </div>
               </div>
               <div class="tech-item">
                 <span class="tech-icon">📱</span>
                 <div>
-                  <strong>Quasar Framework</strong>
-                  <p>UI framework pour la compatibilité mobile</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Frontend2Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Frontend2Desc') }}</p>
                 </div>
               </div>
               <div class="tech-item">
                 <span class="tech-icon">🍍</span>
                 <div>
-                  <strong>Pinia</strong>
-                  <p>Gestion d'état (remplaçant de Vuex)</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Frontend3Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Frontend3Desc') }}</p>
                 </div>
               </div>
               <div class="tech-item">
                 <span class="tech-icon">⚡</span>
                 <div>
-                  <strong>Socket.io-client</strong>
-                  <p>Communication temps réel</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Frontend4Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Frontend4Desc') }}</p>
                 </div>
               </div>
             </div>
           </div>
-
+          
           <div class="tech-stack-section">
-            <h3>Backend</h3>
+            <h3>{{ $t('InternshipPage.TechStack.BackendTitle') }}</h3>
             <div class="tech-list">
               <div class="tech-item">
                 <span class="tech-icon">🟢</span>
                 <div>
-                  <strong>Node.js</strong>
-                  <p>Environnement d'exécution JavaScript</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Backend1Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Backend1Desc') }}</p>
                 </div>
               </div>
               <div class="tech-item">
                 <span class="tech-icon">🚀</span>
                 <div>
-                  <strong>Express.js</strong>
-                  <p>Framework web</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Backend2Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Backend2Desc') }}</p>
                 </div>
               </div>
               <div class="tech-item">
                 <span class="tech-icon">🐬</span>
                 <div>
-                  <strong>MySQL</strong>
-                  <p>Base de données relationnelle</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Backend3Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Backend3Desc') }}</p>
                 </div>
               </div>
               <div class="tech-item">
                 <span class="tech-icon">💬</span>
                 <div>
-                  <strong>Socket.io</strong>
-                  <p>WebSocket pour le chat temps réel</p>
+                  <strong>{{ $t('InternshipPage.TechStack.Backend4Name') }}</strong>
+                  <p>{{ $t('InternshipPage.TechStack.Backend4Desc') }}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
+        
         <div class="justification-card">
-          <h4>Justification des choix</h4>
-          <p>
-            J'ai privilégié Vue.js car je maîtrise bien ce framework,
-            contrairement à Angular ou React. Quasar était le choix idéal pour
-            la compatibilité mobile native, répondant parfaitement aux exigences
-            du projet.
-          </p>
+          <h4>{{ $t('InternshipPage.TechStack.JustificationTitle') }}</h4>
+          <p>{{ $t('InternshipPage.TechStack.JustificationDesc') }}</p>
         </div>
       </div>
     </section>
@@ -292,82 +253,73 @@
     <!-- Features Section -->
     <section class="features-zone">
       <div class="section-intro">
-        <span class="section-number">05</span>
+        <span class="section-number">{{ $t('InternshipPage.Features.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Fonctionnalités</span>
-          <span class="heading-sub">Développement & implémentation</span>
+          <span class="heading-main">{{ $t('InternshipPage.Features.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Features.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="features-content">
         <div class="features-grid">
           <div class="feature-category">
             <div class="feature-header">
               <span class="feature-icon">👤</span>
-              <h3>Gestion utilisateur</h3>
+              <h3>{{ $t('InternshipPage.Features.Category1Title') }}</h3>
             </div>
             <ul>
-              <li>Inscription / Connexion</li>
-              <li>Modification du profil</li>
-              <li>Système d'authentification</li>
+              <li>{{ $t('InternshipPage.Features.Category1Item1') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category1Item2') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category1Item3') }}</li>
             </ul>
           </div>
-
           <div class="feature-category">
             <div class="feature-header">
               <span class="feature-icon">📦</span>
-              <h3>Gestion des articles</h3>
+              <h3>{{ $t('InternshipPage.Features.Category2Title') }}</h3>
             </div>
             <ul>
-              <li>Ajout d'articles sportifs</li>
-              <li>Modification / Suppression</li>
-              <li>Système de catégories</li>
+              <li>{{ $t('InternshipPage.Features.Category2Item1') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category2Item2') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category2Item3') }}</li>
             </ul>
           </div>
-
           <div class="feature-category">
             <div class="feature-header">
               <span class="feature-icon">💬</span>
-              <h3>Communication</h3>
+              <h3>{{ $t('InternshipPage.Features.Category3Title') }}</h3>
             </div>
             <ul>
-              <li>Chat en temps réel (Socket.IO)</li>
-              <li>Messagerie entre utilisateurs</li>
+              <li>{{ $t('InternshipPage.Features.Category3Item1') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category3Item2') }}</li>
             </ul>
           </div>
-
           <div class="feature-category">
             <div class="feature-header">
               <span class="feature-icon">⚙️</span>
-              <h3>Administration</h3>
+              <h3>{{ $t('InternshipPage.Features.Category4Title') }}</h3>
             </div>
             <ul>
-              <li>Gestion des catégories de sport</li>
-              <li>Gestion des comptes utilisateurs</li>
-              <li>Modération du contenu</li>
+              <li>{{ $t('InternshipPage.Features.Category4Item1') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category4Item2') }}</li>
+              <li>{{ $t('InternshipPage.Features.Category4Item3') }}</li>
             </ul>
           </div>
         </div>
-
+        
         <div class="highlight-card">
-          <h4>💡 Partie la plus enrichissante</h4>
-          <p>
-            Le développement du chat en temps réel avec Socket.IO était une
-            première pour moi. La documentation excellente m'a permis de
-            comprendre rapidement les concepts et d'implémenter cette
-            fonctionnalité avec succès.
-          </p>
+          <h4>💡 {{ $t('InternshipPage.Features.HighlightTitle') }}</h4>
+          <p>{{ $t('InternshipPage.Features.HighlightDesc') }}</p>
         </div>
-
+        
         <div class="progress-card">
           <div class="progress-header">
-            <h4>État d'avancement</h4>
-            <span class="progress-percentage">70%</span>
+            <h4>{{ $t('InternshipPage.Features.ProgressTitle') }}</h4>
+            <span class="progress-percentage">{{ $t('InternshipPage.Features.ProgressPercentage') }}</span>
           </div>
           <div class="progress-bar">
             <div class="progress-fill" style="width: 70%"></div>
           </div>
-          <p>des fonctionnalités réalisées</p>
+          <p>{{ $t('InternshipPage.Features.ProgressDesc') }}</p>
         </div>
       </div>
     </section>
@@ -375,57 +327,33 @@
     <!-- Architecture Section -->
     <section class="architecture-zone">
       <div class="section-intro">
-        <span class="section-number">06</span>
+        <span class="section-number">{{ $t('InternshipPage.Architecture.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Architecture</span>
-          <span class="heading-sub">Structure technique & flux de données</span>
+          <span class="heading-main">{{ $t('InternshipPage.Architecture.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Architecture.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="architecture-content">
         <div class="diagram-container">
           <img
             src="@/assets/stage/Diagram.png"
-            alt="Diagramme architecture frontend/backend"
+            :alt="$t('InternshipPage.Architecture.DiagramAlt')"
             class="architecture-diagram"
           />
           <div class="diagram-caption">
-            <em
-              >Schéma du flux de communication entre le frontend (Vue/Quasar) et
-              le backend (Express, Socket.io, MySQL).</em
-            >
+            <em>{{ $t('InternshipPage.Architecture.DiagramCaption') }}</em>
           </div>
         </div>
-
         <div class="architecture-description">
-          <p>
-            L'architecture de l'application repose sur une séparation claire
-            entre le frontend, développé avec Quasar/Vue.js, et le backend,
-            construit autour d'Express, Socket.io et MySQL.
-          </p>
-
+          <p>{{ $t('InternshipPage.Architecture.Description') }}</p>
           <div class="architecture-sections">
             <div class="arch-section">
-              <h4>🔄 Flux de données classiques (HTTP)</h4>
-              <p>
-                Lorsqu'un utilisateur interagit avec l'interface via son
-                navigateur, ses actions sont prises en charge par les composants
-                Vue, qui orchestrent l'affichage et la logique de l'application.
-                Ces composants, lorsqu'ils ont besoin d'accéder à des données ou
-                de déclencher des opérations côté serveur, font appel à des
-                services JavaScript dédiés.
-              </p>
+              <h4>🔄 {{ $t('InternshipPage.Architecture.Section1Title') }}</h4>
+              <p>{{ $t('InternshipPage.Architecture.Section1Desc') }}</p>
             </div>
-
             <div class="arch-section">
-              <h4>⚡ Communication temps réel (WebSockets)</h4>
-              <p>
-                Parallèlement à ce fonctionnement traditionnel, l'application
-                intègre également une dimension temps réel grâce à Socket.io.
-                Pour des fonctionnalités comme le chat ou les notifications
-                instantanées, les composants Vue communiquent avec le serveur
-                via le client Socket.io.
-              </p>
+              <h4>⚡ {{ $t('InternshipPage.Architecture.Section2Title') }}</h4>
+              <p>{{ $t('InternshipPage.Architecture.Section2Desc') }}</p>
             </div>
           </div>
         </div>
@@ -435,60 +363,46 @@
     <!-- Security Section -->
     <section class="security-zone">
       <div class="section-intro">
-        <span class="section-number">07</span>
+        <span class="section-number">{{ $t('InternshipPage.Security.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Sécurité</span>
-          <span class="heading-sub">Protection & bonnes pratiques</span>
+          <span class="heading-main">{{ $t('InternshipPage.Security.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Security.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="security-content">
-        <p class="security-intro">
-          Durant le développement, j'ai appris l'importance de la sécurisation
-          contre les injections SQL. J'ai implémenté une double protection :
-        </p>
-
+        <p class="security-intro">{{ $t('InternshipPage.Security.Intro') }}</p>
+        
         <div class="security-methods">
           <div class="security-method">
             <div class="security-method-content">
               <div class="security-method-text">
-                <h4>1. Vérification frontend (Regex)</h4>
-                <p>
-                  Cette méthode côté frontend vérifie que l'utilisateur n'essaie
-                  pas de nuire au fonctionnement de l'application en utilisant
-                  une expression régulière. Cette expression vérifie que les
-                  champs (nom, email, téléphone) ne contiennent pas de
-                  caractères suspects comme ' " ; -- / * , etc.
-                </p>
+                <h4>{{ $t('InternshipPage.Security.Method1Title') }}</h4>
+                <p>{{ $t('InternshipPage.Security.Method1Desc') }}</p>
               </div>
               <div class="security-image-wrapper">
                 <img
                   src="@/assets/stage/RegexCheck.png"
-                  alt="Vérification Regex"
+                  :alt="$t('InternshipPage.Security.Method1Alt')"
                   class="security-image"
                 />
               </div>
             </div>
           </div>
-
           <div class="security-method">
             <div class="security-method-content">
               <div class="security-method-text">
-                <h4>2. Requêtes préparées (Backend)</h4>
-                <p>
-                  Les requêtes préparées (ou paramétrées) offrent une protection
-                  robuste car elles :
-                </p>
+                <h4>{{ $t('InternshipPage.Security.Method2Title') }}</h4>
+                <p>{{ $t('InternshipPage.Security.Method2Desc') }}</p>
                 <ul>
-                  <li>Empêchent les injections SQL</li>
-                  <li>Sont supportées par tous les moteurs SQL modernes</li>
-                  <li>Constituent la base de tous les ORM modernes</li>
+                  <li>{{ $t('InternshipPage.Security.Method2Item1') }}</li>
+                  <li>{{ $t('InternshipPage.Security.Method2Item2') }}</li>
+                  <li>{{ $t('InternshipPage.Security.Method2Item3') }}</li>
                 </ul>
               </div>
               <div class="security-image-wrapper">
                 <img
                   src="@/assets/stage/PreparedQuery.png"
-                  alt="Requête préparée"
+                  :alt="$t('InternshipPage.Security.Method2Alt')"
                   class="security-image"
                 />
               </div>
@@ -501,47 +415,37 @@
     <!-- Learning Section -->
     <section class="learning-zone">
       <div class="section-intro">
-        <span class="section-number">08</span>
+        <span class="section-number">{{ $t('InternshipPage.Learning.SectionNumber') }}</span>
         <h2 class="section-heading">
-          <span class="heading-main">Apprentissages</span>
-          <span class="heading-sub">Compétences & retour d'expérience</span>
+          <span class="heading-main">{{ $t('InternshipPage.Learning.Title') }}</span>
+          <span class="heading-sub">{{ $t('InternshipPage.Learning.Subtitle') }}</span>
         </h2>
       </div>
-
       <div class="learning-content">
         <div class="learning-grid">
           <div class="learning-section">
-            <h3>Compétences techniques acquises</h3>
+            <h3>{{ $t('InternshipPage.Learning.TechnicalTitle') }}</h3>
             <ul>
-              <li>Maîtrise de Socket.IO pour la communication temps réel</li>
-              <li>
-                Approfondissement de la sécurité web (injections SQL, requêtes
-                préparées)
-              </li>
-              <li>Expérience complète du développement full-stack</li>
-              <li>Utilisation de Quasar pour le développement mobile</li>
+              <li>{{ $t('InternshipPage.Learning.Technical1') }}</li>
+              <li>{{ $t('InternshipPage.Learning.Technical2') }}</li>
+              <li>{{ $t('InternshipPage.Learning.Technical3') }}</li>
+              <li>{{ $t('InternshipPage.Learning.Technical4') }}</li>
             </ul>
           </div>
-
           <div class="learning-section">
-            <h3>Compétences transversales</h3>
+            <h3>{{ $t('InternshipPage.Learning.SoftTitle') }}</h3>
             <ul>
-              <li>Autonomie dans la gestion d'un projet complet</li>
-              <li>Adaptabilité face aux changements de spécifications</li>
-              <li>Communication client et gestion des attentes</li>
-              <li>Prise d'initiatives et propositions d'améliorations</li>
+              <li>{{ $t('InternshipPage.Learning.Soft1') }}</li>
+              <li>{{ $t('InternshipPage.Learning.Soft2') }}</li>
+              <li>{{ $t('InternshipPage.Learning.Soft3') }}</li>
+              <li>{{ $t('InternshipPage.Learning.Soft4') }}</li>
             </ul>
           </div>
         </div>
-
+        
         <div class="reflection-card">
-          <h4>Si c'était à refaire</h4>
-          <p>
-            J'aurais préféré travailler en équipe pour plus d'efficacité. En
-            étant seul, je n'ai pas pu réaliser autant de fonctionnalités que
-            souhaité, bien que cela m'ait permis de développer mon autonomie et
-            ma capacité à gérer un projet dans sa globalité.
-          </p>
+          <h4>{{ $t('InternshipPage.Learning.ReflectionTitle') }}</h4>
+          <p>{{ $t('InternshipPage.Learning.ReflectionDesc') }}</p>
         </div>
       </div>
     </section>
