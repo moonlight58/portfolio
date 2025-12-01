@@ -333,10 +333,9 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n"; 
 
-const { locale } = useI18n(); 
+const localStorage = useI18n(); 
 
 const username = ref("");
 const projects = ref([]);
