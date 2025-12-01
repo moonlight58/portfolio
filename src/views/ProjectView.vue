@@ -333,6 +333,9 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
 
 const username = ref("");
 const projects = ref([]);
@@ -343,8 +346,8 @@ const isVisible = ref(false);
 function getLocalizedDescription(description) {
   if (!description) return '';
   
-  // Handle format: "FR: <Description FR> EN: <Description EN>"
-  const currentLocale = localStorage.getItem('locale') || 'fr'; // Get current locale
+  // Use locale from vue-i18n composable instead of localStorage
+  const currentLocale = locale.value;
   
   // Check if description contains language markers
   if (description.includes('FR:') || description.includes('EN:')) {
