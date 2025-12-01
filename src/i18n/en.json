@@ -180,6 +180,16 @@
   "WhyPortfolio": "Why this Portfolio ?",
   "WhyPortfolioContent": "This site is developed as part of my Portfolio project during the three years in the BUT. It will be continually updated to reflect my academic and personal projects.",
   "Contact": "Want to chat, collaborate or just say hello? Don't hesitate to contact me!",
+  "ContactSection": {
+      "label_user":"Identifiant",
+      "placeholder_user":"Your Name",
+      "label_email":"Email Address",
+      "placeholder_email":"Your Email",
+      "label_message":"Body of the message",
+      "placehoder_message":"What you want to tell/ask me",
+      "btn_sending":"[ Sending ]",
+      "btn_send":"[ Send ]"
+  },
 
   "B.I.E.N._description": "B.I.E.N. is an educational and interactive website designed to raise public awareness of the environmental impact of digital technology, and in particular the CO2 produced by technology. The main aim is to help users become more aware of the carbon footprint of the technology sector through visual and customisable data.",
   "B.I.E.N._content": "Website on climate change and technology",
