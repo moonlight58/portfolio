@@ -333,6 +333,10 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n"; 
+
+const { locale } = useI18n(); 
 
 const username = ref("");
 const projects = ref([]);
@@ -340,7 +344,34 @@ const activeButton = ref("");
 const isLoading = ref(false);
 const isVisible = ref(false);
 
-// Computed properties
+function getLocalizedDescription(description) {
+  if (!description) return '';
+  
+  // Handle format: "FR: <Description FR> EN: <Description EN>"
+  const currentLocale = this.$i18n.locale; // Get current locale
+  
+  // Check if description contains language markers
+  if (description.includes('FR:') || description.includes('EN:')) {
+    // Match pattern "LANG: content" where content continues until next LANG: or end
+    const frMatch = description.match(/FR:\s*(.+?)(?=\s+EN:|$)/i);
+    const enMatch = description.match(/EN:\s*(.+?)(?=\s+FR:|$)/i);
+    
+    // Return description based on current locale
+    if (currentLocale.toLowerCase() === 'fr' && frMatch) {
+      return frMatch[1].trim();
+    } else if (currentLocale.toLowerCase() === 'en' && enMatch) {
+      return enMatch[1].trim();
+    }
+    
+    // Fallback: return FR if available, otherwise EN, otherwise original
+    if (frMatch) return frMatch[1].trim();
+    if (enMatch) return enMatch[1].trim();
+  }
+  
+  // Return original description if no language markers found
+  return description;
+}
+
 const filteredProjects = computed(() => {
   return projects.value.filter(
     (p) => p.description && p.description.trim() !== ""
@@ -369,7 +400,6 @@ const uniqueLanguages = computed(() => {
   return languages;
 });
 
-// GitHub API functions
 async function fetchGithubRepos(type) {
   isLoading.value = true;
   username.value = type === "personal" ? "moonlight58" : "grothlin-iut90";
@@ -390,7 +420,6 @@ async function fetchGithubRepos(type) {
     isLoading.value = false;
   }
 }
-
 
 function toggleButton(type) {
   activeButton.value = type;
@@ -415,7 +444,6 @@ function setupIntersectionObserver() {
   });
 }
 
-// Utility functions
 function getProjectImage(name) {
   try {
     return require(`@/assets/images/${name}.png`);
@@ -495,7 +523,6 @@ function getProjectStatus(project) {
   return "stable";
 }
 
-// Lifecycle
 onMounted(() => {
   fetchGithubRepos("personal");
   toggleButton("personal");
