@@ -348,7 +348,7 @@ function getLocalizedDescription(description) {
   if (!description) return '';
   
   // Handle format: "FR: <Description FR> EN: <Description EN>"
-  const currentLocale = this.$i18n.locale; // Get current locale
+  const currentLocale = localStorage.getItem('locale') || 'fr'; // Get current locale
   
   // Check if description contains language markers
   if (description.includes('FR:') || description.includes('EN:')) {
