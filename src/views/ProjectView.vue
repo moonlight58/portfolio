@@ -197,9 +197,7 @@
               </header>
 
               <p class="project-description">
-                {{
-                  project.description || $t("ProjectsPage.Grid.NoDescription")
-                }}
+                {{ getLocalizedDescription(project.description) || $t("ProjectsPage.Grid.NoDescription") }}
               </p>
 
               <div class="project-metrics">
