@@ -194,30 +194,87 @@
 
     <!-- Contact Section avec design minimaliste -->
     <section class="contact-zone">
-      <div class="contact-wrapper">
-        <h2 class="contact-heading">{{ $t("Contact") }}</h2>
-        <div class="contact-links">
-          <a href="mailto:gael.rothlin@proton.me" class="contact-item email">
-            <div class="contact-bg"></div>
-            <img src="../assets/email.svg" alt="Email" />
-            <span>Email</span>
-          </a>
-          <a
-            href="https://www.instagram.com/osiris._25"
-            class="contact-item instagram"
-          >
-            <div class="contact-bg"></div>
-            <img src="../assets/instagram.svg" alt="Instagram" />
-            <span>Instagram</span>
-          </a>
-          <a href="https://github.com/moonlight58" class="contact-item github">
-            <div class="contact-bg"></div>
-            <img src="../assets/github.svg" alt="GitHub" />
-            <span>GitHub</span>
-          </a>
+        <div class="contact-wrapper">
+            <h2 class="contact-heading">{{ $t("Contact") }}</h2>
+            <div class="contact-links">
+                <button
+                        class="contact-item email"
+                        @click="toggleFormVisibility"
+                        >
+                        <div class="contact-bg"></div>
+                        <img src="../assets/email.svg" alt="Email" />
+                        <span>Email</span>
+                </button>
+                <a
+                        href="https://www.instagram.com/osiris._25"
+                        class="contact-item instagram"
+                        >
+                        <div class="contact-bg"></div>
+                        <img src="../assets/instagram.svg" alt="Instagram" />
+                        <span>Instagram</span>
+                </a>
+                <a href="https://github.com/moonlight58" class="contact-item github">
+                    <div class="contact-bg"></div>
+                    <img src="../assets/github.svg" alt="GitHub" />
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <!-- Form container -->
+            <div class="form-container" v-if="showForm">
+                <form
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                        class="tech-form"
+                        @submit.prevent="handleSubmit"
+                        >
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div class="form-group">
+                            <label for="name">{{ t('ContactSection.label_user') }}</label>
+                            <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    v-model="formData.name"
+                                    required
+                                    :placeholder="t('ContactSection.placeholder_user')"
+                                    />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">{{ t('ContactSection.label_email') }}</label>
+                            <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    v-model="formData.email"
+                                    required
+                                    :placeholder="t('ContactSection.placeholder_email')"
+                                    />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">{{ t('ContactSection.label_message') }}</label>
+                            <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="5"
+                                    v-model="formData.message"
+                                    required
+                                    :placeholder="t('ContactSection.placeholder_message')"
+                                    ></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" :disabled="isLoading">
+                            {{
+                            isLoading ? t("ContactSection.btn_sending") : t("ContactSection.btn_send")
+                            }}
+                        </button>
+                        <p v-if="status" :class="['status-msg', status.type]">
+                        {{ status.text }}
+                        </p>
+                </form>
+            </div>
         </div>
-      </div>
     </section>
+
   </div>
 </template>
 
@@ -240,6 +297,7 @@ export default {
     return {
       skills: skills,
       isVisible: false,
+      showForm: false,
     };
   },
   mounted() {
@@ -252,6 +310,9 @@ export default {
   methods: {
     scrollToProjects() {
       this.$refs.projectsSection.scrollIntoView({ behavior: "smooth" });
+    },
+    toggleFormVisibility() {
+      this.showForm = !this.showForm;
     },
     redirectToUrl(url) {
       if (url) {
@@ -1586,6 +1647,111 @@ section {
   box-shadow: 0 20px 40px rgba(51, 51, 51, 0.3);
 }
 
+/* Form container */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Submit button */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Status message */
+.status-msg {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.status-msg.success {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.status-msg.error {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .hero-grid {
@@ -1905,6 +2071,110 @@ html {
 @media (prefers-color-scheme: dark) {
   :root {
     --dark-bg: #0a0e27;
+/* Form container */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Submit button */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Status message */
+.status-msg {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.status-msg.success {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.status-msg.error {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     --dark-surface: #151937;
   }
 }
