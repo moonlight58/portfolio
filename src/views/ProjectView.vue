@@ -332,11 +332,9 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import { useI18n } from 'vue-i18n';
+import { ref, computed, onMounted, getCurrentInstance } from "vue";
 
-const { locale } = useI18n();
-
+const instance = getCurrentInstance();
 const username = ref("");
 const projects = ref([]);
 const activeButton = ref("");
@@ -346,28 +344,25 @@ const isVisible = ref(false);
 function getLocalizedDescription(description) {
   if (!description) return '';
   
-  // Use locale from vue-i18n composable instead of localStorage
-  const currentLocale = locale.value;
+  // Get current locale from the component instance
+  const currentLocale = instance?.proxy?.$i18n?.locale || 'fr';
+  // console.log(this.$i18n.locale)
   
   // Check if description contains language markers
   if (description.includes('FR:') || description.includes('EN:')) {
-    // Match pattern "LANG: content" where content continues until next LANG: or end
     const frMatch = description.match(/FR:\s*(.+?)(?=\s+EN:|$)/i);
     const enMatch = description.match(/EN:\s*(.+?)(?=\s+FR:|$)/i);
     
-    // Return description based on current locale
     if (currentLocale.toLowerCase() === 'fr' && frMatch) {
       return frMatch[1].trim();
     } else if (currentLocale.toLowerCase() === 'en' && enMatch) {
       return enMatch[1].trim();
     }
     
-    // Fallback: return FR if available, otherwise EN, otherwise original
     if (frMatch) return frMatch[1].trim();
     if (enMatch) return enMatch[1].trim();
   }
   
-  // Return original description if no language markers found
   return description;
 }
 

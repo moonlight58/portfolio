@@ -15,5 +15,8 @@ app.use(router);
 app.use(store);
 app.use(i18n);
 
+// Expose i18n globally
+window.$i18n = i18n.global;
+
 // Mount the app to the DOM
 app.mount('#app');
