@@ -333,9 +333,6 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { useI18n } from "vue-i18n"; 
-
-const { locale } = useI18n();
 
 const username = ref("");
 const projects = ref([]);
